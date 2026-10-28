@@ -1,0 +1,422 @@
+(function () {
+    'use strict';
+
+    var root = document.documentElement;
+    var ENHANCEMENT_CLASS = 'header-state-js';
+    var SCROLLED_CLASS = 'header-is-scrolled';
+    var HEADER_SELECTOR = '.site-header-shell--sticky-soft, .site-header-shell--overlay-to-solid, '
+        + '.site-header-shell--overlay-transient';
+    // Chrome that survives the scroll owns the anchor offset. A transient
+    // overlay leaves with the hero, so it never claims that offset.
+    var PERSISTENT_SELECTOR = '.site-header-shell--sticky-soft, .site-header-shell--overlay-to-solid';
+    var PERSISTENT_CLASS = 'header-chrome-persistent';
+    // Hysteresis: the scrolled state engages at the enter threshold but only
+    // releases at the lower exit threshold, so jitter around a single boundary
+    // cannot restart the surface transition on every frame.
+    var SCROLL_ENTER_THRESHOLD = 24;
+    var SCROLL_EXIT_THRESHOLD = 8;
+    var header = null;
+    var scrollFrame = 0;
+    var measureFrame = 0;
+    var resizeObserver = null;
+    var listening = false;
+    var adminBarEl = null;
+    var CURRENT_SECTION_CLASS = 'is-current-section';
+    var sectionObserver = null;
+    var updateSectionNavigation = null;
+    var adminBarQueried = false;
+    var appliedAdminBarOffset = null;
+    var adminBarBodySynced = false;
+
+    if (!root
+        || typeof window.requestAnimationFrame !== 'function'
+        || typeof window.cancelAnimationFrame !== 'function') {
+        return;
+    }
+
+    // An optimizer may both inline and enqueue this file; a second copy must
+    // bail before touching any state, otherwise two drivers install duplicate
+    // listeners and one failing open leaves a mixed half-driven state.
+    if (window.__siteHeaderStateDriver) {
+        return;
+    }
+    window.__siteHeaderStateDriver = true;
+
+    function currentScrollTop() {
+        return Math.max(window.pageYOffset || root.scrollTop || 0, 0);
+    }
+
+    function navigationItemForLink(link) {
+        if (typeof link.closest === 'function') {
+            return link.closest('.wp-block-navigation-item');
+        }
+        return link.parentElement || null;
+    }
+
+    function normalizedPath(path) {
+        return path.replace(/\/+$/, '') || '/';
+    }
+
+    function syncCurrentNavigationState() {
+        if (typeof document.querySelectorAll !== 'function'
+            || typeof window.URL !== 'function'
+            || !window.location) {
+            return;
+        }
+
+        var navigationBlocks = document.querySelectorAll('.wp-block-navigation');
+        var current = new window.URL(window.location.href);
+        var currentPath = normalizedPath(current.pathname);
+        var blockIndex;
+        var index;
+        var item;
+        for (blockIndex = 0; blockIndex < navigationBlocks.length; blockIndex += 1) {
+            var links = navigationBlocks[blockIndex].querySelectorAll('a[href]');
+            var wordpressOwned = false;
+            for (index = 0; index < links.length; index += 1) {
+                item = navigationItemForLink(links[index]);
+                if (links[index].getAttribute('aria-current') === 'page'
+                    || (item && item.classList.contains('current-menu-item'))) {
+                    wordpressOwned = true;
+                    break;
+                }
+            }
+            if (wordpressOwned) {
+                // WordPress state remains authoritative within this block.
+                continue;
+            }
+
+            var matches = [];
+            for (index = 0; index < links.length; index += 1) {
+                var rawHref = links[index].getAttribute('href');
+                if (!rawHref || rawHref.charAt(0) === '#') {
+                    continue;
+                }
+
+                var target;
+                try {
+                    target = new window.URL(rawHref, current.href);
+                } catch (error) {
+                    continue;
+                }
+                if (target.origin !== current.origin
+                    || normalizedPath(target.pathname) !== currentPath
+                    || (rawHref.indexOf('?') !== -1 && target.search !== current.search)) {
+                    continue;
+                }
+
+                item = navigationItemForLink(links[index]);
+                if (item) {
+                    matches.push({ link: links[index], item: item });
+                }
+            }
+
+            for (index = 0; index < matches.length; index += 1) {
+                matches[index].link.setAttribute('aria-current', 'page');
+                matches[index].item.classList.add('current-menu-item');
+            }
+        }
+    }
+
+    // Mark the current section on the pill, centered bar, and spread bar.
+    // Keep the WordPress current-page state on links that already declare it.
+    function watchSectionNavigation() {
+        if (typeof document.querySelectorAll !== 'function') {
+            return;
+        }
+        var scope = document.querySelector('.header-archetype--floating-pill, .header-archetype--bar-center-cta, .header-archetype--spread-nav');
+        if (!scope) {
+            return;
+        }
+        var links = scope.querySelectorAll('.wp-block-navigation a[href^="#"]');
+        var entries = [];
+        var index;
+        for (index = 0; index < links.length; index += 1) {
+            if (links[index].getAttribute('aria-current') === 'page') {
+                continue;
+            }
+            var id;
+            try {
+                id = decodeURIComponent(links[index].getAttribute('href').slice(1));
+            } catch (error) {
+                continue;
+            }
+            var section = id ? document.getElementById(id) : null;
+            var item = navigationItemForLink(links[index]);
+            if (section && item) {
+                entries.push({ link: links[index], item: item, section: section });
+            }
+        }
+        if (entries.length === 0) {
+            return;
+        }
+        updateSectionNavigation = function () {
+            var band = (window.innerHeight || root.clientHeight) * 0.35;
+            var current = null;
+            var currentTop = -Infinity;
+            // Select by page position, independent of menu order. Read each
+            // scroll frame so short sections and scroll jumps update the mark.
+            for (var i = 0; i < entries.length; i += 1) {
+                var top = entries[i].section.getBoundingClientRect().top;
+                if (top <= band && top > currentTop) {
+                    current = entries[i].section;
+                    currentTop = top;
+                }
+            }
+            for (var j = 0; j < entries.length; j += 1) {
+                var on = entries[j].section === current;
+                entries[j].item.classList.toggle(CURRENT_SECTION_CLASS, on);
+                if (on) {
+                    entries[j].link.setAttribute('aria-current', 'location');
+                } else if (entries[j].link.getAttribute('aria-current') === 'location') {
+                    entries[j].link.removeAttribute('aria-current');
+                }
+            }
+        };
+        updateSectionNavigation();
+        if (typeof window.IntersectionObserver === 'function') {
+            sectionObserver = new window.IntersectionObserver(updateSectionNavigation, { threshold: 0 });
+            for (index = 0; index < entries.length; index += 1) {
+                sectionObserver.observe(entries[index].section);
+            }
+        }
+    }
+
+    function applyScrollState() {
+        scrollFrame = 0;
+        var top = currentScrollTop();
+        if (top >= SCROLL_ENTER_THRESHOLD) {
+            root.classList.add(SCROLLED_CLASS);
+        } else if (top <= SCROLL_EXIT_THRESHOLD) {
+            root.classList.remove(SCROLLED_CLASS);
+        }
+        applyAdminBarOffset();
+        if (updateSectionNavigation) {
+            updateSectionNavigation();
+        }
+    }
+
+    function clearMeasuredHeight() {
+        if (root.style && typeof root.style.removeProperty === 'function') {
+            root.style.removeProperty('--site-header-height');
+            root.style.removeProperty('--site-admin-bar-offset');
+        }
+        if (document.body
+            && document.body.style
+            && typeof document.body.style.removeProperty === 'function') {
+            document.body.style.removeProperty('--site-admin-bar-offset');
+        }
+        adminBarEl = null;
+        adminBarQueried = false;
+        appliedAdminBarOffset = null;
+        adminBarBodySynced = false;
+    }
+
+    function findAdminBar() {
+        // Cache the element between frames. isConnected catches a bar removed
+        // from the DOM; a missing bar is only re-queried after a measurement
+        // event resets adminBarQueried, never on every scroll frame.
+        if (adminBarEl && adminBarEl.isConnected !== false) {
+            return adminBarEl;
+        }
+        if (adminBarEl || !adminBarQueried) {
+            adminBarQueried = true;
+            adminBarEl = document.getElementById('wpadminbar');
+        }
+        return adminBarEl;
+    }
+
+    function adminBarOffset() {
+        var adminBar = findAdminBar();
+        if (adminBar && typeof adminBar.getBoundingClientRect === 'function') {
+            var rect = adminBar.getBoundingClientRect();
+            var measured = Math.max(0, Math.ceil(rect.height || 0));
+            if (typeof rect.bottom === 'number') {
+                // At <=600px WordPress makes the admin bar absolute, so its
+                // visible overlap shrinks as the page scrolls. Fixed desktop
+                // bars keep bottom === height and retain their full offset.
+                measured = Math.min(measured, Math.max(0, Math.ceil(rect.bottom)));
+            }
+            if (measured > 0) {
+                return measured;
+            }
+            return 0;
+        }
+        if (document.body && document.body.classList.contains('admin-bar')) {
+            var width = window.innerWidth || root.clientWidth || 0;
+            if (width <= 600) {
+                return 0;
+            }
+            return width <= 782 ? 46 : 32;
+        }
+        return 0;
+    }
+
+    function applyAdminBarOffset() {
+        var value = adminBarOffset() + 'px';
+        var bodyWritable = !!(document.body
+            && document.body.style
+            && typeof document.body.style.setProperty === 'function');
+        // The rect above is still measured every frame (the <=600px absolute
+        // bar scrolls away, so its overlap genuinely changes), but redundant
+        // style writes are skipped when the applied value is already current.
+        if (value === appliedAdminBarOffset && (adminBarBodySynced || !bodyWritable)) {
+            return;
+        }
+        root.style.setProperty('--site-admin-bar-offset', value);
+        if (bodyWritable) {
+            // body.admin-bar owns the CSS-only fallback, so mirror the live
+            // measurement here; otherwise that declaration would shadow the
+            // value written on the document root for header descendants.
+            document.body.style.setProperty('--site-admin-bar-offset', value);
+            adminBarBodySynced = true;
+        }
+        appliedAdminBarOffset = value;
+    }
+
+    function stop() {
+        updateSectionNavigation = null;
+        if (sectionObserver) {
+            try {
+                sectionObserver.disconnect();
+            } catch (error) {
+                // Nothing to release.
+            }
+            sectionObserver = null;
+        }
+        if (scrollFrame) {
+            window.cancelAnimationFrame(scrollFrame);
+            scrollFrame = 0;
+        }
+        if (measureFrame) {
+            window.cancelAnimationFrame(measureFrame);
+            measureFrame = 0;
+        }
+        if (listening) {
+            window.removeEventListener('scroll', scheduleScrollState);
+            window.removeEventListener('resize', scheduleMeasurement);
+            window.removeEventListener('load', scheduleMeasurement);
+            window.removeEventListener('pageshow', refreshRestoredState);
+            listening = false;
+        }
+        if (resizeObserver) {
+            try {
+                resizeObserver.disconnect();
+            } catch (error) {
+                // Cleanup must not interfere with the fail-open path.
+            }
+            resizeObserver = null;
+        }
+    }
+
+    function failOpen() {
+        stop();
+        root.classList.remove(ENHANCEMENT_CLASS);
+        root.classList.remove(SCROLLED_CLASS);
+        root.classList.remove(PERSISTENT_CLASS);
+        clearMeasuredHeight();
+    }
+
+    function scheduleScrollState() {
+        try {
+            if (!scrollFrame) {
+                scrollFrame = window.requestAnimationFrame(function () {
+                    try {
+                        applyScrollState();
+                    } catch (error) {
+                        failOpen();
+                    }
+                });
+            }
+        } catch (error) {
+            failOpen();
+        }
+    }
+
+    function measureHeader() {
+        measureFrame = 0;
+        // Resize/load/pageshow are the moments a late-rendered admin bar can
+        // appear, so allow findAdminBar one fresh lookup here.
+        adminBarQueried = false;
+        var rect = header.getBoundingClientRect();
+        var height = Math.max(0, Math.ceil(rect.height || header.offsetHeight || 0));
+        root.style.setProperty('--site-header-height', height + 'px');
+        applyAdminBarOffset();
+        if (updateSectionNavigation) {
+            updateSectionNavigation();
+        }
+    }
+
+    function scheduleMeasurement() {
+        try {
+            if (!measureFrame) {
+                measureFrame = window.requestAnimationFrame(function () {
+                    try {
+                        measureHeader();
+                    } catch (error) {
+                        failOpen();
+                    }
+                });
+            }
+        } catch (error) {
+            failOpen();
+        }
+    }
+
+    function refreshRestoredState() {
+        scheduleScrollState();
+        scheduleMeasurement();
+    }
+
+    function setup() {
+        try {
+            // Core custom navigation links may omit current-page state. Restore
+            // WordPress's runtime contract without retaining a design's static
+            // active item, so authored current-link styles follow each page.
+            syncCurrentNavigationState();
+            header = document.querySelector(HEADER_SELECTOR);
+            if (!header) {
+                failOpen();
+                return;
+            }
+            if (typeof header.matches === 'function' && header.matches(PERSISTENT_SELECTOR)) {
+                root.classList.add(PERSISTENT_CLASS);
+            }
+
+            // Synchronous setup handles a restored scroll position before the
+            // first scheduled event and supplies an anchor offset immediately.
+            applyScrollState();
+            measureHeader();
+
+            // Mark first so a partial listener-install failure removes every
+            // callback that may already have been registered.
+            listening = true;
+            window.addEventListener('scroll', scheduleScrollState, { passive: true });
+            window.addEventListener('resize', scheduleMeasurement, { passive: true });
+            window.addEventListener('load', scheduleMeasurement, { passive: true });
+            window.addEventListener('pageshow', refreshRestoredState, { passive: true });
+
+            if (typeof window.ResizeObserver === 'function') {
+                resizeObserver = new window.ResizeObserver(scheduleMeasurement);
+                resizeObserver.observe(header);
+            }
+            watchSectionNavigation();
+        } catch (error) {
+            failOpen();
+        }
+    }
+
+    try {
+        // This head-loaded scope is the only selector allowed to make an
+        // adaptive overlay fixed. It is removed on every setup/runtime error.
+        root.classList.add(ENHANCEMENT_CLASS);
+        applyScrollState();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setup, { once: true });
+        } else {
+            setup();
+        }
+    } catch (error) {
+        failOpen();
+    }
+}());

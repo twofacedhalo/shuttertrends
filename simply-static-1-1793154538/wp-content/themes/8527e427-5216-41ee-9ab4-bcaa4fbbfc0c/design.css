@@ -1,0 +1,9 @@
+:is(.wp-site-blocks,.is-root-container) img{transition:filter .25s ease}:is(.wp-site-blocks,.is-root-container) img:hover{filter:brightness(1.06)}:is(.wp-site-blocks,.is-root-container) .wp-block-button:has(>.wp-block-button__link:focus-visible)>.wp-block-button__link{outline-color:var(--wp--preset--color--accent)}:is(.wp-site-blocks,.is-root-container) .home-hero h1 em{font-weight:400}
+/* DSL contrast caption colors */
+.caption-text-ink>figcaption{color:var(--wp--preset--color--ink)}
+.caption-text-paper>figcaption{color:var(--wp--preset--color--paper)}
+.caption-text-accent>figcaption{color:var(--wp--preset--color--accent)}
+.caption-text-surface>figcaption{color:var(--wp--preset--color--surface)}
+.caption-text-muted>figcaption{color:var(--wp--preset--color--muted)}
+.caption-text-on-accent>figcaption{color:var(--wp--preset--color--on-accent)}
+.caption-text-transparent>figcaption{color:var(--wp--preset--color--transparent)}

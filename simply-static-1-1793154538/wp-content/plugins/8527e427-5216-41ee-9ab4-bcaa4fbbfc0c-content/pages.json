@@ -1,0 +1,46 @@
+{
+    "pages": [
+        {
+            "slug": "home",
+            "title": "Home",
+            "front": true,
+            "menu_order": 0,
+            "parent": null
+        },
+        {
+            "slug": "portraits",
+            "title": "Portraits",
+            "front": false,
+            "menu_order": 1,
+            "parent": null
+        },
+        {
+            "slug": "events",
+            "title": "Events",
+            "front": false,
+            "menu_order": 2,
+            "parent": null
+        },
+        {
+            "slug": "about",
+            "title": "About",
+            "front": false,
+            "menu_order": 3,
+            "parent": null
+        },
+        {
+            "slug": "services",
+            "title": "Services",
+            "front": false,
+            "menu_order": 4,
+            "parent": null
+        },
+        {
+            "slug": "contact",
+            "title": "Contact",
+            "front": false,
+            "menu_order": 5,
+            "parent": null
+        }
+    ]
+}
