@@ -1,0 +1,66 @@
+/* Homepage-only studio light. Adjust these values to tune the effect. */
+body.home {
+  --st-spotlight-color: 207, 172, 104; /* RGB, matching the site's gold */
+  --st-spotlight-radius: clamp(360px, 55vw, 850px);
+  --st-spotlight-intensity: .13; /* opacity, 0–1 */
+  --st-spotlight-smoothing: 240; /* easing time constant in milliseconds */
+  --st-spotlight-rest-x: .5; /* fraction of viewport width, 0–1 */
+  --st-spotlight-rest-y: .35; /* fraction of viewport height, 0–1 */
+  --wp--preset--color--paper: #090a0d;
+  background-color: #090a0d;
+  isolation: isolate;
+}
+
+.st-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #090a0d;
+  contain: strict;
+}
+
+.st-spotlight::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--st-spotlight-radius) * 2);
+  height: calc(var(--st-spotlight-radius) * 2);
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side,
+    rgba(var(--st-spotlight-color), 1) 0%,
+    rgba(var(--st-spotlight-color), .65) 22%,
+    rgba(var(--st-spotlight-color), .28) 46%,
+    rgba(var(--st-spotlight-color), .07) 70%,
+    rgba(var(--st-spotlight-color), 0) 100%);
+  opacity: var(--st-spotlight-intensity);
+  transform: translate3d(
+    calc(var(--st-spotlight-x, 50vw) - var(--st-spotlight-radius)),
+    calc(var(--st-spotlight-y, 35vh) - var(--st-spotlight-radius)), 0);
+}
+
+/* Expose the background only through the large page sections, not photo/card surfaces. */
+body.home main .entry-content > section.has-paper-background-color,
+body.home #photography-showcase,
+body.home .site-footer.has-paper-background-color {
+  background-color: transparent !important;
+}
+body.home main .entry-content > section.has-surface-background-color {
+  background-color: rgba(34, 36, 38, .45) !important;
+}
+body.home #home-hero > .wp-block-cover {
+  background-color: transparent;
+}
+/* This is the existing decorative abstract artwork, never a portfolio photograph. */
+body.home #home-hero .wp-block-cover__image-background {
+  opacity: .35;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .st-spotlight::before { opacity: calc(var(--st-spotlight-intensity) * .65); }
+}
+@media print {
+  .st-spotlight { display: none; }
+}

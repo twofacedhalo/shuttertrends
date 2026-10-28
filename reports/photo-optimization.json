@@ -1,0 +1,1863 @@
+[
+  {
+    "source": "events/501.01.jpg",
+    "sha256": "bc803210e248c24beb884f287674cb08700ba2318be26c8794be96a7aeb1f469",
+    "original_width": 2000,
+    "original_height": 1333,
+    "oriented_width": 2000,
+    "oriented_height": 1333,
+    "original_bytes": 1011944,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "bc803210e248c24beb88-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 67198,
+    "savings_percent": 93.36,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "events/501.01.jpg",
+    "sha256": "bc803210e248c24beb884f287674cb08700ba2318be26c8794be96a7aeb1f469",
+    "original_width": 2000,
+    "original_height": 1333,
+    "oriented_width": 2000,
+    "oriented_height": 1333,
+    "original_bytes": 1011944,
+    "roles": [
+      "gallery"
+    ],
+    "file": "bc803210e248c24beb88-srgb-v1-q85-1600x1066.webp",
+    "width": 1600,
+    "height": 1066,
+    "bytes": 308514,
+    "savings_percent": 69.51,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "events/501.01.jpg",
+    "sha256": "bc803210e248c24beb884f287674cb08700ba2318be26c8794be96a7aeb1f469",
+    "original_width": 2000,
+    "original_height": 1333,
+    "oriented_width": 2000,
+    "oriented_height": 1333,
+    "original_bytes": 1011944,
+    "roles": [
+      "viewer",
+      "showcase"
+    ],
+    "file": "bc803210e248c24beb88-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 435070,
+    "savings_percent": 57.01,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/IMG_1058.jpg",
+    "sha256": "4768c614fc50ff413a8fb7748f640b93986625dff1d12f55c4f98e32043f4403",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 10297378,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "4768c614fc50ff413a8f-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 42182,
+    "savings_percent": 99.59,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/IMG_1058.jpg",
+    "sha256": "4768c614fc50ff413a8fb7748f640b93986625dff1d12f55c4f98e32043f4403",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 10297378,
+    "roles": [
+      "gallery"
+    ],
+    "file": "4768c614fc50ff413a8f-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 141366,
+    "savings_percent": 98.63,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/IMG_1058.jpg",
+    "sha256": "4768c614fc50ff413a8fb7748f640b93986625dff1d12f55c4f98e32043f4403",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 10297378,
+    "roles": [
+      "viewer"
+    ],
+    "file": "4768c614fc50ff413a8f-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 239662,
+    "savings_percent": 97.67,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/IMG_1058.jpg",
+    "sha256": "4768c614fc50ff413a8fb7748f640b93986625dff1d12f55c4f98e32043f4403",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 10297378,
+    "roles": [
+      "showcase"
+    ],
+    "file": "4768c614fc50ff413a8f-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 188796,
+    "savings_percent": 98.17,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2926.jpg",
+    "sha256": "ef0bb59db4193e1b230d1bdb5cc1b76224c2d15f8e0ef9b6c08a208e57b0e279",
+    "original_width": 3053,
+    "original_height": 4580,
+    "oriented_width": 3053,
+    "oriented_height": 4580,
+    "original_bytes": 15723604,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "ef0bb59db4193e1b230d-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 98454,
+    "savings_percent": 99.37,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2926.jpg",
+    "sha256": "ef0bb59db4193e1b230d1bdb5cc1b76224c2d15f8e0ef9b6c08a208e57b0e279",
+    "original_width": 3053,
+    "original_height": 4580,
+    "oriented_width": 3053,
+    "oriented_height": 4580,
+    "original_bytes": 15723604,
+    "roles": [
+      "gallery"
+    ],
+    "file": "ef0bb59db4193e1b230d-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 587948,
+    "savings_percent": 96.26,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2926.jpg",
+    "sha256": "ef0bb59db4193e1b230d1bdb5cc1b76224c2d15f8e0ef9b6c08a208e57b0e279",
+    "original_width": 3053,
+    "original_height": 4580,
+    "oriented_width": 3053,
+    "oriented_height": 4580,
+    "original_bytes": 15723604,
+    "roles": [
+      "viewer"
+    ],
+    "file": "ef0bb59db4193e1b230d-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 1105766,
+    "savings_percent": 92.97,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2943.jpg",
+    "sha256": "f8d1cb96d6dab9cd95a06af497fe4539f6161b0eaea3e151da92030c2a6166e7",
+    "original_width": 3087,
+    "original_height": 4631,
+    "oriented_width": 3087,
+    "oriented_height": 4631,
+    "original_bytes": 8409315,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 38302,
+    "savings_percent": 99.54,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2943.jpg",
+    "sha256": "f8d1cb96d6dab9cd95a06af497fe4539f6161b0eaea3e151da92030c2a6166e7",
+    "original_width": 3087,
+    "original_height": 4631,
+    "oriented_width": 3087,
+    "oriented_height": 4631,
+    "original_bytes": 8409315,
+    "roles": [
+      "gallery"
+    ],
+    "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 148958,
+    "savings_percent": 98.23,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2943.jpg",
+    "sha256": "f8d1cb96d6dab9cd95a06af497fe4539f6161b0eaea3e151da92030c2a6166e7",
+    "original_width": 3087,
+    "original_height": 4631,
+    "oriented_width": 3087,
+    "oriented_height": 4631,
+    "original_bytes": 8409315,
+    "roles": [
+      "viewer"
+    ],
+    "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 266734,
+    "savings_percent": 96.83,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2943.jpg",
+    "sha256": "f8d1cb96d6dab9cd95a06af497fe4539f6161b0eaea3e151da92030c2a6166e7",
+    "original_width": 3087,
+    "original_height": 4631,
+    "oriented_width": 3087,
+    "oriented_height": 4631,
+    "original_bytes": 8409315,
+    "roles": [
+      "showcase"
+    ],
+    "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-1333x2000.webp",
+    "width": 1333,
+    "height": 2000,
+    "bytes": 203718,
+    "savings_percent": 97.58,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2990.jpg",
+    "sha256": "17b7c4728eb385a4dacb0c69130afb504246feee9b885b4d9af508b5db99f37a",
+    "original_width": 2850,
+    "original_height": 4275,
+    "oriented_width": 2850,
+    "oriented_height": 4275,
+    "original_bytes": 7671481,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "17b7c4728eb385a4dacb-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 33010,
+    "savings_percent": 99.57,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2990.jpg",
+    "sha256": "17b7c4728eb385a4dacb0c69130afb504246feee9b885b4d9af508b5db99f37a",
+    "original_width": 2850,
+    "original_height": 4275,
+    "oriented_width": 2850,
+    "oriented_height": 4275,
+    "original_bytes": 7671481,
+    "roles": [
+      "gallery"
+    ],
+    "file": "17b7c4728eb385a4dacb-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 182614,
+    "savings_percent": 97.62,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_2990.jpg",
+    "sha256": "17b7c4728eb385a4dacb0c69130afb504246feee9b885b4d9af508b5db99f37a",
+    "original_width": 2850,
+    "original_height": 4275,
+    "oriented_width": 2850,
+    "oriented_height": 4275,
+    "original_bytes": 7671481,
+    "roles": [
+      "viewer"
+    ],
+    "file": "17b7c4728eb385a4dacb-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 372598,
+    "savings_percent": 95.14,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3013.jpg",
+    "sha256": "bb19ef213a422a55d42f463e46e6dce68f21eabd91adbc783f2c6af10c92b43b",
+    "original_width": 3126,
+    "original_height": 4689,
+    "oriented_width": 3126,
+    "oriented_height": 4689,
+    "original_bytes": 10327308,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "bb19ef213a422a55d42f-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 33494,
+    "savings_percent": 99.68,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3013.jpg",
+    "sha256": "bb19ef213a422a55d42f463e46e6dce68f21eabd91adbc783f2c6af10c92b43b",
+    "original_width": 3126,
+    "original_height": 4689,
+    "oriented_width": 3126,
+    "oriented_height": 4689,
+    "original_bytes": 10327308,
+    "roles": [
+      "gallery"
+    ],
+    "file": "bb19ef213a422a55d42f-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 140324,
+    "savings_percent": 98.64,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3013.jpg",
+    "sha256": "bb19ef213a422a55d42f463e46e6dce68f21eabd91adbc783f2c6af10c92b43b",
+    "original_width": 3126,
+    "original_height": 4689,
+    "oriented_width": 3126,
+    "oriented_height": 4689,
+    "original_bytes": 10327308,
+    "roles": [
+      "viewer"
+    ],
+    "file": "bb19ef213a422a55d42f-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 267674,
+    "savings_percent": 97.41,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3013.jpg",
+    "sha256": "bb19ef213a422a55d42f463e46e6dce68f21eabd91adbc783f2c6af10c92b43b",
+    "original_width": 3126,
+    "original_height": 4689,
+    "oriented_width": 3126,
+    "oriented_height": 4689,
+    "original_bytes": 10327308,
+    "roles": [
+      "showcase"
+    ],
+    "file": "bb19ef213a422a55d42f-srgb-v1-q85-1333x2000.webp",
+    "width": 1333,
+    "height": 2000,
+    "bytes": 198978,
+    "savings_percent": 98.07,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3105.jpg",
+    "sha256": "e539be46d0c88e952c654abf649440729c63211c810a0e5cc247bdbede88df95",
+    "original_width": 4621,
+    "original_height": 3081,
+    "oriented_width": 4621,
+    "oriented_height": 3081,
+    "original_bytes": 9128421,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "e539be46d0c88e952c65-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 29688,
+    "savings_percent": 99.67,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3105.jpg",
+    "sha256": "e539be46d0c88e952c654abf649440729c63211c810a0e5cc247bdbede88df95",
+    "original_width": 4621,
+    "original_height": 3081,
+    "oriented_width": 4621,
+    "oriented_height": 3081,
+    "original_bytes": 9128421,
+    "roles": [
+      "gallery"
+    ],
+    "file": "e539be46d0c88e952c65-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 154014,
+    "savings_percent": 98.31,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3105.jpg",
+    "sha256": "e539be46d0c88e952c654abf649440729c63211c810a0e5cc247bdbede88df95",
+    "original_width": 4621,
+    "original_height": 3081,
+    "oriented_width": 4621,
+    "oriented_height": 3081,
+    "original_bytes": 9128421,
+    "roles": [
+      "viewer"
+    ],
+    "file": "e539be46d0c88e952c65-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 353314,
+    "savings_percent": 96.13,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-portraits/IMG_3105.jpg",
+    "sha256": "e539be46d0c88e952c654abf649440729c63211c810a0e5cc247bdbede88df95",
+    "original_width": 4621,
+    "original_height": 3081,
+    "oriented_width": 4621,
+    "oriented_height": 3081,
+    "original_bytes": 9128421,
+    "roles": [
+      "showcase"
+    ],
+    "file": "e539be46d0c88e952c65-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 233574,
+    "savings_percent": 97.44,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1275.jpg",
+    "sha256": "d812d628966a8bf08a1c1e6c7c5abde5a5a45522f55b14b8b3c50b9b0de50dcf",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 12298979,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "d812d628966a8bf08a1c-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 50804,
+    "savings_percent": 99.59,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1275.jpg",
+    "sha256": "d812d628966a8bf08a1c1e6c7c5abde5a5a45522f55b14b8b3c50b9b0de50dcf",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 12298979,
+    "roles": [
+      "gallery"
+    ],
+    "file": "d812d628966a8bf08a1c-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 236400,
+    "savings_percent": 98.08,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1275.jpg",
+    "sha256": "d812d628966a8bf08a1c1e6c7c5abde5a5a45522f55b14b8b3c50b9b0de50dcf",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 12298979,
+    "roles": [
+      "viewer"
+    ],
+    "file": "d812d628966a8bf08a1c-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 411584,
+    "savings_percent": 96.65,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1290.jpg",
+    "sha256": "7df682efa9b4f5c87610c8e80e85117f3526a03c33eca4a6a240ca4231243981",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 11881032,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "7df682efa9b4f5c87610-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 27360,
+    "savings_percent": 99.77,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1290.jpg",
+    "sha256": "7df682efa9b4f5c87610c8e80e85117f3526a03c33eca4a6a240ca4231243981",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 11881032,
+    "roles": [
+      "gallery"
+    ],
+    "file": "7df682efa9b4f5c87610-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 94656,
+    "savings_percent": 99.2,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1290.jpg",
+    "sha256": "7df682efa9b4f5c87610c8e80e85117f3526a03c33eca4a6a240ca4231243981",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 11881032,
+    "roles": [
+      "viewer"
+    ],
+    "file": "7df682efa9b4f5c87610-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 154542,
+    "savings_percent": 98.7,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1293.jpg",
+    "sha256": "249fdc2598108be860356462a974274f2ef1adad4e61a3a65add1500fbf9ca3e",
+    "original_width": 5710,
+    "original_height": 3807,
+    "oriented_width": 5710,
+    "oriented_height": 3807,
+    "original_bytes": 13901776,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "249fdc2598108be86035-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 38616,
+    "savings_percent": 99.72,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1293.jpg",
+    "sha256": "249fdc2598108be860356462a974274f2ef1adad4e61a3a65add1500fbf9ca3e",
+    "original_width": 5710,
+    "original_height": 3807,
+    "oriented_width": 5710,
+    "oriented_height": 3807,
+    "original_bytes": 13901776,
+    "roles": [
+      "gallery"
+    ],
+    "file": "249fdc2598108be86035-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 146358,
+    "savings_percent": 98.95,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1293.jpg",
+    "sha256": "249fdc2598108be860356462a974274f2ef1adad4e61a3a65add1500fbf9ca3e",
+    "original_width": 5710,
+    "original_height": 3807,
+    "oriented_width": 5710,
+    "oriented_height": 3807,
+    "original_bytes": 13901776,
+    "roles": [
+      "viewer"
+    ],
+    "file": "249fdc2598108be86035-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 244196,
+    "savings_percent": 98.24,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1295.jpg",
+    "sha256": "c2556856dd4f996ebfa834b9ff84a033c68ef627a30f0604b6ebd48646a5995c",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 21877533,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "c2556856dd4f996ebfa8-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 24468,
+    "savings_percent": 99.89,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1295.jpg",
+    "sha256": "c2556856dd4f996ebfa834b9ff84a033c68ef627a30f0604b6ebd48646a5995c",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 21877533,
+    "roles": [
+      "gallery"
+    ],
+    "file": "c2556856dd4f996ebfa8-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 144600,
+    "savings_percent": 99.34,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1295.jpg",
+    "sha256": "c2556856dd4f996ebfa834b9ff84a033c68ef627a30f0604b6ebd48646a5995c",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 21877533,
+    "roles": [
+      "viewer"
+    ],
+    "file": "c2556856dd4f996ebfa8-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 371716,
+    "savings_percent": 98.3,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1318.jpg",
+    "sha256": "6c4f818aefe9098d1be278a146e0f5e973448d152c371698292fae8eae7e9d7a",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 20059665,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "6c4f818aefe9098d1be2-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 65332,
+    "savings_percent": 99.67,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1318.jpg",
+    "sha256": "6c4f818aefe9098d1be278a146e0f5e973448d152c371698292fae8eae7e9d7a",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 20059665,
+    "roles": [
+      "gallery"
+    ],
+    "file": "6c4f818aefe9098d1be2-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 277110,
+    "savings_percent": 98.62,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1318.jpg",
+    "sha256": "6c4f818aefe9098d1be278a146e0f5e973448d152c371698292fae8eae7e9d7a",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 20059665,
+    "roles": [
+      "viewer"
+    ],
+    "file": "6c4f818aefe9098d1be2-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 465310,
+    "savings_percent": 97.68,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1318.jpg",
+    "sha256": "6c4f818aefe9098d1be278a146e0f5e973448d152c371698292fae8eae7e9d7a",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 20059665,
+    "roles": [
+      "showcase"
+    ],
+    "file": "6c4f818aefe9098d1be2-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 371296,
+    "savings_percent": 98.15,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1517.jpg",
+    "sha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 19717044,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "9d31e1875814f9fd3239-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 23542,
+    "savings_percent": 99.88,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1517.jpg",
+    "sha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 19717044,
+    "roles": [
+      "gallery"
+    ],
+    "file": "9d31e1875814f9fd3239-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 112486,
+    "savings_percent": 99.43,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1517.jpg",
+    "sha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 19717044,
+    "roles": [
+      "viewer"
+    ],
+    "file": "9d31e1875814f9fd3239-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 259482,
+    "savings_percent": 98.68,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "candid-portraits/IMG_1517.jpg",
+    "sha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 19717044,
+    "roles": [
+      "showcase"
+    ],
+    "file": "9d31e1875814f9fd3239-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 169348,
+    "savings_percent": 99.14,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "community-atrium/IMG_1769.jpg",
+    "sha256": "44e238545aa78c311701b777f46f948aa0bc6267612e249922d323182397f276",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16506092,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "44e238545aa78c311701-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 50592,
+    "savings_percent": 99.69,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "community-atrium/IMG_1769.jpg",
+    "sha256": "44e238545aa78c311701b777f46f948aa0bc6267612e249922d323182397f276",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16506092,
+    "roles": [
+      "gallery"
+    ],
+    "file": "44e238545aa78c311701-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 185814,
+    "savings_percent": 98.87,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "community-atrium/IMG_1769.jpg",
+    "sha256": "44e238545aa78c311701b777f46f948aa0bc6267612e249922d323182397f276",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16506092,
+    "roles": [
+      "viewer"
+    ],
+    "file": "44e238545aa78c311701-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 318070,
+    "savings_percent": 98.07,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "community-atrium/IMG_1783.jpg",
+    "sha256": "3a46a27b08a5e49d950c2ba752781b317da360358368a61ed3e7de610cb77cc5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16812465,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "3a46a27b08a5e49d950c-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 68368,
+    "savings_percent": 99.59,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "community-atrium/IMG_1783.jpg",
+    "sha256": "3a46a27b08a5e49d950c2ba752781b317da360358368a61ed3e7de610cb77cc5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16812465,
+    "roles": [
+      "gallery"
+    ],
+    "file": "3a46a27b08a5e49d950c-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 363418,
+    "savings_percent": 97.84,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "community-atrium/IMG_1783.jpg",
+    "sha256": "3a46a27b08a5e49d950c2ba752781b317da360358368a61ed3e7de610cb77cc5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16812465,
+    "roles": [
+      "viewer"
+    ],
+    "file": "3a46a27b08a5e49d950c-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 668264,
+    "savings_percent": 96.03,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "celebration-at-home/IMG_2087.jpg",
+    "sha256": "d07f9ad2548e40e204c3106b8fc584621dece8ec3ba5fa5ef2983ad3e776f877",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 18634653,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "d07f9ad2548e40e204c3-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 35744,
+    "savings_percent": 99.81,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "celebration-at-home/IMG_2087.jpg",
+    "sha256": "d07f9ad2548e40e204c3106b8fc584621dece8ec3ba5fa5ef2983ad3e776f877",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 18634653,
+    "roles": [
+      "gallery"
+    ],
+    "file": "d07f9ad2548e40e204c3-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 130816,
+    "savings_percent": 99.3,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "celebration-at-home/IMG_2087.jpg",
+    "sha256": "d07f9ad2548e40e204c3106b8fc584621dece8ec3ba5fa5ef2983ad3e776f877",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 18634653,
+    "roles": [
+      "viewer"
+    ],
+    "file": "d07f9ad2548e40e204c3-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 250646,
+    "savings_percent": 98.65,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "celebration-at-home/IMG_2108.jpg",
+    "sha256": "01bb65711eb1df6ea9fb8ef7b68256ac72ff74125e89a27fa11ff7a1fce730e3",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 26149525,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "01bb65711eb1df6ea9fb-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 26494,
+    "savings_percent": 99.9,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "celebration-at-home/IMG_2108.jpg",
+    "sha256": "01bb65711eb1df6ea9fb8ef7b68256ac72ff74125e89a27fa11ff7a1fce730e3",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 26149525,
+    "roles": [
+      "gallery"
+    ],
+    "file": "01bb65711eb1df6ea9fb-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 148300,
+    "savings_percent": 99.43,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "celebration-at-home/IMG_2108.jpg",
+    "sha256": "01bb65711eb1df6ea9fb8ef7b68256ac72ff74125e89a27fa11ff7a1fce730e3",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 26149525,
+    "roles": [
+      "viewer"
+    ],
+    "file": "01bb65711eb1df6ea9fb-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 456360,
+    "savings_percent": 98.25,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3355.jpg",
+    "sha256": "8ef1fc711b069dd1d09dbbfa66b7f6ccd3cc8b03eeb3bcb86be94ad39804c6f4",
+    "original_width": 5061,
+    "original_height": 3374,
+    "oriented_width": 5061,
+    "oriented_height": 3374,
+    "original_bytes": 15209902,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "8ef1fc711b069dd1d09d-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 47814,
+    "savings_percent": 99.69,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3355.jpg",
+    "sha256": "8ef1fc711b069dd1d09dbbfa66b7f6ccd3cc8b03eeb3bcb86be94ad39804c6f4",
+    "original_width": 5061,
+    "original_height": 3374,
+    "oriented_width": 5061,
+    "oriented_height": 3374,
+    "original_bytes": 15209902,
+    "roles": [
+      "gallery"
+    ],
+    "file": "8ef1fc711b069dd1d09d-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 232772,
+    "savings_percent": 98.47,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3355.jpg",
+    "sha256": "8ef1fc711b069dd1d09dbbfa66b7f6ccd3cc8b03eeb3bcb86be94ad39804c6f4",
+    "original_width": 5061,
+    "original_height": 3374,
+    "oriented_width": 5061,
+    "oriented_height": 3374,
+    "original_bytes": 15209902,
+    "roles": [
+      "viewer"
+    ],
+    "file": "8ef1fc711b069dd1d09d-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 482002,
+    "savings_percent": 96.83,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3355.jpg",
+    "sha256": "8ef1fc711b069dd1d09dbbfa66b7f6ccd3cc8b03eeb3bcb86be94ad39804c6f4",
+    "original_width": 5061,
+    "original_height": 3374,
+    "oriented_width": 5061,
+    "oriented_height": 3374,
+    "original_bytes": 15209902,
+    "roles": [
+      "showcase"
+    ],
+    "file": "8ef1fc711b069dd1d09d-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 330090,
+    "savings_percent": 97.83,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3415.jpg",
+    "sha256": "9b2e1fdca6c282db0334c1dc8d89049ffa74de750c4e897083515c1a6e426eee",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 29651199,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "9b2e1fdca6c282db0334-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 53362,
+    "savings_percent": 99.82,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3415.jpg",
+    "sha256": "9b2e1fdca6c282db0334c1dc8d89049ffa74de750c4e897083515c1a6e426eee",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 29651199,
+    "roles": [
+      "gallery"
+    ],
+    "file": "9b2e1fdca6c282db0334-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 355624,
+    "savings_percent": 98.8,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3415.jpg",
+    "sha256": "9b2e1fdca6c282db0334c1dc8d89049ffa74de750c4e897083515c1a6e426eee",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 29651199,
+    "roles": [
+      "viewer"
+    ],
+    "file": "9b2e1fdca6c282db0334-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 1038356,
+    "savings_percent": 96.5,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3415.jpg",
+    "sha256": "9b2e1fdca6c282db0334c1dc8d89049ffa74de750c4e897083515c1a6e426eee",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 29651199,
+    "roles": [
+      "showcase"
+    ],
+    "file": "9b2e1fdca6c282db0334-srgb-v1-q85-1333x2000.webp",
+    "width": 1333,
+    "height": 2000,
+    "bytes": 629992,
+    "savings_percent": 97.88,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3456.jpg",
+    "sha256": "fbf01622de8347d5741d1970acde3e7dc7a363b588b4b19b45e0e424efec6108",
+    "original_width": 4330,
+    "original_height": 2887,
+    "oriented_width": 4330,
+    "oriented_height": 2887,
+    "original_bytes": 14235094,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "fbf01622de8347d5741d-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 46446,
+    "savings_percent": 99.67,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3456.jpg",
+    "sha256": "fbf01622de8347d5741d1970acde3e7dc7a363b588b4b19b45e0e424efec6108",
+    "original_width": 4330,
+    "original_height": 2887,
+    "oriented_width": 4330,
+    "oriented_height": 2887,
+    "original_bytes": 14235094,
+    "roles": [
+      "gallery"
+    ],
+    "file": "fbf01622de8347d5741d-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 364910,
+    "savings_percent": 97.44,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-concert-1/IMG_3456.jpg",
+    "sha256": "fbf01622de8347d5741d1970acde3e7dc7a363b588b4b19b45e0e424efec6108",
+    "original_width": 4330,
+    "original_height": 2887,
+    "oriented_width": 4330,
+    "oriented_height": 2887,
+    "original_bytes": 14235094,
+    "roles": [
+      "viewer"
+    ],
+    "file": "fbf01622de8347d5741d-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 1105778,
+    "savings_percent": 92.23,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3880.jpg",
+    "sha256": "7659581f3dbba0cc1bd6facd29e5a7c5be3d36a262c5edbeb0788ec0dd6e9885",
+    "original_width": 4734,
+    "original_height": 3156,
+    "oriented_width": 4734,
+    "oriented_height": 3156,
+    "original_bytes": 6702273,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 23738,
+    "savings_percent": 99.65,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3880.jpg",
+    "sha256": "7659581f3dbba0cc1bd6facd29e5a7c5be3d36a262c5edbeb0788ec0dd6e9885",
+    "original_width": 4734,
+    "original_height": 3156,
+    "oriented_width": 4734,
+    "oriented_height": 3156,
+    "original_bytes": 6702273,
+    "roles": [
+      "gallery"
+    ],
+    "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 96564,
+    "savings_percent": 98.56,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3880.jpg",
+    "sha256": "7659581f3dbba0cc1bd6facd29e5a7c5be3d36a262c5edbeb0788ec0dd6e9885",
+    "original_width": 4734,
+    "original_height": 3156,
+    "oriented_width": 4734,
+    "oriented_height": 3156,
+    "original_bytes": 6702273,
+    "roles": [
+      "viewer"
+    ],
+    "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 161506,
+    "savings_percent": 97.59,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3883.jpg",
+    "sha256": "460ab342e772827f8fcf4837d8f3e24e97d1a0f3ccb8313d7df3716646679f0e",
+    "original_width": 5854,
+    "original_height": 1849,
+    "oriented_width": 5854,
+    "oriented_height": 1849,
+    "original_bytes": 9501070,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "460ab342e772827f8fcf-srgb-v1-q85-600x190.webp",
+    "width": 600,
+    "height": 190,
+    "bytes": 13122,
+    "savings_percent": 99.86,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3883.jpg",
+    "sha256": "460ab342e772827f8fcf4837d8f3e24e97d1a0f3ccb8313d7df3716646679f0e",
+    "original_width": 5854,
+    "original_height": 1849,
+    "oriented_width": 5854,
+    "oriented_height": 1849,
+    "original_bytes": 9501070,
+    "roles": [
+      "gallery"
+    ],
+    "file": "460ab342e772827f8fcf-srgb-v1-q85-1600x505.webp",
+    "width": 1600,
+    "height": 505,
+    "bytes": 53686,
+    "savings_percent": 99.43,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3883.jpg",
+    "sha256": "460ab342e772827f8fcf4837d8f3e24e97d1a0f3ccb8313d7df3716646679f0e",
+    "original_width": 5854,
+    "original_height": 1849,
+    "oriented_width": 5854,
+    "oriented_height": 1849,
+    "original_bytes": 9501070,
+    "roles": [
+      "viewer"
+    ],
+    "file": "460ab342e772827f8fcf-srgb-v1-q85-2400x758.webp",
+    "width": 2400,
+    "height": 758,
+    "bytes": 93582,
+    "savings_percent": 99.02,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_3883.jpg",
+    "sha256": "460ab342e772827f8fcf4837d8f3e24e97d1a0f3ccb8313d7df3716646679f0e",
+    "original_width": 5854,
+    "original_height": 1849,
+    "oriented_width": 5854,
+    "oriented_height": 1849,
+    "original_bytes": 9501070,
+    "roles": [
+      "showcase"
+    ],
+    "file": "460ab342e772827f8fcf-srgb-v1-q85-2000x632.webp",
+    "width": 2000,
+    "height": 632,
+    "bytes": 73198,
+    "savings_percent": 99.23,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_4035.jpg",
+    "sha256": "c24b05f6ed612096d5d0719fbc0c80ad2899911b4cfef062c63628282a0b75c5",
+    "original_width": 3236,
+    "original_height": 4854,
+    "oriented_width": 3236,
+    "oriented_height": 4854,
+    "original_bytes": 8279344,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "c24b05f6ed612096d5d0-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 13754,
+    "savings_percent": 99.83,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_4035.jpg",
+    "sha256": "c24b05f6ed612096d5d0719fbc0c80ad2899911b4cfef062c63628282a0b75c5",
+    "original_width": 3236,
+    "original_height": 4854,
+    "oriented_width": 3236,
+    "oriented_height": 4854,
+    "original_bytes": 8279344,
+    "roles": [
+      "gallery"
+    ],
+    "file": "c24b05f6ed612096d5d0-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 54294,
+    "savings_percent": 99.34,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "purple-stage/IMG_4035.jpg",
+    "sha256": "c24b05f6ed612096d5d0719fbc0c80ad2899911b4cfef062c63628282a0b75c5",
+    "original_width": 3236,
+    "original_height": 4854,
+    "oriented_width": 3236,
+    "oriented_height": 4854,
+    "original_bytes": 8279344,
+    "roles": [
+      "viewer"
+    ],
+    "file": "c24b05f6ed612096d5d0-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 123848,
+    "savings_percent": 98.5,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4408.jpg",
+    "sha256": "303577d75fabda71de3a684ebcbceeef180414cae6d98019a4fb9aaf8cb9fe6d",
+    "original_width": 2429,
+    "original_height": 3239,
+    "oriented_width": 2429,
+    "oriented_height": 3239,
+    "original_bytes": 7222280,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "303577d75fabda71de3a-srgb-v1-q85-450x600.webp",
+    "width": 450,
+    "height": 600,
+    "bytes": 76622,
+    "savings_percent": 98.94,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4408.jpg",
+    "sha256": "303577d75fabda71de3a684ebcbceeef180414cae6d98019a4fb9aaf8cb9fe6d",
+    "original_width": 2429,
+    "original_height": 3239,
+    "oriented_width": 2429,
+    "oriented_height": 3239,
+    "original_bytes": 7222280,
+    "roles": [
+      "gallery"
+    ],
+    "file": "303577d75fabda71de3a-srgb-v1-q85-1200x1600.webp",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 334194,
+    "savings_percent": 95.37,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4408.jpg",
+    "sha256": "303577d75fabda71de3a684ebcbceeef180414cae6d98019a4fb9aaf8cb9fe6d",
+    "original_width": 2429,
+    "original_height": 3239,
+    "oriented_width": 2429,
+    "oriented_height": 3239,
+    "original_bytes": 7222280,
+    "roles": [
+      "viewer"
+    ],
+    "file": "303577d75fabda71de3a-srgb-v1-q85-1800x2400.webp",
+    "width": 1800,
+    "height": 2400,
+    "bytes": 754578,
+    "savings_percent": 89.55,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4409.jpg",
+    "sha256": "3ca6ca165c262d997452f6955cce0951f1dddc570c5562a8c8712b9c7c5fdaa4",
+    "original_width": 5244,
+    "original_height": 1656,
+    "oriented_width": 5244,
+    "oriented_height": 1656,
+    "original_bytes": 7748020,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "3ca6ca165c262d997452-srgb-v1-q85-600x189.webp",
+    "width": 600,
+    "height": 189,
+    "bytes": 40276,
+    "savings_percent": 99.48,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4409.jpg",
+    "sha256": "3ca6ca165c262d997452f6955cce0951f1dddc570c5562a8c8712b9c7c5fdaa4",
+    "original_width": 5244,
+    "original_height": 1656,
+    "oriented_width": 5244,
+    "oriented_height": 1656,
+    "original_bytes": 7748020,
+    "roles": [
+      "gallery"
+    ],
+    "file": "3ca6ca165c262d997452-srgb-v1-q85-1600x505.webp",
+    "width": 1600,
+    "height": 505,
+    "bytes": 169918,
+    "savings_percent": 97.81,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4409.jpg",
+    "sha256": "3ca6ca165c262d997452f6955cce0951f1dddc570c5562a8c8712b9c7c5fdaa4",
+    "original_width": 5244,
+    "original_height": 1656,
+    "oriented_width": 5244,
+    "oriented_height": 1656,
+    "original_bytes": 7748020,
+    "roles": [
+      "viewer"
+    ],
+    "file": "3ca6ca165c262d997452-srgb-v1-q85-2400x758.webp",
+    "width": 2400,
+    "height": 758,
+    "bytes": 283338,
+    "savings_percent": 96.34,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "street-side-live-music/IMG_4409.jpg",
+    "sha256": "3ca6ca165c262d997452f6955cce0951f1dddc570c5562a8c8712b9c7c5fdaa4",
+    "original_width": 5244,
+    "original_height": 1656,
+    "oriented_width": 5244,
+    "oriented_height": 1656,
+    "original_bytes": 7748020,
+    "roles": [
+      "showcase"
+    ],
+    "file": "3ca6ca165c262d997452-srgb-v1-q85-2000x632.webp",
+    "width": 2000,
+    "height": 632,
+    "bytes": 221982,
+    "savings_percent": 97.13,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6390.jpg",
+    "sha256": "9b290bb198e9cfff3b6d4008327fa2ce69a84b2aee07a8f20943097b97743f6f",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15887968,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "9b290bb198e9cfff3b6d-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 40742,
+    "savings_percent": 99.74,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6390.jpg",
+    "sha256": "9b290bb198e9cfff3b6d4008327fa2ce69a84b2aee07a8f20943097b97743f6f",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15887968,
+    "roles": [
+      "gallery"
+    ],
+    "file": "9b290bb198e9cfff3b6d-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 166018,
+    "savings_percent": 98.96,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6390.jpg",
+    "sha256": "9b290bb198e9cfff3b6d4008327fa2ce69a84b2aee07a8f20943097b97743f6f",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15887968,
+    "roles": [
+      "viewer"
+    ],
+    "file": "9b290bb198e9cfff3b6d-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 307714,
+    "savings_percent": 98.06,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6390.jpg",
+    "sha256": "9b290bb198e9cfff3b6d4008327fa2ce69a84b2aee07a8f20943097b97743f6f",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15887968,
+    "roles": [
+      "showcase"
+    ],
+    "file": "9b290bb198e9cfff3b6d-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 233752,
+    "savings_percent": 98.53,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6412.jpg",
+    "sha256": "90a91db5d642c80ff744f6b52c5ff283b1608eb361a9961ad04937f3051492ad",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 16275220,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "90a91db5d642c80ff744-srgb-v1-q85-400x600.webp",
+    "width": 400,
+    "height": 600,
+    "bytes": 34286,
+    "savings_percent": 99.79,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6412.jpg",
+    "sha256": "90a91db5d642c80ff744f6b52c5ff283b1608eb361a9961ad04937f3051492ad",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 16275220,
+    "roles": [
+      "gallery"
+    ],
+    "file": "90a91db5d642c80ff744-srgb-v1-q85-1067x1600.webp",
+    "width": 1067,
+    "height": 1600,
+    "bytes": 247452,
+    "savings_percent": 98.48,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6412.jpg",
+    "sha256": "90a91db5d642c80ff744f6b52c5ff283b1608eb361a9961ad04937f3051492ad",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 16275220,
+    "roles": [
+      "viewer"
+    ],
+    "file": "90a91db5d642c80ff744-srgb-v1-q85-1600x2400.webp",
+    "width": 1600,
+    "height": 2400,
+    "bytes": 555270,
+    "savings_percent": 96.59,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "wedding-portraits/IMG_6412.jpg",
+    "sha256": "90a91db5d642c80ff744f6b52c5ff283b1608eb361a9961ad04937f3051492ad",
+    "original_width": 4000,
+    "original_height": 6000,
+    "oriented_width": 4000,
+    "oriented_height": 6000,
+    "original_bytes": 16275220,
+    "roles": [
+      "showcase"
+    ],
+    "file": "90a91db5d642c80ff744-srgb-v1-q85-1333x2000.webp",
+    "width": 1333,
+    "height": 2000,
+    "bytes": 386802,
+    "savings_percent": 97.62,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  }
+]
