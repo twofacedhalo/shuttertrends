@@ -1,6 +1,7 @@
 // PHOTO MANIFEST — see PHOTO-GUIDE.md. Array order controls collection/photo order.
 // After adding photos, run: py tools/optimize_photos.py
 // Original import paths are private local settings in tools/photo-sources.local.json.
+// Only backgroundEligible: true photos can become decorative homepage backgrounds.
 window.shutterTrendsCollections = [
   {
     "id": "lynchburg",
@@ -82,7 +83,8 @@ window.shutterTrendsCollections = [
         "alt": "A graduate in a blue gown walks across a lawn toward a leafy tree.",
         "width": 3053,
         "height": 4580,
-        "showcase": false
+        "showcase": false,
+        "backgroundEligible": true
       },
       {
         "id": "import-img-2943",
@@ -173,7 +175,8 @@ window.shutterTrendsCollections = [
         "alt": "A person in profile beside yellow flowers and leafy branches near a window.",
         "width": 6000,
         "height": 4000,
-        "showcase": true
+        "showcase": true,
+        "backgroundEligible": true
       },
       {
         "id": "import-img-1517",
@@ -182,7 +185,8 @@ window.shutterTrendsCollections = [
         "alt": "A person seated at a table looks to the side in a dim, warmly lit interior.",
         "width": 6000,
         "height": 4000,
-        "showcase": true
+        "showcase": true,
+        "backgroundEligible": true
       }
     ]
   },
@@ -257,7 +261,8 @@ window.shutterTrendsCollections = [
         "alt": "Musicians with guitars and an upright bass perform on a covered outdoor stage.",
         "width": 5061,
         "height": 3374,
-        "showcase": true
+        "showcase": true,
+        "backgroundEligible": true
       },
       {
         "id": "import-img-3415",
@@ -303,7 +308,8 @@ window.shutterTrendsCollections = [
         "alt": "A panoramic view of a band under purple stage lights and dark audience silhouettes.",
         "width": 5854,
         "height": 1849,
-        "showcase": true
+        "showcase": true,
+        "backgroundEligible": true
       },
       {
         "id": "import-img-4035",
@@ -368,7 +374,8 @@ window.shutterTrendsCollections = [
         "alt": "A person in a wedding gown sits on a wooden railing overlooking a lawn at sunset.",
         "width": 4000,
         "height": 6000,
-        "showcase": true
+        "showcase": true,
+        "backgroundEligible": true
       }
     ]
   }

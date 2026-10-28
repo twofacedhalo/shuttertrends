@@ -1,0 +1,64 @@
+/* Decorative editorial photographs: below spotlight (-1), above body charcoal. */
+body.home {
+  --st-background-photo-opacity: .26;
+}
+.st-photo-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  background: #090a0d;
+}
+.st-background-photo {
+  position: absolute;
+  left: var(--photo-x);
+  top: var(--photo-y);
+  width: clamp(420px, var(--photo-width), 1100px);
+  max-width: none;
+  height: auto;
+  opacity: 0;
+  transform: rotate(var(--photo-angle));
+  filter: saturate(.65);
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 78%, transparent);
+  transition: opacity 800ms ease;
+  pointer-events: none;
+  user-select: none;
+}
+.st-background-photo.is-loaded { opacity: var(--st-background-photo-opacity); }
+.st-photo-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(9,10,13,.97), rgba(9,10,13,.87) 36%, rgba(9,10,13,.48) 78%, rgba(9,10,13,.62)),
+    linear-gradient(0deg, rgba(9,10,13,.45), transparent 45%, rgba(9,10,13,.25));
+}
+/* Remove only the opaque backing; retain the existing gold glow above the photos. */
+body.home .st-spotlight { background: transparent; }
+@media (min-width: 601px) and (max-width: 1000px) {
+  body.home { --st-background-photo-opacity: .22; }
+  .st-photo-background::after {
+    background: linear-gradient(90deg, rgba(9,10,13,.97), rgba(9,10,13,.9) 42%, rgba(9,10,13,.62));
+  }
+}
+@media (max-width: 600px) {
+  body.home { --st-background-photo-opacity: .2; }
+  .st-background-photo {
+    left: 32vw;
+    top: 4vh;
+    top: 4svh;
+    width: 110vw;
+    transform: rotate(-4deg);
+  }
+  .st-photo-background::after {
+    background: linear-gradient(90deg, rgba(9,10,13,.98), rgba(9,10,13,.9) 45%, rgba(9,10,13,.65));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-background-photo { transition: none; }
+}
+@media print {
+  .st-photo-background { display: none; }
+}

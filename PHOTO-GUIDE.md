@@ -4,7 +4,7 @@
 
 - `assets/photography/photos.js`: the only manifest to edit for photos and collections.
 - `assets/photography/collections.js`: manifest validation, path resolution, showcase selection.
-- `assets/photography/carousel.js` and `carousel.css`: manual homepage showcase.
+- `assets/photography/carousel.js` and `carousel.css`: cinematic homepage showcase and shared collection viewer.
 - `assets/photography/galleries.js` and `galleries.css`: collection previews and full galleries.
 - `assets/images/featured/`: Lynchburg Through My Lens images.
 - `assets/images/events/`: existing concert/event photographs.
@@ -96,12 +96,12 @@ New events need no new HTML or navigation changes.
 The homepage selects up to eight distinct eligible photos across all published
 collections. It shuffles once per page load using Fisher–Yates, then keeps that
 selection and order while you navigate. Reloading makes a new random selection;
-it can coincidentally repeat the previous order. There is no autoplay.
+it can coincidentally repeat the previous order. The homepage now rotates through that fixed selection every seven seconds; collection viewers remain manual.
 
 Use previous/next buttons, Left/Right keys, Home/End or horizontal touch swipes.
 Keyboard controls apply when focus is inside the carousel; Tab reaches it and
 its controls. Reduced-motion preferences disable fades. One photo still shows
-its counter and hides navigation buttons. Zero photos shows an empty message.
+its counter and hides navigation and rotation buttons. Zero photos shows an empty message.
 The first showcase image loads near the viewport; other showcase images are
 requested only when selected. Failed images retain the last successful image
 and announce an error; use the controls to continue or fix the filename/reload.
@@ -186,8 +186,7 @@ relocating it remains a review decision. Commit/push only after reviewing output
 
 The shared carousel reads each loaded image's natural dimensions and classifies
 it as portrait, landscape or square. It uses `object-fit: contain`, centers the
-whole image on charcoal, and never crops or stretches it. No blurred backdrop
-or additional duplicate image is needed. The homepage's randomized eight-photo
+whole image on charcoal, and never crops or stretches it. Collection viewers retain charcoal surroundings. The homepage uses blurred neighboring thumbnail previews. The homepage's randomized eight-photo
 selection remains unchanged while browsing. Full collections retain manifest
 order and use the same controls, swipe gestures and keyboard behavior.
 
@@ -207,6 +206,88 @@ Full collection thumbnails select/focus the large viewer; modified clicks still
 open the optimized image URL. The Open larger photograph link opens the large
 optimized version. Thumbnail grids retain natural image proportions and logical
 reading order, so vertical images can be taller without forced cropping.
+
+## Randomized editorial photo background
+
+Only photos marked `backgroundEligible: true` are candidates for the homepage's
+decorative photographic background. This is independent of `showcase`, which
+controls the central carousel. Omitted or false means the photo is not eligible.
+Unpublished photos and unpublished collections are always excluded.
+
+Six existing public photos are initially enabled: IMG_2926 (Across the Lawn),
+IMG_1318 (Among the Flowers), IMG_1517 (By Candlelight), IMG_3355 (Music Under
+the Canopy), IMG_3883 (Across the Stage), and IMG_6412 (In the Evening Light).
+Change/remove those flags or add the flag to any other approved manifest photo.
+No new source images, image derivatives, or external images are required.
+
+The background script makes its own deduplicated candidate list using stable
+photo IDs and optimized source URLs. It shuffles this copy and selects 1–3
+photos once per page load, capped by availability. The carousel's selection
+and ordering are not modified. Scale, position, and angle vary across three
+asymmetrical edge zones on desktop. Random selections can coincidentally repeat;
+there is no cross-visit tracking or storage. With no eligible photos, it makes
+no background image requests and preserves the charcoal/spotlight fallback.
+
+At widths above 1000px, up to three selected photos appear. Tablets (601–1000px)
+display at most two. Phones display only one with a stronger dark overlay.
+On an initial phone load, only that one photo receives a source. Resizing keeps
+the same selected arrangement, revealing/hiding its other members as appropriate;
+it never reshuffles on scroll, resizing, or carousel navigation.
+
+Background images use existing 600px/1600px responsive variants with low fetch
+priority. There are no image preloads, extra full-resolution requests, scroll
+handlers, or continuous background animation. A short opacity reveal is disabled
+for reduced motion. The original photograph's aspect ratio is preserved; the
+viewport clips decorative outer edges without stretching the image.
+
+The fixed photo layer sits at z-index -2 inside the homepage's isolated body.
+The existing spotlight remains at -1 above it and below page content. Both are
+non-interactive; the photographic layer is inert and hidden from assistive
+technology. Strong left/center gradient scrims protect text and controls; cards,
+navigation and the carousel retain their existing surfaces and content.
+
+Files: `assets/effects/photo-background.js`, `photo-background.css`,
+`assets/photography/photos.js`, and the homepage integration in `index.html`.
+Adjust `--st-background-photo-opacity`, gradient stops, and responsive placement
+in the new CSS file. The existing spotlight implementation is unchanged; the
+new stylesheet only makes its opaque backing transparent to reveal the photos.
+
+## Cinematic three-photo homepage
+
+The homepage has overlaid 48px circular gold navigation buttons at the left and
+right stage edges. The counter and an accessible Pause/Play button remain below
+the stage, alongside the reserved caption area. Full-size collection viewers
+retain their manual behavior and existing controls.
+
+Desktop side buttons display the previous/next photograph using existing 600px
+thumbnail variants, blurred by 16px and darkened. The sharp central photograph
+always uses contain sizing. Preview regions are clipped outside the central
+frame; portrait photographs leave wider preview areas, while landscape photos
+receive a wider central frame. Clicking a preview selects its photograph.
+Neighbors wrap around. Two-photo selections show just one alternate preview;
+one-photo selections show none. At 600px screen width or below, previews are
+hidden so the central photo and overlaid arrows retain enough space.
+
+Automatic rotation advances approximately every 7000ms with a 1000ms crossfade,
+cycling through the once-shuffled homepage selection without reshuffling.
+It pauses on mouse hover, keyboard focus, touch/control interaction, hidden
+tabs, offscreen stages, and visible native/ARIA modal dialogs. The Pause button
+keeps rotation stopped until Play is selected. Play permits rotation to resume
+after hover/focus/interaction ends, with a fresh seven-second delay. Reduced
+motion disables automatic rotation and fades, including when the preference
+changes while the page is open. Automatic changes are not announced repeatedly
+to screen readers; manual navigation has polite status announcements.
+
+There is currently no modal lightbox; large-view links are preserved. Navigating
+away stops the timer. A future custom lightbox can send `st-lightbox-open` and
+`st-lightbox-close` events on document; native and visible ARIA modals are also
+detected. Native-dialog closing/removal resumes when other pause reasons clear.
+
+Active photographs and preview thumbnails are decoded before being displayed;
+preview sources are cached for the current page. Only selected central images
+receive full carousel sources. No new photo derivatives or libraries were added.
+Timing is configured by the 7000ms timeout in carousel.js and 1000ms opacity
+transition in carousel.css. Preview blur is the 16px CSS filter.
 
 ## Approved Desktop import
 
