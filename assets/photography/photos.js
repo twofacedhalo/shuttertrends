@@ -380,3 +380,10 @@ window.shutterTrendsCollections = [
     ]
   }
 ];
+
+// Homepage category photographs: use one or two existing published photo IDs per card.
+// Array order is display order. These choices do not affect showcase/background eligibility.
+window.shutterTrendsHomeFeatures = {
+  events: ['import-img-3355'],
+  personal: ['import-img-3105']
+};

@@ -79,6 +79,7 @@
       const ratio = photo.aspectRatio || (photo.width / photo.height) || 1.5;
       const side = narrow.matches || photos.length < 2 ? 0 : (width - Math.min(height * ratio, width * .76)) / 2;
       stage.style.setProperty('--st-side-width', `${side}px`);
+      stage.style.setProperty('--st-photo-frame-inset', `${side ? side + 12 : 0}px`);
       // Each fading slide retains its own geometry to prevent zooming/jumping mid-fade.
       slides[current].figure.style.setProperty('--st-center-inset', `${side ? side + 12 : 0}px`);
     }

@@ -1,0 +1,117 @@
+/* Shared camera viewfinder treatment, limited to the homepage hero, carousel and two feature cards. */
+body.home {
+  position:relative;
+  --st-background-photo-opacity:.3;
+  --st-viewfinder-color:#c6a16a;
+  --st-viewfinder-stroke:1px;
+  --st-viewfinder-length:clamp(18px,2.2vw,30px);
+  --st-viewfinder-inset:16px;
+  --st-viewfinder-opacity:.5;
+  --st-viewfinder-active-opacity:.8;
+  --st-viewfinder-duration:280ms;
+}
+.st-banner-dust {
+  position:absolute;
+  top:var(--dust-top,0px);
+  left:0;
+  width:100%;
+  height:var(--dust-height,0px);
+  z-index:-2;
+  overflow:hidden;
+  pointer-events:none;
+  contain:strict;
+}
+.st-banner-dust__mote {
+  position:absolute;
+  left:var(--dust-x);
+  top:var(--dust-y);
+  width:var(--dust-size);
+  height:var(--dust-size);
+  border-radius:50%;
+  background:radial-gradient(circle, #e6c588 0%, #cfac68 35%, transparent 75%);
+  box-shadow:0 0 6px rgba(207,172,104,.08);
+  opacity:0;
+  animation:st-dust-rise var(--dust-duration) linear var(--dust-delay) infinite;
+  animation-play-state:paused;
+}
+.st-banner-dust[data-running="true"] .st-banner-dust__mote { animation-play-state:running; }
+@keyframes st-dust-rise {
+  0% { transform:translate3d(0,40px,0); opacity:0; }
+  20% { opacity:var(--dust-opacity); }
+  72% { opacity:var(--dust-opacity); }
+  100% { transform:translate3d(var(--dust-drift),-180px,0); opacity:0; }
+}
+body.home #home-hero > .wp-block-cover {
+  min-height:clamp(440px,62vh,640px);
+  padding:0;
+  border-radius:2px;
+  background:linear-gradient(90deg,rgba(9,10,13,.38),transparent 75%) !important;
+}
+body.home #home-hero .wp-block-cover__inner-container > .wp-block-group {
+  padding-block:clamp(40px,5vw,72px) !important;
+}
+body.home #home-hero .wp-block-cover__inner-container .alignwide { gap:clamp(18px,2.4vw,28px); }
+body.home #home-hero h1 { line-height:1.05; text-wrap:balance; }
+body.home #home-hero .is-style-lead { max-width:62ch; }
+body.home #home-hero .wp-block-buttons { gap:12px; }
+body.home #photography-showcase { margin-top:0; padding-top:clamp(36px,5vw,64px) !important; }
+body.home #home-hero > .wp-block-cover,
+body.home .st-gallery__stage,
+body.home .st-home-feature {
+  position:relative;
+  border-color:transparent;
+  box-shadow:none;
+}
+body.home #home-hero > .wp-block-cover::after,
+body.home .st-gallery__stage::after,
+body.home .st-home-feature::after {
+  content:'';
+  position:absolute;
+  inset:var(--st-viewfinder-inset);
+  z-index:6;
+  border:0;
+  border-radius:0;
+  pointer-events:none;
+  opacity:var(--st-viewfinder-opacity);
+  transition:opacity var(--st-viewfinder-duration) ease;
+  /* Two short strokes at each corner; no edge-spanning lines. */
+  background:
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) left top / var(--st-viewfinder-length) var(--st-viewfinder-stroke) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) left top / var(--st-viewfinder-stroke) var(--st-viewfinder-length) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) right top / var(--st-viewfinder-length) var(--st-viewfinder-stroke) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) right top / var(--st-viewfinder-stroke) var(--st-viewfinder-length) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) left bottom / var(--st-viewfinder-length) var(--st-viewfinder-stroke) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) left bottom / var(--st-viewfinder-stroke) var(--st-viewfinder-length) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) right bottom / var(--st-viewfinder-length) var(--st-viewfinder-stroke) no-repeat,
+    linear-gradient(var(--st-viewfinder-color),var(--st-viewfinder-color)) right bottom / var(--st-viewfinder-stroke) var(--st-viewfinder-length) no-repeat;
+}
+body.home #home-hero > .wp-block-cover:is(:hover,:focus-within)::after,
+body.home .st-gallery__stage:is(:hover,:focus-within)::after,
+body.home .st-home-feature:is(:hover,:focus-within)::after { opacity:var(--st-viewfinder-active-opacity); }
+body.home .st-home-feature::after { opacity:0; }
+body.home .st-gallery__stage::after {
+  left:calc(var(--st-photo-frame-inset,0px) + var(--st-viewfinder-inset));
+  right:calc(var(--st-photo-frame-inset,0px) + var(--st-viewfinder-inset));
+}
+/* Reserve a narrow image gutter: the brackets never paint on the sharp photograph. */
+body.home .st-gallery__slide img { box-sizing:border-box; padding:calc(var(--st-viewfinder-inset) + 8px); }
+@media(max-width:760px) {
+  body.home { --st-background-photo-opacity:.23; --st-viewfinder-inset:10px; }
+  body.home #home-hero > .wp-block-cover { min-height:0; }
+  body.home #home-hero .wp-block-cover__inner-container > .wp-block-group { padding-block:32px !important; }
+  body.home #home-hero h1 { font-size:clamp(40px,10vw,60px); }
+  body.home #home-hero .is-style-lead { font-size:1rem; line-height:1.65; }
+  body.home #home-hero .wp-block-button__link { padding:12px 18px; font-size:.9rem; }
+}
+@media(max-width:360px) {
+  /* Keep the existing logo and menu usable even when their combined width grows. */
+  body.home .site-header > .is-layout-flex { flex-wrap:wrap; row-gap:12px; }
+  body.home .site-header nav { max-width:100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  body.home #home-hero > .wp-block-cover::after,
+  body.home .st-gallery__stage::after,
+  body.home .st-home-feature::after { transition:none; }
+  .st-banner-dust__mote { animation:none; opacity:calc(var(--dust-opacity) * .45); }
+}
+@media print { .st-banner-dust { display:none; } }

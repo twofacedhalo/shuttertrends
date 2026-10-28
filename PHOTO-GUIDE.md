@@ -76,19 +76,18 @@ Create `assets/images/your-event/` and add your photos there. Choose a unique
 lowercase `id` and folder name using letters, digits and hyphens. Date and
 location are optional display text; omit them if unknown. Collection location
 is inherited by photos unless overridden per photo. Collection order in the
-manifest is the homepage order. Photo order controls previews and full galleries.
+manifest is the collection-index order. Photo order controls previews and full galleries.
 Set `published: false` on a collection to hide it from all site views and from
 the showcase. Hidden entries are still present in the public JavaScript file;
 this is editorial visibility, not private storage.
 
-Published collections automatically get a homepage section with up to three
-preview photographs and a **View full collection** link. The shared page is
+Published collections appear in the collection index and matching category pages, with preview photographs and a **View full collection** link. The homepage presents two featured category cards instead of individual album previews. The shared page is
 `collections/?id=your-event`. It works on GitHub Pages without URL rewrites.
-The homepage showcase is separate from the ordered collection previews.
+The homepage showcase and two featured category cards are separate from the ordered collection previews.
 
 Use `category: 'portraits'`, `'weddings'`, `'events'`, or `'concerts'`
 to appear on the corresponding existing page (Concerts appears on Events).
-Any other category still works on the homepage and full-collection page.
+Any other category still works in the collection index and full-collection page.
 New events need no new HTML or navigation changes.
 
 ## 4. Showcase and loading behavior
@@ -207,6 +206,98 @@ open the optimized image URL. The Open larger photograph link opens the large
 optimized version. Thumbnail grids retain natural image proportions and logical
 reading order, so vertical images can be taller without forced cropping.
 
+## Camera viewfinder styling
+
+Four minimal L-shaped corner brackets are drawn using CSS in
+`assets/effects/banner.css`. They are visible on the homepage banner and central
+carousel display, and appear on the two category cards only while hovered or
+keyboard-focused. This treatment is not added to individual gallery images.
+The particles remain behind the headings and brackets; carousel controls,
+spotlight tracking, random photos, and album links are unchanged.
+
+At the top of banner.css, adjust `--st-viewfinder-color` (default #c6a16a),
+`--st-viewfinder-stroke` (1px; 1–2px recommended),
+`--st-viewfinder-length` (18–30px responsive),
+`--st-viewfinder-inset` (16px desktop, 10px mobile),
+`--st-viewfinder-opacity` (.5), `--st-viewfinder-active-opacity` (.8), and
+`--st-viewfinder-duration` (280ms). Cards intentionally start with hidden corners.
+Reduced motion removes the transition; there is no pulsing or bracket movement.
+
+The carousel's existing layout calculation exposes its central inset as a CSS
+variable. The corner frame follows it across portrait/landscape changes, while
+a narrow padding gutter keeps gold strokes off the sharp photo. This preserves
+the full composition and stable stage height. No new image files, dependencies,
+or animation loops are introduced. Detailed settings also appear in
+`assets/effects/README.md`.
+
+## Golden dust banner and cinematic frames
+
+The original static gold-speckle image is removed from the homepage banner,
+while its file remains untouched. The banner now uses 28 genuine CSS dust motes
+(12 at screen widths up to 760px), randomized in position, size, opacity, drift,
+and 32–62 second animation duration. They rise slowly and fade in/out, without
+video, GIFs, static particle textures, or a continuous JavaScript rendering loop.
+Reduced-motion mode leaves faint static motes; hidden pages and offscreen banners
+pause animations. The particles never cover the sharp carousel photos.
+
+The layer order is charcoal, approved photographs/dark scrims (-3), banner dust
+(-2), cursor spotlight (-1), then content/navigation. ResizeObserver keeps the
+dust region aligned to the banner as the header, fonts and viewport change;
+there is no scroll listener. Decorative layers remain inert and pointer-free.
+
+Banner spacing is responsive instead of the old hard-coded 680px minimum.
+Mobile uses content-driven height, smaller responsive heading sizes and 32px
+vertical padding. The typography, text, menu actions and contact links are
+preserved. The narrowest header may wrap to prevent horizontal overflow.
+Short camera viewfinder corner brackets replace the former full rectangular frames on the banner, central homepage carousel area, and featured cards. Main photographs retain contain sizing.
+
+Implementation: `assets/effects/banner.js`, `banner.css`, the layer declaration
+in `photo-background.css`, and the homepage wiring in `index.html`. The old
+hero-opacity rule was removed from `spotlight.css`; spotlight tracking is unchanged.
+Change particle counts and random ranges in banner.js, or frame/spacing values
+in banner.css. Existing random-photo eligibility and carousel settings still work.
+
+## Homepage category cards
+
+The homepage keeps its cinematic carousel and background effects, followed by a
+short introduction, two editorial photo cards, and one contact invitation. It no
+longer renders individual album-preview sections. The original photo manifest,
+full collection template, and category pages remain intact. Use **View all
+photography collections** to reach every published album, including categories
+without their own navigation entry. The Personal Moments card also links to
+Wedding photography.
+
+To change the featured photos, edit the small block at the **bottom** of
+`assets/photography/photos.js`:
+
+```js
+window.shutterTrendsHomeFeatures = {
+  events: ['import-img-3355'],
+  personal: ['import-img-3105']
+};
+```
+
+These are existing photo IDs, not filenames. Find an image's `id` in its
+collection entry above. Use one or two IDs in either array, separated by commas,
+for example `events: ['import-img-3355', 'import-img-1769']`. Array order is
+display order. Duplicates are ignored; only the first two unique IDs are used.
+Invalid IDs and unpublished images are skipped while the category text/link
+remains usable. No image reprocessing is needed when selecting already optimized
+photos. This configuration does not change carousel or background eligibility.
+
+Photos keep their natural aspect ratio and load lazily using existing responsive
+600px/1600px variants. The two default landscape photos make similarly balanced
+cards. Portrait photos are supported too and produce naturally taller imagery;
+no cropping is introduced. Clicking a photo opens its actual collection; the
+text links lead to the Events/Portraits category pages. Cards sit side by side
+above 760px viewport width and stack on smaller screens. Hover movement is
+restrained and disabled for reduced motion.
+
+Homepage files: `index.html`, `assets/homepage/features.js`,
+`assets/homepage/features.css`, and the manifest block above. The homepage no
+longer downloads the collection-list rendering script/styles; other gallery pages
+continue to use them unchanged.
+
 ## Randomized editorial photo background
 
 Only photos marked `backgroundEligible: true` are candidates for the homepage's
@@ -240,7 +331,7 @@ handlers, or continuous background animation. A short opacity reveal is disabled
 for reduced motion. The original photograph's aspect ratio is preserved; the
 viewport clips decorative outer edges without stretching the image.
 
-The fixed photo layer sits at z-index -2 inside the homepage's isolated body.
+The fixed photo layer sits at z-index -3 inside the homepage's isolated body, below banner dust at -2.
 The existing spotlight remains at -1 above it and below page content. Both are
 non-interactive; the photographic layer is inert and hidden from assistive
 technology. Strong left/center gradient scrims protect text and controls; cards,

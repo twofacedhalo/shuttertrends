@@ -53,10 +53,6 @@ body.home main .entry-content > section.has-surface-background-color {
 body.home #home-hero > .wp-block-cover {
   background-color: transparent;
 }
-/* This is the existing decorative abstract artwork, never a portfolio photograph. */
-body.home #home-hero .wp-block-cover__image-background {
-  opacity: .35;
-}
 
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
   .st-spotlight::before { opacity: calc(var(--st-spotlight-intensity) * .65); }

@@ -1,11 +1,11 @@
-/* Decorative editorial photographs: below spotlight (-1), above body charcoal. */
+/* Decorative photographs (-3), below banner dust (-2), spotlight (-1), and content. */
 body.home {
   --st-background-photo-opacity: .26;
 }
 .st-photo-background {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -3;
   overflow: hidden;
   pointer-events: none;
   contain: strict;
