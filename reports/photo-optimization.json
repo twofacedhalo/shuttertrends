@@ -121,26 +121,6 @@
     "creator_retained": false
   },
   {
-    "source": "graduation-day/IMG_1058.jpg",
-    "sha256": "4768c614fc50ff413a8fb7748f640b93986625dff1d12f55c4f98e32043f4403",
-    "original_width": 6000,
-    "original_height": 4000,
-    "oriented_width": 6000,
-    "oriented_height": 4000,
-    "original_bytes": 10297378,
-    "roles": [
-      "showcase"
-    ],
-    "file": "4768c614fc50ff413a8f-srgb-v1-q85-2000x1333.webp",
-    "width": 2000,
-    "height": 1333,
-    "bytes": 188796,
-    "savings_percent": 98.17,
-    "color": "Embedded ICC converted to sRGB",
-    "copyright_retained": false,
-    "creator_retained": false
-  },
-  {
     "source": "graduation-portraits/IMG_2926.jpg",
     "sha256": "ef0bb59db4193e1b230d1bdb5cc1b76224c2d15f8e0ef9b6c08a208e57b0e279",
     "original_width": 3053,
@@ -256,26 +236,6 @@
     "height": 2400,
     "bytes": 266734,
     "savings_percent": 96.83,
-    "color": "Embedded ICC converted to sRGB",
-    "copyright_retained": false,
-    "creator_retained": false
-  },
-  {
-    "source": "graduation-portraits/IMG_2943.jpg",
-    "sha256": "f8d1cb96d6dab9cd95a06af497fe4539f6161b0eaea3e151da92030c2a6166e7",
-    "original_width": 3087,
-    "original_height": 4631,
-    "oriented_width": 3087,
-    "oriented_height": 4631,
-    "original_bytes": 8409315,
-    "roles": [
-      "showcase"
-    ],
-    "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-1333x2000.webp",
-    "width": 1333,
-    "height": 2000,
-    "bytes": 203718,
-    "savings_percent": 97.58,
     "color": "Embedded ICC converted to sRGB",
     "copyright_retained": false,
     "creator_retained": false
@@ -401,26 +361,6 @@
     "creator_retained": false
   },
   {
-    "source": "graduation-portraits/IMG_3013.jpg",
-    "sha256": "bb19ef213a422a55d42f463e46e6dce68f21eabd91adbc783f2c6af10c92b43b",
-    "original_width": 3126,
-    "original_height": 4689,
-    "oriented_width": 3126,
-    "oriented_height": 4689,
-    "original_bytes": 10327308,
-    "roles": [
-      "showcase"
-    ],
-    "file": "bb19ef213a422a55d42f-srgb-v1-q85-1333x2000.webp",
-    "width": 1333,
-    "height": 2000,
-    "bytes": 198978,
-    "savings_percent": 98.07,
-    "color": "Embedded ICC converted to sRGB",
-    "copyright_retained": false,
-    "creator_retained": false
-  },
-  {
     "source": "graduation-portraits/IMG_3105.jpg",
     "sha256": "e539be46d0c88e952c654abf649440729c63211c810a0e5cc247bdbede88df95",
     "original_width": 4621,
@@ -476,26 +416,6 @@
     "height": 1600,
     "bytes": 353314,
     "savings_percent": 96.13,
-    "color": "Embedded ICC converted to sRGB",
-    "copyright_retained": false,
-    "creator_retained": false
-  },
-  {
-    "source": "graduation-portraits/IMG_3105.jpg",
-    "sha256": "e539be46d0c88e952c654abf649440729c63211c810a0e5cc247bdbede88df95",
-    "original_width": 4621,
-    "original_height": 3081,
-    "oriented_width": 4621,
-    "oriented_height": 3081,
-    "original_bytes": 9128421,
-    "roles": [
-      "showcase"
-    ],
-    "file": "e539be46d0c88e952c65-srgb-v1-q85-2000x1333.webp",
-    "width": 2000,
-    "height": 1333,
-    "bytes": 233574,
-    "savings_percent": 97.44,
     "color": "Embedded ICC converted to sRGB",
     "copyright_retained": false,
     "creator_retained": false
@@ -801,26 +721,6 @@
     "creator_retained": false
   },
   {
-    "source": "candid-portraits/IMG_1318.jpg",
-    "sha256": "6c4f818aefe9098d1be278a146e0f5e973448d152c371698292fae8eae7e9d7a",
-    "original_width": 6000,
-    "original_height": 4000,
-    "oriented_width": 6000,
-    "oriented_height": 4000,
-    "original_bytes": 20059665,
-    "roles": [
-      "showcase"
-    ],
-    "file": "6c4f818aefe9098d1be2-srgb-v1-q85-2000x1333.webp",
-    "width": 2000,
-    "height": 1333,
-    "bytes": 371296,
-    "savings_percent": 98.15,
-    "color": "Embedded ICC converted to sRGB",
-    "copyright_retained": false,
-    "creator_retained": false
-  },
-  {
     "source": "candid-portraits/IMG_1517.jpg",
     "sha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec",
     "original_width": 6000,
@@ -876,26 +776,6 @@
     "height": 1600,
     "bytes": 259482,
     "savings_percent": 98.68,
-    "color": "Embedded ICC converted to sRGB",
-    "copyright_retained": false,
-    "creator_retained": false
-  },
-  {
-    "source": "candid-portraits/IMG_1517.jpg",
-    "sha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec",
-    "original_width": 6000,
-    "original_height": 4000,
-    "oriented_width": 6000,
-    "oriented_height": 4000,
-    "original_bytes": 19717044,
-    "roles": [
-      "showcase"
-    ],
-    "file": "9d31e1875814f9fd3239-srgb-v1-q85-2000x1333.webp",
-    "width": 2000,
-    "height": 1333,
-    "bytes": 169348,
-    "savings_percent": 99.14,
     "color": "Embedded ICC converted to sRGB",
     "copyright_retained": false,
     "creator_retained": false
@@ -1856,6 +1736,528 @@
     "height": 2000,
     "bytes": 386802,
     "savings_percent": 97.62,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1190.jpg",
+    "sha256": "140ab71a21c8c8d3a899cf87ad863bef23880f581ba939f4017d753446600ff5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15494870,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "140ab71a21c8c8d3a899-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 56650,
+    "savings_percent": 99.63,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1190.jpg",
+    "sha256": "140ab71a21c8c8d3a899cf87ad863bef23880f581ba939f4017d753446600ff5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15494870,
+    "roles": [
+      "gallery"
+    ],
+    "file": "140ab71a21c8c8d3a899-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 211916,
+    "savings_percent": 98.63,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1190.jpg",
+    "sha256": "140ab71a21c8c8d3a899cf87ad863bef23880f581ba939f4017d753446600ff5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15494870,
+    "roles": [
+      "viewer"
+    ],
+    "file": "140ab71a21c8c8d3a899-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 379790,
+    "savings_percent": 97.55,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1190.jpg",
+    "sha256": "140ab71a21c8c8d3a899cf87ad863bef23880f581ba939f4017d753446600ff5",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 15494870,
+    "roles": [
+      "showcase"
+    ],
+    "file": "140ab71a21c8c8d3a899-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 296834,
+    "savings_percent": 98.08,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1216.jpg",
+    "sha256": "df02a3a171184950f89c86b9f18add3c693cc9ba5cf684747a67c34b573bd9f4",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16710125,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "df02a3a171184950f89c-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 55490,
+    "savings_percent": 99.67,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1216.jpg",
+    "sha256": "df02a3a171184950f89c86b9f18add3c693cc9ba5cf684747a67c34b573bd9f4",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16710125,
+    "roles": [
+      "gallery"
+    ],
+    "file": "df02a3a171184950f89c-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 226482,
+    "savings_percent": 98.64,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1216.jpg",
+    "sha256": "df02a3a171184950f89c86b9f18add3c693cc9ba5cf684747a67c34b573bd9f4",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16710125,
+    "roles": [
+      "viewer"
+    ],
+    "file": "df02a3a171184950f89c-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 403566,
+    "savings_percent": 97.58,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1216.jpg",
+    "sha256": "df02a3a171184950f89c86b9f18add3c693cc9ba5cf684747a67c34b573bd9f4",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16710125,
+    "roles": [
+      "showcase"
+    ],
+    "file": "df02a3a171184950f89c-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 319084,
+    "savings_percent": 98.09,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1226.jpg",
+    "sha256": "bd9ae67f5b652c0a765974cb2cf4e3dc174856e8ba9c33c3fb3d3269bccce263",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16303909,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 57572,
+    "savings_percent": 99.65,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1226.jpg",
+    "sha256": "bd9ae67f5b652c0a765974cb2cf4e3dc174856e8ba9c33c3fb3d3269bccce263",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16303909,
+    "roles": [
+      "gallery"
+    ],
+    "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-1600x1067.webp",
+    "width": 1600,
+    "height": 1067,
+    "bytes": 238806,
+    "savings_percent": 98.54,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1226.jpg",
+    "sha256": "bd9ae67f5b652c0a765974cb2cf4e3dc174856e8ba9c33c3fb3d3269bccce263",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16303909,
+    "roles": [
+      "viewer"
+    ],
+    "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-2400x1600.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 420238,
+    "savings_percent": 97.42,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "outdoor-gathering/IMG_1226.jpg",
+    "sha256": "bd9ae67f5b652c0a765974cb2cf4e3dc174856e8ba9c33c3fb3d3269bccce263",
+    "original_width": 6000,
+    "original_height": 4000,
+    "oriented_width": 6000,
+    "oriented_height": 4000,
+    "original_bytes": 16303909,
+    "roles": [
+      "showcase"
+    ],
+    "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-2000x1333.webp",
+    "width": 2000,
+    "height": 1333,
+    "bytes": 326906,
+    "savings_percent": 97.99,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "concert-color-light/IMG_6018.JPEG",
+    "sha256": "090ff61ac366abb9edc31946c731f41a93ae0eb88bced2c1b11fc7d79e9c3e16",
+    "original_width": 2048,
+    "original_height": 1536,
+    "oriented_width": 2048,
+    "oriented_height": 1536,
+    "original_bytes": 578611,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "090ff61ac366abb9edc3-srgb-v1-q85-600x450.webp",
+    "width": 600,
+    "height": 450,
+    "bytes": 30590,
+    "savings_percent": 94.71,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "concert-color-light/IMG_6018.JPEG",
+    "sha256": "090ff61ac366abb9edc31946c731f41a93ae0eb88bced2c1b11fc7d79e9c3e16",
+    "original_width": 2048,
+    "original_height": 1536,
+    "oriented_width": 2048,
+    "oriented_height": 1536,
+    "original_bytes": 578611,
+    "roles": [
+      "gallery"
+    ],
+    "file": "090ff61ac366abb9edc3-srgb-v1-q85-1600x1200.webp",
+    "width": 1600,
+    "height": 1200,
+    "bytes": 112406,
+    "savings_percent": 80.57,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "concert-color-light/IMG_6018.JPEG",
+    "sha256": "090ff61ac366abb9edc31946c731f41a93ae0eb88bced2c1b11fc7d79e9c3e16",
+    "original_width": 2048,
+    "original_height": 1536,
+    "oriented_width": 2048,
+    "oriented_height": 1536,
+    "original_bytes": 578611,
+    "roles": [
+      "viewer"
+    ],
+    "file": "090ff61ac366abb9edc3-srgb-v1-q85-2048x1536.webp",
+    "width": 2048,
+    "height": 1536,
+    "bytes": 156368,
+    "savings_percent": 72.98,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "concert-color-light/IMG_6018.JPEG",
+    "sha256": "090ff61ac366abb9edc31946c731f41a93ae0eb88bced2c1b11fc7d79e9c3e16",
+    "original_width": 2048,
+    "original_height": 1536,
+    "oriented_width": 2048,
+    "oriented_height": 1536,
+    "original_bytes": 578611,
+    "roles": [
+      "showcase"
+    ],
+    "file": "090ff61ac366abb9edc3-srgb-v1-q85-2000x1500.webp",
+    "width": 2000,
+    "height": 1500,
+    "bytes": 151670,
+    "savings_percent": 73.79,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "sparklers-celebration/IMG_6296.JPEG",
+    "sha256": "ebaef69c02bd5b5c39bf95a23bd5948fae6f1811d7d54435e73bf38bbd989c25",
+    "original_width": 1590,
+    "original_height": 1974,
+    "oriented_width": 1590,
+    "oriented_height": 1974,
+    "original_bytes": 473067,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-483x600.webp",
+    "width": 483,
+    "height": 600,
+    "bytes": 33276,
+    "savings_percent": 92.97,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "sparklers-celebration/IMG_6296.JPEG",
+    "sha256": "ebaef69c02bd5b5c39bf95a23bd5948fae6f1811d7d54435e73bf38bbd989c25",
+    "original_width": 1590,
+    "original_height": 1974,
+    "oriented_width": 1590,
+    "oriented_height": 1974,
+    "original_bytes": 473067,
+    "roles": [
+      "gallery"
+    ],
+    "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-1289x1600.webp",
+    "width": 1289,
+    "height": 1600,
+    "bytes": 120154,
+    "savings_percent": 74.6,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "sparklers-celebration/IMG_6296.JPEG",
+    "sha256": "ebaef69c02bd5b5c39bf95a23bd5948fae6f1811d7d54435e73bf38bbd989c25",
+    "original_width": 1590,
+    "original_height": 1974,
+    "oriented_width": 1590,
+    "oriented_height": 1974,
+    "original_bytes": 473067,
+    "roles": [
+      "viewer",
+      "showcase"
+    ],
+    "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-1590x1974.webp",
+    "width": 1590,
+    "height": 1974,
+    "bytes": 155394,
+    "savings_percent": 67.15,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6353.JPEG",
+    "sha256": "28cdef691ea0cd8f63530b05222060d9d0216894d431dd726103d988e7beff89",
+    "original_width": 1536,
+    "original_height": 2048,
+    "oriented_width": 1536,
+    "oriented_height": 2048,
+    "original_bytes": 777352,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "28cdef691ea0cd8f6353-srgb-v1-q85-450x600.webp",
+    "width": 450,
+    "height": 600,
+    "bytes": 57304,
+    "savings_percent": 92.63,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6353.JPEG",
+    "sha256": "28cdef691ea0cd8f63530b05222060d9d0216894d431dd726103d988e7beff89",
+    "original_width": 1536,
+    "original_height": 2048,
+    "oriented_width": 1536,
+    "oriented_height": 2048,
+    "original_bytes": 777352,
+    "roles": [
+      "gallery"
+    ],
+    "file": "28cdef691ea0cd8f6353-srgb-v1-q85-1200x1600.webp",
+    "width": 1200,
+    "height": 1600,
+    "bytes": 218784,
+    "savings_percent": 71.86,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6353.JPEG",
+    "sha256": "28cdef691ea0cd8f63530b05222060d9d0216894d431dd726103d988e7beff89",
+    "original_width": 1536,
+    "original_height": 2048,
+    "oriented_width": 1536,
+    "oriented_height": 2048,
+    "original_bytes": 777352,
+    "roles": [
+      "viewer"
+    ],
+    "file": "28cdef691ea0cd8f6353-srgb-v1-q85-1536x2048.webp",
+    "width": 1536,
+    "height": 2048,
+    "bytes": 293062,
+    "savings_percent": 62.3,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6353.JPEG",
+    "sha256": "28cdef691ea0cd8f63530b05222060d9d0216894d431dd726103d988e7beff89",
+    "original_width": 1536,
+    "original_height": 2048,
+    "oriented_width": 1536,
+    "oriented_height": 2048,
+    "original_bytes": 777352,
+    "roles": [
+      "showcase"
+    ],
+    "file": "28cdef691ea0cd8f6353-srgb-v1-q85-1500x2000.webp",
+    "width": 1500,
+    "height": 2000,
+    "bytes": 282818,
+    "savings_percent": 63.62,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6362.JPEG",
+    "sha256": "40f39f5d8c9338afc4abda68b6fecc7c93cc3b6cf55b4320878eab438ff26f25",
+    "original_width": 1676,
+    "original_height": 1876,
+    "oriented_width": 1676,
+    "oriented_height": 1876,
+    "original_bytes": 716122,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-536x600.webp",
+    "width": 536,
+    "height": 600,
+    "bytes": 45760,
+    "savings_percent": 93.61,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6362.JPEG",
+    "sha256": "40f39f5d8c9338afc4abda68b6fecc7c93cc3b6cf55b4320878eab438ff26f25",
+    "original_width": 1676,
+    "original_height": 1876,
+    "oriented_width": 1676,
+    "oriented_height": 1876,
+    "original_bytes": 716122,
+    "roles": [
+      "gallery"
+    ],
+    "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1429x1600.webp",
+    "width": 1429,
+    "height": 1600,
+    "bytes": 201678,
+    "savings_percent": 71.84,
+    "color": "Embedded ICC converted to sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "day-on-the-water/IMG_6362.JPEG",
+    "sha256": "40f39f5d8c9338afc4abda68b6fecc7c93cc3b6cf55b4320878eab438ff26f25",
+    "original_width": 1676,
+    "original_height": 1876,
+    "oriented_width": 1676,
+    "oriented_height": 1876,
+    "original_bytes": 716122,
+    "roles": [
+      "viewer",
+      "showcase"
+    ],
+    "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1676x1876.webp",
+    "width": 1676,
+    "height": 1876,
+    "bytes": 257946,
+    "savings_percent": 63.98,
     "color": "Embedded ICC converted to sRGB",
     "copyright_retained": false,
     "creator_retained": false

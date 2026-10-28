@@ -103,11 +103,6 @@ body.home .st-gallery__slide img { box-sizing:border-box; padding:calc(var(--st-
   body.home #home-hero .is-style-lead { font-size:1rem; line-height:1.65; }
   body.home #home-hero .wp-block-button__link { padding:12px 18px; font-size:.9rem; }
 }
-@media(max-width:360px) {
-  /* Keep the existing logo and menu usable even when their combined width grows. */
-  body.home .site-header > .is-layout-flex { flex-wrap:wrap; row-gap:12px; }
-  body.home .site-header nav { max-width:100%; }
-}
 @media(prefers-reduced-motion:reduce) {
   body.home #home-hero > .wp-block-cover::after,
   body.home .st-gallery__stage::after,

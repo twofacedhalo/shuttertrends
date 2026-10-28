@@ -14,6 +14,8 @@
     url: new URL(`collections/?id=${encodeURIComponent(c.id)}`, root).href,
     photos: (Array.isArray(c.photos) ? c.photos : []).filter(p => p && filename(p.file) && typeof p.alt === 'string' && p.alt.trim() && p.published !== false).map(p => ({
       ...p,
+      category: p.category || c.category,
+      categoryGroup: p.categoryGroup || c.categoryGroup || c.category,
       src: new URL(`assets/images/${c.folder}/${p.file}`, root).href,
       thumbnail: filename(p.thumbnail) ? new URL(`assets/images/${c.folder}/${p.thumbnail}`, root).href : null,
       collectionId: c.id,
@@ -45,8 +47,10 @@
   window.shutterTrendsPortfolio = collections;
   window.shutterTrendsCollection = category => collections.filter(c => c.id === category || c.category === category || (category === 'events' && c.category === 'concerts')).flatMap(c => c.photos);
   const seenIds = new Set(), seenSources = new Set();
+  const portraitCategory = value => typeof value === 'string' && /^portraits?(?:$|[-/:])/i.test(value.trim());
   const pool = collections.flatMap(c => c.photos).filter(p => {
-    if (p.showcase === false || (p.id && seenIds.has(p.id)) || seenSources.has(p.src)) return false;
+    if (portraitCategory(p.category) || portraitCategory(p.categoryGroup)) return false;
+    if ((p.carouselEligible ?? (p.showcase !== false)) === false || (p.id && seenIds.has(p.id)) || seenSources.has(p.src)) return false;
     if (p.id) seenIds.add(p.id);
     seenSources.add(p.src);
     return true;

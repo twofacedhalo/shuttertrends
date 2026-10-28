@@ -106,13 +106,21 @@ def main():
                 raise ValueError(f'Unsafe filename: {name}')
             key = folder + '/' + name
             job = jobs.setdefault(key, {'showcase': False})
-            job['showcase'] |= photo.get('showcase') is not False
+            category = photo.get('category', collection.get('category', ''))
+            group = photo.get('categoryGroup', collection.get('categoryGroup', collection.get('category', '')))
+            portrait = any(re.match(r'^portraits?(?:$|[-/:])', value, re.I) for value in (category, group) if isinstance(value, str))
+            job['showcase'] |= not portrait and photo.get('carouselEligible', photo.get('showcase') is not False) is not False
     manifest, rows = {}, []
     webp = features.check('webp')
     for key, job in jobs.items():
         source = original_root / key
         if not source.is_file() and import_root:
-            source = import_root / Path(key).name
+            matches = sorted(p for p in import_root.rglob('*') if p.is_file() and p.name.casefold() == Path(key).name.casefold())
+            if not matches:
+                raise FileNotFoundError('No private original found for ' + key)
+            if len(matches) > 1 and len({hashlib.sha256(p.read_bytes()).hexdigest() for p in matches}) > 1:
+                raise ValueError('Ambiguous original filename in import subfolders: ' + key)
+            source = matches[0]
         source_bytes = source.read_bytes()  # Missing sources fail before publishing a manifest.
         digest = hashlib.sha256(source_bytes).hexdigest()
         with Image.open(io.BytesIO(source_bytes)) as original:

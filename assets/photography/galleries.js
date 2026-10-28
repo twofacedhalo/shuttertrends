@@ -87,7 +87,7 @@
     const heading = document.querySelector('[data-st-detail-heading]');
     if (collection) {
       heading.textContent = collection.title;
-      document.title = `${collection.title} – ShutterTrends`;
+      document.title = `${collection.title} – ShutterTrend`;
       detail.replaceChildren();
       if (collection.description) detail.append(text('p', collection.description, 'st-collection__description'));
       if (collection.date || collection.location) detail.append(text('p', [collection.date, collection.location].filter(Boolean).join(' · '), 'st-collection__details'));

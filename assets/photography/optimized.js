@@ -44,12 +44,6 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 239662
-    },
-    "showcase": {
-      "file": "4768c614fc50ff413a8f-srgb-v1-q85-2000x1333.webp",
-      "width": 2000,
-      "height": 1333,
-      "bytes": 188796
     }
   },
   "graduation-portraits/IMG_2926.jpg": {
@@ -90,12 +84,6 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 266734
-    },
-    "showcase": {
-      "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-1333x2000.webp",
-      "width": 1333,
-      "height": 2000,
-      "bytes": 203718
     }
   },
   "graduation-portraits/IMG_2990.jpg": {
@@ -136,12 +124,6 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 267674
-    },
-    "showcase": {
-      "file": "bb19ef213a422a55d42f-srgb-v1-q85-1333x2000.webp",
-      "width": 1333,
-      "height": 2000,
-      "bytes": 198978
     }
   },
   "graduation-portraits/IMG_3105.jpg": {
@@ -162,12 +144,6 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 353314
-    },
-    "showcase": {
-      "file": "e539be46d0c88e952c65-srgb-v1-q85-2000x1333.webp",
-      "width": 2000,
-      "height": 1333,
-      "bytes": 233574
     }
   },
   "candid-portraits/IMG_1275.jpg": {
@@ -268,12 +244,6 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 465310
-    },
-    "showcase": {
-      "file": "6c4f818aefe9098d1be2-srgb-v1-q85-2000x1333.webp",
-      "width": 2000,
-      "height": 1333,
-      "bytes": 371296
     }
   },
   "candid-portraits/IMG_1517.jpg": {
@@ -294,12 +264,6 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 259482
-    },
-    "showcase": {
-      "file": "9d31e1875814f9fd3239-srgb-v1-q85-2000x1333.webp",
-      "width": 2000,
-      "height": 1333,
-      "bytes": 169348
     }
   },
   "community-atrium/IMG_1769.jpg": {
@@ -616,6 +580,188 @@ window.shutterTrendsOptimized = {
       "width": 1333,
       "height": 2000,
       "bytes": 386802
+    }
+  },
+  "outdoor-gathering/IMG_1190.jpg": {
+    "thumbnail": {
+      "file": "140ab71a21c8c8d3a899-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 56650
+    },
+    "gallery": {
+      "file": "140ab71a21c8c8d3a899-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 211916
+    },
+    "viewer": {
+      "file": "140ab71a21c8c8d3a899-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 379790
+    },
+    "showcase": {
+      "file": "140ab71a21c8c8d3a899-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 296834
+    }
+  },
+  "outdoor-gathering/IMG_1216.jpg": {
+    "thumbnail": {
+      "file": "df02a3a171184950f89c-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 55490
+    },
+    "gallery": {
+      "file": "df02a3a171184950f89c-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 226482
+    },
+    "viewer": {
+      "file": "df02a3a171184950f89c-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 403566
+    },
+    "showcase": {
+      "file": "df02a3a171184950f89c-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 319084
+    }
+  },
+  "outdoor-gathering/IMG_1226.jpg": {
+    "thumbnail": {
+      "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 57572
+    },
+    "gallery": {
+      "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 238806
+    },
+    "viewer": {
+      "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 420238
+    },
+    "showcase": {
+      "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 326906
+    }
+  },
+  "concert-color-light/IMG_6018.JPEG": {
+    "thumbnail": {
+      "file": "090ff61ac366abb9edc3-srgb-v1-q85-600x450.webp",
+      "width": 600,
+      "height": 450,
+      "bytes": 30590
+    },
+    "gallery": {
+      "file": "090ff61ac366abb9edc3-srgb-v1-q85-1600x1200.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 112406
+    },
+    "viewer": {
+      "file": "090ff61ac366abb9edc3-srgb-v1-q85-2048x1536.webp",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 156368
+    },
+    "showcase": {
+      "file": "090ff61ac366abb9edc3-srgb-v1-q85-2000x1500.webp",
+      "width": 2000,
+      "height": 1500,
+      "bytes": 151670
+    }
+  },
+  "sparklers-celebration/IMG_6296.JPEG": {
+    "thumbnail": {
+      "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-483x600.webp",
+      "width": 483,
+      "height": 600,
+      "bytes": 33276
+    },
+    "gallery": {
+      "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-1289x1600.webp",
+      "width": 1289,
+      "height": 1600,
+      "bytes": 120154
+    },
+    "viewer": {
+      "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-1590x1974.webp",
+      "width": 1590,
+      "height": 1974,
+      "bytes": 155394
+    },
+    "showcase": {
+      "file": "ebaef69c02bd5b5c39bf-srgb-v1-q85-1590x1974.webp",
+      "width": 1590,
+      "height": 1974,
+      "bytes": 155394
+    }
+  },
+  "day-on-the-water/IMG_6353.JPEG": {
+    "thumbnail": {
+      "file": "28cdef691ea0cd8f6353-srgb-v1-q85-450x600.webp",
+      "width": 450,
+      "height": 600,
+      "bytes": 57304
+    },
+    "gallery": {
+      "file": "28cdef691ea0cd8f6353-srgb-v1-q85-1200x1600.webp",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 218784
+    },
+    "viewer": {
+      "file": "28cdef691ea0cd8f6353-srgb-v1-q85-1536x2048.webp",
+      "width": 1536,
+      "height": 2048,
+      "bytes": 293062
+    },
+    "showcase": {
+      "file": "28cdef691ea0cd8f6353-srgb-v1-q85-1500x2000.webp",
+      "width": 1500,
+      "height": 2000,
+      "bytes": 282818
+    }
+  },
+  "day-on-the-water/IMG_6362.JPEG": {
+    "thumbnail": {
+      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-536x600.webp",
+      "width": 536,
+      "height": 600,
+      "bytes": 45760
+    },
+    "gallery": {
+      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1429x1600.webp",
+      "width": 1429,
+      "height": 1600,
+      "bytes": 201678
+    },
+    "viewer": {
+      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1676x1876.webp",
+      "width": 1676,
+      "height": 1876,
+      "bytes": 257946
+    },
+    "showcase": {
+      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1676x1876.webp",
+      "width": 1676,
+      "height": 1876,
+      "bytes": 257946
     }
   }
 };

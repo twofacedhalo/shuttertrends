@@ -1,4 +1,4 @@
-# ShutterTrends photo guide
+# ShutterTrend photo guide
 
 ## 1. File structure
 
@@ -205,6 +205,22 @@ Full collection thumbnails select/focus the large viewer; modified clicks still
 open the optimized image URL. The Open larger photograph link opens the large
 optimized version. Thumbnail grids retain natural image proportions and logical
 reading order, so vertical images can be taller without forced cropping.
+
+## Shared ShutterTrend header
+
+All 11 exported pages use the local shared header and singular visible branding.
+The repository and public URL remain `shuttertrends`; do not rename those paths.
+The new header is independent of the exported WordPress navigation scripts/styles.
+Desktop navigation is one compact row; tablet/mobile uses one accessible toggle
+and dark panel. The inline SVG aperture/viewfinder logo links to the homepage.
+Current pages are highlighted, and logo motion respects reduced-motion settings.
+
+Header sources and settings are in `assets/header/header.css`, `header.js`
+and `logo-mark.svg`. To change the shared links or wordmark, edit
+`tools/update_header.cjs` and run `node tools/update_header.cjs` from the repo,
+then review the generated HTML changes. This is only a local maintenance helper;
+GitHub Pages serves the finished static files without Node or WordPress.
+Details and keyboard/preview instructions: `assets/header/README.md`.
 
 ## Camera viewfinder styling
 

@@ -1,7 +1,5 @@
-// PHOTO MANIFEST — see PHOTO-GUIDE.md. Array order controls collection/photo order.
-// After adding photos, run: py tools/optimize_photos.py
-// Original import paths are private local settings in tools/photo-sources.local.json.
-// Only backgroundEligible: true photos can become decorative homepage backgrounds.
+// PHOTO MANIFEST — see PHOTO-GUIDE.md. All originals remain outside the public site.
+// carouselEligible affects only the homepage carousel; backgroundEligible is independent.
 window.shutterTrendsCollections = [
   {
     "id": "lynchburg",
@@ -27,7 +25,8 @@ window.shutterTrendsCollections = [
         "title": "Live performance",
         "width": 2000,
         "height": 1333,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": true
       }
     ]
   },
@@ -38,7 +37,8 @@ window.shutterTrendsCollections = [
     "category": "portraits",
     "folder": "portraits",
     "published": false,
-    "photos": []
+    "photos": [],
+    "categoryGroup": "portraits"
   },
   {
     "id": "weddings",
@@ -64,9 +64,11 @@ window.shutterTrendsCollections = [
         "alt": "A smiling graduate wearing a cap, gown, and flower leis among a crowd outdoors.",
         "width": 6000,
         "height": 4000,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": false
       }
-    ]
+    ],
+    "categoryGroup": "portraits"
   },
   {
     "id": "graduation-portraits",
@@ -84,7 +86,8 @@ window.shutterTrendsCollections = [
         "width": 3053,
         "height": 4580,
         "showcase": false,
-        "backgroundEligible": true
+        "backgroundEligible": true,
+        "carouselEligible": false
       },
       {
         "id": "import-img-2943",
@@ -93,7 +96,8 @@ window.shutterTrendsCollections = [
         "alt": "A graduate raises a decorated cap beside a brick building.",
         "width": 3087,
         "height": 4631,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": false
       },
       {
         "id": "import-img-2990",
@@ -102,7 +106,8 @@ window.shutterTrendsCollections = [
         "alt": "A graduate in a blue gown leans toward a dog while seated on a lawn.",
         "width": 2850,
         "height": 4275,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-3013",
@@ -111,7 +116,8 @@ window.shutterTrendsCollections = [
         "alt": "A smiling graduate holds a dog dressed in a small graduation outfit outdoors.",
         "width": 3126,
         "height": 4689,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": false
       },
       {
         "id": "import-img-3105",
@@ -120,9 +126,11 @@ window.shutterTrendsCollections = [
         "alt": "Two people lean toward a dog held between them on a grassy lawn.",
         "width": 4621,
         "height": 3081,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": false
       }
-    ]
+    ],
+    "categoryGroup": "portraits"
   },
   {
     "id": "candid-portraits",
@@ -139,7 +147,8 @@ window.shutterTrendsCollections = [
         "alt": "Two people standing together on a sidewalk beside a brick building.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-1290",
@@ -148,7 +157,8 @@ window.shutterTrendsCollections = [
         "alt": "Two people talking indoors beside a painting and a table.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-1293",
@@ -157,7 +167,8 @@ window.shutterTrendsCollections = [
         "alt": "A seated person wearing a baseball cap smiles during an indoor gathering.",
         "width": 5710,
         "height": 3807,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-1295",
@@ -166,7 +177,8 @@ window.shutterTrendsCollections = [
         "alt": "A person leaning against a wall at an indoor gathering, with seated guests behind.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-1318",
@@ -176,7 +188,8 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": true,
-        "backgroundEligible": true
+        "backgroundEligible": true,
+        "carouselEligible": false
       },
       {
         "id": "import-img-1517",
@@ -186,9 +199,11 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": true,
-        "backgroundEligible": true
+        "backgroundEligible": true,
+        "carouselEligible": false
       }
-    ]
+    ],
+    "categoryGroup": "portraits"
   },
   {
     "id": "community-atrium",
@@ -205,7 +220,8 @@ window.shutterTrendsCollections = [
         "alt": "People interacting with red-shirted event staff in a bright brick-walled atrium.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-1783",
@@ -214,7 +230,8 @@ window.shutterTrendsCollections = [
         "alt": "A wide view of an atrium with people, reclining chairs, and event tables.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       }
     ]
   },
@@ -233,7 +250,8 @@ window.shutterTrendsCollections = [
         "alt": "A smiling person holds a tray of cupcakes during an indoor gathering.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-2108",
@@ -242,7 +260,8 @@ window.shutterTrendsCollections = [
         "alt": "Two people look toward the camera in a warmly lit room during a gathering.",
         "width": 6000,
         "height": 4000,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       }
     ]
   },
@@ -262,7 +281,8 @@ window.shutterTrendsCollections = [
         "width": 5061,
         "height": 3374,
         "showcase": true,
-        "backgroundEligible": true
+        "backgroundEligible": true,
+        "carouselEligible": true
       },
       {
         "id": "import-img-3415",
@@ -271,7 +291,8 @@ window.shutterTrendsCollections = [
         "alt": "An upright bassist and a guitarist perform beside microphones under an outdoor canopy.",
         "width": 4000,
         "height": 6000,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": true
       },
       {
         "id": "import-img-3456",
@@ -280,7 +301,8 @@ window.shutterTrendsCollections = [
         "alt": "Audience members watch musicians performing under a canopy from a picnic table.",
         "width": 4330,
         "height": 2887,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       }
     ]
   },
@@ -299,7 +321,8 @@ window.shutterTrendsCollections = [
         "alt": "A band performs under purple lighting with audience silhouettes in the foreground.",
         "width": 4734,
         "height": 3156,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-3883",
@@ -309,7 +332,8 @@ window.shutterTrendsCollections = [
         "width": 5854,
         "height": 1849,
         "showcase": true,
-        "backgroundEligible": true
+        "backgroundEligible": true,
+        "carouselEligible": true
       },
       {
         "id": "import-img-4035",
@@ -318,7 +342,8 @@ window.shutterTrendsCollections = [
         "alt": "A vocalist holds a microphone while performing under purple lighting.",
         "width": 3236,
         "height": 4854,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       }
     ]
   },
@@ -337,7 +362,8 @@ window.shutterTrendsCollections = [
         "alt": "A guitarist and drummer perform outdoors beside brick buildings.",
         "width": 2429,
         "height": 3239,
-        "showcase": false
+        "showcase": false,
+        "carouselEligible": false
       },
       {
         "id": "import-img-4409",
@@ -346,7 +372,8 @@ window.shutterTrendsCollections = [
         "alt": "A panoramic view of musicians performing outdoors on a street beside brick buildings.",
         "width": 5244,
         "height": 1656,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": true
       }
     ]
   },
@@ -365,7 +392,8 @@ window.shutterTrendsCollections = [
         "alt": "A couple in wedding attire lean their foreheads together in a garden at sunset.",
         "width": 6000,
         "height": 4000,
-        "showcase": true
+        "showcase": true,
+        "carouselEligible": true
       },
       {
         "id": "import-img-6412",
@@ -375,15 +403,132 @@ window.shutterTrendsCollections = [
         "width": 4000,
         "height": 6000,
         "showcase": true,
-        "backgroundEligible": true
+        "backgroundEligible": true,
+        "carouselEligible": true
+      }
+    ]
+  },
+  {
+    "id": "outdoor-gathering",
+    "title": "Outdoor Gathering",
+    "description": "Candid conversations and shared moments at an outdoor gathering.",
+    "category": "events",
+    "folder": "outdoor-gathering",
+    "published": true,
+    "classificationNote": "Descriptive working title. Event name, date and location need confirmation.",
+    "photos": [
+      {
+        "id": "import-140ab71a21c8",
+        "file": "IMG_1190.jpg",
+        "title": "A Shared Afternoon",
+        "alt": "Two people smile together near colorful banners and wooden booths at an outdoor gathering.",
+        "width": 6000,
+        "height": 4000,
+        "carouselEligible": true,
+        "backgroundEligible": false
+      },
+      {
+        "id": "import-df02a3a17118",
+        "file": "IMG_1216.jpg",
+        "title": "Raising a Glass",
+        "alt": "People holding drinks smile toward the camera beneath colorful outdoor canopies.",
+        "width": 6000,
+        "height": 4000,
+        "carouselEligible": true,
+        "backgroundEligible": false
+      },
+      {
+        "id": "import-bd9ae67f5b65",
+        "file": "IMG_1226.jpg",
+        "title": "Among Friends",
+        "alt": "A group of people look toward the side beside a wooden booth and canopy outdoors.",
+        "width": 6000,
+        "height": 4000,
+        "carouselEligible": true,
+        "backgroundEligible": false
+      }
+    ]
+  },
+  {
+    "id": "concert-color-light",
+    "title": "Concert — Color & Light",
+    "description": "A crowd and stage filled with colorful beams of light.",
+    "category": "concerts",
+    "folder": "concert-color-light",
+    "published": true,
+    "classificationNote": "Descriptive working title. Event name, date and location need confirmation.",
+    "photos": [
+      {
+        "id": "import-090ff61ac366",
+        "file": "IMG_6018.JPEG",
+        "title": "Color & Light",
+        "alt": "An audience watches a concert stage illuminated by colorful beams of light.",
+        "width": 2048,
+        "height": 1536,
+        "carouselEligible": true,
+        "backgroundEligible": false
+      }
+    ]
+  },
+  {
+    "id": "sparklers-celebration",
+    "title": "A Sparkler Celebration",
+    "description": "A close moment illuminated by handheld sparklers.",
+    "category": "personal-events",
+    "folder": "sparklers-celebration",
+    "published": true,
+    "classificationNote": "Descriptive working title. Event name, date and location need confirmation.",
+    "photos": [
+      {
+        "id": "import-ebaef69c02bd",
+        "file": "IMG_6296.JPEG",
+        "title": "A Sparkler Moment",
+        "alt": "Two people share a kiss while holding sparklers in a dimly lit setting.",
+        "width": 1590,
+        "height": 1974,
+        "carouselEligible": true,
+        "backgroundEligible": false
+      }
+    ]
+  },
+  {
+    "id": "day-on-the-water",
+    "title": "A Day on the Water",
+    "description": "Relaxed company, open water, and summer skies.",
+    "category": "personal-events",
+    "folder": "day-on-the-water",
+    "published": true,
+    "classificationNote": "Descriptive working title. Event name, date and location need confirmation.",
+    "photos": [
+      {
+        "id": "import-28cdef691ea0",
+        "file": "IMG_6353.JPEG",
+        "title": "On the Water",
+        "alt": "Two people sit together on a boat with open water and a wooded shoreline behind them.",
+        "width": 1536,
+        "height": 2048,
+        "carouselEligible": true,
+        "backgroundEligible": false
+      },
+      {
+        "id": "import-40f39f5d8c93",
+        "file": "IMG_6362.JPEG",
+        "title": "Under Open Skies",
+        "alt": "People relax on a boat beneath a blue sky, with wooded hills beyond the water.",
+        "width": 1676,
+        "height": 1876,
+        "carouselEligible": true,
+        "backgroundEligible": false
       }
     ]
   }
 ];
 
-// Homepage category photographs: use one or two existing published photo IDs per card.
-// Array order is display order. These choices do not affect showcase/background eligibility.
 window.shutterTrendsHomeFeatures = {
-  events: ['import-img-3355'],
-  personal: ['import-img-3105']
+  "events": [
+    "import-img-3355"
+  ],
+  "personal": [
+    "import-img-3105"
+  ]
 };

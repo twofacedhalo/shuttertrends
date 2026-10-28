@@ -12,25 +12,21 @@ Savings compare each derivative with its source, not the total repository size. 
 | graduation-day/IMG_1058.jpg | 6000 × 4000 | 10,297,378 | thumbnail | 600 × 400 | 42,182 | 99.59% |
 | graduation-day/IMG_1058.jpg | 6000 × 4000 | 10,297,378 | gallery | 1600 × 1067 | 141,366 | 98.63% |
 | graduation-day/IMG_1058.jpg | 6000 × 4000 | 10,297,378 | viewer | 2400 × 1600 | 239,662 | 97.67% |
-| graduation-day/IMG_1058.jpg | 6000 × 4000 | 10,297,378 | showcase | 2000 × 1333 | 188,796 | 98.17% |
 | graduation-portraits/IMG_2926.jpg | 3053 × 4580 | 15,723,604 | thumbnail | 400 × 600 | 98,454 | 99.37% |
 | graduation-portraits/IMG_2926.jpg | 3053 × 4580 | 15,723,604 | gallery | 1067 × 1600 | 587,948 | 96.26% |
 | graduation-portraits/IMG_2926.jpg | 3053 × 4580 | 15,723,604 | viewer | 1600 × 2400 | 1,105,766 | 92.97% |
 | graduation-portraits/IMG_2943.jpg | 3087 × 4631 | 8,409,315 | thumbnail | 400 × 600 | 38,302 | 99.54% |
 | graduation-portraits/IMG_2943.jpg | 3087 × 4631 | 8,409,315 | gallery | 1067 × 1600 | 148,958 | 98.23% |
 | graduation-portraits/IMG_2943.jpg | 3087 × 4631 | 8,409,315 | viewer | 1600 × 2400 | 266,734 | 96.83% |
-| graduation-portraits/IMG_2943.jpg | 3087 × 4631 | 8,409,315 | showcase | 1333 × 2000 | 203,718 | 97.58% |
 | graduation-portraits/IMG_2990.jpg | 2850 × 4275 | 7,671,481 | thumbnail | 400 × 600 | 33,010 | 99.57% |
 | graduation-portraits/IMG_2990.jpg | 2850 × 4275 | 7,671,481 | gallery | 1067 × 1600 | 182,614 | 97.62% |
 | graduation-portraits/IMG_2990.jpg | 2850 × 4275 | 7,671,481 | viewer | 1600 × 2400 | 372,598 | 95.14% |
 | graduation-portraits/IMG_3013.jpg | 3126 × 4689 | 10,327,308 | thumbnail | 400 × 600 | 33,494 | 99.68% |
 | graduation-portraits/IMG_3013.jpg | 3126 × 4689 | 10,327,308 | gallery | 1067 × 1600 | 140,324 | 98.64% |
 | graduation-portraits/IMG_3013.jpg | 3126 × 4689 | 10,327,308 | viewer | 1600 × 2400 | 267,674 | 97.41% |
-| graduation-portraits/IMG_3013.jpg | 3126 × 4689 | 10,327,308 | showcase | 1333 × 2000 | 198,978 | 98.07% |
 | graduation-portraits/IMG_3105.jpg | 4621 × 3081 | 9,128,421 | thumbnail | 600 × 400 | 29,688 | 99.67% |
 | graduation-portraits/IMG_3105.jpg | 4621 × 3081 | 9,128,421 | gallery | 1600 × 1067 | 154,014 | 98.31% |
 | graduation-portraits/IMG_3105.jpg | 4621 × 3081 | 9,128,421 | viewer | 2400 × 1600 | 353,314 | 96.13% |
-| graduation-portraits/IMG_3105.jpg | 4621 × 3081 | 9,128,421 | showcase | 2000 × 1333 | 233,574 | 97.44% |
 | candid-portraits/IMG_1275.jpg | 6000 × 4000 | 12,298,979 | thumbnail | 600 × 400 | 50,804 | 99.59% |
 | candid-portraits/IMG_1275.jpg | 6000 × 4000 | 12,298,979 | gallery | 1600 × 1067 | 236,400 | 98.08% |
 | candid-portraits/IMG_1275.jpg | 6000 × 4000 | 12,298,979 | viewer | 2400 × 1600 | 411,584 | 96.65% |
@@ -46,11 +42,9 @@ Savings compare each derivative with its source, not the total repository size. 
 | candid-portraits/IMG_1318.jpg | 6000 × 4000 | 20,059,665 | thumbnail | 600 × 400 | 65,332 | 99.67% |
 | candid-portraits/IMG_1318.jpg | 6000 × 4000 | 20,059,665 | gallery | 1600 × 1067 | 277,110 | 98.62% |
 | candid-portraits/IMG_1318.jpg | 6000 × 4000 | 20,059,665 | viewer | 2400 × 1600 | 465,310 | 97.68% |
-| candid-portraits/IMG_1318.jpg | 6000 × 4000 | 20,059,665 | showcase | 2000 × 1333 | 371,296 | 98.15% |
 | candid-portraits/IMG_1517.jpg | 6000 × 4000 | 19,717,044 | thumbnail | 600 × 400 | 23,542 | 99.88% |
 | candid-portraits/IMG_1517.jpg | 6000 × 4000 | 19,717,044 | gallery | 1600 × 1067 | 112,486 | 99.43% |
 | candid-portraits/IMG_1517.jpg | 6000 × 4000 | 19,717,044 | viewer | 2400 × 1600 | 259,482 | 98.68% |
-| candid-portraits/IMG_1517.jpg | 6000 × 4000 | 19,717,044 | showcase | 2000 × 1333 | 169,348 | 99.14% |
 | community-atrium/IMG_1769.jpg | 6000 × 4000 | 16,506,092 | thumbnail | 600 × 400 | 50,592 | 99.69% |
 | community-atrium/IMG_1769.jpg | 6000 × 4000 | 16,506,092 | gallery | 1600 × 1067 | 185,814 | 98.87% |
 | community-atrium/IMG_1769.jpg | 6000 × 4000 | 16,506,092 | viewer | 2400 × 1600 | 318,070 | 98.07% |
@@ -99,6 +93,32 @@ Savings compare each derivative with its source, not the total repository size. 
 | wedding-portraits/IMG_6412.jpg | 4000 × 6000 | 16,275,220 | gallery | 1067 × 1600 | 247,452 | 98.48% |
 | wedding-portraits/IMG_6412.jpg | 4000 × 6000 | 16,275,220 | viewer | 1600 × 2400 | 555,270 | 96.59% |
 | wedding-portraits/IMG_6412.jpg | 4000 × 6000 | 16,275,220 | showcase | 1333 × 2000 | 386,802 | 97.62% |
+| outdoor-gathering/IMG_1190.jpg | 6000 × 4000 | 15,494,870 | thumbnail | 600 × 400 | 56,650 | 99.63% |
+| outdoor-gathering/IMG_1190.jpg | 6000 × 4000 | 15,494,870 | gallery | 1600 × 1067 | 211,916 | 98.63% |
+| outdoor-gathering/IMG_1190.jpg | 6000 × 4000 | 15,494,870 | viewer | 2400 × 1600 | 379,790 | 97.55% |
+| outdoor-gathering/IMG_1190.jpg | 6000 × 4000 | 15,494,870 | showcase | 2000 × 1333 | 296,834 | 98.08% |
+| outdoor-gathering/IMG_1216.jpg | 6000 × 4000 | 16,710,125 | thumbnail | 600 × 400 | 55,490 | 99.67% |
+| outdoor-gathering/IMG_1216.jpg | 6000 × 4000 | 16,710,125 | gallery | 1600 × 1067 | 226,482 | 98.64% |
+| outdoor-gathering/IMG_1216.jpg | 6000 × 4000 | 16,710,125 | viewer | 2400 × 1600 | 403,566 | 97.58% |
+| outdoor-gathering/IMG_1216.jpg | 6000 × 4000 | 16,710,125 | showcase | 2000 × 1333 | 319,084 | 98.09% |
+| outdoor-gathering/IMG_1226.jpg | 6000 × 4000 | 16,303,909 | thumbnail | 600 × 400 | 57,572 | 99.65% |
+| outdoor-gathering/IMG_1226.jpg | 6000 × 4000 | 16,303,909 | gallery | 1600 × 1067 | 238,806 | 98.54% |
+| outdoor-gathering/IMG_1226.jpg | 6000 × 4000 | 16,303,909 | viewer | 2400 × 1600 | 420,238 | 97.42% |
+| outdoor-gathering/IMG_1226.jpg | 6000 × 4000 | 16,303,909 | showcase | 2000 × 1333 | 326,906 | 97.99% |
+| concert-color-light/IMG_6018.JPEG | 2048 × 1536 | 578,611 | thumbnail | 600 × 450 | 30,590 | 94.71% |
+| concert-color-light/IMG_6018.JPEG | 2048 × 1536 | 578,611 | gallery | 1600 × 1200 | 112,406 | 80.57% |
+| concert-color-light/IMG_6018.JPEG | 2048 × 1536 | 578,611 | viewer | 2048 × 1536 | 156,368 | 72.98% |
+| concert-color-light/IMG_6018.JPEG | 2048 × 1536 | 578,611 | showcase | 2000 × 1500 | 151,670 | 73.79% |
+| sparklers-celebration/IMG_6296.JPEG | 1590 × 1974 | 473,067 | thumbnail | 483 × 600 | 33,276 | 92.97% |
+| sparklers-celebration/IMG_6296.JPEG | 1590 × 1974 | 473,067 | gallery | 1289 × 1600 | 120,154 | 74.6% |
+| sparklers-celebration/IMG_6296.JPEG | 1590 × 1974 | 473,067 | viewer, showcase | 1590 × 1974 | 155,394 | 67.15% |
+| day-on-the-water/IMG_6353.JPEG | 1536 × 2048 | 777,352 | thumbnail | 450 × 600 | 57,304 | 92.63% |
+| day-on-the-water/IMG_6353.JPEG | 1536 × 2048 | 777,352 | gallery | 1200 × 1600 | 218,784 | 71.86% |
+| day-on-the-water/IMG_6353.JPEG | 1536 × 2048 | 777,352 | viewer | 1536 × 2048 | 293,062 | 62.3% |
+| day-on-the-water/IMG_6353.JPEG | 1536 × 2048 | 777,352 | showcase | 1500 × 2000 | 282,818 | 63.62% |
+| day-on-the-water/IMG_6362.JPEG | 1676 × 1876 | 716,122 | thumbnail | 536 × 600 | 45,760 | 93.61% |
+| day-on-the-water/IMG_6362.JPEG | 1676 × 1876 | 716,122 | gallery | 1429 × 1600 | 201,678 | 71.84% |
+| day-on-the-water/IMG_6362.JPEG | 1676 × 1876 | 716,122 | viewer, showcase | 1676 × 1876 | 257,946 | 63.98% |
 
 ## Source verification and color handling
 
@@ -129,5 +149,12 @@ Savings compare each derivative with its source, not the total repository size. 
 - `street-side-live-music/IMG_4409.jpg`: Embedded ICC converted to sRGB. SHA-256 unchanged: `3ca6ca165c262d997452f6955cce0951f1dddc570c5562a8c8712b9c7c5fdaa4`. Copyright present/retained: False; creator present/retained: False.
 - `wedding-portraits/IMG_6390.jpg`: Embedded ICC converted to sRGB. SHA-256 unchanged: `9b290bb198e9cfff3b6d4008327fa2ce69a84b2aee07a8f20943097b97743f6f`. Copyright present/retained: False; creator present/retained: False.
 - `wedding-portraits/IMG_6412.jpg`: Embedded ICC converted to sRGB. SHA-256 unchanged: `90a91db5d642c80ff744f6b52c5ff283b1608eb361a9961ad04937f3051492ad`. Copyright present/retained: False; creator present/retained: False.
+- `outdoor-gathering/IMG_1190.jpg`: Embedded ICC converted to sRGB. SHA-256 unchanged: `140ab71a21c8c8d3a899cf87ad863bef23880f581ba939f4017d753446600ff5`. Copyright present/retained: False; creator present/retained: False.
+- `outdoor-gathering/IMG_1216.jpg`: Embedded ICC converted to sRGB. SHA-256 unchanged: `df02a3a171184950f89c86b9f18add3c693cc9ba5cf684747a67c34b573bd9f4`. Copyright present/retained: False; creator present/retained: False.
+- `outdoor-gathering/IMG_1226.jpg`: Embedded ICC converted to sRGB. SHA-256 unchanged: `bd9ae67f5b652c0a765974cb2cf4e3dc174856e8ba9c33c3fb3d3269bccce263`. Copyright present/retained: False; creator present/retained: False.
+- `concert-color-light/IMG_6018.JPEG`: Embedded ICC converted to sRGB. SHA-256 unchanged: `090ff61ac366abb9edc31946c731f41a93ae0eb88bced2c1b11fc7d79e9c3e16`. Copyright present/retained: False; creator present/retained: False.
+- `sparklers-celebration/IMG_6296.JPEG`: Embedded ICC converted to sRGB. SHA-256 unchanged: `ebaef69c02bd5b5c39bf95a23bd5948fae6f1811d7d54435e73bf38bbd989c25`. Copyright present/retained: False; creator present/retained: False.
+- `day-on-the-water/IMG_6353.JPEG`: Embedded ICC converted to sRGB. SHA-256 unchanged: `28cdef691ea0cd8f63530b05222060d9d0216894d431dd726103d988e7beff89`. Copyright present/retained: False; creator present/retained: False.
+- `day-on-the-water/IMG_6362.JPEG`: Embedded ICC converted to sRGB. SHA-256 unchanged: `40f39f5d8c9338afc4abda68b6fecc7c93cc3b6cf55b4320878eab438ff26f25`. Copyright present/retained: False; creator present/retained: False.
 
 Equal-size roles share a file. No originals were moved or deleted. Old generated outputs are never automatically deleted.
