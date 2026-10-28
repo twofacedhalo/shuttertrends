@@ -1,6 +1,6 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
-  homepageCarousel: { excludePortraits: false }, // All published photographs can appear.
+  homepageCarousel: { allowedCategories: ['weddings', 'events', 'concerts', 'personal-events', 'lynchburg'] }, // Weddings and events only; backgrounds remain independent.
   contact: {
     email: 'douglasrendlesiii@gmail.com',
     formEndpoint: 'https://formspree.io/f/xbggyrpq' // Owner-provided public form endpoint; notifications are configured in Formspree.

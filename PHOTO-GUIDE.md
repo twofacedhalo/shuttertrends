@@ -1,3 +1,5 @@
+> Current carousel policy: only weddings and events (including concerts, community gatherings and personal events) are eligible. Edit `homepageCarousel.allowedCategories` in `assets/site-config.js`. Portrait collections remain available in galleries and independently configured backgrounds. This supersedes earlier all-photo selection notes below.
+
 # ShutterTrend photo guide
 
 ## Current site configuration and new imports

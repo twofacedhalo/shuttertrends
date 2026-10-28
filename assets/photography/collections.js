@@ -51,6 +51,8 @@
   const seenIds = new Set(), seenSources = new Set();
   const portraitCategory = value => typeof value === 'string' && /^portraits?(?:$|[-/:])/i.test(value.trim());
   const pool = collections.flatMap(c => c.photos).filter(p => {
+    const allowed = window.shutterTrendConfig?.homepageCarousel?.allowedCategories;
+    if (Array.isArray(allowed) && !allowed.includes(p.collectionCategory)) return false;
     if (window.shutterTrendConfig?.homepageCarousel?.excludePortraits === true && [p.category,p.categoryGroup,p.collectionCategory,p.collectionCategoryGroup].some(portraitCategory)) return false;
     if ((p.carouselEligible ?? (p.showcase !== false)) === false || (p.id && seenIds.has(p.id)) || seenSources.has(p.src)) return false;
     if (p.id) seenIds.add(p.id);
