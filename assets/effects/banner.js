@@ -21,7 +21,7 @@
   }
   function populate() {
     const fragment = document.createDocumentFragment();
-    const count = mobile.matches ? 12 : 28;
+    const count = mobile.matches ? 18 : 40;
     for (let i = 0; i < count; i++) {
       const mote = document.createElement('span');
       mote.className = 'st-banner-dust__mote';
@@ -29,7 +29,7 @@
         x:`${(Math.random()*100).toFixed(2)}%`,
         y:`${(Math.random()*110).toFixed(2)}%`,
         size:`${(1.2+Math.random()*2.6).toFixed(2)}px`,
-        opacity:(.12+Math.random()*.2).toFixed(3),
+        opacity:(.14+Math.random()*(Math.random()<.08?.3:.2)).toFixed(3),
         duration:`${(32+Math.random()*30).toFixed(2)}s`,
         delay:`${(-Math.random()*62).toFixed(2)}s`,
         drift:`${(-24+Math.random()*48).toFixed(2)}px`

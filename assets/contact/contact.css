@@ -1,0 +1,35 @@
+/* Contact-only styles: aligned controls, a quiet editorial introduction, and one form surface. */
+#page-introduction { padding-top:clamp(40px,6vw,72px)!important; padding-bottom:40px!important; }
+#page-introduction h1 { font-size:clamp(2.6rem,5vw,4.4rem); line-height:1.08; max-width:19ch; }
+#page-introduction .has-lead-font-size { color:#b9b6af; font-size:1.05rem; }
+#booking-inquiry-form { padding-top:8px!important; }
+#booking-inquiry-form > .wp-block-columns { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:clamp(32px,5vw,72px); align-items:start; }
+#booking-inquiry-form .wp-block-column { min-width:0; }
+#booking-inquiry-form h2 { font-size:clamp(2rem,3vw,3rem); line-height:1.12; }
+#booking-inquiry-form .has-surface-background-color { padding:clamp(24px,3vw,40px)!important; border:1px solid #c6a16a38; border-radius:4px; background:linear-gradient(135deg,#191b1e,#111215)!important; }
+.st-contact-form { width:100%; min-width:0; color-scheme:dark; }
+.st-contact-form fieldset { min-width:0; border:0; padding:0; margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 20px; }
+.st-contact-form label { display:flex; flex-direction:column; min-width:0; gap:9px; font-size:.85rem; line-height:1.45; color:#f4f0e8; }
+.st-contact-form input,.st-contact-form select,.st-contact-form textarea { display:block; width:100%; min-width:0; box-sizing:border-box; background:#0c0d10; border:1px solid #c6a16a55; color:#f4f0e8; border-radius:3px; padding:12px 13px; font:inherit; font-size:1rem; transition:border-color 180ms ease,box-shadow 180ms ease; }
+.st-contact-form input,.st-contact-form select { min-height:48px; }
+.st-contact-form input:focus,.st-contact-form select:focus,.st-contact-form textarea:focus { border-color:#c6a16a; box-shadow:0 0 0 3px #c6a16a12; }
+.st-contact-form textarea { min-height:176px; resize:vertical; line-height:1.6; }
+.st-contact-form .st-contact-wide { grid-column:1/-1; }
+.st-contact-form fieldset:disabled { opacity:.65; }
+.st-contact-form button { display:inline-flex; justify-content:center; align-items:center; min-height:48px; min-width:176px; margin-top:24px; background:#c6a16a; color:#090a0d; border:1px solid #c6a16a; padding:12px 24px; font:inherit; font-size:.95rem; font-weight:600; cursor:pointer; border-radius:3px; transition:background 180ms ease; }
+.st-contact-form button:hover:not(:disabled) { background:#d8bb8a; }
+.st-contact-form button:disabled { cursor:default; opacity:.6; }
+.st-contact-form [role="status"] { margin:16px 0 0; min-height:1.5rem; line-height:1.6; color:#c6a16a; font-size:.9rem; overflow-wrap:anywhere; }
+.st-contact-direct { margin:0; overflow-wrap:anywhere; font-size:.9rem; }
+.st-contact-direct a { color:#b9b6af; text-underline-offset:.3em; }
+.st-contact-direct a:hover { color:#c6a16a; }
+.st-contact-trap { position:absolute!important; width:1px!important; height:1px!important; overflow:hidden!important; clip-path:inset(50%); }
+.st-contact-form :focus-visible { outline:2px solid #c6a16a; outline-offset:3px; }
+@media(max-width:800px) { #booking-inquiry-form > .wp-block-columns { grid-template-columns:minmax(0,1fr); gap:28px; } }
+@media(max-width:520px) { .st-contact-form fieldset { grid-template-columns:minmax(0,1fr); gap:18px; } .st-contact-form button { width:100%; } }
+@media(prefers-reduced-motion:reduce) { .st-contact-form input,.st-contact-form select,.st-contact-form textarea,.st-contact-form button { transition:none; } }
+
+.st-contact-form [role="status"][data-state="success"],.st-contact-form [role="status"][data-state="error"] { padding:12px 14px; border-left:2px solid #c6a16a; background:#c6a16a0a; border-radius:0 3px 3px 0; }
+
+.st-contact-form [role="status"]:empty { display:none; }
+#booking-inquiry-form .has-surface-background-color { gap:20px; }

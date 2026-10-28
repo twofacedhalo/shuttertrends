@@ -1,0 +1,15 @@
+{
+  "new_photos": 7,
+  "already_imported_skipped": 26,
+  "video_sidecars_skipped": 4,
+  "new_original_bytes": 51054056,
+  "new_derivatives": 23,
+  "new_optimized_bytes": 4605160,
+  "all_original_hashes_verified": 37,
+  "classification_review": {
+    "IMG_1190.jpg, IMG_1216.jpg, IMG_1226.jpg": "Outdoor Gathering; actual event name/date/venue unconfirmed",
+    "IMG_6018.JPEG": "Concert \u2014 Color & Light; artist/date/venue unconfirmed",
+    "IMG_6296.JPEG": "A Sparkler Celebration; occasion/date/location unconfirmed",
+    "IMG_6353.JPEG, IMG_6362.JPEG": "A Day on the Water; outing name/date/location unconfirmed"
+  }
+}

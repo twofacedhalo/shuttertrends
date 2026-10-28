@@ -79,3 +79,9 @@ WordPress-exported contact-form/CDN dependencies are separate from this header.
 The logo and navigation work independently of those external assets.
 
 No commit, push, repository rename or domain change is performed by this workflow.
+
+## Photographic dropdowns
+
+Portraits and Events now have disclosure panels generated from published manifest collections and the navigation arrays in assets/site-config.js. Desktop hover or anchor focus opens a panel; the chevron can toggle it. ArrowDown enters its cards, Escape closes it and returns focus to the chevron. A short pointer-leave delay avoids flicker. Mobile uses expandable sections within the main menu. Thumbnail sources are assigned only on first opening. Reduced motion removes transitions. Invalid/unpublished destinations are skipped.
+
+The shared generator loads site-config.js, photos.js, optimized.js and collections.js before the header script on every page. The contact page now uses its own local Formspree form; the obsolete WordPress form and form-only scripts were removed.

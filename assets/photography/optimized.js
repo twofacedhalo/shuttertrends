@@ -44,6 +44,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 239662
+    },
+    "showcase": {
+      "file": "4768c614fc50ff413a8f-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 188796
     }
   },
   "graduation-portraits/IMG_2926.jpg": {
@@ -64,6 +70,12 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 1105766
+    },
+    "showcase": {
+      "file": "ef0bb59db4193e1b230d-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 835106
     }
   },
   "graduation-portraits/IMG_2943.jpg": {
@@ -84,6 +96,12 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 266734
+    },
+    "showcase": {
+      "file": "f8d1cb96d6dab9cd95a0-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 203718
     }
   },
   "graduation-portraits/IMG_2990.jpg": {
@@ -104,6 +122,12 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 372598
+    },
+    "showcase": {
+      "file": "17b7c4728eb385a4dacb-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 265962
     }
   },
   "graduation-portraits/IMG_3013.jpg": {
@@ -124,6 +148,12 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 267674
+    },
+    "showcase": {
+      "file": "bb19ef213a422a55d42f-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 198978
     }
   },
   "graduation-portraits/IMG_3105.jpg": {
@@ -144,6 +174,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 353314
+    },
+    "showcase": {
+      "file": "e539be46d0c88e952c65-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 233574
     }
   },
   "candid-portraits/IMG_1275.jpg": {
@@ -164,6 +200,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 411584
+    },
+    "showcase": {
+      "file": "d812d628966a8bf08a1c-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 325848
     }
   },
   "candid-portraits/IMG_1290.jpg": {
@@ -184,6 +226,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 154542
+    },
+    "showcase": {
+      "file": "7df682efa9b4f5c87610-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 127016
     }
   },
   "candid-portraits/IMG_1293.jpg": {
@@ -204,6 +252,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 244196
+    },
+    "showcase": {
+      "file": "249fdc2598108be86035-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 193324
     }
   },
   "candid-portraits/IMG_1295.jpg": {
@@ -224,6 +278,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 371716
+    },
+    "showcase": {
+      "file": "c2556856dd4f996ebfa8-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 235328
     }
   },
   "candid-portraits/IMG_1318.jpg": {
@@ -244,6 +304,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 465310
+    },
+    "showcase": {
+      "file": "6c4f818aefe9098d1be2-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 371296
     }
   },
   "candid-portraits/IMG_1517.jpg": {
@@ -264,6 +330,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 259482
+    },
+    "showcase": {
+      "file": "9d31e1875814f9fd3239-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 169348
     }
   },
   "community-atrium/IMG_1769.jpg": {
@@ -284,6 +356,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 318070
+    },
+    "showcase": {
+      "file": "44e238545aa78c311701-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 242720
     }
   },
   "community-atrium/IMG_1783.jpg": {
@@ -304,6 +382,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 668264
+    },
+    "showcase": {
+      "file": "3a46a27b08a5e49d950c-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 507084
     }
   },
   "celebration-at-home/IMG_2087.jpg": {
@@ -324,6 +408,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 250646
+    },
+    "showcase": {
+      "file": "d07f9ad2548e40e204c3-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 181932
     }
   },
   "celebration-at-home/IMG_2108.jpg": {
@@ -344,6 +434,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 456360
+    },
+    "showcase": {
+      "file": "01bb65711eb1df6ea9fb-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 268030
     }
   },
   "outdoor-concert-1/IMG_3355.jpg": {
@@ -416,6 +512,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 1105778
+    },
+    "showcase": {
+      "file": "fbf01622de8347d5741d-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 682376
     }
   },
   "purple-stage/IMG_3880.jpg": {
@@ -436,32 +538,12 @@ window.shutterTrendsOptimized = {
       "width": 2400,
       "height": 1600,
       "bytes": 161506
-    }
-  },
-  "purple-stage/IMG_3883.jpg": {
-    "thumbnail": {
-      "file": "460ab342e772827f8fcf-srgb-v1-q85-600x190.webp",
-      "width": 600,
-      "height": 190,
-      "bytes": 13122
-    },
-    "gallery": {
-      "file": "460ab342e772827f8fcf-srgb-v1-q85-1600x505.webp",
-      "width": 1600,
-      "height": 505,
-      "bytes": 53686
-    },
-    "viewer": {
-      "file": "460ab342e772827f8fcf-srgb-v1-q85-2400x758.webp",
-      "width": 2400,
-      "height": 758,
-      "bytes": 93582
     },
     "showcase": {
-      "file": "460ab342e772827f8fcf-srgb-v1-q85-2000x632.webp",
+      "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-2000x1333.webp",
       "width": 2000,
-      "height": 632,
-      "bytes": 73198
+      "height": 1333,
+      "bytes": 127616
     }
   },
   "purple-stage/IMG_4035.jpg": {
@@ -482,6 +564,12 @@ window.shutterTrendsOptimized = {
       "width": 1600,
       "height": 2400,
       "bytes": 123848
+    },
+    "showcase": {
+      "file": "c24b05f6ed612096d5d0-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 80872
     }
   },
   "street-side-live-music/IMG_4408.jpg": {
@@ -502,6 +590,12 @@ window.shutterTrendsOptimized = {
       "width": 1800,
       "height": 2400,
       "bytes": 754578
+    },
+    "showcase": {
+      "file": "303577d75fabda71de3a-srgb-v1-q85-1500x2000.webp",
+      "width": 1500,
+      "height": 2000,
+      "bytes": 503910
     }
   },
   "street-side-live-music/IMG_4409.jpg": {
@@ -736,32 +830,6 @@ window.shutterTrendsOptimized = {
       "width": 1500,
       "height": 2000,
       "bytes": 282818
-    }
-  },
-  "day-on-the-water/IMG_6362.JPEG": {
-    "thumbnail": {
-      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-536x600.webp",
-      "width": 536,
-      "height": 600,
-      "bytes": 45760
-    },
-    "gallery": {
-      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1429x1600.webp",
-      "width": 1429,
-      "height": 1600,
-      "bytes": 201678
-    },
-    "viewer": {
-      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1676x1876.webp",
-      "width": 1676,
-      "height": 1876,
-      "bytes": 257946
-    },
-    "showcase": {
-      "file": "40f39f5d8c9338afc4ab-srgb-v1-q85-1676x1876.webp",
-      "width": 1676,
-      "height": 1876,
-      "bytes": 257946
     }
   }
 };

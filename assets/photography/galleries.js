@@ -75,7 +75,7 @@
   document.querySelectorAll('[data-st-collection]').forEach(container => {
     const category = container.dataset.stCollection;
     container.className = 'st-collections';
-    const matches = collections.filter(c => c.id === category || c.category === category || (category === 'events' && c.category === 'concerts'));
+    const matches = collections.filter(c => c.id === category || c.category === category || (category === 'events' && ['concerts','personal-events'].includes(c.category)));
     matches.forEach(c => container.append(section(c, true)));
   });
   const previews = document.querySelector('[data-st-collections]');

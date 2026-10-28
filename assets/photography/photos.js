@@ -1,5 +1,6 @@
-// PHOTO MANIFEST — see PHOTO-GUIDE.md. All originals remain outside the public site.
-// carouselEligible affects only the homepage carousel; backgroundEligible is independent.
+// PHOTO MANIFEST — see PHOTO-GUIDE.md. Original photographs remain untouched.
+// All published photographs are eligible for the homepage carousel by owner request.
+// Background eligibility remains independent. Unpublished photos never appear.
 window.shutterTrendsCollections = [
   {
     "id": "lynchburg",
@@ -65,7 +66,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": true,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ],
     "categoryGroup": "portraits"
@@ -87,7 +88,7 @@ window.shutterTrendsCollections = [
         "height": 4580,
         "showcase": false,
         "backgroundEligible": true,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-2943",
@@ -97,7 +98,7 @@ window.shutterTrendsCollections = [
         "width": 3087,
         "height": 4631,
         "showcase": true,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-2990",
@@ -107,7 +108,7 @@ window.shutterTrendsCollections = [
         "width": 2850,
         "height": 4275,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-3013",
@@ -117,7 +118,7 @@ window.shutterTrendsCollections = [
         "width": 3126,
         "height": 4689,
         "showcase": true,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-3105",
@@ -127,7 +128,7 @@ window.shutterTrendsCollections = [
         "width": 4621,
         "height": 3081,
         "showcase": true,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ],
     "categoryGroup": "portraits"
@@ -148,7 +149,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-1290",
@@ -158,7 +159,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-1293",
@@ -168,7 +169,7 @@ window.shutterTrendsCollections = [
         "width": 5710,
         "height": 3807,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-1295",
@@ -178,7 +179,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-1318",
@@ -189,7 +190,7 @@ window.shutterTrendsCollections = [
         "height": 4000,
         "showcase": true,
         "backgroundEligible": true,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-1517",
@@ -200,7 +201,7 @@ window.shutterTrendsCollections = [
         "height": 4000,
         "showcase": true,
         "backgroundEligible": true,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ],
     "categoryGroup": "portraits"
@@ -221,7 +222,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-1783",
@@ -231,7 +232,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ]
   },
@@ -251,7 +252,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-2108",
@@ -261,7 +262,7 @@ window.shutterTrendsCollections = [
         "width": 6000,
         "height": 4000,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ]
   },
@@ -302,7 +303,7 @@ window.shutterTrendsCollections = [
         "width": 4330,
         "height": 2887,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ]
   },
@@ -322,7 +323,7 @@ window.shutterTrendsCollections = [
         "width": 4734,
         "height": 3156,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-3883",
@@ -332,8 +333,10 @@ window.shutterTrendsCollections = [
         "width": 5854,
         "height": 1849,
         "showcase": true,
-        "backgroundEligible": true,
-        "carouselEligible": true
+        "backgroundEligible": false,
+        "carouselEligible": false,
+        "published": false,
+        "editorialNote": "Unpublished at owner request; original retained."
       },
       {
         "id": "import-img-4035",
@@ -343,7 +346,7 @@ window.shutterTrendsCollections = [
         "width": 3236,
         "height": 4854,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       }
     ]
   },
@@ -363,7 +366,7 @@ window.shutterTrendsCollections = [
         "width": 2429,
         "height": 3239,
         "showcase": false,
-        "carouselEligible": false
+        "carouselEligible": true
       },
       {
         "id": "import-img-4409",
@@ -517,8 +520,10 @@ window.shutterTrendsCollections = [
         "alt": "People relax on a boat beneath a blue sky, with wooded hills beyond the water.",
         "width": 1676,
         "height": 1876,
-        "carouselEligible": true,
-        "backgroundEligible": false
+        "carouselEligible": false,
+        "backgroundEligible": false,
+        "published": false,
+        "editorialNote": "Unpublished at owner request; original retained."
       }
     ]
   }

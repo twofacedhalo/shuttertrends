@@ -29,6 +29,18 @@ def collections():
     return data
 
 
+def site_configuration():
+    source = ROOT / 'assets/site-config.js'
+    if not source.exists():
+        return {}
+    script = """const fs=require('fs'),vm=require('vm');const box={window:{}};
+    vm.runInNewContext(fs.readFileSync(process.argv[1],'utf8'),box,{timeout:1000});
+    process.stdout.write(JSON.stringify(box.window.shutterTrendConfig || {}));"""
+    result = subprocess.run(['node', '-e', script, str(source)], check=True,
+                            capture_output=True, text=True, encoding='utf-8')
+    return json.loads(result.stdout)
+
+
 def rights_metadata(image):
     """Copy only copyright and creator, never GPS, timestamps or camera metadata."""
     original = image.getexif()
@@ -92,6 +104,7 @@ def main():
     output = ROOT / 'assets/images/optimized'
     output.mkdir(parents=True, exist_ok=True)
     jobs = {}
+    exclude_portraits = site_configuration().get('homepageCarousel', {}).get('excludePortraits') is True
     for collection in collections():
         if collection.get('published') is False:
             continue
@@ -108,8 +121,8 @@ def main():
             job = jobs.setdefault(key, {'showcase': False})
             category = photo.get('category', collection.get('category', ''))
             group = photo.get('categoryGroup', collection.get('categoryGroup', collection.get('category', '')))
-            portrait = any(re.match(r'^portraits?(?:$|[-/:])', value, re.I) for value in (category, group) if isinstance(value, str))
-            job['showcase'] |= not portrait and photo.get('carouselEligible', photo.get('showcase') is not False) is not False
+            portrait = any(re.match(r'^portraits?(?:$|[-/:])', value.strip(), re.I) for value in (category, group, collection.get('category', ''), collection.get('categoryGroup', '')) if isinstance(value, str))
+            job['showcase'] |= (not portrait or not exclude_portraits) and photo.get('carouselEligible', photo.get('showcase') is not False) is not False
     manifest, rows = {}, []
     webp = features.check('webp')
     for key, job in jobs.items():

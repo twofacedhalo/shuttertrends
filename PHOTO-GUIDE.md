@@ -1,5 +1,30 @@
 # ShutterTrend photo guide
 
+## Current site configuration and new imports
+
+See `SITE-UPDATE-GUIDE.md` for the latest imports, randomized carousel settings,
+photographic navigation menus, Instagram configuration and tested contact form.
+The public settings file is `assets/site-config.js`. It contains the owner’s
+Instagram profile and public Formspree endpoint, never private API keys.
+
+The latest scan found seven new JPEGs, skipped 26 previously imported photographs,
+and left four MOV sidecars untouched. Four new descriptive collections were
+created. IMG_6362.JPEG and the previously published IMG_3883.jpg were then
+unpublished at the owner’s request, and their seven generated public copies were
+removed. Both originals remain untouched. The site now has 32 published photos.
+
+`carouselEligible` controls only the homepage carousel. All 32 published photographs, including portraits, are currently eligible.
+Eight unique photographs are randomly selected per homepage load. The two
+owner-removed photographs remain unpublished. All 12 portrait-category photos
+remain in their galleries, and three still qualify for atmospheric backgrounds. Explicit
+`backgroundEligible` settings, featured cards, navigation and Instagram previews
+use their own independent selection rules.
+
+The contact form uses the owner-provided Formspree endpoint. One live browser
+submission returned HTTP 200 / ok:true and the owner confirmed email receipt.
+No further real test submissions are made for cosmetic changes. Status and form
+validation tests use mocked responses, never invented production credentials.
+
 ## 1. File structure
 
 - `assets/photography/photos.js`: the only manifest to edit for photos and collections.
@@ -33,7 +58,7 @@ then add an entry like this (replace the example with your actual photo):
   location: 'Your location',
   width: 1800,
   height: 1200,
-  showcase: true,
+  carouselEligible: true,
   thumbnail: 'river-at-dusk-preview.webp'
 }
 ```
@@ -50,9 +75,7 @@ no spaces, slashes, or leading slash. Match filename case exactly.
 Separate entries with commas. Move whole photo objects to reorder them; edit
 `title`, `caption` and `location` to change text. Remove an entry to remove
 a photo from the site; it does not delete its file. `photos: []` is valid.
-Set `published: false` on a photo to hide it everywhere. Set
-`showcase: false` to keep it in its collection but exclude it from the homepage
-showcase. Eligible photos default to inclusion when `showcase` is omitted.
+Set `published: false` on a photo to hide it everywhere. Set `carouselEligible: false` to exclude a photo only from the homepage carousel. All published categories are currently included; keep `homepageCarousel.excludePortraits` false in assets/site-config.js. Background eligibility is independent. Legacy `showcase` flags remain a fallback for old entries.
 
 ## 3. Create a named event or category
 
@@ -92,8 +115,7 @@ New events need no new HTML or navigation changes.
 
 ## 4. Showcase and loading behavior
 
-The homepage selects up to eight distinct eligible photos across all published
-collections. It shuffles once per page load using Fisher–Yates, then keeps that
+The homepage selects up to eight distinct eligible photos across all published collections. It shuffles once per page load using Fisher–Yates, then keeps that
 selection and order while you navigate. Reloading makes a new random selection;
 it can coincidentally repeat the previous order. The homepage now rotates through that fixed selection every seven seconds; collection viewers remain manual.
 
@@ -249,8 +271,8 @@ or animation loops are introduced. Detailed settings also appear in
 ## Golden dust banner and cinematic frames
 
 The original static gold-speckle image is removed from the homepage banner,
-while its file remains untouched. The banner now uses 28 genuine CSS dust motes
-(12 at screen widths up to 760px), randomized in position, size, opacity, drift,
+while its file remains untouched. The banner now uses 40 genuine CSS dust motes
+(18 at screen widths up to 760px), randomized in position, size, opacity, drift,
 and 32–62 second animation duration. They rise slowly and fade in/out, without
 video, GIFs, static particle textures, or a continuous JavaScript rendering loop.
 Reduced-motion mode leaves faint static motes; hidden pages and offscreen banners
@@ -321,9 +343,7 @@ decorative photographic background. This is independent of `showcase`, which
 controls the central carousel. Omitted or false means the photo is not eligible.
 Unpublished photos and unpublished collections are always excluded.
 
-Six existing public photos are initially enabled: IMG_2926 (Across the Lawn),
-IMG_1318 (Among the Flowers), IMG_1517 (By Candlelight), IMG_3355 (Music Under
-the Canopy), IMG_3883 (Across the Stage), and IMG_6412 (In the Evening Light).
+Five existing public photos are enabled: IMG_2926 (Across the Lawn), IMG_1318 (Among the Flowers), IMG_1517 (By Candlelight), IMG_3355 (Music Under the Canopy), and IMG_6412 (In the Evening Light). IMG_3883 and IMG_6362 are unpublished at the owner’s request.
 Change/remove those flags or add the flag to any other approved manifest photo.
 No new source images, image derivatives, or external images are required.
 

@@ -35,8 +35,8 @@ emulation in browser developer tools. Changes are local until you commit/push.
 
 ## Animated banner and frames
 
-The homepage loads banner.css and banner.js. The script creates 28 small spans on
-desktop/tablet and 12 at widths up to 760px. CSS animates only transform/opacity,
+The homepage loads banner.css and banner.js. The script creates 40 small spans on
+desktop/tablet and 18 at widths up to 760px. CSS animates only transform/opacity,
 with randomized 32–62 second durations, negative start delays, 1.2–3.8px sizes,
 low opacity, and up to 24px horizontal drift while rising 220px per cycle.
 
@@ -81,3 +81,5 @@ is no inward movement, flashing or pulsing. carousel.js exposes the current
 central-photo inset through --st-photo-frame-inset, so the brackets track the
 sharp display area while preserving the blurred neighbors. A small contained
 image gutter keeps the strokes off the photograph without cropping it.
+
+Particle density is controlled by `const count = mobile.matches ? 18 : 40` in banner.js. This is about 43% more desktop motes and 50% more mobile motes than the earlier 28/12 version. Roughly 8% may be slightly brighter, with the same long, gentle fade cycle; there is no flashing.

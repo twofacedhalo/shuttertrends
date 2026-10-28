@@ -1,0 +1,14 @@
+{
+  "endpoint": "https://formspree.io/f/xbggyrpq",
+  "reference": "ST-81f8ea32-f509-4a8c-a829-7295a4a4890b",
+  "liveTest": true,
+  "emailDeliveryConfirmed": true,
+  "httpStatus": 200,
+  "responseBody": {
+    "next": "/thanks?language=en",
+    "ok": true
+  },
+  "uiStatus": "Thank you. Your inquiry was submitted successfully.",
+  "accepted": true,
+  "confirmationSource": "Site owner confirmed that the test email arrived in this chat."
+}
