@@ -54,6 +54,28 @@
     return gallery;
   }
   function section(collection, preview = false) {
+    if (preview) {
+      const card = document.createElement('a');
+      card.className = 'st-film-card'; card.href = collection.url;
+      const number = String(collections.indexOf(collection) + 1).padStart(3, '0');
+      const marking = text('span', 'SHUTTERTREND · 35MM  /  ' + number + '  /  ST — 400', 'st-film-mark');
+      marking.setAttribute('aria-hidden', 'true');
+      const picture = document.createElement('div'); picture.className = 'st-film-picture';
+      const photo = collection.photos[0];
+      if (photo) {
+        const img = document.createElement('img'); img.alt = photo.alt;
+        img.loading = 'lazy'; img.decoding = 'async';
+        if (photo.width) img.width = photo.width;
+        if (photo.height) img.height = photo.height;
+        img.src = photo.src; if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 700px) 90vw, 45vw'; }
+        picture.append(img);
+      }
+      card.append(marking, picture, text('h3', collection.title));
+      if (collection.description) card.append(text('p', collection.description, 'st-collection__description'));
+      if (collection.location || collection.date) card.append(text('p', [collection.date, collection.location].filter(Boolean).join(' · '), 'st-collection__details'));
+      card.append(text('span', 'Explore collection →', 'st-collection__link'));
+      return card;
+    }
     const element = document.createElement('section');
     element.className = 'st-collection';
     const heading = text('h3', collection.title);
