@@ -1,11 +1,12 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
+  atmosphericBackground: { avoidImmediateRepeat: true }, // Always exactly one eligible image.
   seasonalEffects: {
     autumnLeaves: {
       enabled: true, // Manual seasonal switch; independent of the calendar.
-      maxLeaves: 6, mobileMaxLeaves: 3,
-      opacity: [0.12, 0.30],
-      spawnIntervalMs: [8000, 15000]
+      maxLeaves: 8, mobileMaxLeaves: 3,
+      opacity: [0.30, 0.55],
+      spawnIntervalMs: [5000, 10000]
     }
   },
   homepageCarousel: { allowedCategories: ['weddings', 'events', 'concerts', 'personal-events', 'lynchburg'] }, // Weddings and events only; backgrounds remain independent.

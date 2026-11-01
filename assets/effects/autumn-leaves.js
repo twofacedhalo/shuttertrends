@@ -17,7 +17,7 @@
   ];
   let timer = 0, departed = false;
   const active = () => !document.hidden && !reduced.matches && !departed;
-  function spawn() {
+  function spawn(initial = false) {
     const leaf = document.createElement('span');
     leaf.className = 'st-autumn-leaf';
     const leftBiased = Math.random() < .8;
@@ -25,11 +25,12 @@
       x: range(leftBiased ? 1 : 25, leftBiased ? 24 : 43) + 'vw',
       drift: range(-1, leftBiased ? 8 : 5) + 'vw',
       sway: range(5, 18) + 'px',
-      size: range(mobile.matches ? 12 : 16, mobile.matches ? 23 : 34) + 'px',
-      opacity: range(...(config.opacity || [.12, .30])),
-      duration: range(21, 35) + 's',
+      size: range(mobile.matches ? 12 : 18, 28) + 'px',
+      opacity: range(...(config.opacity || [.30, .55])),
+      duration: range(28, 40) + 's',
+      delay: (initial ? -range(5, 8) : 0) + 's',
       turn: range(-100, 100) + 'deg',
-      blur: Math.random() < .3 ? '1px' : '0px'
+      blur: Math.random() < .2 ? '.5px' : '0px'
     };
     Object.entries(values).forEach(([key, value]) => leaf.style.setProperty('--leaf-' + key, value));
     const ns = 'http://www.w3.org/2000/svg';
@@ -46,22 +47,29 @@
     svg.append(path, vein); leaf.append(svg); layer.append(leaf);
     leaf.addEventListener('animationend', event => { if (event.target === leaf) leaf.remove(); });
   }
+  const limit = () => Math.max(0, mobile.matches ? (config.mobileMaxLeaves ?? 3) : (config.maxLeaves ?? 8));
+  function populate(initial = false) {
+    const count = Math.min(limit() - layer.childElementCount, mobile.matches ? 1 : initial ? 2 : Math.floor(range(1, 4)));
+    for (let i = 0; i < count; i++) spawn(initial);
+  }
   function schedule() {
     clearTimeout(timer); timer = 0;
     if (!active()) return;
     timer = setTimeout(() => {
       if (!active()) return;
-      const limit = mobile.matches ? (config.mobileMaxLeaves ?? 3) : (config.maxLeaves ?? 6);
-      const count = Math.min(limit - layer.childElementCount, mobile.matches ? 1 : Math.floor(range(1, 4)));
-      for (let i = 0; i < count; i++) spawn();
+      populate();
       schedule();
-    }, range(...(config.spawnIntervalMs || [8000, 15000])));
+    }, range(...(config.spawnIntervalMs || [5000, 10000])));
   }
-  function reset() { layer.replaceChildren(); schedule(); }
+  function reset() {
+    layer.replaceChildren();
+    if (active()) populate(true);
+    schedule();
+  }
   document.addEventListener('visibilitychange', reset);
   reduced.addEventListener('change', reset);
   mobile.addEventListener('change', reset);
   window.addEventListener('pagehide', () => { departed = true; reset(); });
   window.addEventListener('pageshow', () => { departed = false; reset(); });
-  schedule();
+  reset();
 })();

@@ -84,11 +84,15 @@ image gutter keeps the strokes off the photograph without cropping it.
 
 Particle density is controlled by `const count = mobile.matches ? 18 : 40` in banner.js. This is about 43% more desktop motes and 50% more mobile motes than the earlier 28/12 version. Roughly 8% may be slightly brighter, with the same long, gentle fade cycle; there is no flashing.
 
-## Full background compositions and autumn leaves
+## Single background composition and visible autumn leaves
 
-Backgrounds use responsive viewport-contained grid areas and object-fit: contain. The sharp image retains its entire composition; only a faint blurred extension uses cover. Mobile shows one image, tablet up to two, desktop up to three. Background eligibility remains independent of carousel categories, including portraits.
+Exactly one backgroundEligible photograph is chosen at document initialization, independently of carousel categories. Portrait backgrounds remain eligible. The same image stays mounted through scrolling and responsive changes, using object-fit: contain and a blurred extension of that image. Desktop uses 64vw, tablet 80vw, mobile 92vw within the viewport. No additional atmospheric images are created.
 
-Adjust seasonalEffects.autumnLeaves in assets/site-config.js: enabled is the manual switch (no calendar checks), maxLeaves/mobileMaxLeaves cap density (6/3), opacity sets the randomized range (.12–.30), and spawnIntervalMs sets group timing (8000–15000ms). Desktop groups contain 1–3 leaves; mobile groups contain one. Leaves last 21–35 seconds, favor the left side, and are removed after falling. Hidden pages, page departures, breakpoint changes and reduced-motion changes clear leaves and cancel/restart the timer as appropriate. Reduced motion disables falling entirely. The inert layer ignores pointer events; existing dust and spotlight code is unchanged.
+In assets/site-config.js, atmosphericBackground.avoidImmediateRepeat (true) uses sessionStorage to exclude the last selection when alternatives exist. If storage is unavailable, selection still works randomly. This does not guarantee uniqueness between browser tabs. Photo eligibility remains in the existing photography metadata.
+
+seasonalEffects.autumnLeaves controls enabled, maxLeaves (8), mobileMaxLeaves (3), opacity ([.30, .55]) and spawnIntervalMs ([5000, 10000]). Two initial desktop/tablet leaves (one mobile) start partway through their fall so they are visible immediately; subsequent groups have 1–3 leaves (one mobile). Leaf sizes are 12–28px, durations 28–40 seconds. Gentle fading starts at 5% of the fall. The previous long initial wait and low compounded opacity made the effect easy to miss; the original single animation system now handles this without duplication.
+
+The inert leaf layer is above atmospheric photographs and below spotlight/content. It ignores pointers. Hidden pages clear leaves and cancel timers; returning restarts with an initial group. Reduced motion disables falling. Leaves are removed on animation completion, and density caps prevent accumulation. Existing golden dust and carousel rules are unchanged.
 
 ## Dusk-to-blue-night homepage
 

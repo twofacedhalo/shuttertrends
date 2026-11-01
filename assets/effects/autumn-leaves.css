@@ -6,7 +6,7 @@
   position: absolute; left: var(--leaf-x); top: -45px;
   width: var(--leaf-size); height: var(--leaf-size); opacity: 0;
   pointer-events: none; filter: blur(var(--leaf-blur));
-  animation: st-leaf-fall var(--leaf-duration) linear forwards;
+  animation: st-leaf-fall var(--leaf-duration) linear var(--leaf-delay, 0s) forwards;
 }
 .st-autumn-leaf svg {
   display: block; width: 100%; height: 100%;
@@ -15,7 +15,7 @@
 .st-autumn-leaf:nth-child(2n) svg { animation-duration: 7.3s; animation-direction: alternate-reverse; }
 @keyframes st-leaf-fall {
   0% { transform: translate3d(0,0,0) rotate(-25deg); opacity: 0; }
-  12%, 78% { opacity: var(--leaf-opacity); }
+  5%, 85% { opacity: var(--leaf-opacity); }
   100% { transform: translate3d(var(--leaf-drift),calc(100vh + 90px),0) rotate(var(--leaf-turn)); opacity: 0; }
 }
 @keyframes st-leaf-sway {
