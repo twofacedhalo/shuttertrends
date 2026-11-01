@@ -1,0 +1,26 @@
+.st-autumn-leaves {
+  position: fixed; inset: 0; overflow: hidden; z-index: -2;
+  pointer-events: none; contain: strict;
+}
+.st-autumn-leaf {
+  position: absolute; left: var(--leaf-x); top: -45px;
+  width: var(--leaf-size); height: var(--leaf-size); opacity: 0;
+  pointer-events: none; filter: blur(var(--leaf-blur));
+  animation: st-leaf-fall var(--leaf-duration) linear forwards;
+}
+.st-autumn-leaf svg {
+  display: block; width: 100%; height: 100%;
+  animation: st-leaf-sway 5.7s ease-in-out infinite alternate;
+}
+.st-autumn-leaf:nth-child(2n) svg { animation-duration: 7.3s; animation-direction: alternate-reverse; }
+@keyframes st-leaf-fall {
+  0% { transform: translate3d(0,0,0) rotate(-25deg); opacity: 0; }
+  12%, 78% { opacity: var(--leaf-opacity); }
+  100% { transform: translate3d(var(--leaf-drift),calc(100vh + 90px),0) rotate(var(--leaf-turn)); opacity: 0; }
+}
+@keyframes st-leaf-sway {
+  from { transform: translateX(calc(-1 * var(--leaf-sway))) rotate(-16deg); }
+  to { transform: translateX(var(--leaf-sway)) rotate(20deg); }
+}
+@media (prefers-reduced-motion: reduce) { .st-autumn-leaves { display: none; } }
+@media print { .st-autumn-leaves { display: none; } }

@@ -18,11 +18,6 @@
   const selected = pool.slice(0, Math.min(pool.length, 1 + Math.floor(Math.random() * 3)));
   const mobile = matchMedia('(max-width: 600px)');
   const tablet = matchMedia('(max-width: 1000px)');
-  const positions = [
-    { x: 48 + Math.random() * 12, y: -12 + Math.random() * 16, w: 55 + Math.random() * 15, r: -8 + Math.random() * 5 },
-    { x: -30 + Math.random() * 12, y: 42 + Math.random() * 18, w: 55 + Math.random() * 10, r: 3 + Math.random() * 5 },
-    { x: 64 + Math.random() * 10, y: 58 + Math.random() * 12, w: 42 + Math.random() * 12, r: -5 + Math.random() * 8 }
-  ];
   const nodes = new Map();
   function render() {
     const count = Math.min(selected.length, mobile.matches ? 1 : tablet.matches ? 2 : 3);
@@ -32,7 +27,10 @@
         continue;
       }
       if (!nodes.has(i)) {
-        const photo = selected[i], placement = positions[i];
+        const photo = selected[i];
+        const frame = document.createElement('div');
+        frame.className = 'st-background-frame';
+        frame.style.setProperty('--photo-extension', `url("${photo.src}")`);
         const image = document.createElement('img');
         image.className = 'st-background-photo';
         image.alt = ''; image.draggable = false;
@@ -40,20 +38,17 @@
         image.dataset.photoId = photo.id || photo.src;
         if (photo.width) image.width = photo.width;
         if (photo.height) image.height = photo.height;
-        image.style.setProperty('--photo-x', `${placement.x.toFixed(2)}vw`);
-        image.style.setProperty('--photo-y', `${placement.y.toFixed(2)}vh`);
-        image.style.setProperty('--photo-width', `${placement.w.toFixed(2)}vw`);
-        image.style.setProperty('--photo-angle', `${placement.r.toFixed(2)}deg`);
         image.onload = async () => {
           try { await image.decode(); } catch {}
           image.classList.add('is-loaded');
         };
         image.onerror = () => { image.classList.remove('is-loaded'); };
         // Only selected, currently displayed images get a source. Never request originals.
-        image.sizes = '(max-width: 600px) 110vw, (max-width: 1000px) 65vw, 70vw';
+        image.sizes = '(max-width: 600px) 92vw, (max-width: 1000px) 52vw, 48vw';
         if (photo.srcset) image.srcset = photo.srcset;
         image.src = photo.src;
-        nodes.set(i, image);
+        frame.append(image);
+        nodes.set(i, frame);
       }
       if (!nodes.get(i).isConnected) layer.append(nodes.get(i));
     }

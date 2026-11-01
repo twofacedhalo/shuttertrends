@@ -1,5 +1,13 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
+  seasonalEffects: {
+    autumnLeaves: {
+      enabled: true, // Manual seasonal switch; independent of the calendar.
+      maxLeaves: 6, mobileMaxLeaves: 3,
+      opacity: [0.12, 0.30],
+      spawnIntervalMs: [8000, 15000]
+    }
+  },
   homepageCarousel: { allowedCategories: ['weddings', 'events', 'concerts', 'personal-events', 'lynchburg'] }, // Weddings and events only; backgrounds remain independent.
   contact: {
     email: 'douglasrendlesiii@gmail.com',
