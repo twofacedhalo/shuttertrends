@@ -1,0 +1,24 @@
+.st-botanical-leaves { position:fixed; inset:0; z-index:-2; pointer-events:none; overflow:hidden; contain:strict; }
+.st-botanical-leaf {
+  --leaf-illumination:0;
+  position:absolute; left:var(--botanical-left); top:var(--botanical-top);
+  width:calc(var(--botanical-size) * var(--st-decor-scale,1));
+  transform:rotate(var(--botanical-angle));
+  color:color-mix(in srgb,var(--st-decor-leaf-inactive,#92745b),var(--st-decor-leaf-active,#D6AD69) calc(var(--leaf-illumination) * 100%));
+  opacity:calc(var(--st-decor-leaf-opacity,.20) + var(--leaf-illumination) * .38);
+  filter:drop-shadow(0 0 8px rgba(214,173,105,calc(var(--leaf-illumination) * var(--st-decor-leaf-glow,.28))));
+  transition:opacity 180ms ease,color 180ms ease,filter 180ms ease;
+}
+.st-botanical-leaf[hidden] { display:none; }
+.st-botanical-leaf svg { display:block; width:100%; height:auto; overflow:visible; fill:none; stroke:currentColor; stroke-linejoin:round; stroke-linecap:round; }
+.st-botanical-outline { stroke-width:1.15; fill:color-mix(in srgb,currentColor 6%,transparent); }
+.st-botanical-veins { stroke-width:.65; }
+@media(max-width:1000px) { .st-botanical-leaf { width:calc(var(--botanical-size) * var(--st-decor-scale,1) * .78); } }
+@media(max-width:600px) {
+  .st-botanical-leaf { width:calc(var(--botanical-size) * var(--st-decor-scale,1) * .55); }
+  .st-botanical-leaf:nth-child(1) { left:-8vw; top:18vh; }
+  .st-botanical-leaf:nth-child(2) { left:18vw; top:72vh; }
+  .st-botanical-leaf:nth-child(3) { left:-10vw; top:47vh; }
+}
+@media(prefers-reduced-motion:reduce) { .st-botanical-leaf { transition:none; } }
+@media print { .st-botanical-leaves { display:none; } }

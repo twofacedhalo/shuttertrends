@@ -2,23 +2,6 @@
   'use strict';
   const layer = document.querySelector('[data-st-photo-background]');
   if (!layer) return;
-  const hero = document.querySelector('#home-hero');
-  // Keep the atmosphere at page level so the hero cannot clip its lower fade.
-  function measure() {
-    if (!hero) return;
-    const rect = hero.getBoundingClientRect();
-    const body = document.body.getBoundingClientRect();
-    layer.style.top = (rect.top - body.top) + 'px';
-    layer.style.setProperty('--st-atmosphere-hero-height', rect.height + 'px');
-  }
-  if (hero) {
-    const resize = new ResizeObserver(measure);
-    resize.observe(hero);
-    const header = document.querySelector('.st-site-header');
-    if (header) resize.observe(header);
-    document.fonts?.ready.then(measure);
-    measure();
-  }
   const seenIds = new Set(), seenSources = new Set();
   // The normalized portfolio already excludes unpublished collections and photos.
   const pool = (window.shutterTrendsPortfolio || []).flatMap(c => c.photos).filter(photo => {

@@ -317,6 +317,7 @@ window.shutterTrendsCollections = [
     "photos": [
       {
         "id": "import-img-3880",
+        "published": false,
         "file": "IMG_3880.jpg",
         "title": "Purple Stage",
         "alt": "A band performs under purple lighting with audience silhouettes in the foreground.",

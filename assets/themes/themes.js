@@ -21,6 +21,8 @@
       '--st-photo-solid-core':theme.photo.solidCore + '%', '--st-photo-feather-end':theme.photo.featherEnd + '%',
       '--st-photo-saturation':theme.photo.saturation, '--st-photo-sepia':theme.photo.sepia,
       '--st-spotlight-color':theme.spotlight.tint, '--st-spotlight-intensity':theme.spotlight.intensity,
+      '--st-decor-leaf-inactive':theme.decorativeLeaves.inactive, '--st-decor-leaf-active':theme.decorativeLeaves.active,
+      '--st-decor-leaf-glow':theme.decorativeLeaves.glow, '--st-decor-leaf-opacity':theme.decorativeLeaves.opacity,
       '--st-theme-grain':theme.grain, '--st-theme-leak':theme.lightLeak, '--st-theme-leak-color':theme.leakColor,
       '--st-atmosphere-shade':theme.shade,
       '--st-dust-color':theme.particles.color, '--st-dust-glow':theme.particles.glow, '--st-dust-strength':theme.particles.opacity

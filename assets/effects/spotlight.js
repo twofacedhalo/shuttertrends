@@ -23,6 +23,7 @@
   function paint() {
     layer.style.setProperty('--st-spotlight-x', `${x.toFixed(2)}px`);
     layer.style.setProperty('--st-spotlight-y', `${y.toFixed(2)}px`);
+    document.dispatchEvent(new CustomEvent('st-spotlight-position', { detail:{ x, y, active:inside && canAnimate() } }));
   }
   function stop() {
     if (frame) cancelAnimationFrame(frame);

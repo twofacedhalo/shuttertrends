@@ -6,6 +6,7 @@
       photo: { opacity:.33, solidCore:48, featherEnd:100, saturation:.65, sepia:0 },
       particles: { desktop:40, mobile:18, color:'#cfac68', glow:'#e6c588', opacity:1 },
       leaves: { enabled:true, maxLeaves:8, mobileMaxLeaves:3, opacity:[.30,.55], spawnIntervalMs:[5000,10000], colors:['#b89a58','#b18443','#a2653c','#a77350'] },
+      decorativeLeaves: { inactive:'#92745b', active:'#D6AD69', glow:.28, opacity:.20 },
       spotlight: { tint:'207, 172, 104', intensity:.10 }
     };
     const result = { id, name, gradient:colors.map((color,i) => ({color,at:stops[i]})), accent:'#cfac68', shade:.64, grain:0, lightLeak:0, leakColor:'173, 104, 61', ...options };

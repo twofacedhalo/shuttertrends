@@ -7,6 +7,7 @@ window.shutterTrendConfig = {
   },
   atmosphericBackground: { avoidImmediateRepeat: true }, // Always exactly one eligible image.
   seasonalEffects: {
+    decorativeLeaves: { enabled: true, desktopCount: 7, mobileCount: 3, size: 1, radius: 220 },
     autumnLeaves: {
       enabled: true, // Manual seasonal switch; independent of the calendar.
       maxLeaves: 8, mobileMaxLeaves: 3,

@@ -21,9 +21,9 @@
     if (photo.height) img.height = photo.height;
     img.src = photo.src;
     if (photo.srcset) { img.srcset = photo.srcset; img.sizes = Math.ceil(330 * ratio) + 'px'; }
-    const caption = document.createElement('span'); caption.className = 'st-film-caption'; caption.textContent = photo.collectionTitle || photo.title || 'Explore photograph';
+    link.setAttribute('aria-label', [photo.title, photo.collectionTitle, photo.alt].filter(Boolean).join(' — '));
     const picture = document.createElement('span'); picture.className = 'st-film-image'; picture.append(img);
-    link.append(mark, picture, bottom, caption); group.append(link);
+    link.append(mark, picture, bottom); group.append(link);
   });
   const duplicate = group.cloneNode(true); duplicate.setAttribute('aria-hidden', 'true');
   duplicate.querySelectorAll('a').forEach(a => a.tabIndex = -1);
