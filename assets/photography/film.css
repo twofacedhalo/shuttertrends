@@ -71,3 +71,35 @@
   .st-film-picture img { height:260px; }
 }
 @media (prefers-reduced-motion:reduce) { .st-film-card *, .st-film-frame *, .st-film-picture::after, .st-film-frame::after { transition:none; transform:none; } }
+
+/* Homepage-only reversible analog treatment; original assets remain untouched. */
+body.home .st-filmstrip {
+  --st-film-vintage-saturation:.70;
+  --st-film-vintage-sepia:.20;
+  --st-film-vintage-contrast:.93;
+  --st-film-vintage-brightness:.93;
+  --st-film-vintage-blur:.65px;
+  --st-film-grain-opacity:.12;
+  --st-film-develop-duration:350ms;
+}
+body.home .st-film-image { display:block; position:relative; isolation:isolate; }
+body.home .st-film-image::after {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:1;
+  opacity:var(--st-film-grain-opacity);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  mix-blend-mode:soft-light; transition:opacity var(--st-film-develop-duration) ease;
+}
+body.home .st-filmstrip .st-film-frame img {
+  filter:saturate(var(--st-film-vintage-saturation)) sepia(var(--st-film-vintage-sepia)) contrast(var(--st-film-vintage-contrast)) brightness(var(--st-film-vintage-brightness)) blur(var(--st-film-vintage-blur));
+  transition:filter var(--st-film-develop-duration) ease;
+}
+body.home .st-filmstrip .st-film-frame:is(:focus-visible,:focus-within,.is-original) img { filter:none; }
+body.home .st-filmstrip .st-film-frame:is(:focus-visible,:focus-within,.is-original) .st-film-image::after { opacity:0; }
+body.home .st-film-caption,body.home .st-film-mark { z-index:3; }
+@media(hover:hover) and (pointer:fine) {
+  body.home .st-filmstrip .st-film-frame:hover img { filter:none; }
+  body.home .st-filmstrip .st-film-frame:hover .st-film-image::after { opacity:0; }
+}
+@media(prefers-reduced-motion:reduce) {
+  body.home .st-filmstrip .st-film-frame img,body.home .st-film-image::after { transition:none; }
+}
