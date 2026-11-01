@@ -3,8 +3,7 @@
   if (!document.body.classList.contains('home')) return;
   function settings() {
     const base = window.shutterTrendConfig?.seasonalEffects?.autumnLeaves || {};
-    const theme = window.shutterTrendActiveTheme?.leaves || {};
-    return { ...base, ...theme, enabled: base.enabled !== false && theme.enabled !== false };
+    return { ...base, enabled: base.enabled !== false };
   }
   let config = settings();
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -72,7 +71,6 @@
     if (active()) populate(true);
     schedule();
   }
-  document.addEventListener('st-theme-change', () => { config = settings(); reset(); });
   document.addEventListener('visibilitychange', reset);
   reduced.addEventListener('change', reset);
   mobile.addEventListener('change', reset);

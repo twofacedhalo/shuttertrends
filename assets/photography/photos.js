@@ -53,7 +53,7 @@ window.shutterTrendsCollections = [
     "id": "graduation-day",
     "title": "Graduation Day",
     "description": "A graduation-day portrait full of color and celebration.",
-    "category": "portraits",
+    "category": "graduations",
     "folder": "graduation-day",
     "published": true,
     "photos": [
@@ -75,7 +75,7 @@ window.shutterTrendsCollections = [
     "id": "graduation-portraits",
     "title": "Graduation Portraits & Companions",
     "description": "A graduation session on the lawn, with a much-loved companion.",
-    "category": "portraits",
+    "category": "graduations",
     "folder": "graduation-portraits",
     "published": true,
     "photos": [
@@ -1352,5 +1352,18 @@ window.shutterTrendsCollections = [
   }
 ];
 
-// Original homepage category previews; independent of the reel selection.
-window.shutterTrendsHomeFeatures = { events: ["import-img-3355"], personal: ["import-img-3105"] };
+// Featured category previews reuse published photo IDs.
+window.shutterTrendsHomeFeatures = {
+  "events": [
+    "import-img-3355"
+  ],
+  "personal": [
+    "import-21a19b7ddebd"
+  ],
+  "weddings": [
+    "import-2dcc214105d1"
+  ],
+  "graduations": [
+    "import-img-2943"
+  ]
+};

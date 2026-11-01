@@ -40,6 +40,12 @@ for(const p of data.window.shutterTrendsPhotos)assert.notEqual(p.collectionCateg
 for(const id of ['import-df02a3a17118','import-img-3880'])assert(!all.some(p=>p.id===id));assert(all.some(p=>p.id==='import-img-4035'));
 for(const s of data.window.shutterTrendStoryDefinitions){assert(s.photoIds.length<=5);for(const id of s.photoIds)assert(all.some(p=>p.id===id),id)}
 for(const ids of Object.values(data.window.shutterTrendsHomeFeatures))for(const id of ids)assert(all.some(p=>p.id===id),'original category photo exists');
+assert.deepEqual(Object.keys(data.window.shutterTrendsHomeFeatures),['events','personal','weddings','graduations']);
+assert.equal(data.window.shutterTrendsPortfolio.filter(c=>c.category==='graduations').flatMap(c=>c.photos).length,35);
+assert.equal(data.window.shutterTrendsPortfolio.filter(c=>c.category==='portraits').flatMap(c=>c.photos).length,32);
+for(const p of data.window.shutterTrendsPhotos)assert.notEqual(p.collectionCategory,'graduations');
+const homepage=fs.readFileSync('index.html','utf8');assert.equal((homepage.match(/<article class="st-home-feature"/g)||[]).length,4);assert(!homepage.includes('assets/themes/'));
+assert(fs.readFileSync('graduations/index.html','utf8').includes('data-st-collection="graduations"'));
 assert(!fs.readFileSync('index.html','utf8').includes('data-st-stories'));
 assert(fs.readFileSync('stories/index.html','utf8').includes('data-st-detail'));
 console.log('PASS: 96 photos, optimized Pages paths, portrait exclusion, removed-photo exclusions, microphone retained, seven story definitions');

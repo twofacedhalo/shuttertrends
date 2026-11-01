@@ -1,0 +1,7 @@
+/* One permanent palette. Homepage gradient stops live in dusk-background.css. */
+body {
+  --wp--preset--color--accent:#C6A16A;
+  --st-gold:#C6A16A;
+  --st-viewfinder-color:#C6A16A;
+  --st-film-mark-color:#C6A16A;
+}

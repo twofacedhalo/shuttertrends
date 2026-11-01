@@ -3,7 +3,7 @@
   const root = new URL('../../', document.currentScript.src);
   const collections = (window.shutterTrendsPortfolio || []).filter(c => c.photos.length);
   const photos = new Map(collections.flatMap(c => c.photos).map(p => [p.id, p]));
-  const labels = { portraits:'Portraits', weddings:'Weddings', concerts:'Live music', events:'Events', 'personal-events':'Personal moments', lynchburg:'Local stories' };
+  const labels = { portraits:'Portraits', graduations:'Graduations', weddings:'Weddings', concerts:'Live music', events:'Events', 'personal-events':'Personal moments', lynchburg:'Local stories' };
   const collectionStories = new Map(collections.map(c => [c.id, { id:'collection:' + c.id, title:c.title, category:labels[c.category] || c.category, description:c.description || '', collectionId:c.id, photos:c.photos, url:c.url }]));
   const curated = (window.shutterTrendStoryDefinitions || []).map(s => ({ ...s, photos:[...new Set(s.photoIds)].map(id => photos.get(id)).filter(Boolean), url:new URL('stories/?story=' + encodeURIComponent(s.id), root).href })).filter(s => s.photos.length);
   const signatures = new Set(curated.map(s => s.photos.map(p => p.id).sort().join('|')));

@@ -2,11 +2,6 @@
 window.shutterTrendConfig = {
   stories: { homepageLimit: 4, featured: ['warm-studio', 'cap-in-the-air', 'wedding-day-portraits', 'across-the-lawn'] },
   filmReel: { autoplaySpeed: 22, cursorMaxSpeed: 72, cursorCrawlSpeed: 3, velocityEaseSeconds: .6, edgeEaseDistance: 100 },
-  themes: {
-    defaultTheme: 'autumn-after-dark',
-    allowVisitorThemeSelection: true,
-    randomizeThemeOnLoad: false
-  },
   seasonalEffects: {
     decorativeLeaves: { enabled: true, desktopCount: 7, mobileCount: 3, size: 1, radius: 220 },
     autumnLeaves: {
