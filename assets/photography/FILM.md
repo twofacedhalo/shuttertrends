@@ -30,7 +30,7 @@ Run `node tools/validate_homepage.cjs` from the repository root for deterministi
 
 ## Viewfinder and homepage previews
 
-The hero uses 24px corners inset 12px, inside the reserved 48px/72px top/bottom gutters (56px/64px on compact layouts). Featured-card corners belong only to the photo area, never the text copy. Four vertically stacked category cards (Events, Personal Moments, Weddings, Graduations) reuse published photo IDs from shutterTrendsHomeFeatures in photos.js. On desktop each card combines a contained photograph and text side by side; compact layouts place the photograph above the copy.
+The hero uses 24px corners inset 12px, inside the reserved 48px/72px top/bottom gutters (56px/64px on compact layouts). Featured-card corners belong only to the photo area, never the text copy. Four vertically stacked category cards (Events, Personal Moments, Weddings, Graduations) reuse published photo IDs from shutterTrendsHomeFeatures in photos.js. At every breakpoint each card uses one column with a contained photograph above its text. All four cards occupy the full left content-column width with 24px vertical gaps.
 
 ## Permanent appearance and categories
 

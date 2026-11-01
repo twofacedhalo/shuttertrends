@@ -42,7 +42,7 @@ body.home .st-film-frame > .st-film-mark { top:8px; left:var(--st-film-rail); fo
 body.home .st-film-frame > .st-film-mark--bottom { top:auto; bottom:8px; }
 body.home .st-film-frame::after { inset:30px; }
 body.home .st-home-feature-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
-body.home .st-home-feature { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+body.home .st-home-feature { display:grid; grid-template-columns:minmax(0,1fr); }
 body.home .st-home-feature__photos { display:grid; }
 body.home .st-home-feature__photo { height:clamp(260px,21vw,320px); background:#090d15; }
 body.home .st-home-feature__photo img { height:100%; width:100%; object-fit:contain; }

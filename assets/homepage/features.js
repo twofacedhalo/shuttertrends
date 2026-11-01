@@ -21,7 +21,7 @@
       if (photo.height) image.height = photo.height;
       image.addEventListener('error', () => { link.hidden = true; }, { once: true });
       if (photo.srcset) {
-        image.sizes = '(max-width: 1000px) calc(100vw - 44px), (max-width: 1200px) 45vw, 357px';
+        image.sizes = '(max-width: 1000px) calc(100vw - 44px), (max-width: 1565px) 46vw, 714px';
         image.srcset = photo.srcset;
       }
       image.src = photo.src;
