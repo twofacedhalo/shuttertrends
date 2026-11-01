@@ -11,3 +11,5 @@ Validated under /shuttertrends/ on 2026-11-01.
 - Existing reveal classes and registration remain; no section or animation logic was replaced.
 
 Validation: browser layout/image/link inspection, node tools/validate_homepage.cjs, node --check assets/homepage/features.js, and git diff --check.
+
+Follow-up: the wrapper and cards now explicitly use display:flex with flex-direction:column, and obsolete grid breakpoint rules were removed. Browser checks at 1920/1440/820/390px confirmed identical card X positions and widths with strictly increasing top positions in the requested order. Homepage stylesheet URLs now carry a version query so previously cached layouts are refreshed.
