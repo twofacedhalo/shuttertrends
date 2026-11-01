@@ -30,11 +30,16 @@
   });
   track.replaceChildren(group);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const mouse = matchMedia('(any-hover: hover) and (any-pointer: fine)');
   const settings = window.shutterTrendConfig?.filmReel || {};
-  const baseSpeed = Math.max(1,Number(settings.autoplaySpeed) || 18);
+  const baseSpeed = Math.max(1,Number(settings.autoplaySpeed) || 22);
+  const cursorMax = Math.max(baseSpeed,Number(settings.cursorMaxSpeed) || 72);
+  const crawl = Math.max(1,Math.min(baseSpeed,Number(settings.cursorCrawlSpeed) || 3));
+  const velocityEase = Math.max(.1,Number(settings.velocityEaseSeconds) || .6);
   const easeDistance = Math.max(20,Number(settings.edgeEaseDistance) || 100);
   let position = 0, travel = 0, direction = 1, velocity = baseSpeed;
-  let frame = 0, last = 0, visible = false, paused = false, focused = false, hovered = false, departed = false, modal = false, lastTouchLink = null, controlState = '';
+  let cursorVelocity = null, cursorReverse = 1;
+  let frame = 0, last = 0, visible = false, paused = false, focused = false, departed = false, modal = false, lastTouchLink = null, controlState = '';
   const running = () => !compact.matches && !reduced.matches && !document.hidden && !departed && !modal && !focused && !paused && visible && travel > .5 && root.isConnected;
   function paint() { track.style.transform = compact.matches ? 'none' : 'translate3d(0,' + (-position).toFixed(3) + 'px,0)'; }
   function stop() { if (frame) cancelAnimationFrame(frame); frame = 0; last = 0; }
@@ -44,11 +49,13 @@
     const dt = last ? Math.min(time-last,64)/1000 : 0; last = time;
     const edge = Math.min(position,travel-position);
     const easing = .16 + .84*Math.min(1,Math.max(0,edge)/easeDistance);
-    const target = direction * baseSpeed * easing * (hovered ? .65 : 1);
-    velocity += (target-velocity)*(1-Math.exp(-dt/.6));
+    const target = (cursorVelocity === null ? direction * baseSpeed : cursorVelocity * cursorReverse) * easing;
+    velocity += (target-velocity)*(1-Math.exp(-dt/velocityEase));
     position += velocity*dt;
-    if (position >= travel) { position = travel; direction = -1; }
-    if (position <= 0) { position = 0; direction = 1; }
+    // Latch a reflected cursor direction at each boundary until the cursor
+    // changes direction or exits, avoiding repeated outward pushes at the edge.
+    if (position >= travel) { position = travel; direction = -1; cursorReverse = cursorVelocity > 0 ? -1 : 1; }
+    if (position <= 0) { position = 0; direction = 1; cursorReverse = cursorVelocity < 0 ? -1 : 1; }
     paint(); frame = requestAnimationFrame(tick);
   }
   function sync() {
@@ -72,12 +79,25 @@
       position = Math.max(0,Math.min(position,travel)); paint();
     }
     const help = root.querySelector('#st-film-help');
-    if (help) help.textContent = compact.matches ? 'Swipe or use Left/Right arrows to browse. Tap a frame to reveal its original color, then tap again to open its story.' : 'The reel moves automatically up and down. Use Pause to stop. Tab through photographs; use Up/Down and Home/End to browse while focused. Enter opens a photo story.';
+    if (help) help.textContent = compact.matches ? 'Swipe or use Left/Right arrows to browse. Tap a frame to reveal its original color, then tap again to open its story.' : 'The reel moves automatically up and down. Move the pointer toward the top or bottom to control direction and speed. Use Pause to stop. Tab through photographs; use Up/Down and Home/End to browse while focused. Enter opens a photo story.';
     sync();
   }
   pause.addEventListener('click', () => { paused = !paused; sync(); });
-  viewport.addEventListener('pointerenter',e => { if (e.pointerType === 'mouse') hovered = true; });
-  viewport.addEventListener('pointerleave',() => { hovered = false; });
+  function clearCursor() { cursorVelocity = null; cursorReverse = 1; }
+  function steer(event) {
+    if (event.pointerType !== 'mouse' || !mouse.matches || compact.matches || reduced.matches) return;
+    const bounds = viewport.getBoundingClientRect();
+    const offset = 1 - 2 * Math.max(0,Math.min(1,(event.clientY-bounds.top)/bounds.height));
+    const sign = Math.abs(offset) < .06 ? direction : Math.sign(offset);
+    const next = sign * (crawl + (cursorMax-crawl) * Math.pow(Math.abs(offset),1.6));
+    if (cursorVelocity !== null && Math.sign(next) !== Math.sign(cursorVelocity)) cursorReverse = 1;
+    cursorVelocity = next;
+  }
+  viewport.addEventListener('pointerenter',steer);
+  viewport.addEventListener('pointermove',steer);
+  viewport.addEventListener('pointerleave',clearCursor);
+  viewport.addEventListener('pointercancel',clearCursor);
+  mouse.addEventListener('change',clearCursor);
   viewport.addEventListener('pointerdown',e => { lastTouchLink = e.pointerType === 'touch' ? e.target.closest('.st-film-frame') : null; });
   const touchStatus = document.createElement('p'); touchStatus.className = 'st-gallery__sr'; touchStatus.setAttribute('role','status'); root.append(touchStatus);
   viewport.addEventListener('click',e => {
@@ -123,7 +143,7 @@
   new IntersectionObserver(entries=>{ visible = entries[0].isIntersecting; sync(); }).observe(viewport);
   new ResizeObserver(measure).observe(viewport);
   track.querySelectorAll('img').forEach(img=>img.addEventListener('load',measure));
-  compact.addEventListener('change',()=>{ stop(); viewport.scrollLeft = 0; viewport.scrollTop = 0; measure(); });
+  compact.addEventListener('change',()=>{ stop(); clearCursor(); viewport.scrollLeft = 0; viewport.scrollTop = 0; measure(); });
   reduced.addEventListener('change',sync); document.addEventListener('visibilitychange',sync);
   document.addEventListener('st-lightbox-open',()=>{ modal = true; sync(); });
   document.addEventListener('st-lightbox-close',()=>{ modal = false; sync(); });

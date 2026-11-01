@@ -1351,3 +1351,6 @@ window.shutterTrendsCollections = [
     ]
   }
 ];
+
+// Original homepage category previews; independent of the reel selection.
+window.shutterTrendsHomeFeatures = { events: ["import-img-3355"], personal: ["import-img-3105"] };

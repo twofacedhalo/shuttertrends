@@ -3,11 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '..');
 const logo = fs.readFileSync(path.join(root, 'assets/header/logo-mark.svg'), 'utf8').trim();
-const items = [['portraits','Portraits'],['events','Events'],['about','About'],['services','Services'],['contact','Contact']];
+const items = [['portraits','Portraits'],['events','Events'],['stories','Photo Stories'],['about','About'],['services','Services'],['contact','Contact']];
 function walk(dir) {
   const files = [];
   for (const entry of fs.readdirSync(dir, {withFileTypes:true})) {
-    if (entry.name.startsWith('.') || ['assets','wp-content','wp-includes','tools','reports','node_modules'].includes(entry.name)) continue;
+    if (entry.name.startsWith('.') || ['assets','wp-content','wp-includes','tools','reports','work','node_modules'].includes(entry.name)) continue;
     const target = path.join(dir, entry.name);
     if (entry.isDirectory()) files.push(...walk(target));
     else if (entry.name === 'index.html') files.push(target);

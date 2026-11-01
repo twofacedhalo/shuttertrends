@@ -5,7 +5,7 @@
   const photos = new Map(collections.flatMap(c => c.photos).map(p => [p.id, p]));
   const labels = { portraits:'Portraits', weddings:'Weddings', concerts:'Live music', events:'Events', 'personal-events':'Personal moments', lynchburg:'Local stories' };
   const collectionStories = new Map(collections.map(c => [c.id, { id:'collection:' + c.id, title:c.title, category:labels[c.category] || c.category, description:c.description || '', collectionId:c.id, photos:c.photos, url:c.url }]));
-  const curated = (window.shutterTrendStoryDefinitions || []).map(s => ({ ...s, photos:[...new Set(s.photoIds)].map(id => photos.get(id)).filter(Boolean), url:new URL('collections/?story=' + encodeURIComponent(s.id), root).href })).filter(s => s.photos.length);
+  const curated = (window.shutterTrendStoryDefinitions || []).map(s => ({ ...s, photos:[...new Set(s.photoIds)].map(id => photos.get(id)).filter(Boolean), url:new URL('stories/?story=' + encodeURIComponent(s.id), root).href })).filter(s => s.photos.length);
   const signatures = new Set(curated.map(s => s.photos.map(p => p.id).sort().join('|')));
   const stories = [...curated, ...collectionStories.values()].filter((s,i) => i < curated.length || !signatures.has(s.photos.map(p => p.id).sort().join('|')));
   const byId = new Map([...collectionStories.values(), ...curated].map(s => [s.id,s]));
