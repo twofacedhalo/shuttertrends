@@ -1,24 +1,36 @@
-# 35mm collection cards and homepage filmstrip
+# Responsive cinematic film reel
 
-Shared decoration lives in film.css. Tune the :root variables:
+The homepage has one photography region: a vertical reel in the right grid column above 1000px, and a compact horizontal strip immediately below the hero at 1000px and below. Both use the same filmstrip.js controller and unchanged shuffled shutterTrendsPhotos pool. Portrait-category exclusion and vertical event eligibility stay in collections.js. Published galleries and original assets are unchanged.
 
-- --st-film-rail: top/bottom border thickness (34px desktop, 30px tablet, 24px mobile).
-- --st-film-pitch: sprocket repeat spacing (32/24/20px). The lightweight SVG has a slightly rounded rectangular hole; its width scales with this spacing.
-- --st-film-hole-height: sprocket height (7/6/5px).
-- --st-film-mark-color: warm film lettering color. Font size/spacing are in .st-film-mark.
-- --st-film-stock: near-black border color.
-- --st-film-image-height: shared strip image height; widths follow each photo's original aspect ratio.
+## Layout and film decoration
 
-Marking text is created in galleries.js (collection cards) and filmstrip.js (strip frames). All stock labels and frame numbers are aria-hidden, separate from real photo alt text. The whole collection card is a native link, with no nested interactive controls. Each index card loads just one preview image lazily. Collection detail thumbnails and their manual viewer remain intact.
+assets/homepage/vertical-reel.css owns the 1.35fr/1fr desktop columns, 1320px maximum container, 24px sticky top offset and calc(100dvh - 132px) reel height. The reel spans the five rows of left-column main content and releases before the separate footer. Parents retain visible overflow; the viewport alone scrolls internally. On smaller screens the grid becomes normal document flow and the reel changes to horizontal touch scrolling. Featured collection cards retain titles, descriptions and links; their preview images are hidden on the homepage to keep the reel primary.
 
-The homepage filmstrip replaces the old arrow presentation and consumes the existing shuffled shutterTrendsPhotos pool unchanged. Categorization, portrait exclusion, vertical event eligibility, and the import workflow are unchanged. It has no navigation arrows. Mouse position controls direction/speed, the center rests, and leaving restores the default 16px/second drift. Edit speed and pointer multiplier in filmstrip.js. Touch uses native horizontal scrolling; keyboard users can Tab through original collection links or focus the viewport and use Left/Right/Home/End. A visible Pause/Play control is provided.
+Desktop film rails repeat along both vertical edges. Compact rails repeat above and below the horizontal frames. --st-film-rail controls border width, --st-film-pitch controls sprocket spacing, and .st-film-mark controls decorative lettering. The cycle length is rounded to the pitch so holes remain aligned at the loop seam. Each photograph retains its natural aspect ratio and has responsive optimized sources and lazy loading.
 
-Two matching groups create the loop. Only original links enter the keyboard/accessibility sequence; repeated visual frames retain working pointer links. Padding rounds the cycle width to a sprocket-spacing multiple, preserving rail alignment at wraparound. Fractional travel is accumulated to avoid stalling at low speeds. Images retain fixed-height aspect-ratio space before loading. A resize observer remeasures only when needed.
+## Motion and interaction
 
-Automatic movement stops for reduced motion, hidden/departed pages, offscreen content, touch interaction, keyboard focus inside the viewport, or the pause switch. The frame loop runs only while movement is active. Reduced motion leaves native manual scrolling available and removes hover transitions. The existing single atmospheric photo, dusk gradient, leaves, dust and spotlight are untouched.
+One requestAnimationFrame loop updates scrollTop on desktop or scrollLeft in compact mode. Default travel is 16px/second. Desktop pointer position near the top moves photographs upward; near the bottom moves them downward. Compact mode preserves horizontal pointer control. Speed eases over 400ms, with 24% pointer speed during photo inspection (minimum 4px/second). Edit those settings in filmstrip.js.
+
+The SVG-only 44px play/pause control stops both automatic and pointer-controlled travel. Motion also stops while hidden, departed, offscreen, touching, keyboard-focused, or under reduced motion. Keyboard users can Tab through original collection links, or focus the viewport and use Up/Down on desktop, Left/Right in compact mode, plus Home/End. The breakpoint handler switches the active axis without creating another loop. Duplicated visual frames are hidden from assistive technology and excluded from sequential keyboard focus.
 
 ## Vintage black-and-white to original color
 
-Homepage frames wrap their image in .st-film-image, which adds one static SVG noise texture above only that image. Adjust --st-film-vintage-grayscale (1), -sepia (.08), -contrast (1.10), -brightness (.93), -blur (0px), --st-film-grain-opacity (.12), and --st-film-develop-duration (350ms) in film.css. Hover on fine pointers, keyboard focus, or .is-original restores the untouched optimized image and fades out grain. Visible captions are omitted; accessible link names preserve photo metadata, and film markings remain above the grain. Collection viewers and the atmospheric background do not receive this treatment.
+film.css applies only homepage reel filters: --st-film-vintage-grayscale (1), -sepia (.08), -contrast (1.10), -brightness (.93), -blur (0px), --st-film-grain-opacity (.12), and --st-film-develop-duration (350ms). A static SVG grain texture covers only each image. Hover/focus reveals the original optimized photograph and fades grain to zero without changing dimensions. On touch, first tap reveals the original and announces that another tap opens its collection; second tap follows the existing link. Keyboard activation remains direct. Reduced motion removes filter transitions.
 
-On touch, the first tap reveals the original and announces that a second tap opens the collection; the second tap follows the original link. Keyboard activation remains a direct link. Hovering scales pointer-directed speed to 24% (minimum 4px/sec) and speed eases over 400ms inside the existing frame loop, including gentle reversals. Pause still cancels that loop. Reduced motion removes filter transitions and automatic motion; native manual scrolling remains available.
+Visible photo subtitles and hover captions remain absent; accessible link names and alt text retain metadata. Atmospheric and gallery photographs do not receive these filters. The old separate atmospheric-photo renderer and its styles have been removed; gradients, botanical leaves, falling leaves, particles and spotlight remain.
+
+## Files changed for the vertical reel redesign
+
+- index.html
+- assets/homepage/vertical-reel.css (new)
+- assets/homepage/refinement.css
+- assets/photography/filmstrip.js
+- assets/photography/FILM.md
+- assets/site-config.js
+- assets/effects/dusk-background.css
+- assets/effects/README.md
+- assets/themes/README.md
+- assets/effects/photo-background.js (removed)
+- assets/effects/photo-background.css (removed)
+- assets/effects/hero-soft-focus.css (removed)

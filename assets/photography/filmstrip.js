@@ -5,6 +5,10 @@
   const viewport = root.querySelector('.st-film-viewport');
   const track = root.querySelector('.st-film-track');
   const pause = root.querySelector('.st-film-pause');
+  const compact = matchMedia('(max-width: 1000px)');
+  let vertical = !compact.matches;
+  const position = () => vertical ? viewport.scrollTop : viewport.scrollLeft;
+  const setPosition = value => { if (vertical) viewport.scrollTop = value; else viewport.scrollLeft = value; };
   const photos = (window.shutterTrendsPhotos || []).filter(p => p.src && p.alt);
   if (!photos.length) { root.hidden = true; return; }
   const group = document.createElement('div'); group.className = 'st-film-group';
@@ -20,7 +24,7 @@
     if (photo.width) img.width = photo.width;
     if (photo.height) img.height = photo.height;
     img.src = photo.src;
-    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = Math.ceil(330 * ratio) + 'px'; }
+    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1450px) 40vw, 500px'; }
     link.setAttribute('aria-label', [photo.title, photo.collectionTitle, photo.alt].filter(Boolean).join(' — '));
     const picture = document.createElement('span'); picture.className = 'st-film-image'; picture.append(img);
     link.append(mark, picture, bottom); group.append(link);
@@ -42,9 +46,9 @@
     if (cycle) {
       remainder += speed * dt;
       const step = Math.trunc(remainder); remainder -= step;
-      let next = viewport.scrollLeft + step;
+      let next = position() + step;
       next = ((next % cycle) + cycle) % cycle;
-      viewport.scrollLeft = next;
+      setPosition(next);
     }
     frame = requestAnimationFrame(tick);
   }
@@ -62,20 +66,32 @@
     if (!running()) stop(); else if (!frame) frame = requestAnimationFrame(tick);
   }
   function measure() {
-    const old = cycle;
-    group.style.paddingRight = '0px'; duplicate.style.paddingRight = '0px';
+    const progress = cycle ? position() / cycle : 0;
+    const wasVertical = vertical;
+    vertical = !compact.matches;
+    root.dataset.axis = vertical ? 'vertical' : 'horizontal';
+    group.style.paddingRight = duplicate.style.paddingRight = '0px';
+    group.style.paddingBottom = duplicate.style.paddingBottom = '0px';
     const pitch = parseFloat(getComputedStyle(root).getPropertyValue('--st-film-pitch')) || 32;
-    const width = group.getBoundingClientRect().width;
-    const pad = Math.ceil(width / pitch) * pitch - width;
-    group.style.paddingRight = duplicate.style.paddingRight = pad + 'px';
-    cycle = width + pad;
-    if (old) viewport.scrollLeft = viewport.scrollLeft / old * cycle;
+    const rect = group.getBoundingClientRect();
+    const length = vertical ? rect.height : rect.width;
+    const pad = Math.ceil(length / pitch) * pitch - length;
+    const property = vertical ? 'paddingBottom' : 'paddingRight';
+    group.style[property] = duplicate.style[property] = pad + 'px';
+    cycle = length + pad;
+    if (wasVertical !== vertical) { viewport.scrollTop = 0; viewport.scrollLeft = 0; }
+    setPosition(progress * cycle);
+    const help = root.querySelector('#st-film-help');
+    if (help) help.textContent = vertical ? 'Use Up/Down arrows, Home/End, or scroll inside the reel. Tab opens collection links. Automatic movement pauses during keyboard navigation.' : 'Swipe or use Left/Right arrows and Home/End to explore photographs. Tab opens collection links. Automatic movement pauses during keyboard navigation.';
   }
+  compact.addEventListener('change', () => { stop(); speed = targetSpeed = 16; measure(); sync(); });
   pause.addEventListener('click', () => { paused = !paused; sync(); });
   viewport.addEventListener('pointermove', e => {
     if (e.pointerType !== 'mouse') return;
-    const rect = viewport.getBoundingClientRect(); const x = (e.clientX - rect.left) / rect.width;
-    const requested = Math.abs(x - .5) < .12 ? 0 : (x - .5) * 180;
+    const rect = viewport.getBoundingClientRect();
+    const coordinate = vertical ? (e.clientY - rect.top) / rect.height : (e.clientX - rect.left) / rect.width;
+    const offset = vertical ? .5 - coordinate : coordinate - .5;
+    const requested = Math.abs(offset) < .12 ? 0 : offset * 180;
     const inspecting = Boolean(e.target.closest('.st-film-frame'));
     targetSpeed = inspecting ? (requested === 0 ? Math.sign(speed || 1) * 4 : Math.sign(requested) * Math.max(4, Math.abs(requested) * .24)) : requested;
     sync();
@@ -98,11 +114,13 @@
   viewport.addEventListener('focusin', () => { focused = true; sync(); });
   viewport.addEventListener('focusout', () => queueMicrotask(() => { focused = viewport.contains(document.activeElement); sync(); }));
   viewport.addEventListener('keydown', e => {
-    if (e.target !== viewport || !['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+    const backward = vertical ? 'ArrowUp' : 'ArrowLeft';
+    const forward = vertical ? 'ArrowDown' : 'ArrowRight';
+    if (e.target !== viewport || ![backward,forward,'Home','End'].includes(e.key)) return;
     e.preventDefault();
-    if (e.key === 'Home') viewport.scrollLeft = 0;
-    else if (e.key === 'End') viewport.scrollLeft = Math.max(0, cycle - viewport.clientWidth);
-    else viewport.scrollLeft += e.key === 'ArrowRight' ? 240 : -240;
+    if (e.key === 'Home') setPosition(0);
+    else if (e.key === 'End') setPosition(Math.max(0,cycle - (vertical ? viewport.clientHeight : viewport.clientWidth)));
+    else setPosition(position() + (e.key === forward ? 240 : -240));
   });
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }).observe(viewport);
   new ResizeObserver(measure).observe(viewport);

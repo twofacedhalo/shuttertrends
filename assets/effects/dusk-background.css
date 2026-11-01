@@ -22,10 +22,6 @@ body.home {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-body.home .st-photo-background { background-color: transparent; }
-body.home .st-photo-background::after {
-  background: linear-gradient(90deg, rgba(8,14,27,.36), rgba(8,14,27,.18) 40%, rgba(8,14,27,.06) 78%, rgba(8,14,27,.15));
-}
 body.home #home-hero > .wp-block-cover,
 body.home #home-hero .wp-block-cover__background { background: transparent !important; }
 /* Large sections share the same continuous backdrop; cards retain their surfaces. */

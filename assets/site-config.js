@@ -5,7 +5,6 @@ window.shutterTrendConfig = {
     allowVisitorThemeSelection: true,
     randomizeThemeOnLoad: false
   },
-  atmosphericBackground: { avoidImmediateRepeat: true }, // Always exactly one eligible image.
   seasonalEffects: {
     decorativeLeaves: { enabled: true, desktopCount: 7, mobileCount: 3, size: 1, radius: 220 },
     autumnLeaves: {

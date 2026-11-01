@@ -54,7 +54,7 @@ padding. Very narrow header rows may wrap rather than overflow.
 
 Four short viewfinder L brackets replace the former full-edge lines on the hero, central homepage carousel display, and featured cards. The cards reveal them only on hover or focus-within.
 Particle counts/duration/size are adjustable in banner.js; movement endpoints,
-frame colors, responsive spacing, and background strength are in banner.css.
+frame colors and responsive spacing are in banner.css.
 
 ## Camera viewfinder corners
 
@@ -84,26 +84,9 @@ image gutter keeps the strokes off the photograph without cropping it.
 
 Particle density is controlled by `const count = mobile.matches ? 18 : 40` in banner.js. This is about 43% more desktop motes and 50% more mobile motes than the earlier 28/12 version. Roughly 8% may be slightly brighter, with the same long, gentle fade cycle; there is no flashing.
 
-## Single background composition and visible autumn leaves
 
-Exactly one backgroundEligible photograph is chosen at document initialization, independently of carousel categories. Portrait backgrounds remain eligible. The same image stays mounted through scrolling and responsive changes, using object-fit: contain and a blurred extension of that image. Desktop uses 64vw, tablet 80vw, mobile 92vw within the viewport. No additional atmospheric images are created. The fixed layer remains visible from hero to footer. A radial mask follows the sharp image’s intrinsic bounds, fading all outer edges while retaining a sharp center. A viewport-wide, blurred extension reuses the same selected optimized URL.
+## Current homepage atmosphere and reel
 
-In assets/site-config.js, atmosphericBackground.avoidImmediateRepeat (true) uses sessionStorage to exclude the last selection when alternatives exist. If storage is unavailable, selection still works randomly. This does not guarantee uniqueness between browser tabs. Photo eligibility remains in the existing photography metadata.
+The separate randomized atmospheric photograph and its rendering/feathering styles are removed. The homepage now uses a sticky vertical photography reel on desktop and a compact horizontal strip below the hero at widths up to 1000px. See assets/photography/FILM.md and assets/homepage/vertical-reel.css. Original photographs, galleries, and existing category rules remain unchanged.
 
-seasonalEffects.autumnLeaves controls enabled, maxLeaves (8), mobileMaxLeaves (3), opacity ([.30, .55]) and spawnIntervalMs ([5000, 10000]). Two initial desktop/tablet leaves (one mobile) start partway through their fall so they are visible immediately; subsequent groups have 1–3 leaves (one mobile). Leaf sizes are 12–28px, durations 28–40 seconds. Gentle fading starts at 5% of the fall. The previous long initial wait and low compounded opacity made the effect easy to miss; the original single animation system now handles this without duplication.
-
-The inert leaf layer is above atmospheric photographs and below spotlight/content. It ignores pointers. Hidden pages clear leaves and cancel timers; returning restarts with an initial group. Reduced motion disables falling. Leaves are removed on animation completion, and density caps prevent accumulation. Existing golden dust and carousel rules are unchanged.
-
-## Dusk-to-blue-night homepage
-
-The homepage loads dusk-background.css after the existing atmospheric effects. Its body.home background is one document-height gradient: scrolling reveals copper/rose, mauve/indigo, slate/blue, then navy/near-black. No scroll handler, JavaScript loop, time-based color animation or fixed background attachment is needed. The gradient responds automatically to content height and viewport changes.
-
-Edit the eight --st-dusk-*, --st-twilight-*, --st-night-* and --st-midnight-* color variables at the top of assets/effects/dusk-background.css. Stops are at 0/14/28/43/58/73/88/100 percent. --st-atmosphere-shade (.64) controls the dark contrast overlay; --st-spotlight-intensity (.10) tunes the gold glow. The fixed photographic backing is transparent while images retain contain sizing and a light navy scrim. Large section surfaces are transparent to avoid seams.
-
-Supported browsers use a native scroll timeline to lower the leaf layer opacity from 1 to .65 toward midnight. Other browsers use .85 throughout. Reduced motion skips this enhancement and existing falling animations remain disabled. Leaf settings, particle density, photo eligibility and all interactive scripts remain unchanged.
-
-## Feathered full-page atmosphere settings
-
-In photo-background.css, body.home owns the visibility and positioning settings. --st-background-photo-opacity defaults to .33 (banner.css no longer overrides it). --st-photo-solid-core (48%) sets the fully opaque center of the elliptical mask; lowering it gives a wider feather. --st-photo-feather-end (100%) sets the transparent boundary; keep it at or below 100% to avoid hard edges. --st-photo-width (64vw/80vw/92vw), --st-photo-right (4vw), --st-photo-top and --st-photo-bottom control the sharp composition’s area. --st-photo-object-position controls the blurred extension’s focal point and the contained image alignment.
-
---st-photo-extension-opacity (.16; .12 mobile) and --st-photo-extension-blur (32px; 20px mobile) tune the viewport-wide atmosphere. Both prefixed and standard masks support modern Safari, Chrome and Firefox. Only the extension uses cover/blur; the sharp image uses intrinsic proportions with contain and max dimensions. The fixed composition requires no scroll handler, resizing loop or document-height image buffer. Portrait eligibility, session selection and filmstrip rules remain unchanged.
+The background retains the continuous theme gradient, cursor-reactive spotlight, botanical leaf illustrations, small falling leaves, and golden dust. Theme settings and decorative leaf controls are documented in assets/themes/README.md. No photo selection or image-layer animation runs behind the homepage.
