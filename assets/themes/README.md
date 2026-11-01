@@ -40,3 +40,9 @@ Homepage polish is in assets/homepage/refinement.css: 1280px text grid, responsi
 - author/douglasrendlesiii/index.html
 - category/uncategorized/index.html
 - 2026/10/27/hello-world/index.html
+
+## Dreamy editorial hero
+
+hero-soft-focus.css is the final homepage override. --hero-photo-blur starts at 18px and is clamped to 12–28px, --hero-photo-opacity at .65, --hero-photo-saturation at .75, and --hero-photo-tint-opacity at .22. A single contained image is blurred; the former blurred extension is disabled, leaving no sharp duplicate. The composition is scoped to the hero, with a 55/45 text/photo split, soft masks, blur overscan and a stronger mobile contrast scrim. Theme tint uses the existing palette, and theme photo opacity scales the hero visibility. Neither theme changes nor scrolling reselects the image. Filmstrip images receive no blur.
+
+The filmstrip uses one SVG-only 44×44px toggle below the strip at bottom-right. Dynamic Play filmstrip/Pause filmstrip accessible labels reflect the existing paused state; no second controller is introduced. Pausing blocks both automatic and pointer-driven movement. Reduced motion disables automatic movement, and touch/native scrolling remains available.

@@ -2,6 +2,8 @@
   'use strict';
   const layer = document.querySelector('[data-st-photo-background]');
   if (!layer) return;
+  const hero = document.querySelector('#home-hero');
+  if (hero) hero.prepend(layer);
   const seenIds = new Set(), seenSources = new Set();
   // The normalized portfolio already excludes unpublished collections and photos.
   const pool = (window.shutterTrendsPortfolio || []).flatMap(c => c.photos).filter(photo => {
@@ -23,7 +25,6 @@
   try { sessionStorage.setItem(storageKey, key(photo)); } catch {}
   const frame = document.createElement('div');
   frame.className = 'st-background-frame';
-  frame.style.setProperty('--photo-extension', `url("${photo.src}")`);
   const image = document.createElement('img');
   image.className = 'st-background-photo';
   image.alt = ''; image.draggable = false;
@@ -36,7 +37,7 @@
     image.classList.add('is-loaded');
   };
   image.onerror = () => image.classList.remove('is-loaded');
-  image.sizes = '(max-width: 600px) 92vw, (max-width: 1000px) 80vw, 64vw';
+  image.sizes = '(max-width: 600px) 100vw, (max-width: 1000px) 52vw, 45vw';
   if (photo.srcset) image.srcset = photo.srcset;
   image.src = photo.src;
   frame.append(image);

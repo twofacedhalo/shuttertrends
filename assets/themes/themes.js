@@ -17,6 +17,7 @@
       '--wp--preset--color--accent':theme.accent, '--st-gold':theme.accent,
       '--st-viewfinder-color':theme.accent, '--st-film-mark-color':theme.accent,
       '--st-background-photo-opacity':theme.photo.opacity,
+      '--hero-theme-photo-strength':theme.photo.opacity / .33,
       '--st-photo-solid-core':theme.photo.solidCore + '%', '--st-photo-feather-end':theme.photo.featherEnd + '%',
       '--st-photo-saturation':theme.photo.saturation, '--st-photo-sepia':theme.photo.sepia,
       '--st-spotlight-color':theme.spotlight.tint, '--st-spotlight-intensity':theme.spotlight.intensity,

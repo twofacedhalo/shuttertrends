@@ -1,0 +1,45 @@
+/* One deliberately soft-focus photograph; controls apply only to the hero. */
+body.home {
+  --hero-photo-blur: 18px;
+  --hero-photo-opacity: .65;
+  --hero-photo-saturation: .75;
+  --hero-photo-tint-opacity: .22;
+}
+body.home #home-hero { position:relative; isolation:isolate; }
+body.home #home-hero .st-photo-background { position:absolute; inset:0; width:100% !important; max-width:none !important; margin:0 !important; z-index:-1; overflow:hidden; contain:strict; }
+body.home #home-hero .st-background-frame {
+  position:absolute; top:-32px; bottom:-32px; right:-32px; width:calc(45% + 64px);
+  display:flex; align-items:center; justify-content:center;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 85%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 24%,#000 85%,transparent);
+}
+body.home #home-hero .st-background-frame::before { content:none; }
+body.home #home-hero .st-background-photo {
+  width:auto; height:auto; max-width:calc(100% - 64px); max-height:calc(100% - 64px);
+  filter:blur(clamp(12px,var(--hero-photo-blur),28px)) saturate(var(--hero-photo-saturation)) sepia(var(--st-photo-sepia,0));
+  -webkit-mask-image:radial-gradient(ellipse closest-side,#000 66%,transparent 100%);
+  mask-image:radial-gradient(ellipse closest-side,#000 66%,transparent 100%);
+}
+body.home #home-hero .st-background-photo.is-loaded { opacity:calc(var(--hero-photo-opacity) * var(--hero-theme-photo-strength,1)); }
+body.home #home-hero .st-background-frame::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(135deg,var(--st-theme-color-1,#7c4d52),var(--st-theme-color-4,#263d62));
+  opacity:var(--hero-photo-tint-opacity);
+  -webkit-mask-image:radial-gradient(ellipse closest-side,#000 25%,transparent 100%);
+  mask-image:radial-gradient(ellipse closest-side,#000 25%,transparent 100%);
+}
+body.home #home-hero .st-photo-background::after { background:linear-gradient(90deg,rgba(8,14,27,.32),transparent 60%); -webkit-mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent); mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent); }
+body.home #home-hero .alignwide > .wp-block-group { width:100%; max-width:none; }
+body.home #home-hero h1,body.home #home-hero .is-style-lead { max-width:55%; }
+body.home #home-hero h1 { font-size:clamp(52px,6.2vw,88px); }
+@media(max-width:1000px) and (min-width:601px) {
+  body.home #home-hero .st-background-frame { width:calc(48% + 64px); }
+  body.home #home-hero h1 { font-size:clamp(48px,7vw,70px); max-width:58%; }
+  body.home #home-hero .is-style-lead { max-width:58%; }
+}
+@media(max-width:600px) {
+  body.home #home-hero .st-background-frame { width:calc(100% + 64px); }
+  body.home #home-hero .st-photo-background::after { background:linear-gradient(90deg,rgba(8,14,27,.68),rgba(8,14,27,.48)); }
+  body.home #home-hero h1,body.home #home-hero .is-style-lead { max-width:100%; }
+  body.home #home-hero h1 { font-size:clamp(46px,12vw,64px); }
+}

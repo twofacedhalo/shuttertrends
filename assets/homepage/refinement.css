@@ -12,9 +12,9 @@ body.home #photography-showcase { padding-block:clamp(48px,6vw,80px) !important;
 body.home #photography-showcase > .alignwide { max-width:1360px !important; }
 body.home #photography-showcase > .alignwide > p,body.home .st-filmstrip h2 { margin-left:max(0px,calc((100% - 1280px) / 2)); }
 body.home #photography-showcase > .alignwide > p { font-size:13px; letter-spacing:.12em; margin-bottom:18px; }
-body.home .st-filmstrip { position:relative; --st-film-rail:28px; --st-film-pitch:34px; --st-film-hole-height:5px; }
+body.home .st-filmstrip { position:relative; padding-bottom:56px; --st-film-rail:28px; --st-film-pitch:34px; --st-film-hole-height:5px; }
 body.home .st-filmstrip h2 { max-width:calc(100% - 64px); font-size:clamp(28px,3vw,42px); line-height:1.2; margin-top:0; margin-bottom:32px; }
-body.home .st-film-pause { position:absolute; right:0; top:0; display:grid; place-items:center; width:36px; height:36px; padding:0; margin:0; border-radius:50%; border-color:#cfac6845; background:#10151ea6; font-size:16px; line-height:1; }
+body.home .st-film-pause { position:absolute; right:0; top:auto; bottom:0; display:grid; place-items:center; width:44px; height:44px; min-width:44px; min-height:44px; padding:0; margin:0; border-radius:50%; border-color:#cfac6845; background:#10151ea6; font-size:16px; line-height:1; }
 body.home .st-film-frame { padding-inline:12px; }
 body.home .st-film-track::before,body.home .st-film-track::after { opacity:.65; }
 body.home .st-film-frame > .st-film-mark { top:13px; font-size:8px; letter-spacing:.08em; }
@@ -46,3 +46,7 @@ body.home .st-banner-dust { opacity:calc(var(--st-dust-strength,1) * .8); }
   body.home .st-film-frame > .st-film-mark--bottom { top:auto; bottom:10px; }
 }
 @media(prefers-reduced-motion:reduce) { body.home .wp-block-button__link,body.home .st-nav__cta { transition:none; } }
+
+body.home .st-film-pause:hover { border-color:#cfac68; background:#cfac6826; }
+body.home .st-film-pause:focus-visible { outline:2px solid #ead3a4; outline-offset:3px; }
+body.home .st-film-pause svg { width:18px; height:18px; fill:currentColor; pointer-events:none; }

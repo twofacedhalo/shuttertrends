@@ -46,9 +46,10 @@
     frame = requestAnimationFrame(tick);
   }
   function sync() {
-    const label = reduced.matches ? 'Automatic motion off' : paused ? 'Play filmstrip' : 'Pause filmstrip';
-    pause.setAttribute('aria-label', label); pause.title = label;
-    pause.textContent = reduced.matches ? '◇' : paused ? '▶' : 'Ⅱ';
+    const label = paused || reduced.matches ? 'Play filmstrip' : 'Pause filmstrip';
+    pause.setAttribute('aria-label', label); pause.title = reduced.matches ? 'Automatic movement disabled by reduced-motion preference' : label;
+    pause.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      (paused || reduced.matches ? '<path d="M8 5L19 12L8 19Z"/>' : '<path d="M6 5H10V19H6ZM14 5H18V19H14Z"/>') + '</svg>';
     pause.disabled = reduced.matches;
     pause.setAttribute('aria-pressed', String(paused || reduced.matches));
     if (!running()) stop(); else if (!frame) frame = requestAnimationFrame(tick);
