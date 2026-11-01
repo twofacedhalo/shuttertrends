@@ -23,7 +23,7 @@
     if (photo.width) img.width = photo.width;
     if (photo.height) img.height = photo.height;
     img.src = photo.src;
-    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1450px) 40vw, 500px'; }
+    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1565px) 46vw, 720px'; }
     link.setAttribute('aria-label', [photo.title, photo.collectionTitle, photo.alt].filter(Boolean).join(' — '));
     const picture = document.createElement('span'); picture.className = 'st-film-image'; picture.append(img);
     link.append(mark, picture, bottom); group.append(link);

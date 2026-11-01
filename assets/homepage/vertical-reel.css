@@ -2,14 +2,16 @@
 body.home .st-spotlight { background:transparent; }
 body.home main { padding-inline:0 !important; }
 body.home main .entry-content {
-  display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); grid-template-rows:repeat(6,auto);
+  --st-reel-edge:clamp(24px,2vw,40px);
+  --st-reel-desktop-width:min(46vw,720px);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,var(--st-reel-desktop-width)); grid-template-rows:repeat(6,auto);
   column-gap:clamp(28px,4vw,56px); row-gap:0;
-  width:calc(100% - 2 * var(--st-page-gutter)); max-width:1320px !important;
+  width:calc(100% - 2 * var(--st-reel-edge)); max-width:none !important;
   margin-inline:auto !important; padding:32px 0 0 !important;
   overflow:visible; align-items:start;
 }
 body.home main .entry-content > section { width:100%; max-width:100%; min-width:0; margin:0 !important; box-sizing:border-box; }
-body.home main .entry-content > section:not(#photography-showcase) { grid-column:1; padding-inline:0 !important; }
+body.home main .entry-content > section:not(#photography-showcase) { grid-column:1; max-width:714px; justify-self:end; padding-inline:0 !important; }
 body.home main .entry-content > section .alignwide { width:100%; max-width:100% !important; }
 body.home #home-hero > .wp-block-cover { min-height:0; width:100%; margin-inline:0; }
 body.home #home-hero .wp-block-cover__inner-container > .wp-block-group { padding:48px 0 72px !important; }
@@ -48,7 +50,8 @@ body.home .st-home-contact .wp-block-buttons { justify-content:flex-start; }
 body.home .st-instagram { text-align:left; }
 body.home .st-home-all { text-align:left; }
 @media(max-width:1000px) {
-  body.home main .entry-content { display:block; padding-top:0 !important; }
+  body.home main .entry-content { display:block; width:calc(100% - 2 * var(--st-page-gutter)); padding-top:0 !important; }
+  body.home main .entry-content > section:not(#photography-showcase) { max-width:100%; }
   body.home main .entry-content > section#photography-showcase { position:relative; top:auto; height:auto; padding-block:24px 48px !important; }
   body.home #photography-showcase > .alignwide { height:auto; }
   body.home #photography-showcase .st-filmstrip { display:block; height:auto; --st-film-rail:24px; --st-film-pitch:24px; }
