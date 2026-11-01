@@ -21,7 +21,7 @@ window.shutterTrendsCollections = [
         "id": "501-01",
         "file": "501.01.jpg",
         "alt": "Musicians performing outdoors under a canopy with an upright bass, guitars, and microphones.",
-        "title": "Live performance",
+        "title": "Music in the Open Air",
         "width": 2000,
         "height": 1333,
         "showcase": true,
@@ -82,7 +82,7 @@ window.shutterTrendsCollections = [
       {
         "id": "import-img-2926",
         "file": "IMG_2926.jpg",
-        "title": "Across the Lawn",
+        "title": "The Walk Toward What's Next",
         "alt": "A graduate in a blue gown walks across a lawn toward a leafy tree.",
         "width": 3053,
         "height": 4580,
@@ -116,7 +116,7 @@ window.shutterTrendsCollections = [
       {
         "id": "import-img-3013",
         "file": "IMG_3013.jpg",
-        "title": "A Proud Pair",
+        "title": "The Best Kind of Support",
         "alt": "A smiling graduate holds a dog dressed in a small graduation outfit outdoors.",
         "width": 3126,
         "height": 4689,
@@ -174,7 +174,7 @@ window.shutterTrendsCollections = [
       {
         "id": "import-5b0b98c46992",
         "file": "IMG_2942.jpg",
-        "title": "Graduation Moments",
+        "title": "One Last Look Back",
         "alt": "A graduate looks back over one shoulder in front of a brick building.",
         "width": 4000,
         "height": 6000,
@@ -186,7 +186,7 @@ window.shutterTrendsCollections = [
       {
         "id": "import-9417308cee92",
         "file": "IMG_2947.jpg",
-        "title": "Graduation Moments",
+        "title": "The Moment Before Tomorrow",
         "alt": "A graduate reaches toward a cap tossed into the air outside a brick building.",
         "width": 3009,
         "height": 4513,
@@ -198,7 +198,7 @@ window.shutterTrendsCollections = [
       {
         "id": "import-aa44fee8f5e6",
         "file": "IMG_2948.jpg",
-        "title": "Graduation Moments",
+        "title": "A Little Closer to the Sky",
         "alt": "A decorated graduation cap hangs above an outstretched hand.",
         "width": 3200,
         "height": 4800,

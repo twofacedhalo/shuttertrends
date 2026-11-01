@@ -1,7 +1,7 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
   stories: { homepageLimit: 4, featured: ['warm-studio', 'cap-in-the-air', 'wedding-day-portraits', 'across-the-lawn'] },
-  filmReel: { autoplaySpeed: 22, cursorMaxSpeed: 72, cursorCrawlSpeed: 3, velocityEaseSeconds: .6, edgeEaseDistance: 100 },
+  filmReel: { autoplaySpeed: 22, cursorMaxSpeed: 150, cursorCrawlSpeed: 3, velocityEaseSeconds: .6, edgeEaseDistance: 100 },
   seasonalEffects: {
     decorativeLeaves: { enabled: true, desktopCount: 7, mobileCount: 3, size: 1, radius: 220 },
     autumnLeaves: {

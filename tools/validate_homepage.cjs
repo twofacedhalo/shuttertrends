@@ -1,7 +1,8 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
+let contentHeight=600;
 class Element {
  constructor(tag='div'){this.tag=tag;this.dataset={};this.children=[];this.listeners={};this.style={setProperty(){}};this.classList={add(){},remove(){},contains(){return false}};this.isConnected=true;this.clientHeight=200;this.scrollTop=0;this.scrollLeft=0;}
- append(...nodes){this.children.push(...nodes)} replaceChildren(...nodes){this.children=nodes} cloneNode(){return new Element(this.tag)} setAttribute(k,v){this[k]=v} addEventListener(k,f){(this.listeners[k]??=[]).push(f)} emit(k,e={}){for(const f of this.listeners[k]||[])f(e)} getBoundingClientRect(){return {height:600}} querySelectorAll(s){return s==='img'?this.children.flatMap(c=>c.tag==='img'?[c]:c.querySelectorAll(s)):[]} querySelector(s){return map[s]||null} contains(){return false}
+ append(...nodes){this.children.push(...nodes)} replaceChildren(...nodes){this.children=nodes} cloneNode(){return new Element(this.tag)} setAttribute(k,v){this[k]=v} addEventListener(k,f){(this.listeners[k]??=[]).push(f)} emit(k,e={}){for(const f of this.listeners[k]||[])f(e)} getBoundingClientRect(){return {height:contentHeight}} querySelectorAll(s){return s==='img'?this.children.flatMap(c=>c.tag==='img'?[c]:c.querySelectorAll(s)):[]} querySelector(s){return map[s]||null} contains(){return false}
 }
 const root=new Element(), viewport=new Element(),track=new Element(),pause=new Element(),map={'.st-film-viewport':viewport,'.st-film-track':track,'.st-film-pause':pause};
 viewport.getBoundingClientRect=()=>({top:0,height:200});
@@ -22,16 +23,17 @@ viewport.clientHeight=800;box.window.emit('pageshow');advance(100);assert(pause.
 media['(max-width: 1000px)'].matches=true;media['(max-width: 1000px)'].emit('change');assert.equal(track.style.transform,'none');assert.equal(queue.size,0,'no compact autoplay');
 viewport.clientHeight=200;media['(max-width: 1000px)'].matches=false;media['(max-width: 1000px)'].emit('change');advance(100);assert.equal(root.dataset.axis,'vertical');assert(!pause.disabled);assert.equal(queue.size,1,'desktop resumes one loop');
 const fine=media['(any-hover: hover) and (any-pointer: fine)'];fine.matches=true;
-const middle=()=>{viewport.emit('keydown',{key:'Home',preventDefault(){}});viewport.emit('keydown',{key:'ArrowDown',preventDefault(){}})};
+contentHeight=4200;box.window.emit('pageshow');
+const middle=()=>{viewport.emit('keydown',{key:'Home',preventDefault(){}});for(let i=0;i<8;i++)viewport.emit('keydown',{key:'ArrowDown',preventDefault(){}})};
 const steer=y=>viewport.emit('pointermove',{pointerType:'mouse',clientY:y});
-middle();steer(0);advance(90);let start=position();advance(15);const fast=position()-start;assert(fast>10,'top accelerates upward');
-middle();steer(100);advance(150);start=position();advance(15);const slow=position()-start;assert(slow>0&&slow<fast/3,'center crawls');
-middle();steer(200);advance(90);start=position();advance(15);assert(position()<start-10,'bottom moves downward');
-viewport.emit('pointerleave');advance(120);start=position();advance(15);assert(position()>start,'exit resumes automatic direction');
+middle();steer(0);advance(180);let start=position();advance(60);const downward=(start-position())/.96;assert(downward>147&&downward<=151,'top moves visible photos downward at about 150px/s');
+middle();steer(100);advance(240);start=position();advance(60);const slow=Math.abs(position()-start)/.96;assert(slow<2,'center crawls');
+middle();steer(200);advance(180);start=position();advance(60);const upward=(position()-start)/.96;assert(upward>147&&upward<=151,'bottom moves visible photos upward at about 150px/s');
+viewport.emit('pointerleave');advance(180);start=position();advance(60);const auto=(position()-start)/.96;assert(auto>20&&auto<25,'exit restores unchanged slow autoplay');
 pause.emit('click');steer(0);start=position();advance(100);assert.equal(position(),start,'pause blocks cursor motion');pause.emit('click');
-middle();steer(0);let cursorUp=false,cursorDown=false;previous=position();for(let i=0;i<6000;i++){advance(1);const now=position();assert(now>=0&&now<=400);if(now>previous+.001)cursorUp=true;if(now<previous-.001)cursorDown=true;previous=now}assert(cursorUp&&cursorDown,'held cursor reverses at boundaries');
-fine.matches=false;fine.emit('change');middle();steer(200);advance(120);start=position();advance(15);assert(position()>start,'touch-only ignores cursor tracking');
-console.log('PASS: cursor speed zones, center crawl, direction, exit autoplay, paused cursor, boundary reflection, touch-only tracking disabled');
+middle();steer(0);let cursorUp=false,cursorDown=false;previous=position();for(let i=0;i<6000;i++){advance(1);const now=position();assert(now>=0&&now<=4000);if(now>previous+.001)cursorUp=true;if(now<previous-.001)cursorDown=true;previous=now}assert(cursorUp&&cursorDown,'held cursor reverses at boundaries');
+fine.matches=false;fine.emit('change');middle();steer(0);advance(180);start=position();advance(15);assert(position()>start,'touch-only ignores inverted cursor tracking');
+console.log('PASS: top/down '+downward.toFixed(1)+'px/s; bottom/up '+upward.toFixed(1)+'px/s; center '+slow.toFixed(1)+'px/s; exit autoplay '+auto.toFixed(1)+'px/s; paused cursor, boundaries, touch-only');
 console.log('PASS: automatic Y motion, boundaries/reversals, one RAF, pause/resume, hidden/reduced motion, initialization guard');
 const data={window:{},document:{currentScript:{src:'https://example.com/shuttertrends/assets/photography/collections.js'}},URL,Math,console};
 for(const f of ['assets/site-config.js','assets/photography/photos.js','assets/photography/optimized.js','assets/photography/collections.js','assets/photography/stories-data.js'])vm.runInNewContext(fs.readFileSync(f,'utf8'),data);

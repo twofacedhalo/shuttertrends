@@ -33,7 +33,7 @@
   const mouse = matchMedia('(any-hover: hover) and (any-pointer: fine)');
   const settings = window.shutterTrendConfig?.filmReel || {};
   const baseSpeed = Math.max(1,Number(settings.autoplaySpeed) || 22);
-  const cursorMax = Math.max(baseSpeed,Number(settings.cursorMaxSpeed) || 72);
+  const cursorMax = Math.max(baseSpeed,Number(settings.cursorMaxSpeed) || 150);
   const crawl = Math.max(1,Math.min(baseSpeed,Number(settings.cursorCrawlSpeed) || 3));
   const velocityEase = Math.max(.1,Number(settings.velocityEaseSeconds) || .6);
   const easeDistance = Math.max(20,Number(settings.edgeEaseDistance) || 100);
@@ -87,9 +87,14 @@
   function steer(event) {
     if (event.pointerType !== 'mouse' || !mouse.matches || compact.matches || reduced.matches) return;
     const bounds = viewport.getBoundingClientRect();
-    const offset = 1 - 2 * Math.max(0,Math.min(1,(event.clientY-bounds.top)/bounds.height));
-    const sign = Math.abs(offset) < .06 ? direction : Math.sign(offset);
-    const next = sign * (crawl + (cursorMax-crawl) * Math.pow(Math.abs(offset),1.6));
+    // Positive position moves the visible photographs upward (negative Y).
+    // Top therefore requests a negative velocity; bottom requests positive.
+    const offset = 2 * Math.max(0,Math.min(1,(event.clientY-bounds.top)/bounds.height)) - 1;
+    const distance = Math.abs(offset);
+    const sign = distance < .02 ? direction : Math.sign(offset);
+    const magnitude = distance <= .3 ? crawl * (.2 + .8 * distance/.3)
+      : crawl + (cursorMax-crawl) * Math.pow((distance-.3)/.7,1.7);
+    const next = sign * magnitude;
     if (cursorVelocity !== null && Math.sign(next) !== Math.sign(cursorVelocity)) cursorReverse = 1;
     cursorVelocity = next;
   }
