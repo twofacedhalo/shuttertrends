@@ -89,3 +89,11 @@ Particle density is controlled by `const count = mobile.matches ? 18 : 40` in ba
 Backgrounds use responsive viewport-contained grid areas and object-fit: contain. The sharp image retains its entire composition; only a faint blurred extension uses cover. Mobile shows one image, tablet up to two, desktop up to three. Background eligibility remains independent of carousel categories, including portraits.
 
 Adjust seasonalEffects.autumnLeaves in assets/site-config.js: enabled is the manual switch (no calendar checks), maxLeaves/mobileMaxLeaves cap density (6/3), opacity sets the randomized range (.12–.30), and spawnIntervalMs sets group timing (8000–15000ms). Desktop groups contain 1–3 leaves; mobile groups contain one. Leaves last 21–35 seconds, favor the left side, and are removed after falling. Hidden pages, page departures, breakpoint changes and reduced-motion changes clear leaves and cancel/restart the timer as appropriate. Reduced motion disables falling entirely. The inert layer ignores pointer events; existing dust and spotlight code is unchanged.
+
+## Dusk-to-blue-night homepage
+
+The homepage loads dusk-background.css after the existing atmospheric effects. Its body.home background is one document-height gradient: scrolling reveals copper/rose, mauve/indigo, slate/blue, then navy/near-black. No scroll handler, JavaScript loop, time-based color animation or fixed background attachment is needed. The gradient responds automatically to content height and viewport changes.
+
+Edit the eight --st-dusk-*, --st-twilight-*, --st-night-* and --st-midnight-* color variables at the top of assets/effects/dusk-background.css. Stops are at 0/14/28/43/58/73/88/100 percent. --st-atmosphere-shade (.64) controls the dark contrast overlay; --st-spotlight-intensity (.10) tunes the gold glow. The fixed photographic backing is transparent while images retain contain sizing and a light navy scrim. Large section surfaces are transparent to avoid seams.
+
+Supported browsers use a native scroll timeline to lower the leaf layer opacity from 1 to .65 toward midnight. Other browsers use .85 throughout. Reduced motion skips this enhancement and existing falling animations remain disabled. Leaf settings, particle density, photo eligibility and all interactive scripts remain unchanged.

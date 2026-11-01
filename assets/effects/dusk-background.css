@@ -1,0 +1,47 @@
+/* Homepage palette: edit these eight stops to tune the dusk-to-midnight journey. */
+body.home {
+  --st-dusk-copper: #AE7055;
+  --st-dusk-rose: #7C4D52;
+  --st-twilight-mauve: #754A6A;
+  --st-twilight-indigo: #343D64;
+  --st-night-slate: #263D62;
+  --st-night-blue: #182D4C;
+  --st-midnight-navy: #101D35;
+  --st-midnight-black: #080E1B;
+  --st-atmosphere-shade: .64;
+  --st-spotlight-intensity: .10;
+  background-color: var(--st-midnight-black);
+  /* Both layers span the full document height, without fixed attachment or timers. */
+  background-image:
+    linear-gradient(rgba(8,14,27,var(--st-atmosphere-shade)), rgba(8,14,27,var(--st-atmosphere-shade))),
+    linear-gradient(to bottom,
+      var(--st-dusk-copper) 0%, var(--st-dusk-rose) 14%,
+      var(--st-twilight-mauve) 28%, var(--st-twilight-indigo) 43%,
+      var(--st-night-slate) 58%, var(--st-night-blue) 73%,
+      var(--st-midnight-navy) 88%, var(--st-midnight-black) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+body.home .st-photo-background { background-color: transparent; }
+body.home .st-photo-background::after {
+  background: linear-gradient(90deg, rgba(8,14,27,.36), rgba(8,14,27,.18) 40%, rgba(8,14,27,.06) 78%, rgba(8,14,27,.15));
+}
+body.home #home-hero > .wp-block-cover,
+body.home #home-hero .wp-block-cover__background { background: transparent !important; }
+/* Large sections share the same continuous backdrop; cards retain their surfaces. */
+body.home main .entry-content > section.has-surface-background-color {
+  background-color: transparent !important;
+}
+body.home .st-autumn-leaves { opacity: .85; }
+/* Progressive enhancement: native scroll progress makes leaves softer at night.
+   Browsers without scroll timelines retain the subtle static opacity above. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body.home .st-autumn-leaves {
+      animation: st-leaves-night linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+@keyframes st-leaves-night { from { opacity: 1; } to { opacity: .65; } }
+@media print { body.home { background-image: none; } }
