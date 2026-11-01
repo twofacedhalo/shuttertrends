@@ -182,6 +182,586 @@ window.shutterTrendsOptimized = {
       "bytes": 233574
     }
   },
+  "graduation-portraits/IMG_2921.jpg": {
+    "thumbnail": {
+      "file": "dece518f8afedea486e1-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 68828
+    },
+    "gallery": {
+      "file": "dece518f8afedea486e1-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 270278
+    },
+    "viewer": {
+      "file": "dece518f8afedea486e1-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 485774
+    }
+  },
+  "graduation-portraits/IMG_2924.jpg": {
+    "thumbnail": {
+      "file": "c946c35bf8784a3c9066-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 92746
+    },
+    "gallery": {
+      "file": "c946c35bf8784a3c9066-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 553586
+    },
+    "viewer": {
+      "file": "c946c35bf8784a3c9066-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 1063698
+    }
+  },
+  "graduation-portraits/IMG_2935.jpg": {
+    "thumbnail": {
+      "file": "72840c84766017f1c98e-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 91530
+    },
+    "gallery": {
+      "file": "72840c84766017f1c98e-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 453846
+    },
+    "viewer": {
+      "file": "72840c84766017f1c98e-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 811416
+    }
+  },
+  "graduation-portraits/IMG_2942.jpg": {
+    "thumbnail": {
+      "file": "5b0b98c46992f607041e-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 33904
+    },
+    "gallery": {
+      "file": "5b0b98c46992f607041e-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 142412
+    },
+    "viewer": {
+      "file": "5b0b98c46992f607041e-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 273942
+    }
+  },
+  "graduation-portraits/IMG_2947.jpg": {
+    "thumbnail": {
+      "file": "9417308cee92cd917c59-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 29026
+    },
+    "gallery": {
+      "file": "9417308cee92cd917c59-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 115460
+    },
+    "viewer": {
+      "file": "9417308cee92cd917c59-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 206362
+    }
+  },
+  "graduation-portraits/IMG_2948.jpg": {
+    "thumbnail": {
+      "file": "aa44fee8f5e65cd0ce3a-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 28232
+    },
+    "gallery": {
+      "file": "aa44fee8f5e65cd0ce3a-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 111886
+    },
+    "viewer": {
+      "file": "aa44fee8f5e65cd0ce3a-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 198522
+    }
+  },
+  "graduation-portraits/IMG_2952.jpg": {
+    "thumbnail": {
+      "file": "e9e4c762223ca70d377f-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 26606
+    },
+    "gallery": {
+      "file": "e9e4c762223ca70d377f-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 116240
+    },
+    "viewer": {
+      "file": "e9e4c762223ca70d377f-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 215364
+    }
+  },
+  "graduation-portraits/IMG_2960.jpg": {
+    "thumbnail": {
+      "file": "1652a0a922aa24719ed5-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 51196
+    },
+    "gallery": {
+      "file": "1652a0a922aa24719ed5-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 341908
+    },
+    "viewer": {
+      "file": "1652a0a922aa24719ed5-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 715488
+    }
+  },
+  "graduation-portraits/IMG_2964.jpg": {
+    "thumbnail": {
+      "file": "ab479a1d608e40b545d8-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 46226
+    },
+    "gallery": {
+      "file": "ab479a1d608e40b545d8-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 301740
+    },
+    "viewer": {
+      "file": "ab479a1d608e40b545d8-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 624154
+    }
+  },
+  "graduation-portraits/IMG_2967.jpg": {
+    "thumbnail": {
+      "file": "d6acbd87c3d5fa74f914-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 44298
+    },
+    "gallery": {
+      "file": "d6acbd87c3d5fa74f914-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 293528
+    },
+    "viewer": {
+      "file": "d6acbd87c3d5fa74f914-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 609232
+    }
+  },
+  "graduation-portraits/IMG_2971.jpg": {
+    "thumbnail": {
+      "file": "425a3502549639c25ade-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 39638
+    },
+    "gallery": {
+      "file": "425a3502549639c25ade-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 207666
+    },
+    "viewer": {
+      "file": "425a3502549639c25ade-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 389138
+    }
+  },
+  "graduation-portraits/IMG_2972.jpg": {
+    "thumbnail": {
+      "file": "009b7ff4fe2fdc38fa0d-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 53164
+    },
+    "gallery": {
+      "file": "009b7ff4fe2fdc38fa0d-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 335966
+    },
+    "viewer": {
+      "file": "009b7ff4fe2fdc38fa0d-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 673984
+    }
+  },
+  "graduation-portraits/IMG_2979.jpg": {
+    "thumbnail": {
+      "file": "48d61f61f4b12c0a5c05-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 53090
+    },
+    "gallery": {
+      "file": "48d61f61f4b12c0a5c05-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 277032
+    },
+    "viewer": {
+      "file": "48d61f61f4b12c0a5c05-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 523254
+    }
+  },
+  "graduation-portraits/IMG_2983.jpg": {
+    "thumbnail": {
+      "file": "f605cf44be186864c03c-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 53336
+    },
+    "gallery": {
+      "file": "f605cf44be186864c03c-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 289580
+    },
+    "viewer": {
+      "file": "f605cf44be186864c03c-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 562202
+    }
+  },
+  "graduation-portraits/IMG_2988.jpg": {
+    "thumbnail": {
+      "file": "c6313cc3d53c5d3342af-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 40874
+    },
+    "gallery": {
+      "file": "c6313cc3d53c5d3342af-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 233170
+    },
+    "viewer": {
+      "file": "c6313cc3d53c5d3342af-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 464284
+    }
+  },
+  "graduation-portraits/IMG_2992.jpg": {
+    "thumbnail": {
+      "file": "1127d2e841018528551b-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 54426
+    },
+    "gallery": {
+      "file": "1127d2e841018528551b-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 288906
+    },
+    "viewer": {
+      "file": "1127d2e841018528551b-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 583746
+    }
+  },
+  "graduation-portraits/IMG_2993.jpg": {
+    "thumbnail": {
+      "file": "4ee0b02d05dce3641ec6-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 40180
+    },
+    "gallery": {
+      "file": "4ee0b02d05dce3641ec6-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 220532
+    },
+    "viewer": {
+      "file": "4ee0b02d05dce3641ec6-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 436674
+    }
+  },
+  "graduation-portraits/IMG_2999.jpg": {
+    "thumbnail": {
+      "file": "9bc638096bc680a5b1a9-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 39628
+    },
+    "gallery": {
+      "file": "9bc638096bc680a5b1a9-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 177836
+    },
+    "viewer": {
+      "file": "9bc638096bc680a5b1a9-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 414042
+    }
+  },
+  "graduation-portraits/IMG_3010.jpg": {
+    "thumbnail": {
+      "file": "c4fdea97d6489444b18f-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 34434
+    },
+    "gallery": {
+      "file": "c4fdea97d6489444b18f-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 156984
+    },
+    "viewer": {
+      "file": "c4fdea97d6489444b18f-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 304910
+    }
+  },
+  "graduation-portraits/IMG_3011.jpg": {
+    "thumbnail": {
+      "file": "c1511fbf01c04fceefdd-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 33810
+    },
+    "gallery": {
+      "file": "c1511fbf01c04fceefdd-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 155348
+    },
+    "viewer": {
+      "file": "c1511fbf01c04fceefdd-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 323182
+    }
+  },
+  "graduation-portraits/IMG_3030.jpg": {
+    "thumbnail": {
+      "file": "a2c1acab42c07f5e20db-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 32500
+    },
+    "gallery": {
+      "file": "a2c1acab42c07f5e20db-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 144856
+    },
+    "viewer": {
+      "file": "a2c1acab42c07f5e20db-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 270816
+    }
+  },
+  "graduation-portraits/IMG_3031.jpg": {
+    "thumbnail": {
+      "file": "a791c235547d275bf987-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 30094
+    },
+    "gallery": {
+      "file": "a791c235547d275bf987-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 146496
+    },
+    "viewer": {
+      "file": "a791c235547d275bf987-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 298066
+    }
+  },
+  "graduation-portraits/IMG_3034.jpg": {
+    "thumbnail": {
+      "file": "9e8e0d151494b1df1906-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 32458
+    },
+    "gallery": {
+      "file": "9e8e0d151494b1df1906-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 152502
+    },
+    "viewer": {
+      "file": "9e8e0d151494b1df1906-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 299866
+    }
+  },
+  "graduation-portraits/IMG_3036.jpg": {
+    "thumbnail": {
+      "file": "7bf5e714e53d7dc1d253-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 41278
+    },
+    "gallery": {
+      "file": "7bf5e714e53d7dc1d253-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 202226
+    },
+    "viewer": {
+      "file": "7bf5e714e53d7dc1d253-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 437554
+    }
+  },
+  "graduation-portraits/IMG_3038.jpg": {
+    "thumbnail": {
+      "file": "eb38417464d7c544c840-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 29264
+    },
+    "gallery": {
+      "file": "eb38417464d7c544c840-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 124780
+    },
+    "viewer": {
+      "file": "eb38417464d7c544c840-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 237834
+    }
+  },
+  "graduation-portraits/IMG_3045.jpg": {
+    "thumbnail": {
+      "file": "82a94ad73152e5c45709-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 55350
+    },
+    "gallery": {
+      "file": "82a94ad73152e5c45709-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 294770
+    },
+    "viewer": {
+      "file": "82a94ad73152e5c45709-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 618988
+    }
+  },
+  "graduation-portraits/IMG_3053.jpg": {
+    "thumbnail": {
+      "file": "ebd28ee699993160fd76-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 27842
+    },
+    "gallery": {
+      "file": "ebd28ee699993160fd76-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 142192
+    },
+    "viewer": {
+      "file": "ebd28ee699993160fd76-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 288946
+    }
+  },
+  "graduation-portraits/IMG_3054.jpg": {
+    "thumbnail": {
+      "file": "620f836e3bf9c8c06429-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 32930
+    },
+    "gallery": {
+      "file": "620f836e3bf9c8c06429-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 196148
+    },
+    "viewer": {
+      "file": "620f836e3bf9c8c06429-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 405560
+    }
+  },
+  "graduation-portraits/IMG_3055.jpg": {
+    "thumbnail": {
+      "file": "c619a4d5c6c880419f99-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 57920
+    },
+    "gallery": {
+      "file": "c619a4d5c6c880419f99-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 376852
+    },
+    "viewer": {
+      "file": "c619a4d5c6c880419f99-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 773872
+    }
+  },
   "candid-portraits/IMG_1275.jpg": {
     "thumbnail": {
       "file": "d812d628966a8bf08a1c-srgb-v1-q85-600x400.webp",
@@ -336,6 +916,426 @@ window.shutterTrendsOptimized = {
       "width": 2000,
       "height": 1333,
       "bytes": 169348
+    }
+  },
+  "candid-portraits/IMG_3058.jpg": {
+    "thumbnail": {
+      "file": "55276836ff4b0bcb8440-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 35420
+    },
+    "gallery": {
+      "file": "55276836ff4b0bcb8440-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 187484
+    },
+    "viewer": {
+      "file": "55276836ff4b0bcb8440-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 427208
+    }
+  },
+  "candid-portraits/IMG_3062.jpg": {
+    "thumbnail": {
+      "file": "9b36aa369aa6830ece62-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 30054
+    },
+    "gallery": {
+      "file": "9b36aa369aa6830ece62-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 169040
+    },
+    "viewer": {
+      "file": "9b36aa369aa6830ece62-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 343988
+    }
+  },
+  "candid-portraits/IMG_3070.jpg": {
+    "thumbnail": {
+      "file": "8bb6003653719c7bb2fe-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 42378
+    },
+    "gallery": {
+      "file": "8bb6003653719c7bb2fe-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 213044
+    },
+    "viewer": {
+      "file": "8bb6003653719c7bb2fe-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 402018
+    }
+  },
+  "candid-portraits/IMG_3075.jpg": {
+    "thumbnail": {
+      "file": "7014c9debb69f8a9a465-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 28804
+    },
+    "gallery": {
+      "file": "7014c9debb69f8a9a465-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 149676
+    },
+    "viewer": {
+      "file": "7014c9debb69f8a9a465-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 316314
+    }
+  },
+  "candid-portraits/IMG_3100.jpg": {
+    "thumbnail": {
+      "file": "c684baba4645860eb5af-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 33012
+    },
+    "gallery": {
+      "file": "c684baba4645860eb5af-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 149456
+    },
+    "viewer": {
+      "file": "c684baba4645860eb5af-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 288860
+    }
+  },
+  "candid-portraits/IMG_3102.jpg": {
+    "thumbnail": {
+      "file": "e04f8d41b067992d07b0-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 38098
+    },
+    "gallery": {
+      "file": "e04f8d41b067992d07b0-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 159424
+    },
+    "viewer": {
+      "file": "e04f8d41b067992d07b0-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 295608
+    }
+  },
+  "candid-portraits/IMG_3121.jpg": {
+    "thumbnail": {
+      "file": "a20268263e938cf51e01-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 44968
+    },
+    "gallery": {
+      "file": "a20268263e938cf51e01-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 259546
+    },
+    "viewer": {
+      "file": "a20268263e938cf51e01-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 525948
+    }
+  },
+  "candid-portraits/IMG_3122.jpg": {
+    "thumbnail": {
+      "file": "90e1cfb577358709710c-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 43250
+    },
+    "gallery": {
+      "file": "90e1cfb577358709710c-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 241882
+    },
+    "viewer": {
+      "file": "90e1cfb577358709710c-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 494520
+    }
+  },
+  "candid-portraits/IMG_3125.jpg": {
+    "thumbnail": {
+      "file": "bc6166f1b1345ade5cf0-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 42930
+    },
+    "gallery": {
+      "file": "bc6166f1b1345ade5cf0-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 260002
+    },
+    "viewer": {
+      "file": "bc6166f1b1345ade5cf0-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 520862
+    }
+  },
+  "candid-portraits/IMG_3136.jpg": {
+    "thumbnail": {
+      "file": "ad532416121e293600d5-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 30072
+    },
+    "gallery": {
+      "file": "ad532416121e293600d5-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 144056
+    },
+    "viewer": {
+      "file": "ad532416121e293600d5-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 264392
+    }
+  },
+  "candid-portraits/IMG_3151.jpg": {
+    "thumbnail": {
+      "file": "0d516a3640beaad28681-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 52522
+    },
+    "gallery": {
+      "file": "0d516a3640beaad28681-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 322964
+    },
+    "viewer": {
+      "file": "0d516a3640beaad28681-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 828716
+    }
+  },
+  "candid-portraits/IMG_3153.jpg": {
+    "thumbnail": {
+      "file": "a3af986875872728e687-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 56322
+    },
+    "gallery": {
+      "file": "a3af986875872728e687-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 365362
+    },
+    "viewer": {
+      "file": "a3af986875872728e687-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 850656
+    }
+  },
+  "candid-portraits/IMG_3162.jpg": {
+    "thumbnail": {
+      "file": "f6e2def723d2896e8d0f-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 31306
+    },
+    "gallery": {
+      "file": "f6e2def723d2896e8d0f-srgb-v1-q85-1066x1600.webp",
+      "width": 1066,
+      "height": 1600,
+      "bytes": 210218
+    },
+    "viewer": {
+      "file": "f6e2def723d2896e8d0f-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 478864
+    }
+  },
+  "candid-portraits/IMG_3163.jpg": {
+    "thumbnail": {
+      "file": "7db98f0f49ec765b3616-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 34076
+    },
+    "gallery": {
+      "file": "7db98f0f49ec765b3616-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 245928
+    },
+    "viewer": {
+      "file": "7db98f0f49ec765b3616-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 529694
+    }
+  },
+  "candid-portraits/IMG_3180.jpg": {
+    "thumbnail": {
+      "file": "e1676a79eeb38dcdacf2-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 39338
+    },
+    "gallery": {
+      "file": "e1676a79eeb38dcdacf2-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 200960
+    },
+    "viewer": {
+      "file": "e1676a79eeb38dcdacf2-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 395152
+    }
+  },
+  "candid-portraits/IMG_3183.jpg": {
+    "thumbnail": {
+      "file": "65b36c105a862498d989-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 50962
+    },
+    "gallery": {
+      "file": "65b36c105a862498d989-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 314920
+    },
+    "viewer": {
+      "file": "65b36c105a862498d989-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 622968
+    }
+  },
+  "candid-portraits/IMG_3188.jpg": {
+    "thumbnail": {
+      "file": "685a196301f3814b315f-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 51298
+    },
+    "gallery": {
+      "file": "685a196301f3814b315f-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 317774
+    },
+    "viewer": {
+      "file": "685a196301f3814b315f-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 626068
+    }
+  },
+  "candid-portraits/IMG_3190.jpg": {
+    "thumbnail": {
+      "file": "3d423df9ec6cc5eaaf43-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 42596
+    },
+    "gallery": {
+      "file": "3d423df9ec6cc5eaaf43-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 301970
+    },
+    "viewer": {
+      "file": "3d423df9ec6cc5eaaf43-srgb-v1-q85-2041x1361.webp",
+      "width": 2041,
+      "height": 1361,
+      "bytes": 518744
+    }
+  },
+  "candid-portraits/IMG_3192.jpg": {
+    "thumbnail": {
+      "file": "77c934da14b6838dea7a-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 61164
+    },
+    "gallery": {
+      "file": "77c934da14b6838dea7a-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 368616
+    },
+    "viewer": {
+      "file": "77c934da14b6838dea7a-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 818916
+    }
+  },
+  "candid-portraits/IMG_3194.jpg": {
+    "thumbnail": {
+      "file": "8f60d8fcd7b6a55adecb-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 51804
+    },
+    "gallery": {
+      "file": "8f60d8fcd7b6a55adecb-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 315484
+    },
+    "viewer": {
+      "file": "8f60d8fcd7b6a55adecb-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 668564
+    }
+  },
+  "candid-portraits/IMG_3195.jpg": {
+    "thumbnail": {
+      "file": "3b42459faba4a8f32ddb-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 52530
+    },
+    "gallery": {
+      "file": "3b42459faba4a8f32ddb-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 378108
+    },
+    "viewer": {
+      "file": "3b42459faba4a8f32ddb-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 971910
     }
   },
   "community-atrium/IMG_1769.jpg": {
@@ -520,32 +1520,6 @@ window.shutterTrendsOptimized = {
       "bytes": 682376
     }
   },
-  "purple-stage/IMG_3880.jpg": {
-    "thumbnail": {
-      "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-600x400.webp",
-      "width": 600,
-      "height": 400,
-      "bytes": 23738
-    },
-    "gallery": {
-      "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-1600x1067.webp",
-      "width": 1600,
-      "height": 1067,
-      "bytes": 96564
-    },
-    "viewer": {
-      "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-2400x1600.webp",
-      "width": 2400,
-      "height": 1600,
-      "bytes": 161506
-    },
-    "showcase": {
-      "file": "7659581f3dbba0cc1bd6-srgb-v1-q85-2000x1333.webp",
-      "width": 2000,
-      "height": 1333,
-      "bytes": 127616
-    }
-  },
   "purple-stage/IMG_4035.jpg": {
     "thumbnail": {
       "file": "c24b05f6ed612096d5d0-srgb-v1-q85-400x600.webp",
@@ -624,6 +1598,58 @@ window.shutterTrendsOptimized = {
       "bytes": 221982
     }
   },
+  "street-side-live-music/IMG_4462.jpg": {
+    "thumbnail": {
+      "file": "120177b5c77936b9369f-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 68178
+    },
+    "gallery": {
+      "file": "120177b5c77936b9369f-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 280086
+    },
+    "viewer": {
+      "file": "120177b5c77936b9369f-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 571336
+    },
+    "showcase": {
+      "file": "120177b5c77936b9369f-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 393886
+    }
+  },
+  "street-side-live-music/IMG_4502.jpg": {
+    "thumbnail": {
+      "file": "ff7927a970a88e905f03-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 67290
+    },
+    "gallery": {
+      "file": "ff7927a970a88e905f03-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 330256
+    },
+    "viewer": {
+      "file": "ff7927a970a88e905f03-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 927738
+    },
+    "showcase": {
+      "file": "ff7927a970a88e905f03-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 565836
+    }
+  },
   "wedding-portraits/IMG_6390.jpg": {
     "thumbnail": {
       "file": "9b290bb198e9cfff3b6d-srgb-v1-q85-600x400.webp",
@@ -676,6 +1702,162 @@ window.shutterTrendsOptimized = {
       "bytes": 386802
     }
   },
+  "wedding-portraits/IMG_5123.jpg": {
+    "thumbnail": {
+      "file": "2a52fb108b2fb92b7719-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 35570
+    },
+    "gallery": {
+      "file": "2a52fb108b2fb92b7719-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 194100
+    },
+    "viewer": {
+      "file": "2a52fb108b2fb92b7719-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 579832
+    },
+    "showcase": {
+      "file": "2a52fb108b2fb92b7719-srgb-v1-q85-2000x1334.webp",
+      "width": 2000,
+      "height": 1334,
+      "bytes": 352304
+    }
+  },
+  "wedding-portraits/IMG_5184.jpg": {
+    "thumbnail": {
+      "file": "d2a1e9e2406a2caf6d57-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 41400
+    },
+    "gallery": {
+      "file": "d2a1e9e2406a2caf6d57-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 361116
+    },
+    "viewer": {
+      "file": "d2a1e9e2406a2caf6d57-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 1067236
+    },
+    "showcase": {
+      "file": "d2a1e9e2406a2caf6d57-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 649420
+    }
+  },
+  "wedding-portraits/IMG_5336.jpg": {
+    "thumbnail": {
+      "file": "bac1329359c6af040cf3-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 45816
+    },
+    "gallery": {
+      "file": "bac1329359c6af040cf3-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 191174
+    },
+    "viewer": {
+      "file": "bac1329359c6af040cf3-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 367000
+    },
+    "showcase": {
+      "file": "bac1329359c6af040cf3-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 265714
+    }
+  },
+  "wedding-portraits/IMG_5414.jpg": {
+    "thumbnail": {
+      "file": "2dcc214105d17fbaaecf-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 55478
+    },
+    "gallery": {
+      "file": "2dcc214105d17fbaaecf-srgb-v1-q85-1066x1600.webp",
+      "width": 1066,
+      "height": 1600,
+      "bytes": 212258
+    },
+    "viewer": {
+      "file": "2dcc214105d17fbaaecf-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 297798
+    },
+    "showcase": {
+      "file": "2dcc214105d17fbaaecf-srgb-v1-q85-1333x2000.webp",
+      "width": 1333,
+      "height": 2000,
+      "bytes": 297798
+    }
+  },
+  "wedding-portraits/IMG_5833.jpg": {
+    "thumbnail": {
+      "file": "4999c8f329a531103127-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 53046
+    },
+    "gallery": {
+      "file": "4999c8f329a531103127-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 248814
+    },
+    "viewer": {
+      "file": "4999c8f329a531103127-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 467076
+    },
+    "showcase": {
+      "file": "4999c8f329a531103127-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 348104
+    }
+  },
+  "wedding-portraits/IMG_6417.jpg": {
+    "thumbnail": {
+      "file": "575379111c2aa0aa1693-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 41988
+    },
+    "gallery": {
+      "file": "575379111c2aa0aa1693-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 199432
+    },
+    "viewer": {
+      "file": "575379111c2aa0aa1693-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 366148
+    },
+    "showcase": {
+      "file": "575379111c2aa0aa1693-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 271794
+    }
+  },
   "outdoor-gathering/IMG_1190.jpg": {
     "thumbnail": {
       "file": "140ab71a21c8c8d3a899-srgb-v1-q85-600x400.webp",
@@ -702,32 +1884,6 @@ window.shutterTrendsOptimized = {
       "bytes": 296834
     }
   },
-  "outdoor-gathering/IMG_1216.jpg": {
-    "thumbnail": {
-      "file": "df02a3a171184950f89c-srgb-v1-q85-600x400.webp",
-      "width": 600,
-      "height": 400,
-      "bytes": 55490
-    },
-    "gallery": {
-      "file": "df02a3a171184950f89c-srgb-v1-q85-1600x1067.webp",
-      "width": 1600,
-      "height": 1067,
-      "bytes": 226482
-    },
-    "viewer": {
-      "file": "df02a3a171184950f89c-srgb-v1-q85-2400x1600.webp",
-      "width": 2400,
-      "height": 1600,
-      "bytes": 403566
-    },
-    "showcase": {
-      "file": "df02a3a171184950f89c-srgb-v1-q85-2000x1333.webp",
-      "width": 2000,
-      "height": 1333,
-      "bytes": 319084
-    }
-  },
   "outdoor-gathering/IMG_1226.jpg": {
     "thumbnail": {
       "file": "bd9ae67f5b652c0a7659-srgb-v1-q85-600x400.webp",
@@ -752,6 +1908,84 @@ window.shutterTrendsOptimized = {
       "width": 2000,
       "height": 1333,
       "bytes": 326906
+    }
+  },
+  "outdoor-gathering/IMG_1200.jpg": {
+    "thumbnail": {
+      "file": "0f42242452a9a49b93c9-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 57898
+    },
+    "gallery": {
+      "file": "0f42242452a9a49b93c9-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 233704
+    },
+    "viewer": {
+      "file": "0f42242452a9a49b93c9-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 410156
+    },
+    "showcase": {
+      "file": "0f42242452a9a49b93c9-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 314934
+    }
+  },
+  "outdoor-gathering/IMG_1211.jpg": {
+    "thumbnail": {
+      "file": "e248dc85f06489f448d5-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 36674
+    },
+    "gallery": {
+      "file": "e248dc85f06489f448d5-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 154576
+    },
+    "viewer": {
+      "file": "e248dc85f06489f448d5-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 321686
+    },
+    "showcase": {
+      "file": "e248dc85f06489f448d5-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 223182
+    }
+  },
+  "outdoor-gathering/IMG_1242.jpg": {
+    "thumbnail": {
+      "file": "ec64a851677a62494a23-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 63986
+    },
+    "gallery": {
+      "file": "ec64a851677a62494a23-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 330196
+    },
+    "viewer": {
+      "file": "ec64a851677a62494a23-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 666522
+    },
+    "showcase": {
+      "file": "ec64a851677a62494a23-srgb-v1-q85-2000x1333.webp",
+      "width": 2000,
+      "height": 1333,
+      "bytes": 481708
     }
   },
   "concert-color-light/IMG_6018.JPEG": {
@@ -830,6 +2064,106 @@ window.shutterTrendsOptimized = {
       "width": 1500,
       "height": 2000,
       "bytes": 282818
+    }
+  },
+  "studio-portraits/IMG_2225.jpg": {
+    "thumbnail": {
+      "file": "21a19b7ddebd89c3672b-srgb-v1-q85-400x600.webp",
+      "width": 400,
+      "height": 600,
+      "bytes": 33960
+    },
+    "gallery": {
+      "file": "21a19b7ddebd89c3672b-srgb-v1-q85-1067x1600.webp",
+      "width": 1067,
+      "height": 1600,
+      "bytes": 223208
+    },
+    "viewer": {
+      "file": "21a19b7ddebd89c3672b-srgb-v1-q85-1600x2400.webp",
+      "width": 1600,
+      "height": 2400,
+      "bytes": 593210
+    }
+  },
+  "studio-portraits/IMG_2255.jpg": {
+    "thumbnail": {
+      "file": "de66bc7e1013ca20e270-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 24900
+    },
+    "gallery": {
+      "file": "de66bc7e1013ca20e270-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 133328
+    },
+    "viewer": {
+      "file": "de66bc7e1013ca20e270-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 442336
+    }
+  },
+  "studio-portraits/IMG_2256.jpg": {
+    "thumbnail": {
+      "file": "9f8234b29a9760bd1423-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 29462
+    },
+    "gallery": {
+      "file": "9f8234b29a9760bd1423-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 246444
+    },
+    "viewer": {
+      "file": "9f8234b29a9760bd1423-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 693596
+    }
+  },
+  "studio-portraits/IMG_2263.jpg": {
+    "thumbnail": {
+      "file": "185a89c7c69bd6b6841f-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 27104
+    },
+    "gallery": {
+      "file": "185a89c7c69bd6b6841f-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 150590
+    },
+    "viewer": {
+      "file": "185a89c7c69bd6b6841f-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 398150
+    }
+  },
+  "studio-portraits/IMG_2280.jpg": {
+    "thumbnail": {
+      "file": "34e4ffda6dee4358abb2-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 36710
+    },
+    "gallery": {
+      "file": "34e4ffda6dee4358abb2-srgb-v1-q85-1600x1067.webp",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 276376
+    },
+    "viewer": {
+      "file": "34e4ffda6dee4358abb2-srgb-v1-q85-2400x1600.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 837752
     }
   }
 };

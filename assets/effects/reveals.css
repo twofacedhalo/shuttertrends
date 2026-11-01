@@ -1,0 +1,7 @@
+/* Content remains visible without JavaScript or IntersectionObserver. */
+:root { --st-reveal-text-duration:650ms; --st-reveal-photo-duration:750ms; --st-reveal-text-rise:24px; --st-reveal-photo-rise:18px; --st-reveal-ease:cubic-bezier(.2,.65,.25,1); }
+.st-reveals-enabled .st-reveal { opacity:0; transform:translate3d(0,var(--st-reveal-text-rise),0); transition:opacity var(--st-reveal-text-duration) var(--st-reveal-ease) var(--st-reveal-delay,0ms),transform var(--st-reveal-text-duration) var(--st-reveal-ease) var(--st-reveal-delay,0ms); }
+.st-reveals-enabled .st-reveal--photo { transform:translate3d(0,var(--st-reveal-photo-rise),0); transition-duration:var(--st-reveal-photo-duration); }
+.st-reveals-enabled .st-reveal.is-revealed { opacity:1; transform:none; }
+.st-reveals-enabled .st-reveal.st-reveal--focus { transition-delay:0ms; opacity:1; transform:none; }
+@media(prefers-reduced-motion:reduce) { .st-reveals-enabled .st-reveal { opacity:1; transform:none; transition:none; } }

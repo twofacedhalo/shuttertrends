@@ -1,19 +1,32 @@
-# Latest photo import summary
+# Photo import and validation report
 
-7 new photographs processed; 6 remain published after owner removal of IMG_6362.JPEG. 26 already-imported files skipped by SHA-256. Previously imported IMG_3883.jpg was also unpublished; seven generated public copies of the two removed photographs were removed. Originals remain untouched.
-4 MOV sidecars left untouched and excluded from the static photography galleries.
-All 37 source-file checksums verified unchanged. No original JPEGs were copied into the repository.
+Scanned 106 files. Imported 66 new photographs; all source SHA-256 hashes are unchanged.
 
-New originals: 51,054,056 bytes; 23 optimized derivatives: 4,605,160 bytes.
+## Scan outcomes
 
-## Working collection names needing owner confirmation
+- previously_imported: 29
+- imported: 66
+- alternate_copy_skipped: 6
+- unsupported: 4
+- previously_unpublished: 1
 
-- IMG_1190.jpg, IMG_1216.jpg, IMG_1226.jpg: Outdoor Gathering; actual event name/date/venue unconfirmed.
-- IMG_6018.JPEG: Concert — Color & Light; artist/date/venue unconfirmed.
-- IMG_6296.JPEG: A Sparkler Celebration; occasion/date/location unconfirmed.
-- IMG_6353.JPEG, IMG_6362.JPEG: A Day on the Water; outing name/date/location unconfirmed.
+## New photographs by collection
 
-All captions/alt text are descriptive. No unverified date, venue or person identity was published.
-All 32 published photographs, including portraits, are eligible for eight unique randomized homepage selections. The two owner-removed photographs remain unpublished.
-Formspree is configured. One live submission returned HTTP 200 and the owner confirmed email delivery. Cosmetic verification uses mocked submissions.
-Instagram points to the owner-provided profile. Its previews are curated website images, not live Instagram posts.
+- outdoor-gathering: 3
+- studio-portraits: 5
+- graduation-portraits: 29
+- candid-portraits: 21
+- street-side-live-music: 2
+- wedding-portraits: 6
+
+Five alternate duplicates were skipped, together with a cropped copy of the owner-excluded Raising a Glass photograph. Existing exclusions remain unpublished. Four MOV sidecars were left untouched.
+
+Verified 326 optimized outputs: paths, dimensions, and absence of GPS EXIF. Originals were not edited.
+
+Grouped by visible setting, clothing, and existing collections. Identities, event dates, and venues are unverified; no new names or dates were inferred.
+
+The preexisting original concert-color-light/IMG_6018.JPEG is unavailable. Its complete existing optimized variants were retained; no replacement was invented.
+
+Seven curated Mini Photo Stories accompany existing collection stories. The homepage features four curated stories; the portfolio offers category filtering, expandable larger sets, and the full-color fullscreen viewer.
+
+Detailed file hashes and outcomes are in latest-import-summary.json.

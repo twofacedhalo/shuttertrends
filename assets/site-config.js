@@ -1,5 +1,7 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
+  stories: { homepageLimit: 4, featured: ['warm-studio', 'cap-in-the-air', 'wedding-day-portraits', 'across-the-lawn'] },
+  filmReel: { autoplaySpeed: 18, edgeEaseDistance: 100 },
   themes: {
     defaultTheme: 'autumn-after-dark',
     allowVisitorThemeSelection: true,

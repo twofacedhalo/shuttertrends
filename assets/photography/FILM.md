@@ -1,36 +1,29 @@
 # Responsive cinematic film reel
 
-The homepage has one photography region: a vertical reel in the right grid column above 1000px, and a compact horizontal strip immediately below the hero at 1000px and below. Both use the same filmstrip.js controller and unchanged shuffled shutterTrendsPhotos pool. Portrait-category exclusion and vertical event eligibility stay in collections.js. Published galleries and original assets are unchanged.
+The homepage uses one shuffled photography pool: a sticky vertical reel above 1000px and a compact touch-browsable strip below that breakpoint. Portrait-category exclusion remains in collections.js. Original photographs are never altered.
 
-## Layout and film decoration
+## Layout and decoration
 
-assets/homepage/vertical-reel.css owns the 1.35fr/1fr desktop columns, 1320px maximum container, 24px sticky top offset and calc(100dvh - 132px) reel height. The reel spans the five rows of left-column main content and releases before the separate footer. Parents retain visible overflow; the viewport alone scrolls internally. On smaller screens the grid becomes normal document flow and the reel changes to horizontal touch scrolling. Featured collection cards retain titles, descriptions and links; their preview images are hidden on the homepage to keep the reel primary.
+assets/homepage/vertical-reel.css controls the 1320px desktop container, two columns, 24px sticky offset, and viewport height. The reel begins at the hero section top, spans six content rows including Stories in Frames, and releases before the footer. Its ancestors retain visible overflow; only the internal viewport is clipped. There is no visible reel heading or desktop scrollbar.
 
-Desktop film rails repeat along both vertical edges. Compact rails repeat above and below the horizontal frames. --st-film-rail controls border width, --st-film-pitch controls sprocket spacing, and .st-film-mark controls decorative lettering. The cycle length is rounded to the pitch so holes remain aligned at the loop seam. Each photograph retains its natural aspect ratio and has responsive optimized sources and lazy loading.
+--st-film-rail controls border thickness, --st-film-pitch controls sprocket spacing, and .st-film-mark controls lettering. Images retain their original proportions. Compact layouts use horizontal touch browsing without automatic horizontal animation or page overflow.
 
-## Motion and interaction
+## Motion and accessibility
 
-One requestAnimationFrame loop updates scrollTop on desktop or scrollLeft in compact mode. Default travel is 16px/second. Desktop pointer position near the top moves photographs upward; near the bottom moves them downward. Compact mode preserves horizontal pointer control. Speed eases over 400ms, with 24% pointer speed during photo inspection (minimum 4px/second). Edit those settings in filmstrip.js.
+filmstrip.js uses one requestAnimationFrame loop and translate3d(0,Y,0) on desktop. The track moves upward automatically, eases near each end, reverses, and repeats downward/upward. No wheel handler traps page scrolling. Configure filmReel.autoplaySpeed (18px/second) and edgeEaseDistance (100px) in assets/site-config.js. The controller eases velocity over 0.6 seconds and reduces speed to 65% during mouse inspection.
 
-The SVG-only 44px play/pause control stops both automatic and pointer-controlled travel. Motion also stops while hidden, departed, offscreen, touching, keyboard-focused, or under reduced motion. Keyboard users can Tab through original collection links, or focus the viewport and use Up/Down on desktop, Left/Right in compact mode, plus Home/End. The breakpoint handler switches the active axis without creating another loop. Duplicated visual frames are hidden from assistive technology and excluded from sequential keyboard focus.
+The icon-only 44px play/pause button preserves position and direction. Motion pauses offscreen, while the document is hidden, during keyboard browsing, and while a story viewer is open. Reduced motion disables automatic travel. Compact view remains manually accessible with touch and Left/Right arrows; desktop supports Up/Down and Home/End. Initialization is guarded against duplicate loops.
 
-## Vintage black-and-white to original color
+## Vintage appearance and story links
 
-film.css applies only homepage reel filters: --st-film-vintage-grayscale (1), -sepia (.08), -contrast (1.10), -brightness (.93), -blur (0px), --st-film-grain-opacity (.12), and --st-film-develop-duration (350ms). A static SVG grain texture covers only each image. Hover/focus reveals the original optimized photograph and fades grain to zero without changing dimensions. On touch, first tap reveals the original and announces that another tap opens its collection; second tap follows the existing link. Keyboard activation remains direct. Reduced motion removes filter transitions.
+film.css settings: --st-film-vintage-grayscale:1, --st-film-vintage-sepia:.08, --st-film-vintage-contrast:1.10, --st-film-vintage-brightness:.93, --st-film-vintage-blur:0px, --st-film-grain-opacity:.12, --st-film-develop-duration:350ms. Hover/focus reveals original color and removes grain without resizing. First touch tap reveals color; second opens the related photo story. Visible subtitles remain absent. Story viewer and gallery images have no vintage filter.
 
-Visible photo subtitles and hover captions remain absent; accessible link names and alt text retain metadata. Atmospheric and gallery photographs do not receive these filters. The old separate atmospheric-photo renderer and its styles have been removed; gradients, botanical leaves, falling leaves, particles and spotlight remain.
+## Stories and scroll reveals
 
-## Files changed for the vertical reel redesign
+stories-data.js defines curated stories by published photo IDs. site-config.js selects the homepage features. stories.js provides collection stories, category filtering, incremental browsing, larger-set expanders, and a native fullscreen dialog with arrow/Home/End keys, Escape, focus restoration, and touch swipe. stories.css controls their layout.
 
-- index.html
-- assets/homepage/vertical-reel.css (new)
-- assets/homepage/refinement.css
-- assets/photography/filmstrip.js
-- assets/photography/FILM.md
-- assets/site-config.js
-- assets/effects/dusk-background.css
-- assets/effects/README.md
-- assets/themes/README.md
-- assets/effects/photo-background.js (removed)
-- assets/effects/photo-background.css (removed)
-- assets/effects/hero-soft-focus.css (removed)
+assets/effects/reveals.css exposes text/photo durations (650/750ms), rises (24/18px), and easing. reveals.js uses one-shot IntersectionObserver registrations, 110ms story staggers capped at 650ms, and a 60px early-entry margin. Hero text is immediately visible. Only the reel container enters once; moving frames never receive individual reveals. Content remains visible without JavaScript or under reduced motion. Keyboard focus immediately reveals its target.
+
+## Validation
+
+Run `node tools/validate_homepage.cjs` from the repository root for deterministic reel timing, pause, visibility, reduced-motion, initialization, manifest paths, portrait exclusion, and story-reference checks. Browser layout and viewer checks are recorded in reports/homepage-validation.md.

@@ -54,6 +54,7 @@
     return gallery;
   }
   function section(collection, preview = false) {
+    if (preview && window.shutterTrendsStoryCard && collection.photos.length) return window.shutterTrendsStoryCard(collection);
     if (preview) {
       const card = document.createElement('a');
       card.className = 'st-film-card'; card.href = collection.url;
@@ -96,12 +97,12 @@
   }
   document.querySelectorAll('[data-st-collection]').forEach(container => {
     const category = container.dataset.stCollection;
-    container.className = 'st-collections';
+    container.className = window.shutterTrendsStoryCard ? 'st-collections st-story-grid' : 'st-collections';
     const matches = collections.filter(c => c.id === category || c.category === category || (category === 'events' && ['concerts','personal-events'].includes(c.category)));
-    matches.forEach(c => container.append(section(c, true)));
+    matches.filter(c => c.photos.length).forEach(c => container.append(section(c, true)));
   });
   const previews = document.querySelector('[data-st-collections]');
-  if (previews) collections.forEach(c => previews.append(section(c, true)));
+  if (previews) { if (window.shutterTrendsStoryCard) previews.classList.add('st-story-grid'); collections.filter(c => c.photos.length).forEach(c => previews.append(section(c, true))); }
   const detail = document.querySelector('[data-st-detail]');
   if (detail) {
     const id = new URLSearchParams(location.search).get('id');
@@ -118,12 +119,17 @@
         detail.append(viewer.element);
         detail.append(text('h2', 'Explore the collection', 'wp-block-heading'));
         detail.append(grid(collection.photos, false, index => {
+          if (window.shutterTrendsOpenStory?.('collection:' + collection.id,index)) return;
           viewer.select(index);
           viewer.element.focus({ preventScroll: true });
           viewer.element.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
         }));
       } else detail.append(text('p', 'Photographs will appear here as the collection becomes available.'));
     } else {
+      if (window.shutterTrendsRenderStories) {
+        heading.textContent = id ? 'Collection unavailable — explore photo stories' : 'Stories in Frames';
+        detail.replaceChildren(); window.shutterTrendsRenderStories(detail); return;
+      }
       heading.textContent = id ? 'Collection unavailable' : 'Photography collections';
       detail.replaceChildren(text('p', id ? 'This collection is unavailable. Explore the published collections below.' : 'Explore the published collections below.'));
       collections.forEach(c => detail.append(section(c, true)));

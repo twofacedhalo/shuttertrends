@@ -123,6 +123,13 @@ def main():
             group = photo.get('categoryGroup', collection.get('categoryGroup', collection.get('category', '')))
             portrait = any(re.match(r'^portraits?(?:$|[-/:])', value.strip(), re.I) for value in (category, group, collection.get('category', ''), collection.get('categoryGroup', '')) if isinstance(value, str))
             job['showcase'] |= (not portrait or not exclude_portraits) and photo.get('carouselEligible', photo.get('showcase') is not False) is not False
+    prior_script = "const fs=require('fs'),vm=require('vm');const b={window:{}};vm.runInNewContext(fs.readFileSync(process.argv[1],'utf8'),b);process.stdout.write(JSON.stringify(b.window.shutterTrendsOptimized||{}));"
+    prior_file = ROOT / 'assets/photography/optimized.js'
+    prior = json.loads(subprocess.run(['node', '-e', prior_script, str(prior_file)], check=True,
+                                     capture_output=True, text=True, encoding='utf-8').stdout) if prior_file.exists() else {}
+    old_report = ROOT / 'reports/photo-optimization.json'
+    prior_rows = json.loads(old_report.read_text(encoding='utf-8')) if old_report.exists() else []
+    preserved_missing = []
     manifest, rows = {}, []
     webp = features.check('webp')
     for key, job in jobs.items():
@@ -130,7 +137,14 @@ def main():
         if not source.is_file() and import_root:
             matches = sorted(p for p in import_root.rglob('*') if p.is_file() and p.name.casefold() == Path(key).name.casefold())
             if not matches:
-                raise FileNotFoundError('No private original found for ' + key)
+                previous = prior.get(key, {})
+                required = {'thumbnail', 'gallery', 'viewer'} | ({'showcase'} if job['showcase'] else set())
+                if required.issubset(previous) and all((output / item['file']).is_file() for item in previous.values()):
+                    manifest[key] = previous
+                    rows.extend(row for row in prior_rows if row['source'] == key)
+                    preserved_missing.append(key)
+                    continue
+                raise FileNotFoundError('No private original or complete existing derivatives found for ' + key)
             if len(matches) > 1 and len({hashlib.sha256(p.read_bytes()).hexdigest() for p in matches}) > 1:
                 raise ValueError('Ambiguous original filename in import subfolders: ' + key)
             source = matches[0]
@@ -209,7 +223,12 @@ def main():
             row = matching[0]
             lines.append(f"- `{key}`: {row['color']}. SHA-256 unchanged: `{row['sha256']}`. Copyright present/retained: {row['copyright_retained']}; creator present/retained: {row['creator_retained']}.")
     lines.extend(['', 'Equal-size roles share a file. No originals were moved or deleted. Old generated outputs are never automatically deleted.'])
+    if preserved_missing:
+        lines.extend(['', 'Existing derivatives retained without rechecking unavailable originals: ' + ', '.join(preserved_missing) + '. Prior source hashes and metadata are retained in the report.'])
     (args.report_dir / 'photo-optimization.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    (args.report_dir / 'missing-originals.json').write_text(json.dumps(preserved_missing, indent=2) + '\n', encoding='utf-8')
+    if preserved_missing:
+        print('Retained existing optimized assets; originals unavailable for: ' + ', '.join(preserved_missing))
     print(f'Optimized {len(jobs)} source photo(s); {len({r["file"] for r in rows})} unique outputs. Report: {args.report_dir}')
 
 
