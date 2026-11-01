@@ -2,7 +2,7 @@
 window.shutterTrendStoryDefinitions = [
   {
     "id": "warm-studio",
-    "title": "Warm Studio Portraits",
+    "title": "In a Different Light",
     "category": "Portraits",
     "collectionId": "studio-portraits",
     "photoIds": [
@@ -15,7 +15,7 @@ window.shutterTrendStoryDefinitions = [
   },
   {
     "id": "cap-in-the-air",
-    "title": "Cap in the Air",
+    "title": "The Next Chapter",
     "category": "Graduations",
     "collectionId": "graduation-portraits",
     "photoIds": [
@@ -26,7 +26,7 @@ window.shutterTrendStoryDefinitions = [
   },
   {
     "id": "graduate-and-companion",
-    "title": "A Graduate & Companion",
+    "title": "A Milestone Shared",
     "category": "Graduations",
     "collectionId": "graduation-portraits",
     "photoIds": [
@@ -38,7 +38,7 @@ window.shutterTrendStoryDefinitions = [
   },
   {
     "id": "graduation-together",
-    "title": "Graduation, Together",
+    "title": "Better Together",
     "category": "Graduations",
     "collectionId": "graduation-portraits",
     "photoIds": [
@@ -62,7 +62,7 @@ window.shutterTrendStoryDefinitions = [
   },
   {
     "id": "together-outdoors",
-    "title": "Together Outdoors",
+    "title": "The Moments Between Us",
     "category": "Lifestyle",
     "collectionId": "candid-portraits",
     "photoIds": [
@@ -75,7 +75,7 @@ window.shutterTrendStoryDefinitions = [
   },
   {
     "id": "wedding-day-portraits",
-    "title": "Wedding Day Portraits",
+    "title": "A Day to Remember",
     "category": "Weddings",
     "collectionId": "wedding-portraits",
     "photoIds": [
