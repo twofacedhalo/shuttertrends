@@ -4,7 +4,7 @@ The homepage uses one shuffled photography pool: a sticky vertical reel above 10
 
 ## Layout and decoration
 
-assets/homepage/vertical-reel.css controls the full-width desktop grid, two columns, 16px sticky offset, and viewport height. The desktop component height is calc(100dvh - 85px - 16px), with a 48px control gutter. --st-reel-edge sets the outer margin (clamp(24px,2vw,40px)); --st-reel-desktop-width sets the reel width (min(46vw,720px)). The former 1320px grid cap is removed. Left-column sections stay at most 714px wide and retain their typography; the inter-column gap remains 28–56px. The reel begins at the hero section top, spans five homepage content rows, and releases before the footer. Its ancestors retain visible overflow; only the internal viewport is clipped. There is no visible reel heading or desktop scrollbar.
+assets/homepage/vertical-reel.css controls the editorial grid. The homepage header is sticky; polish.js measures its actual height with ResizeObserver into --st-reel-header-height (85px desktop fallback). The reel starts immediately below it and uses calc(100dvh - var(--st-reel-header-height) - 8px), with a 44px bottom ribbon for the cursor hint and pause button. --st-reel-edge and --st-reel-desktop-width preserve the expanded right-side position. --st-home-nav-max (1280px) is shared by the navigation and --st-home-align-gutter, so the whole left column aligns to the outer logo edge while the reel and inter-column gap stay in place. A separate st-home-reel-boundary spans hero, introduction, and collection rows; sticky travel ends before Instagram, Contact, and the footer. Ancestors retain visible overflow; only the internal viewport is clipped. No visible reel heading or native desktop scrollbar is used.
 
 --st-film-rail controls border thickness, --st-film-pitch controls sprocket spacing, and .st-film-mark controls lettering. Images retain their original proportions. Compact layouts use horizontal touch browsing without automatic horizontal animation or page overflow.
 
@@ -30,10 +30,16 @@ Run `node tools/validate_homepage.cjs` from the repository root for deterministi
 
 ## Viewfinder and homepage previews
 
-The hero uses 24px corners inset 12px, inside the reserved 48px/72px top/bottom gutters (56px/64px on compact layouts). Featured-card corners belong only to the photo area, never the text copy. Four vertically stacked category cards (Events, Personal Moments, Weddings, Graduations) reuse published photo IDs from shutterTrendsHomeFeatures in photos.js. At every breakpoint each card uses one column with a contained photograph above its text. All four cards occupy the full left content-column width with 24px vertical gaps.
+The hero uses 24px corners inset 12px, inside the reserved 48px/44px top/bottom gutters (56px/64px on compact layouts). Featured-card corners belong only to the photo area, never the text copy. Four vertically stacked category cards (Events, Personal Moments, Weddings, Graduations) reuse published photo IDs from shutterTrendsHomeFeatures in photos.js. At every breakpoint each card uses one column with a contained photograph above its text. All four cards occupy the full left content-column width with 24px vertical gaps.
 
 ## Permanent appearance and categories
 
 Theme switching, presets, and localStorage persistence are removed. permanent-style.css supplies the fixed #C6A16A accents; dusk-background.css retains the original continuous navy/plum/charcoal gradient. Botanical leaves, falling leaves, dust, spotlight, and scroll reveals remain independently controlled. Graduation collections use category graduations while retaining the portraits categoryGroup for reel exclusion. Existing collection IDs, source folders, and optimized assets are unchanged.
 
 Featured previews now use a responsive 3:2 box with object-fit:contain. Personal Moments retains IMG_3105 (couple with dog); Weddings uses IMG_6390 (wedding couple); Graduations uses IMG_1058 (graduate in cap and gown). These existing landscape images fill the card width without cropping or distortion.
+
+## Cinematic homepage polish
+
+polish.js connects card hover/keyboard focus to reel frames using existing collection IDs and category metadata. Matching frames receive a restrained gold outline; unrelated frames, position, and velocity remain unchanged. No match leaves the reel unchanged. Delegated listeners use AbortController, disconnect on pagehide, and reconnect on pageshow; the header observer follows the same lifecycle.
+
+The fine-pointer desktop hint fades after the first reel pointer or keyboard interaction and is hidden in compact layouts and reduced motion. Film rails use subtle warm inset illumination; frame numbers/stock markings stay muted gold. Intro spacing is 24px/32px, with a 12px heading/paragraph gap and a 46ch paragraph limit. Hero typography and buttons retain their sizes.
