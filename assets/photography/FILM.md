@@ -35,3 +35,5 @@ The hero uses 24px corners inset 12px, inside the reserved 48px/72px top/bottom 
 ## Permanent appearance and categories
 
 Theme switching, presets, and localStorage persistence are removed. permanent-style.css supplies the fixed #C6A16A accents; dusk-background.css retains the original continuous navy/plum/charcoal gradient. Botanical leaves, falling leaves, dust, spotlight, and scroll reveals remain independently controlled. Graduation collections use category graduations while retaining the portraits categoryGroup for reel exclusion. Existing collection IDs, source folders, and optimized assets are unchanged.
+
+Featured previews now use a responsive 3:2 box with object-fit:contain. Personal Moments retains IMG_3105 (couple with dog); Weddings uses IMG_6390 (wedding couple); Graduations uses IMG_1058 (graduate in cap and gown). These existing landscape images fill the card width without cropping or distortion.
