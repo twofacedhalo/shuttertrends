@@ -11,9 +11,9 @@ body.home .st-site-header { position:sticky; top:0; }
 body.home main .entry-content {
   --st-reel-edge:clamp(24px,2vw,40px);
   --st-reel-desktop-width:min(46vw,720px);
-  --st-reel-clearance:8px;
+  --st-home-column-gap:clamp(54px,4vw,56px);
   display:grid; grid-template-columns:minmax(0,1fr) minmax(0,var(--st-reel-desktop-width)); grid-template-rows:repeat(5,auto);
-  column-gap:clamp(28px,4vw,56px); row-gap:0;
+  column-gap:var(--st-home-column-gap); row-gap:0;
   width:100%; max-width:none !important; box-sizing:border-box;
   margin-inline:auto !important; padding:0 var(--st-reel-edge) 0 var(--st-home-align-gutter) !important;
   overflow:visible; align-items:start;
@@ -31,11 +31,13 @@ body.home main .entry-content > .st-home-reel-boundary {
 }
 body.home .st-home-reel-boundary > #photography-showcase {
   width:100%; max-width:100%; min-width:0; margin:0 !important; box-sizing:border-box;
-  position:sticky; top:var(--st-reel-header-height); height:calc(100vh - var(--st-reel-header-height) - var(--st-reel-clearance)); height:calc(100dvh - var(--st-reel-header-height) - var(--st-reel-clearance));
+  position:sticky; top:var(--st-reel-header-height); height:calc(100vh - var(--st-reel-header-height)); height:calc(100dvh - var(--st-reel-header-height));
   padding:0 !important; background:transparent !important;
 }
 body.home #photography-showcase > .alignwide { height:100%; }
-body.home #photography-showcase .st-filmstrip { display:flex; flex-direction:column; height:100%; min-height:0; box-sizing:border-box; padding-bottom:44px; --st-film-rail:26px; --st-film-pitch:32px; }
+body.home #photography-showcase .st-filmstrip { display:flex; flex-direction:column; height:100%; min-height:0; box-sizing:border-box; padding-bottom:0; --st-film-rail:26px; --st-film-pitch:32px; }
+body.home .st-film-pause { left:calc(var(--st-home-column-gap) / -2); right:auto; top:50%; bottom:auto; transform:translate(-50%,-50%); z-index:8; color:#c6a16a; border-color:#c6a16a70; background:#10151eed; box-shadow:0 3px 12px #0004; }
+body.home .st-film-pause:hover { border-color:#c6a16a; background:#25241fec; }
 body.home .st-filmstrip h2 { font-size:25px; line-height:1.2; margin:0 0 18px; max-width:100%; flex:none; }
 body.home .st-film-viewport { flex:1; min-height:0; overflow:hidden; scrollbar-width:none; width:100%; overscroll-behavior-y:auto; }
 body.home .st-film-track { will-change:transform; display:flex; flex-direction:column; width:100%; height:max-content; }
@@ -71,7 +73,7 @@ body.home .st-home-intro h2,body.home .st-home-contact h2,body.home .st-instagra
 body.home .st-home-contact .wp-block-buttons { justify-content:flex-start; }
 body.home .st-instagram { text-align:left; }
 body.home .st-home-all { text-align:left; }
-body.home .st-film-discovery { display:none; position:absolute; left:0; right:60px; bottom:13px; margin:0; color:#c1b49b; font-size:11px; line-height:18px; letter-spacing:.02em; pointer-events:none; transition:opacity 240ms ease; }
+body.home .st-film-discovery { display:none; position:absolute; left:calc(var(--st-home-column-gap) / -2); right:auto; top:calc(50% + 36px); bottom:auto; transform:translateX(-50%); writing-mode:vertical-rl; max-height:calc(50% - 48px); overflow:hidden; white-space:nowrap; margin:0; color:#c1b49b; font-size:10px; line-height:16px; letter-spacing:.02em; pointer-events:none; transition:opacity 240ms ease; }
 body.home .st-filmstrip.is-interacted .st-film-discovery { opacity:0; }
 @media(min-width:1001px) and (any-hover:hover) and (any-pointer:fine) { body.home .st-film-discovery { display:block; } }
 @media(prefers-reduced-motion:reduce) { body.home .st-film-discovery { display:none; transition:none; } }
@@ -81,6 +83,7 @@ body.home .st-filmstrip.is-interacted .st-film-discovery { opacity:0; }
   body.home .st-home-reel-boundary > #photography-showcase { position:relative; top:auto; height:auto; padding-block:24px 48px !important; }
   body.home #photography-showcase > .alignwide { height:auto; }
   body.home #photography-showcase .st-filmstrip { display:block; height:auto; --st-film-rail:24px; --st-film-pitch:24px; }
+  body.home .st-film-pause { left:auto; right:8px; top:auto; bottom:8px; transform:none; }
   body.home .st-filmstrip h2 { font-size:28px; margin-bottom:24px; }
   body.home .st-film-viewport { overflow-x:auto; overflow-y:hidden; }
   body.home .st-film-track { flex-direction:row; width:max-content; height:auto; }
