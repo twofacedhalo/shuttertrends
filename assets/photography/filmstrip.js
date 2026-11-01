@@ -46,7 +46,9 @@
     frame = requestAnimationFrame(tick);
   }
   function sync() {
-    pause.textContent = reduced.matches ? 'Automatic motion off' : paused ? 'Play filmstrip' : 'Pause filmstrip';
+    const label = reduced.matches ? 'Automatic motion off' : paused ? 'Play filmstrip' : 'Pause filmstrip';
+    pause.setAttribute('aria-label', label); pause.title = label;
+    pause.textContent = reduced.matches ? '◇' : paused ? '▶' : 'Ⅱ';
     pause.disabled = reduced.matches;
     pause.setAttribute('aria-pressed', String(paused || reduced.matches));
     if (!running()) stop(); else if (!frame) frame = requestAnimationFrame(tick);

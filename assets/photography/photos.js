@@ -432,6 +432,7 @@ window.shutterTrendsCollections = [
       },
       {
         "id": "import-df02a3a17118",
+        "published": false,
         "file": "IMG_1216.jpg",
         "title": "Raising a Glass",
         "alt": "People holding drinks smile toward the camera beneath colorful outdoor canopies.",

@@ -21,7 +21,8 @@
   }
   function populate() {
     const fragment = document.createDocumentFragment();
-    const count = mobile.matches ? 18 : 40;
+    const particles = window.shutterTrendActiveTheme?.particles;
+    const count = mobile.matches ? (particles?.mobile ?? 18) : (particles?.desktop ?? 40);
     for (let i = 0; i < count; i++) {
       const mote = document.createElement('span');
       mote.className = 'st-banner-dust__mote';
@@ -47,6 +48,7 @@
   const header = document.querySelector('.wp-site-blocks > header');
   if (header) resize.observe(header);
   document.fonts?.ready.then(sizeChanged);
+  document.addEventListener('st-theme-change',populate);
   mobile.addEventListener('change',populate);
   reduced.addEventListener('change',running);
   document.addEventListener('visibilitychange',running);

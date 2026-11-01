@@ -1,5 +1,10 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
+  themes: {
+    defaultTheme: 'autumn-after-dark',
+    allowVisitorThemeSelection: true,
+    randomizeThemeOnLoad: false
+  },
   atmosphericBackground: { avoidImmediateRepeat: true }, // Always exactly one eligible image.
   seasonalEffects: {
     autumnLeaves: {

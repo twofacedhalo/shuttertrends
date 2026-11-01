@@ -24,7 +24,7 @@ body.home {
 .st-background-frame::before {
   content: ''; position: fixed; inset: 0; z-index: -1;
   background: var(--photo-extension) var(--st-photo-object-position) / cover no-repeat;
-  filter: blur(var(--st-photo-extension-blur)) saturate(.65);
+  filter: blur(var(--st-photo-extension-blur)) saturate(var(--st-photo-saturation,.65)) sepia(var(--st-photo-sepia,0));
   opacity: var(--st-photo-extension-opacity);
   -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 30%, transparent 100%);
   mask-image: radial-gradient(ellipse closest-side at center, #000 30%, transparent 100%);
@@ -34,7 +34,7 @@ body.home {
   /* Intrinsic image bounds, rather than a letterboxed container, receive the mask. */
   display: block; width: auto; height: auto; max-width: 100%; max-height: 100%;
   object-fit: contain; object-position: var(--st-photo-object-position); opacity: 0;
-  flex: none; filter: saturate(.65); transition: opacity 800ms ease;
+  flex: none; filter: saturate(var(--st-photo-saturation,.65)) sepia(var(--st-photo-sepia,0)); transition: opacity 800ms ease;
   -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 var(--st-photo-solid-core), transparent var(--st-photo-feather-end));
   mask-image: radial-gradient(ellipse closest-side at center, #000 var(--st-photo-solid-core), transparent var(--st-photo-feather-end));
   pointer-events: none; user-select: none;
