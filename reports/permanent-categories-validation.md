@@ -14,3 +14,5 @@ Validated locally under /shuttertrends/ on 2026-11-01.
 - JavaScript syntax checks and Git whitespace checks pass. No browser console errors were recorded.
 
 Settings: assets/homepage/vertical-reel.css controls card stacking and reel dimensions; assets/photography/photos.js controls preview IDs and categories; assets/effects/permanent-style.css controls the fixed gold accents; assets/effects/dusk-background.css controls gradient colors.
+
+Publishing integration: origin/main advanced with five editorial-copy commits during this task. Merged them without overwriting remote history, retaining their homepage, portrait, wedding, services, and contact wording alongside the new layout and categories. Rechecked desktop/mobile overflow, four cards, absent theme selector, reel height, controller/data tests, and console errors after integration.
