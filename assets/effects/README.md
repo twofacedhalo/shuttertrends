@@ -86,7 +86,7 @@ Particle density is controlled by `const count = mobile.matches ? 18 : 40` in ba
 
 ## Single background composition and visible autumn leaves
 
-Exactly one backgroundEligible photograph is chosen at document initialization, independently of carousel categories. Portrait backgrounds remain eligible. The same image stays mounted through scrolling and responsive changes, using object-fit: contain and a blurred extension of that image. Desktop uses 64vw, tablet 80vw, mobile 92vw within the viewport. No additional atmospheric images are created.
+Exactly one backgroundEligible photograph is chosen at document initialization, independently of carousel categories. Portrait backgrounds remain eligible. The same image stays mounted through scrolling and responsive changes, using object-fit: contain and a blurred extension of that image. Desktop uses 64vw, tablet 80vw, mobile 92vw within the viewport. No additional atmospheric images are created. The fixed layer remains visible from hero to footer. A radial mask follows the sharp image’s intrinsic bounds, fading all outer edges while retaining a sharp center. A viewport-wide, blurred extension reuses the same selected optimized URL.
 
 In assets/site-config.js, atmosphericBackground.avoidImmediateRepeat (true) uses sessionStorage to exclude the last selection when alternatives exist. If storage is unavailable, selection still works randomly. This does not guarantee uniqueness between browser tabs. Photo eligibility remains in the existing photography metadata.
 
@@ -101,3 +101,9 @@ The homepage loads dusk-background.css after the existing atmospheric effects. I
 Edit the eight --st-dusk-*, --st-twilight-*, --st-night-* and --st-midnight-* color variables at the top of assets/effects/dusk-background.css. Stops are at 0/14/28/43/58/73/88/100 percent. --st-atmosphere-shade (.64) controls the dark contrast overlay; --st-spotlight-intensity (.10) tunes the gold glow. The fixed photographic backing is transparent while images retain contain sizing and a light navy scrim. Large section surfaces are transparent to avoid seams.
 
 Supported browsers use a native scroll timeline to lower the leaf layer opacity from 1 to .65 toward midnight. Other browsers use .85 throughout. Reduced motion skips this enhancement and existing falling animations remain disabled. Leaf settings, particle density, photo eligibility and all interactive scripts remain unchanged.
+
+## Feathered full-page atmosphere settings
+
+In photo-background.css, body.home owns the visibility and positioning settings. --st-background-photo-opacity defaults to .33 (banner.css no longer overrides it). --st-photo-solid-core (48%) sets the fully opaque center of the elliptical mask; lowering it gives a wider feather. --st-photo-feather-end (100%) sets the transparent boundary; keep it at or below 100% to avoid hard edges. --st-photo-width (64vw/80vw/92vw), --st-photo-right (4vw), --st-photo-top and --st-photo-bottom control the sharp composition’s area. --st-photo-object-position controls the blurred extension’s focal point and the contained image alignment.
+
+--st-photo-extension-opacity (.16; .12 mobile) and --st-photo-extension-blur (32px; 20px mobile) tune the viewport-wide atmosphere. Both prefixed and standard masks support modern Safari, Chrome and Firefox. Only the extension uses cover/blur; the sharp image uses intrinsic proportions with contain and max dimensions. The fixed composition requires no scroll handler, resizing loop or document-height image buffer. Portrait eligibility, session selection and filmstrip rules remain unchanged.

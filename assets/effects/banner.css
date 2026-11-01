@@ -1,7 +1,6 @@
 /* Shared camera viewfinder treatment, limited to the homepage hero, carousel and two feature cards. */
 body.home {
   position:relative;
-  --st-background-photo-opacity:.3;
   --st-viewfinder-color:#c6a16a;
   --st-viewfinder-stroke:1px;
   --st-viewfinder-length:clamp(18px,2.2vw,30px);
@@ -96,7 +95,7 @@ body.home .st-gallery__stage::after {
 /* Reserve a narrow image gutter: the brackets never paint on the sharp photograph. */
 body.home .st-gallery__slide img { box-sizing:border-box; padding:calc(var(--st-viewfinder-inset) + 8px); }
 @media(max-width:760px) {
-  body.home { --st-background-photo-opacity:.23; --st-viewfinder-inset:10px; }
+  body.home { --st-viewfinder-inset:10px; }
   body.home #home-hero > .wp-block-cover { min-height:0; }
   body.home #home-hero .wp-block-cover__inner-container > .wp-block-group { padding-block:32px !important; }
   body.home #home-hero h1 { font-size:clamp(40px,10vw,60px); }

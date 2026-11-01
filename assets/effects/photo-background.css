@@ -1,37 +1,61 @@
-/* Entire compositions remain inside the viewport; only the soft extension crops. */
-body.home { --st-background-photo-opacity: .30; }
+/* One fixed composition stays visible from hero to footer. Only the extension crops/blurs. */
+body.home {
+  --st-background-photo-opacity: .33;
+  --st-photo-width: 64vw;
+  --st-photo-right: 4vw;
+  --st-photo-top: max(90px, 10vh);
+  --st-photo-bottom: 6vh;
+  --st-photo-object-position: center;
+  --st-photo-solid-core: 48%;
+  --st-photo-feather-end: 100%;
+  --st-photo-extension-opacity: .16;
+  --st-photo-extension-blur: 32px;
+}
 .st-photo-background {
   position: fixed; inset: 0; z-index: -3; overflow: hidden;
-  pointer-events: none; contain: strict; background: #090a0d;
-  display: flex; align-items: center; justify-content: flex-end;
-  padding: max(90px, 10vh) 4vw 6vh; box-sizing: border-box;
+  pointer-events: none; contain: strict; background: transparent;
 }
-.st-background-frame { position: relative; width: 64vw; height: 100%; min-width: 0; min-height: 0; isolation: isolate; }
+.st-background-frame {
+  position: absolute; right: var(--st-photo-right); top: var(--st-photo-top);
+  bottom: var(--st-photo-bottom); width: var(--st-photo-width);
+  display: flex; align-items: center; justify-content: center;
+  min-width: 0; min-height: 0; isolation: isolate;
+}
 .st-background-frame::before {
-  content: ''; position: absolute; inset: 0; z-index: -1;
-  background: var(--photo-extension) center / cover no-repeat;
-  filter: blur(28px) saturate(.65); opacity: .14;
-  mask-image: radial-gradient(ellipse, #000 25%, transparent 72%);
+  content: ''; position: fixed; inset: 0; z-index: -1;
+  background: var(--photo-extension) var(--st-photo-object-position) / cover no-repeat;
+  filter: blur(var(--st-photo-extension-blur)) saturate(.65);
+  opacity: var(--st-photo-extension-opacity);
+  -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse closest-side at center, #000 30%, transparent 100%);
+  pointer-events: none;
 }
 .st-background-photo {
-  display: block; width: 100%; height: 100%; max-width: 100%;
-  object-fit: contain; object-position: center; opacity: 0;
-  filter: saturate(.65); transition: opacity 800ms ease;
+  /* Intrinsic image bounds, rather than a letterboxed container, receive the mask. */
+  display: block; width: auto; height: auto; max-width: 100%; max-height: 100%;
+  object-fit: contain; object-position: var(--st-photo-object-position); opacity: 0;
+  flex: none; filter: saturate(.65); transition: opacity 800ms ease;
+  -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 var(--st-photo-solid-core), transparent var(--st-photo-feather-end));
+  mask-image: radial-gradient(ellipse closest-side at center, #000 var(--st-photo-solid-core), transparent var(--st-photo-feather-end));
   pointer-events: none; user-select: none;
 }
 .st-background-photo.is-loaded { opacity: var(--st-background-photo-opacity); }
 .st-photo-background::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(9,10,13,.82), rgba(9,10,13,.60) 36%, rgba(9,10,13,.18) 78%, rgba(9,10,13,.32));
+  background: linear-gradient(90deg, rgba(8,14,27,.36), rgba(8,14,27,.18) 40%, rgba(8,14,27,.06) 78%, rgba(8,14,27,.15));
 }
 body.home .st-spotlight { background: transparent; }
 @media (min-width: 601px) and (max-width: 1000px) {
-  .st-background-frame { width: 80vw; }
+  body.home { --st-photo-width: 80vw; }
 }
 @media (max-width: 600px) {
-  .st-photo-background { padding: max(86px, 10vh) 4vw 8vh; }
-  .st-background-frame { width: 92vw; height: 100%; }
-  .st-photo-background::after { background: rgba(9,10,13,.48); }
+  body.home {
+    --st-photo-width: 92vw;
+    --st-photo-top: max(86px, 10vh);
+    --st-photo-bottom: 8vh;
+    --st-photo-extension-opacity: .12;
+    --st-photo-extension-blur: 20px;
+  }
 }
 @media (prefers-reduced-motion: reduce) { .st-background-photo { transition: none; } }
 @media print { .st-photo-background { display: none; } }
