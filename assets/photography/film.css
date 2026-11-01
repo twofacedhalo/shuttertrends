@@ -74,11 +74,11 @@
 
 /* Homepage-only reversible analog treatment; original assets remain untouched. */
 body.home .st-filmstrip {
-  --st-film-vintage-saturation:.70;
-  --st-film-vintage-sepia:.20;
-  --st-film-vintage-contrast:.93;
+  --st-film-vintage-grayscale:1;
+  --st-film-vintage-sepia:.08;
+  --st-film-vintage-contrast:1.10;
   --st-film-vintage-brightness:.93;
-  --st-film-vintage-blur:.65px;
+  --st-film-vintage-blur:0px;
   --st-film-grain-opacity:.12;
   --st-film-develop-duration:350ms;
 }
@@ -90,7 +90,7 @@ body.home .st-film-image::after {
   mix-blend-mode:soft-light; transition:opacity var(--st-film-develop-duration) ease;
 }
 body.home .st-filmstrip .st-film-frame img {
-  filter:saturate(var(--st-film-vintage-saturation)) sepia(var(--st-film-vintage-sepia)) contrast(var(--st-film-vintage-contrast)) brightness(var(--st-film-vintage-brightness)) blur(var(--st-film-vintage-blur));
+  filter:grayscale(var(--st-film-vintage-grayscale)) sepia(var(--st-film-vintage-sepia)) contrast(var(--st-film-vintage-contrast)) brightness(var(--st-film-vintage-brightness)) blur(var(--st-film-vintage-blur));
   transition:filter var(--st-film-develop-duration) ease;
 }
 body.home .st-filmstrip .st-film-frame:is(:focus-visible,:focus-within,.is-original) img { filter:none; }
