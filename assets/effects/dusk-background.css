@@ -1,5 +1,5 @@
-/* Homepage palette: edit these eight stops to tune the dusk-to-midnight journey. */
-body.home {
+/* Shared cinematic palette. These existing stops also paint the navigation. */
+:root {
   --st-dusk-copper: #AE7055;
   --st-dusk-rose: #7C4D52;
   --st-twilight-mauve: #754A6A;
@@ -8,17 +8,23 @@ body.home {
   --st-night-blue: #182D4C;
   --st-midnight-navy: #101D35;
   --st-midnight-black: #080E1B;
-  --st-atmosphere-shade: .64;
-  --st-spotlight-intensity: .10;
-  background-color: var(--st-midnight-black);
-  /* Both layers span the full document height, without fixed attachment or timers. */
-  background-image:
+  --st-atmosphere-shade:.64;
+}
+:root, body.home {
+  --st-page-gradient:
     linear-gradient(rgba(8,14,27,var(--st-atmosphere-shade)), rgba(8,14,27,var(--st-atmosphere-shade))),
     linear-gradient(to bottom,
       var(--st-dusk-copper) 0%, var(--st-dusk-rose) 14%,
       var(--st-twilight-mauve) 28%, var(--st-twilight-indigo) 43%,
       var(--st-night-slate) 58%, var(--st-night-blue) 73%,
       var(--st-midnight-navy) 88%, var(--st-midnight-black) 100%);
+}
+body.home {
+  --st-atmosphere-shade: .64;
+  --st-spotlight-intensity: .10;
+  background-color: var(--st-midnight-black);
+  /* Both layers span the full document height, without fixed attachment or timers. */
+  background-image:var(--st-page-gradient);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
