@@ -1,0 +1,47 @@
+/* Local font files: no Google Fonts runtime connection or duplicate WordPress downloads. */
+@font-face { font-family:'DM Sans'; font-style:normal; font-weight:400 700; font-display:swap; src:url('fonts/dm-sans-latin-0.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:400; font-display:swap; src:url('../../wp-content/themes/8527e427-5216-41ee-9ab4-bcaa4fbbfc0c/assets/fonts/cormorant-garamond-400.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-style:normal; font-weight:500; font-display:swap; src:url('../../wp-content/themes/8527e427-5216-41ee-9ab4-bcaa4fbbfc0c/assets/fonts/cormorant-garamond-500.woff2') format('woff2'); }
+:root {
+  --st-font-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --st-font-body:'DM Sans',Arial,'Segoe UI',sans-serif;
+  --st-type-hero:clamp(2.75rem,5.5vw,5.5rem);
+  --st-type-page:clamp(2.5rem,4.5vw,4rem);
+  --st-type-section:clamp(2rem,3.2vw,2.75rem);
+  --st-type-collection:clamp(1.625rem,2.5vw,2.125rem);
+  --st-type-body:clamp(1rem,.96rem + .15vw,1.125rem);
+  --st-type-caption:.9375rem;
+  --st-type-ui:.9375rem;
+  --st-leading-heading:1.12;
+  --st-leading-body:1.65;
+  --wp--preset--font-family--display:var(--st-font-display);
+  --wp--preset--font-family--body:var(--st-font-body);
+  --wp--preset--font-size--display:var(--st-type-page);
+  --wp--preset--font-size--large:var(--st-type-section);
+  --wp--preset--font-size--x-large:var(--st-type-section);
+  --wp--preset--font-size--medium:var(--st-type-body);
+  --wp--preset--font-size--body:var(--st-type-body);
+  --wp--preset--font-size--small:var(--st-type-caption);
+}
+body { font-family:var(--st-font-body); font-size:var(--st-type-body); line-height:var(--st-leading-body); }
+/* Explicit typography properties override exported component sizes, never their geometry. */
+body :is(main,.site-footer) :is(h1,h2,h3,h4,h5,h6) { font-family:var(--st-font-display)!important; font-weight:500; line-height:var(--st-leading-heading)!important; letter-spacing:.005em; text-wrap:pretty; overflow-wrap:break-word; }
+body main h1 { font-size:var(--st-type-page)!important; }
+body main h2 { font-size:var(--st-type-section)!important; }
+body main :is(h3,h4,h5,h6) { font-size:var(--st-type-collection)!important; }
+body.home #home-hero h1 { font-size:var(--st-type-hero)!important; font-weight:500; }
+body :is(.st-filmstrip,.st-home-feature__copy) h2 { font-size:var(--st-type-collection)!important; }
+body main p { font-family:var(--st-font-body); font-size:var(--st-type-body); line-height:var(--st-leading-body); }
+body main :is(.wp-block-paragraph,.is-style-lead,.has-lead-font-size,.st-home-intro p,.st-home-feature__copy p,.st-portrait-deck__description,.st-collection__description,.st-story-description) { font-size:var(--st-type-body)!important; line-height:var(--st-leading-body)!important; }
+body main :is(.has-small-font-size,.st-portrait-deck__hint,.st-event-strip__hint,.st-collection__details,.st-story-category,.st-story-count,.st-story-results,.st-gallery__counter,.st-gallery__collection,.st-gallery__location,.st-instagram__label,.st-instagram__note,.st-film-help),body.home #home-hero p.has-small-font-size { font-size:var(--st-type-caption)!important; line-height:1.55!important; }
+body .st-film-caption { font-family:var(--st-font-body); font-size:var(--st-type-caption)!important; line-height:1.5; }
+body :is(.st-vertical-gallery figcaption,.st-portfolio figcaption,.st-single-photo p,.st-portrait-deck-viewer__status,.st-reel-viewer__status) { font-family:var(--st-font-body); font-size:var(--st-type-caption); line-height:1.55; }
+body :is(.st-nav__link,.st-nav__cta,.st-mega-card,.st-mega-all,.wp-block-button__link,.st-home-feature__link,.st-home-feature__secondary,.st-instagram__button) { font-family:var(--st-font-body); font-size:var(--st-type-ui)!important; font-weight:500; line-height:1.5; }
+body :is(button,input,select,textarea) { font-family:var(--st-font-body); }
+body .st-contact-form :is(label,button,[role='status']) { font-size:var(--st-type-ui); line-height:1.55; }
+body .st-contact-form :is(input,select,textarea) { font-size:1rem; line-height:1.5; }
+body .site-footer :is(p,li,a) { font-family:var(--st-font-body); font-size:var(--st-type-caption)!important; line-height:var(--st-leading-body); }
+body .site-footer .wp-block-site-title a { font-family:var(--st-font-display); font-size:1.5rem!important; font-weight:500; }
+/* The original wordmark keeps its original family, size, weight, and spacing. */
+.st-brand__wordmark { font-family:'Cormorant Garamond',Georgia,serif; }
+@media(max-width:600px) { :root { --st-type-hero:clamp(2.5rem,11vw,3.5rem); --st-type-section:clamp(1.875rem,7vw,2.5rem); } }

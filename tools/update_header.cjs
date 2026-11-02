@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '..');
 const logo = fs.readFileSync(path.join(root, 'assets/header/logo-mark.svg'), 'utf8').trim();
-const items = [['portraits','Portraits'],['events','Events'],['stories','Photo Stories'],['about','About'],['services','Services'],['contact','Contact']];
+const items = [['portraits','Portraits'],['events','Events'],['about','About'],['services','Services'],['contact','Contact']];
 function walk(dir) {
   const files = [];
   for (const entry of fs.readdirSync(dir, {withFileTypes:true})) {
@@ -21,7 +21,7 @@ for (const file of walk(root)) {
   let html = fs.readFileSync(file, 'utf8');
   const links = items.map(([slug,label]) => {
     const anchor = `<a class="st-nav__link" href="${prefix}${slug}/"${relative===slug+'/index.html'?' aria-current="page"':''}>${label}</a>`;
-    if (!['portraits','events'].includes(slug)) return `<li>${anchor}</li>`;
+    if (slug !== 'portraits') return `<li>${anchor}</li>`;
     return `<li class="st-nav__item" data-st-nav-section="${slug}">${anchor}<button class="st-submenu-toggle" type="button" aria-expanded="false" aria-controls="st-mega-${slug}" aria-label="Show ${label} collections" hidden><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor"><path d="m4 6 4 4 4-4"/></svg></button><div class="st-mega-panel" id="st-mega-${slug}" hidden inert><div class="st-mega-grid" data-st-mega-grid></div><a class="st-mega-all" href="${prefix}${slug}/">View all ${label.toLowerCase()} photography &rarr;</a></div></li>`;
   }).join('\n');
   const header = `<header class="st-site-header" data-st-header>

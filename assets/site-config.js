@@ -1,5 +1,6 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
+  productionUrl: 'https://twofacedhalo.github.io/shuttertrends/', // Change only after custom-domain migration is verified.
   stories: { homepageLimit: 4, featured: ['warm-studio', 'cap-in-the-air', 'wedding-day-portraits', 'across-the-lawn'] },
   filmReel: { autoplaySpeed: 22, cursorMaxSpeed: 150, cursorCrawlSpeed: 3, velocityEaseSeconds: .6, edgeEaseDistance: 100 },
   seasonalEffects: {
@@ -32,12 +33,6 @@ window.shutterTrendConfig = {
       { title: 'Personal Moments', page: 'portraits' },
       { title: 'Graduations', page: 'graduations' },
       { title: 'Weddings', page: 'weddings' }
-    ],
-    events: [
-      { title: 'Community Gatherings', collectionId: 'community-atrium', photoId: 'import-img-1769' },
-      { title: 'Concerts', collectionId: 'outdoor-concert-1', photoId: 'import-img-3355' },
-      { title: 'Celebrations', collectionId: 'celebration-at-home', photoId: 'import-img-2087' },
-      { title: 'Outdoor Gatherings', collectionId: 'outdoor-gathering' }
     ]
   }
 };

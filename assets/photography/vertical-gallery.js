@@ -6,6 +6,7 @@
   if(!['graduations','weddings'].includes(category))return;
   // Manifest collection order, then photograph order; no randomization or cycling.
   const photos=(window.shutterTrendsPortfolio||[]).filter(c=>c.category===category).flatMap(c=>c.photos);
+  container.replaceChildren(); // Enhance the crawlable static gallery without duplicating images.
   const seen=new Set();
   const dialog=document.createElement('dialog');dialog.className='st-single-photo';dialog.setAttribute('aria-label','Photograph viewer');
   const full=document.createElement('img');full.decoding='async';
