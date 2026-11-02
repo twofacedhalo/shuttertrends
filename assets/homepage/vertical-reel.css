@@ -124,3 +124,19 @@ body.home .st-film-pause:disabled { opacity:.5; cursor:default; }
   body.home .st-film-group[data-reel-repeat] { display:none; }
   body.home .st-film-group { height:auto !important; padding-bottom:0; gap:0; }
 }
+/* Desktop-only alignment: move the left column, not the fixed-width reel or right-hand navigation. */
+@media(min-width:1001px) {
+  body.home {
+    --st-home-desktop-gutter:max(var(--st-page-gutter),calc((100vw - var(--st-home-nav-max)) / 2));
+    --st-home-desktop-left:clamp(40px,3.25vw,56px);
+  }
+  body.home .st-header__inner {
+    width:calc(100% - var(--st-home-desktop-left) - var(--st-home-desktop-gutter));
+    margin-left:var(--st-home-desktop-left);
+    margin-right:var(--st-home-desktop-gutter);
+  }
+  body.home main .entry-content {
+    padding-left:var(--st-home-desktop-left)!important;
+    column-gap:var(--st-home-column-gap);
+  }
+}
