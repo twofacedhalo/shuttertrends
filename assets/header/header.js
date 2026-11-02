@@ -38,27 +38,25 @@
     const key=element.dataset.stNavSection, button=element.querySelector('.st-submenu-toggle'), box=element.querySelector('.st-mega-panel');
     const entries=(config[key]||[]).map(entry=>{
       const collection=portfolio.find(c=>c.id===entry.collectionId);
-      const photo=collection?.photos.find(p=>p.id===entry.photoId)||collection?.photos[0];
-      return collection&&photo?{...entry,collection,photo}:null;
+      return collection?{...entry,collection}:null;
     }).filter(Boolean);
     if(!entries.length)return;
     button.hidden=false;
     const group={element,button,panel:box,closeTimer:0,prepare(){
       if(box.dataset.prepared)return;
-      box.dataset.prepared='true';box.style.setProperty('--st-mega-cols',String(Math.min(entries.length,4)));
+      box.dataset.prepared='true';
       for(const entry of entries){
-        const link=document.createElement('a');link.className='st-mega-card st-preview-frame';link.href=entry.collection.url;
-        const image=document.createElement('img');image.alt=entry.photo.alt;image.loading='lazy';image.decoding='async';image.width=entry.photo.width;image.height=entry.photo.height;image.src=entry.photo.thumbnail||entry.photo.src;
-        image.onerror=()=>{image.hidden=true;};
+        const link=document.createElement('a');link.className='st-mega-card';link.href=entry.collection.url;
         const label=document.createElement('span');label.textContent=entry.title;
-        link.append(image,label);box.querySelector('[data-st-mega-grid]').append(link);
+        link.append(label);box.querySelector('[data-st-mega-grid]').append(link);
       }
     }};
     groups.set(key,group);
     button.addEventListener('click',()=>setMega(key,activeMega!==key));
     element.addEventListener('pointerenter',event=>{if(!mobile.matches&&event.pointerType==='mouse'){clearTimeout(hoverClose);setMega(key,true);}});
     element.addEventListener('pointerleave',()=>{if(!mobile.matches){clearTimeout(hoverClose);hoverClose=setTimeout(()=>{if(!element.contains(document.activeElement))setMega(key,false);},180);}});
-    element.querySelector('.st-nav__link').addEventListener('focus',()=>{if(!mobile.matches)setMega(key,true);});
+    element.addEventListener('focusin',event=>{if(!mobile.matches&&!element.contains(event.relatedTarget))setMega(key,true);});
+    element.addEventListener('focusout',()=>{setTimeout(()=>{if(!element.contains(document.activeElement))setMega(key,false);},0);});
     element.addEventListener('keydown',event=>{if(event.key==='ArrowDown'&&(event.target===button||event.target.classList.contains('st-nav__link'))){event.preventDefault();setMega(key,true);box.querySelector('a')?.focus();}});
   });
   header.addEventListener('focusin',event=>{if(activeMega&&!groups.get(activeMega).element.contains(event.target))closeMegas();});
