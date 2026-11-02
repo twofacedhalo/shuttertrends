@@ -10,7 +10,7 @@
   --st-midnight-black: #080E1B;
   --st-atmosphere-shade:.64;
 }
-:root, body.home {
+:root {
   --st-page-gradient:
     linear-gradient(rgba(8,14,27,var(--st-atmosphere-shade)), rgba(8,14,27,var(--st-atmosphere-shade))),
     linear-gradient(to bottom,
@@ -19,19 +19,24 @@
       var(--st-night-slate) 58%, var(--st-night-blue) 73%,
       var(--st-midnight-navy) 88%, var(--st-midnight-black) 100%);
 }
-body.home {
-  --st-atmosphere-shade: .64;
-  --st-spotlight-intensity: .10;
+html { background-color:var(--st-midnight-black); }
+body {
+  min-height:100vh;
+  min-height:100dvh;
+  box-sizing:border-box;
   background-color: var(--st-midnight-black);
   /* Both layers span the full document height, without fixed attachment or timers. */
   background-image:var(--st-page-gradient);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+body.home { --st-spotlight-intensity:.10; }
 body.home #home-hero > .wp-block-cover,
 body.home #home-hero .wp-block-cover__background { background: transparent !important; }
 /* Large sections share the same continuous backdrop; cards retain their surfaces. */
-body.home main .entry-content > section.has-surface-background-color {
+main .entry-content > section.has-paper-background-color,
+main .entry-content > section.has-surface-background-color,
+.site-footer.has-paper-background-color {
   background-color: transparent !important;
 }
 body.home .st-autumn-leaves { opacity: .85; }
@@ -46,4 +51,4 @@ body.home .st-autumn-leaves { opacity: .85; }
   }
 }
 @keyframes st-leaves-night { from { opacity: 1; } to { opacity: .65; } }
-@media print { body.home { background-image: none; } }
+@media print { body { background-image:none; } }

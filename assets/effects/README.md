@@ -90,3 +90,9 @@ Particle density is controlled by `const count = mobile.matches ? 18 : 40` in ba
 The separate randomized atmospheric photograph and its rendering/feathering styles are removed. The homepage now uses a sticky vertical photography reel on desktop and a compact horizontal strip below the hero at widths up to 1000px. See assets/photography/FILM.md and assets/homepage/vertical-reel.css. Original photographs, galleries, and existing category rules remain unchanged.
 
 The background retains one permanent cinematic gradient, cursor-reactive spotlight, botanical leaf illustrations, small falling leaves, and golden dust. Gold accents are in permanent-style.css; palette stops are in dusk-background.css; leaf controls are in assets/site-config.js. The selectable theme system and its persistence have been removed. No photo selection or image-layer animation runs behind the homepage.
+
+## Site-wide cinematic background
+
+`dusk-background.css` applies the original homepage `--st-page-gradient` to every body. Its eight colors, stops at 0/14/28/43/58/73/88/100%, and 0.64 shade are unchanged. Both non-repeating layers cover 100% of document height; body has a viewport minimum and html has the midnight fallback. Full-width paper/surface sections and the footer are transparent; nested cards, forms, viewers and photographs keep their styles. No opacity is applied to content.
+
+All 13 HTML routes share this stylesheet, including collection/story hubs and legacy author/category/post routes. Query-based collection details inherit it. The existing navigation ResizeObserver measures each body's actual height and aligns the same gradient band to scroll position. No extra scroll script or theme selector is needed. Decorative leaves remain homepage-only. See reports/site-wide-gradient-validation.md for the route matrix.

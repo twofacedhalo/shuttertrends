@@ -88,7 +88,7 @@ The shared generator loads site-config.js, photos.js, optimized.js and collectio
 
 ## Shared scroll-reactive gradient
 
-The navigation remains sticky and uses the existing eight-stop cinematic palette from `../effects/dusk-background.css`. The shared `--st-page-gradient` also paints the homepage; its colors, stop percentages, and 0.64 shade are unchanged. `gradient.js` observes actual body height and positions the header's copy at the corresponding document band as visitors scroll. Scrolling upward reverses the same progression. Updates use one queued frame per scroll burst, without body layout reads on scroll, time-driven color cycles, or extra transitions. Nothing animates at rest; reduced-motion visitors receive the same direct scroll-to-color mapping.
+The navigation remains sticky and uses the existing eight-stop cinematic palette from `../effects/dusk-background.css`. The shared `--st-page-gradient` also paints every page body; its colors, stop percentages, and 0.64 shade are unchanged. `gradient.js` observes actual body height and positions the header's copy at the corresponding document band as visitors scroll. Scrolling upward reverses the same progression. Updates use one queued frame per scroll burst, without body layout reads on scroll, time-driven color cycles, or extra transitions. Nothing animates at rest; reduced-motion visitors receive the same direct scroll-to-color mapping.
 
 `gradient.js` removes listeners/observation on page departure and reconnects on history restore. Header backgrounds are opaque, so existing page particles/leaves do not become header decorations. No new header effects or shadows are added by the gradient.
 
