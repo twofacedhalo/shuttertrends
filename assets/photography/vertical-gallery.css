@@ -1,0 +1,15 @@
+/* Only the dedicated Graduations and Weddings gallery mounts use these rules. */
+.st-vertical-gallery { display:flex; flex-direction:column; align-items:center; gap:clamp(24px,4vw,48px); width:100%; max-width:960px; margin-inline:auto; min-width:0; }
+.st-vertical-gallery figure { width:100%; margin:0; }
+.st-vertical-gallery a { display:block; color:inherit; }
+.st-vertical-gallery img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; border:1px solid #c6a16a38; box-sizing:border-box; border-radius:2px; }
+.st-vertical-gallery figcaption { margin-top:10px; color:#c9c4ba; font-size:.95rem; line-height:1.6; }
+.st-vertical-gallery :focus-visible { outline:2px solid #c6a16a; outline-offset:5px; }
+.st-single-photo { position:fixed; inset:0; width:100%; height:100dvh; max-width:none; max-height:none; box-sizing:border-box; margin:0; padding:54px 20px 24px; border:0; background:#080e1bf5; color:#f4f0e8; }
+.st-single-photo:not([open]) { display:none; }
+.st-single-photo[open] { display:grid; grid-template-rows:minmax(0,1fr) auto; gap:12px; }
+.st-single-photo::backdrop { background:#080e1b; }
+.st-single-photo img { width:100%; height:100%; min-height:0; object-fit:contain; }
+.st-single-photo button { position:absolute; top:10px; right:16px; width:44px; height:44px; border:1px solid #c6a16a88; border-radius:50%; background:#101d35; color:#e4c994; font:28px/1 sans-serif; cursor:pointer; }
+.st-single-photo button:focus-visible { outline:2px solid #c6a16a; outline-offset:3px; }
+.st-single-photo p { margin:0; text-align:center; font-size:.9rem; }

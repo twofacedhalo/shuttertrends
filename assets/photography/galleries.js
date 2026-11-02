@@ -99,15 +99,19 @@
     const category = container.dataset.stCollection;
     container.className = window.shutterTrendsStoryCard ? 'st-collections st-story-grid' : 'st-collections';
     const matches = collections.filter(c => c.id === category || c.category === category || (category === 'events' && ['concerts','personal-events'].includes(c.category)));
-    matches.filter(c => c.photos.length).forEach(c => container.append(section(c, true)));
+    matches.filter(c => c.standalone !== false && c.photos.length).forEach(c => container.append(section(c, true)));
   });
   const previews = document.querySelector('[data-st-collections]');
-  if (previews) { if (window.shutterTrendsStoryCard) previews.classList.add('st-story-grid'); collections.filter(c => c.photos.length).forEach(c => previews.append(section(c, true))); }
+  if (previews) { if (window.shutterTrendsStoryCard) previews.classList.add('st-story-grid'); collections.filter(c => c.standalone !== false && c.photos.length).forEach(c => previews.append(section(c, true))); }
   const detail = document.querySelector('[data-st-detail]');
   if (detail) {
     const id = new URLSearchParams(location.search).get('id');
     const collection = collections.find(c => c.id === id);
     const heading = document.querySelector('[data-st-detail-heading]');
+    if (collection?.standalone === false) {
+      location.replace(collection.url);
+      return;
+    }
     if (collection) {
       heading.textContent = collection.title;
       document.title = `${collection.title} – ShutterTrend`;
@@ -132,7 +136,7 @@
       }
       heading.textContent = id ? 'Collection unavailable' : 'Photography collections';
       detail.replaceChildren(text('p', id ? 'This collection is unavailable. Explore the published collections below.' : 'Explore the published collections below.'));
-      collections.forEach(c => detail.append(section(c, true)));
+      collections.filter(c => c.standalone !== false).forEach(c => detail.append(section(c, true)));
     }
   }
 })();

@@ -3,6 +3,7 @@
   const root = new URL('../../', document.currentScript.src);
   const slug = value => typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
   const filename = value => typeof value === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(value);
+  const collectionUrl = c => new URL(c.standalone === false ? 'portraits/' : `collections/?id=${encodeURIComponent(c.id)}`, root).href;
   const ids = new Set();
   const source = Array.isArray(window.shutterTrendsCollections) ? window.shutterTrendsCollections : [];
   const collections = source.filter(c => {
@@ -11,7 +12,7 @@
     return true;
   }).map(c => ({
     ...c,
-    url: new URL(`collections/?id=${encodeURIComponent(c.id)}`, root).href,
+    url: collectionUrl(c),
     photos: (Array.isArray(c.photos) ? c.photos : []).filter(p => p && filename(p.file) && typeof p.alt === 'string' && p.alt.trim() && p.published !== false).map(p => ({
       ...p,
       category: p.category || c.category,
@@ -22,7 +23,7 @@
       thumbnail: filename(p.thumbnail) ? new URL(`assets/images/${c.folder}/${p.thumbnail}`, root).href : null,
       collectionId: c.id,
       collectionTitle: c.title,
-      collectionUrl: new URL(`collections/?id=${encodeURIComponent(c.id)}`, root).href,
+      collectionUrl: collectionUrl(c),
       location: p.location || c.location
     }))
   }));

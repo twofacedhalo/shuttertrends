@@ -29,10 +29,9 @@ window.shutterTrendConfig = {
   },
   navigation: {
     portraits: [
-      { title: 'Portraits & Lifestyle', collectionId: 'candid-portraits', photoId: 'import-img-1318' },
-      { title: 'An Afternoon Together', collectionId: 'an-afternoon-together', photoId: 'import-90e1cfb57735' },
-      { title: 'Graduations', collectionId: 'graduation-portraits', photoId: 'import-img-3013' },
-      { title: 'Weddings', collectionId: 'wedding-portraits', photoId: 'import-img-6412' }
+      { title: 'Personal Moments', page: 'portraits' },
+      { title: 'Graduations', page: 'graduations' },
+      { title: 'Weddings', page: 'weddings' }
     ],
     events: [
       { title: 'Community Gatherings', collectionId: 'community-atrium', photoId: 'import-img-1769' },

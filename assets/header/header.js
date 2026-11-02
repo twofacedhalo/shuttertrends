@@ -37,9 +37,11 @@
   header.querySelectorAll('[data-st-nav-section]').forEach(element=>{
     const key=element.dataset.stNavSection, button=element.querySelector('.st-submenu-toggle'), box=element.querySelector('.st-mega-panel');
     const entries=(config[key]||[]).map(entry=>{
+      if (key === 'portraits' && ['portraits','graduations','weddings'].includes(entry.page)) return {...entry,collection:{url:new URL(entry.page+'/',root).href}};
       const collection=portfolio.find(c=>c.id===entry.collectionId);
       return collection?{...entry,collection}:null;
     }).filter(Boolean);
+    if(key==='portraits')box.querySelector('.st-mega-all')?.remove();
     if(!entries.length)return;
     button.hidden=false;
     const group={element,button,panel:box,closeTimer:0,prepare(){

@@ -521,6 +521,7 @@ window.shutterTrendsCollections = [
   },
   {
     "id": "candid-portraits",
+    "standalone": false,
     "title": "People & Everyday Moments",
     "description": "Candid expressions, conversations, and quiet moments.",
     "category": "portraits",
@@ -600,6 +601,7 @@ window.shutterTrendsCollections = [
   },
   {
     "id": "an-afternoon-together",
+    "standalone": false,
     "title": "An Afternoon Together",
     "description": "An easy afternoon outdoors, shared smiles, and the little moments that make a memory.",
     "category": "portraits",
