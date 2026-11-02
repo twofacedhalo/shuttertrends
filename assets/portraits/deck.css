@@ -18,13 +18,10 @@
 .st-portrait-deck__card.is-sending { transition:transform 140ms ease-out; }
 .st-portrait-deck__card:focus-visible { outline:2px solid #e4c994; outline-offset:4px; }
 .st-portrait-deck__caption { min-width:0; }
-.st-portrait-deck__number { margin:0 0 18px; color:#c6a16a; font:12px/1.4 monospace; letter-spacing:.18em; }
 .st-portrait-deck h2 { margin:0 0 22px; color:#f4f0e8; font:400 clamp(32px,3.5vw,52px)/1.12 var(--wp--preset--font-family--display,Georgia,serif); }
 .st-portrait-deck__description { max-width:460px; margin:0 0 22px; color:#c9c4ba; font-size:clamp(16px,1.5vw,19px); line-height:1.75; }
-.st-portrait-deck__link { display:inline-block; padding-block:10px; min-height:44px; box-sizing:border-box; color:#d9bd88; font-size:15px; text-underline-offset:5px; }
 .st-portrait-deck__hint { margin:22px 0 0; color:#b8afa0; font-size:13px; }
 .st-portrait-deck__sr { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
-.st-portrait-deck__link:focus-visible { outline:2px solid #e4c994; outline-offset:4px; }
 .st-portrait-deck-viewer { position:fixed; inset:0; width:100%; max-width:none; height:100vh; height:100dvh; max-height:none; margin:0; padding:12px; border:0; box-sizing:border-box; background:#050609; color:#f4f0e8; overflow:hidden; }
 .st-portrait-deck-viewer:not([open]) { display:none; }
 .st-portrait-deck-viewer[open] { display:grid; place-items:center; }

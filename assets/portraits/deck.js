@@ -9,10 +9,12 @@
     if (root.dataset.initialized) return;
     const collection = collections.find(c => c.id === root.dataset.collectionId);
     if (!collection?.photos.length) return;
+    const excluded = new Set((root.dataset.excludedPhotoIds || '').split(',').filter(Boolean));
+    const available = collection.photos.filter(photo => !excluded.has(photo.id));
     const selection = (window.shutterTrendStoryDefinitions || []).find(s => s.id === root.dataset.storySelection);
     // Respect the existing curated five-frame lawn sequence, without editing its collection.
-    const selected = selection?.photoIds.map(id => collection.photos.find(p => p.id === id)).filter(Boolean);
-    const photos = selected && selected.length === selection.photoIds.length && selected.length ? selected : collection.photos;
+    const selected = selection?.photoIds.map(id => available.find(p => p.id === id)).filter(Boolean);
+    const photos = selected && selected.length === selection.photoIds.length && selected.length ? selected : available;
     const stack = root.querySelector('.st-portrait-deck__stack');
     const status = root.querySelector('[data-deck-status]');
     root.dataset.initialized = 'true'; root.dataset.photoCount = String(photos.length);
