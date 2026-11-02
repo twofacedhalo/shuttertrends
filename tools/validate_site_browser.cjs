@@ -26,6 +26,10 @@ catch(error) {
     await page.goto('https://site.test/shuttertrends/'+route);
     await page.evaluate(()=>document.fonts.ready);
     assert.equal(await page.locator('h1').count(),1,route+' H1');
+    assert.equal(await page.locator('footer.st-footer').count(),1);
+    assert.deepEqual(await page.locator('.st-footer__explore a').allTextContents(),['Portraits','Events','Services','About','Contact']);
+    assert.equal(await page.locator('.st-footer__cta h2').innerText(),'Have a Moment Worth Capturing?');
+    assert.equal(await page.locator('.st-home-contact,#contact-invitation').count(),0);
     assert((await page.locator('body').evaluate(e=>getComputedStyle(e).fontFamily)).includes('DM Sans'));
     const brand=page.locator('.st-brand__wordmark');assert((await brand.evaluate(e=>getComputedStyle(e).fontFamily)).includes('Cormorant Garamond'));
     for(const width of [1440,1552,1920,768,390,320,720]){
@@ -60,7 +64,7 @@ catch(error) {
   await page.locator('.st-nav__link').filter({hasText:/^Events$/}).click();await page.waitForURL('**/events/');
   const panels=page.locator('.st-event-panel');assert.equal(await page.locator('.st-event-panel__copy:visible').count(),0);await panels.first().click();assert.equal(await page.locator('.st-event-panel__copy:visible').count(),1);assert.equal(await panels.first().getAttribute('aria-pressed'),'true');await panels.first().click();assert.equal(await page.locator('.st-event-panel__copy:visible').count(),0);
   await page.goto('https://site.test/shuttertrends/portraits/');
-  for(let i=0;i<3;i++){const deck=page.locator('[data-st-portrait-deck]').nth(i),front=()=>deck.locator('[data-depth="0"]');const id=await front().getAttribute('data-photo-id');await front().focus();await page.keyboard.press('ArrowRight');await page.waitForTimeout(350);assert.notEqual(await front().getAttribute('data-photo-id'),id);await page.keyboard.press('Enter');assert(await page.locator('.st-portrait-deck-viewer[open]').isVisible());await page.keyboard.press('Escape');}
+  for(let i=0;i<3;i++){const deck=page.locator('[data-st-portrait-deck]').nth(i),front=()=>deck.locator('[data-depth="0"]');const id=await front().getAttribute('data-photo-id');await front().focus();await page.keyboard.press('ArrowRight');await page.waitForFunction(({index,previous})=>{const front=document.querySelectorAll('[data-st-portrait-deck]')[index]?.querySelector('[data-depth="0"]');return front&&front.dataset.photoId!==previous;},{index:i,previous:id});await page.keyboard.press('Enter');assert(await page.locator('.st-portrait-deck-viewer[open]').isVisible());await page.keyboard.press('Escape');}
   // Server-rendered gallery photographs remain discoverable with JavaScript disabled.
   const plain=await browser.newContext({javaScriptEnabled:false});const nojs=await plain.newPage();
   await nojs.route('**/*',async r=>{const u=new URL(r.request().url());if(u.hostname!=='site.test')return r.abort();let f=path.join(root,u.pathname.replace('/shuttertrends/',''));if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');return r.fulfill({status:fs.existsSync(f)?200:404,body:fs.existsSync(f)?fs.readFileSync(f):'',contentType:path.extname(f)==='.html'?'text/html':path.extname(f)==='.css'?'text/css':'application/octet-stream'});});
