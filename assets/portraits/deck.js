@@ -24,7 +24,7 @@
       card.dataset.photoId = photo.id; card.setAttribute('aria-haspopup','dialog');
       const image = document.createElement('img'); image.alt = photo.alt; image.decoding = 'async'; image.draggable = false;
       image.width = photo.width; image.height = photo.height; image.loading = 'lazy'; image.src = photo.src;
-      if (photo.srcset) { image.srcset = photo.srcset; image.sizes = '(max-width:760px) 85vw, 520px'; }
+      if (photo.srcset) { image.srcset = photo.srcset; image.sizes = '(max-width:760px) 85vw, (max-width:1150px) 50vw, 680px'; }
       card.append(image); stack.append(card);
       card.addEventListener('click',event => {
         if (pending || event.detail !== 0 && performance.now() < blockedUntil) { event.preventDefault(); return; }
