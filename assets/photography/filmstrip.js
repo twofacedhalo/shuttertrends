@@ -7,18 +7,33 @@
   const track = root.querySelector('.st-film-track');
   const pause = root.querySelector('.st-film-pause');
   const compact = matchMedia('(max-width: 1000px)');
-  const photos = (window.shutterTrendsPhotos || []).filter(p => p.src && p.alt);
+  // Homepage-only edit: do not change shared gallery eligibility or manifests.
+  const sequence = [
+    'import-img-3355', 'import-img-1318', 'import-img-6390', 'import-img-1058',
+    'import-img-1769', 'import-21a19b7ddebd', 'import-img-4035', 'import-img-3013',
+    'import-img-2087', 'import-img-6412', 'import-img-4408', 'import-c684baba4645',
+    'import-img-2943', 'import-090ff61ac366', 'import-2dcc214105d1', 'import-img-1517',
+    'import-140ab71a21c8', 'import-ebaef69c02bd', 'import-bac1329359c6',
+    'import-img-2990', 'import-28cdef691ea0', 'import-e04f8d41b067'
+  ];
+  const available = new Map((window.shutterTrendsPortfolio || []).flatMap(c => c.photos).map(p => [p.id,p]));
+  const sources = new Set();
+  const photos = sequence.map(id => available.get(id)).filter(p => {
+    if (!p?.src || !p.alt || sources.has(p.src)) return false;
+    sources.add(p.src); return true;
+  });
   if (!photos.length) { root.hidden = true; return; }
   const group = document.createElement('div'); group.className = 'st-film-group';
-  photos.forEach((photo, i) => {
+  function addFrame(container, photo, i, repeated) {
     const link = document.createElement('button'); link.type = 'button'; link.className = 'st-film-frame';
     link.setAttribute('aria-haspopup','dialog');
+    if (repeated) link.tabIndex = -1;
     link.addEventListener('click', () => openPhoto(photo,link));
     link.dataset.collectionId = photo.collectionId || ''; link.dataset.photoId = photo.id || '';
     const mark = document.createElement('span'); mark.className = 'st-film-mark';
     mark.textContent = String(i + 1).padStart(3, '0') + '  SHUTTERTREND'; mark.setAttribute('aria-hidden', 'true');
     const bottom = mark.cloneNode(); bottom.classList.add('st-film-mark--bottom'); bottom.textContent = 'ST — 400 · 35MM';
-    const img = document.createElement('img'); img.alt = photo.alt; img.decoding = 'async'; img.loading = 'lazy'; img.draggable = false;
+    const img = document.createElement('img'); img.alt = photo.alt; img.decoding = 'async'; img.loading = i < 2 ? 'eager' : 'lazy'; img.draggable = false;
     const ratio = photo.width && photo.height ? photo.width / photo.height : 1.5;
     img.style.setProperty('--st-photo-ratio', ratio);
     if (photo.width) img.width = photo.width;
@@ -27,9 +42,25 @@
     if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1565px) 46vw, 720px'; }
     link.setAttribute('aria-label', [photo.title, photo.collectionTitle, photo.alt].filter(Boolean).join(' — '));
     const picture = document.createElement('span'); picture.className = 'st-film-image'; picture.append(img);
-    link.append(mark, picture, bottom); group.append(link);
+    link.append(mark, picture, bottom); container.append(link);
+  }
+  // Fixed copies retain their own click handlers, all bound to the original photo.
+  const groups = [0,1,2].map(copy => {
+    const item = copy === 1 ? group : document.createElement('div');
+    item.className = 'st-film-group';
+    if (copy !== 1) item.dataset.reelRepeat = 'true';
+    photos.forEach((photo,i) => addFrame(item,photo,i,copy !== 1));
+    return item;
   });
-  track.replaceChildren(group);
+  track.replaceChildren(...groups);
+  const nearby = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.loading = 'eager'; nearby.unobserve(entry.target);
+      }
+    });
+  }, {root:viewport, rootMargin:'100%'});
+  track.querySelectorAll('img').forEach(img => nearby.observe(img));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mouse = matchMedia('(any-hover: hover) and (any-pointer: fine)');
   const settings = window.shutterTrendConfig?.filmReel || {};
@@ -37,26 +68,21 @@
   const cursorMax = Math.max(baseSpeed,Number(settings.cursorMaxSpeed) || 150);
   const crawl = Math.max(1,Math.min(baseSpeed,Number(settings.cursorCrawlSpeed) || 3));
   const velocityEase = Math.max(.1,Number(settings.velocityEaseSeconds) || .6);
-  const easeDistance = Math.max(20,Number(settings.edgeEaseDistance) || 100);
-  let position = 0, travel = 0, direction = 1, velocity = baseSpeed;
-  let cursorVelocity = null, cursorReverse = 1;
+  let position = 0, travel = 0, velocity = baseSpeed;
+  let cursorVelocity = null;
   let frame = 0, last = 0, visible = false, paused = false, focused = false, departed = false, modal = false, restoringFocus = false, controlState = '';
   const running = () => !compact.matches && !reduced.matches && !document.hidden && !departed && !modal && !focused && !paused && visible && travel > .5 && root.isConnected;
-  function paint() { track.style.transform = compact.matches ? 'none' : 'translate3d(0,' + (-position).toFixed(3) + 'px,0)'; }
+  const modulo = (value,length) => ((value % length) + length) % length;
+  function paint() { track.style.transform = compact.matches ? 'none' : 'translate3d(0,' + (-(travel + position)).toFixed(3) + 'px,0)'; }
   function stop() { if (frame) cancelAnimationFrame(frame); frame = 0; last = 0; }
   function tick(time) {
     frame = 0;
     if (!running()) { last = 0; return; }
     const dt = last ? Math.min(time-last,64)/1000 : 0; last = time;
-    const edge = Math.min(position,travel-position);
-    const easing = .16 + .84*Math.min(1,Math.max(0,edge)/easeDistance);
-    const target = (cursorVelocity === null ? direction * baseSpeed : cursorVelocity * cursorReverse) * easing;
+    const target = cursorVelocity === null ? baseSpeed : cursorVelocity;
     velocity += (target-velocity)*(1-Math.exp(-dt/velocityEase));
-    position += velocity*dt;
-    // Latch a reflected cursor direction at each boundary until the cursor
-    // changes direction or exits, avoiding repeated outward pushes at the edge.
-    if (position >= travel) { position = travel; direction = -1; cursorReverse = cursorVelocity > 0 ? -1 : 1; }
-    if (position <= 0) { position = 0; direction = 1; cursorReverse = cursorVelocity < 0 ? -1 : 1; }
+    // Render in the middle copy; wrapping one full period has identical pixels.
+    position = modulo(position + velocity*dt, travel);
     paint(); frame = requestAnimationFrame(tick);
   }
   function sync() {
@@ -71,20 +97,32 @@
     }
     if (!running()) stop(); else if (!frame) frame = requestAnimationFrame(tick);
   }
+  let measureFrame = 0;
+  function scheduleMeasure() {
+    if (!measureFrame) measureFrame = requestAnimationFrame(() => { measureFrame = 0; measure(); });
+  }
   function measure() {
     root.dataset.axis = compact.matches ? 'compact' : 'vertical';
-    if (compact.matches) { position = Math.max(0,position); travel = 0; paint(); }
+    if (compact.matches) { travel = 0; paint(); }
     else {
       viewport.scrollLeft = 0; viewport.scrollTop = 0;
-      travel = Math.max(0,group.getBoundingClientRect().height - viewport.clientHeight);
-      position = Math.max(0,Math.min(position,travel)); paint();
+      // Uniform tiny gaps round the period to a whole sprocket pitch.
+      // Explicit image dimensions reserve the same space before/after decoding.
+      groups.forEach(item => { item.style.height = ''; item.style.removeProperty('--st-loop-gap'); });
+      const natural = group.getBoundingClientRect().height;
+      const pitch = parseFloat(getComputedStyle(root).getPropertyValue('--st-film-pitch')) || 32;
+      const period = Math.ceil(natural/pitch)*pitch;
+      const gap = (period-natural)/photos.length;
+      groups.forEach(item => { item.style.height = period+'px'; item.style.setProperty('--st-loop-gap',gap+'px'); });
+      travel = period;
+      position = travel ? modulo(position,travel) : 0; paint();
     }
     const help = root.querySelector('#st-film-help');
-    if (help) help.textContent = compact.matches ? 'Swipe or use Left/Right arrows to browse. Tap a frame to open its original photograph fullscreen.' : 'The reel moves automatically up and down. Move the pointer toward the top or bottom to control direction and speed. Use Pause to stop. Tab through photographs; use Up/Down and Home/End to browse while focused. Enter or Space opens the original photograph fullscreen.';
+    if (help) help.textContent = compact.matches ? 'Swipe or use Left/Right arrows to browse. Tap a frame to open its original photograph fullscreen.' : 'The reel loops continuously. Move the pointer toward the top to move photographs down, or the bottom to move them up. Use Pause to stop. Tab through photographs; use Up/Down and Home/End to browse while focused. Enter or Space opens only that photograph fullscreen.';
     sync();
   }
   pause.addEventListener('click', () => { paused = !paused; sync(); });
-  function clearCursor() { cursorVelocity = null; cursorReverse = 1; }
+  function clearCursor() { cursorVelocity = null; }
   function steer(event) {
     if (event.pointerType !== 'mouse' || !mouse.matches || compact.matches || reduced.matches) return;
     const bounds = viewport.getBoundingClientRect();
@@ -92,11 +130,10 @@
     // Top therefore requests a negative velocity; bottom requests positive.
     const offset = 2 * Math.max(0,Math.min(1,(event.clientY-bounds.top)/bounds.height)) - 1;
     const distance = Math.abs(offset);
-    const sign = distance < .02 ? direction : Math.sign(offset);
+    const sign = Math.sign(offset);
     const magnitude = distance <= .3 ? crawl * (.2 + .8 * distance/.3)
       : crawl + (cursorMax-crawl) * Math.pow((distance-.3)/.7,1.7);
     const next = sign * magnitude;
-    if (cursorVelocity !== null && Math.sign(next) !== Math.sign(cursorVelocity)) cursorReverse = 1;
     cursorVelocity = next;
   }
   viewport.addEventListener('pointerenter',steer);
@@ -119,7 +156,7 @@
   function openPhoto(photo,button) {
     if (viewer.open || saved) return;
     trigger = button;
-    saved = {position,direction,velocity,cursorVelocity,cursorReverse,paused,scrollX:window.scrollX,scrollY:window.scrollY,
+    saved = {position,velocity,cursorVelocity,paused,scrollX:window.scrollX,scrollY:window.scrollY,
       left:viewport.scrollLeft,top:viewport.scrollTop,overflow:document.documentElement.style.overflow,
       bodyOverflow:document.body.style.overflow};
     modal = true; sync();
@@ -142,7 +179,7 @@
     restoringFocus = true;
     if (trigger?.isConnected) trigger.focus({preventScroll:true});
     restoringFocus = false;
-    ({position,direction,velocity,cursorVelocity,cursorReverse,paused} = state);
+    ({position,velocity,cursorVelocity,paused} = state);
     viewport.scrollLeft = state.left; viewport.scrollTop = state.top;
     window.scrollTo({left:state.scrollX,top:state.scrollY,behavior:'instant'});
     focused = false; modal = false; paint(); sync();
@@ -154,9 +191,9 @@
     if (!compact.matches) {
       const link = e.target.closest('.st-film-frame');
       if (link) {
-        const top = link.offsetTop, bottom = top + link.offsetHeight;
-        if (top < position || link.offsetHeight > viewport.clientHeight) position = Math.min(top,travel);
-        else if (bottom > position + viewport.clientHeight) position = Math.min(travel,bottom-viewport.clientHeight);
+        const top = link.offsetTop + link.parentElement.offsetTop - travel, bottom = top + link.offsetHeight;
+        if (top < position || link.offsetHeight > viewport.clientHeight) position = modulo(top,travel);
+        else if (bottom > position + viewport.clientHeight) position = modulo(bottom-viewport.clientHeight,travel);
         paint();
       }
       viewport.scrollTop = 0; queueMicrotask(()=>{ viewport.scrollTop = 0; });
@@ -173,14 +210,13 @@
       else if (e.key === 'End') viewport.scrollLeft = viewport.scrollWidth;
       else viewport.scrollLeft += e.key === forward ? 240 : -240;
     } else {
-      position = e.key === 'Home' ? 0 : e.key === 'End' ? travel : Math.max(0,Math.min(travel,position + (e.key === forward ? 240 : -240)));
-      direction = position >= travel ? -1 : position <= 0 ? 1 : direction;
+      position = e.key === 'Home' ? 0 : e.key === 'End' ? group.lastElementChild.offsetTop : modulo(position + (e.key === forward ? 240 : -240),travel);
       viewport.scrollTop = 0; paint();
     }
   });
   new IntersectionObserver(entries=>{ visible = entries[0].isIntersecting; sync(); }).observe(viewport);
-  new ResizeObserver(measure).observe(viewport);
-  track.querySelectorAll('img').forEach(img=>img.addEventListener('load',measure));
+  new ResizeObserver(scheduleMeasure).observe(viewport);
+  track.querySelectorAll('img').forEach(img=>img.addEventListener('load',scheduleMeasure));
   compact.addEventListener('change',()=>{ stop(); clearCursor(); viewport.scrollLeft = 0; viewport.scrollTop = 0; measure(); });
   reduced.addEventListener('change',sync); document.addEventListener('visibilitychange',sync);
   document.addEventListener('st-lightbox-open',()=>{ modal = true; sync(); });
@@ -189,3 +225,4 @@
   window.addEventListener('pageshow',()=>{ departed = false; measure(); });
   measure();
 })();
+
