@@ -28,9 +28,10 @@ catch(error) {
     assert.equal(await page.locator('h1').count(),1,route+' H1');
     assert((await page.locator('body').evaluate(e=>getComputedStyle(e).fontFamily)).includes('DM Sans'));
     const brand=page.locator('.st-brand__wordmark');assert((await brand.evaluate(e=>getComputedStyle(e).fontFamily)).includes('Cormorant Garamond'));
-    for(const width of [1440,768,390,320,720]){
+    for(const width of [1440,1552,1920,768,390,320,720]){
       await page.setViewportSize({width,height:1000});
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),route+' overflow '+width);
+      if(!route&&width>1000){const photo=await page.locator('.st-home-feature__photos').first().boundingBox();const gutter=Math.max(Math.min(64,Math.max(22,width*.04)),(width-1280)/2),edge=Math.min(40,Math.max(24,width*.02)),gap=Math.min(56,Math.max(54,width*.04));assert(Math.abs(photo.width-(width-gutter-edge-Math.min(width*.46,720)-gap-2))<1,'original feature photo width');}
       assert.equal(await page.locator('[data-st-nav-section="events"],#st-mega-events').count(),0);
     }
     await page.setViewportSize({width:1440,height:1000});
@@ -65,6 +66,14 @@ catch(error) {
   await nojs.route('**/*',async r=>{const u=new URL(r.request().url());if(u.hostname!=='site.test')return r.abort();let f=path.join(root,u.pathname.replace('/shuttertrends/',''));if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');return r.fulfill({status:fs.existsSync(f)?200:404,body:fs.existsSync(f)?fs.readFileSync(f):'',contentType:path.extname(f)==='.html'?'text/html':path.extname(f)==='.css'?'text/css':'application/octet-stream'});});
   for(const [route,count] of [['graduations',38],['weddings',8]]){await nojs.goto('https://site.test/shuttertrends/'+route+'/');assert.equal(await nojs.locator('.st-vertical-gallery img').count(),count);}
   await nojs.goto('https://site.test/shuttertrends/collections/');assert.equal(await nojs.locator('noscript img').count(),99);await plain.close();
+  // Delay only the gradient script to verify that navigation never paints the old black header.
+  let releaseGradient=null;
+  await page.route('**/assets/header/gradient.js*',async r=>{await new Promise(resolve=>releaseGradient=resolve);await r.fulfill({contentType:'text/javascript',body:fs.readFileSync(path.join(root,'assets/header/gradient.js'))});});
+  await page.goto('https://site.test/shuttertrends/',{waitUntil:'commit'});
+  await page.locator('[data-st-header]').waitFor({state:'visible'});
+  while(!releaseGradient)await page.waitForTimeout(10);
+  assert.equal(await page.locator('[data-st-header]').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
+  releaseGradient();await page.waitForFunction(()=>document.querySelector('[data-st-header]').dataset.scrollGradient==='true');
   assert.deepEqual(errors,[]);
   console.log('PASS: nine pages; local fonts; H1; mobile/tablet/200%-equivalent width; Events direct link desktop/mobile; Portraits menu; single gold CTA; 22-photo reel/play/pause/reduced motion/modal; Events title toggle; three decks; static no-JS galleries and 99-photo discovery.');
  } finally {await browser.close();}

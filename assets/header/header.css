@@ -3,7 +3,8 @@
   top:0;
   z-index:100;
   margin:0;
-  background:rgba(9,10,13,.97);
+  /* Expose the existing page gradient before gradient.js paints its matching band. */
+  background:transparent;
   border-bottom:1px solid rgba(198,161,106,.16);
   color:#f4f0e8;
   font-family:var(--wp--preset--font-family--body,Manrope,sans-serif);
