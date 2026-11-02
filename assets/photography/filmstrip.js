@@ -11,8 +11,9 @@
   if (!photos.length) { root.hidden = true; return; }
   const group = document.createElement('div'); group.className = 'st-film-group';
   photos.forEach((photo, i) => {
-    const link = document.createElement('a'); link.className = 'st-film-frame';
-    link.href = photo.collectionUrl || photo.fullSrc || photo.src;
+    const link = document.createElement('button'); link.type = 'button'; link.className = 'st-film-frame';
+    link.setAttribute('aria-haspopup','dialog');
+    link.addEventListener('click', () => openPhoto(photo,link));
     link.dataset.collectionId = photo.collectionId || ''; link.dataset.photoId = photo.id || '';
     const mark = document.createElement('span'); mark.className = 'st-film-mark';
     mark.textContent = String(i + 1).padStart(3, '0') + '  SHUTTERTREND'; mark.setAttribute('aria-hidden', 'true');
@@ -39,7 +40,7 @@
   const easeDistance = Math.max(20,Number(settings.edgeEaseDistance) || 100);
   let position = 0, travel = 0, direction = 1, velocity = baseSpeed;
   let cursorVelocity = null, cursorReverse = 1;
-  let frame = 0, last = 0, visible = false, paused = false, focused = false, departed = false, modal = false, lastTouchLink = null, controlState = '';
+  let frame = 0, last = 0, visible = false, paused = false, focused = false, departed = false, modal = false, restoringFocus = false, controlState = '';
   const running = () => !compact.matches && !reduced.matches && !document.hidden && !departed && !modal && !focused && !paused && visible && travel > .5 && root.isConnected;
   function paint() { track.style.transform = compact.matches ? 'none' : 'translate3d(0,' + (-position).toFixed(3) + 'px,0)'; }
   function stop() { if (frame) cancelAnimationFrame(frame); frame = 0; last = 0; }
@@ -79,7 +80,7 @@
       position = Math.max(0,Math.min(position,travel)); paint();
     }
     const help = root.querySelector('#st-film-help');
-    if (help) help.textContent = compact.matches ? 'Swipe or use Left/Right arrows to browse. Tap a frame to reveal its original color, then tap again to open its story.' : 'The reel moves automatically up and down. Move the pointer toward the top or bottom to control direction and speed. Use Pause to stop. Tab through photographs; use Up/Down and Home/End to browse while focused. Enter opens a photo story.';
+    if (help) help.textContent = compact.matches ? 'Swipe or use Left/Right arrows to browse. Tap a frame to open its original photograph fullscreen.' : 'The reel moves automatically up and down. Move the pointer toward the top or bottom to control direction and speed. Use Pause to stop. Tab through photographs; use Up/Down and Home/End to browse while focused. Enter or Space opens the original photograph fullscreen.';
     sync();
   }
   pause.addEventListener('click', () => { paused = !paused; sync(); });
@@ -103,20 +104,52 @@
   viewport.addEventListener('pointerleave',clearCursor);
   viewport.addEventListener('pointercancel',clearCursor);
   mouse.addEventListener('change',clearCursor);
-  viewport.addEventListener('pointerdown',e => { lastTouchLink = e.pointerType === 'touch' ? e.target.closest('.st-film-frame') : null; });
-  const touchStatus = document.createElement('p'); touchStatus.className = 'st-gallery__sr'; touchStatus.setAttribute('role','status'); root.append(touchStatus);
-  viewport.addEventListener('click',e => {
-    const link = e.target.closest('.st-film-frame');
-    if (!link) return;
-    const ordinary = !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey;
-    if (ordinary && link === lastTouchLink && e.detail !== 0 && !link.classList.contains('is-original')) {
-      e.preventDefault(); track.querySelectorAll('.is-original').forEach(el=>el.classList.remove('is-original')); link.classList.add('is-original');
-      touchStatus.textContent = 'Original photograph revealed. Tap again to open its photo story.';
-    }
-    if (ordinary && !e.defaultPrevented && window.shutterTrendsOpenPhotoStory?.(link.dataset.collectionId,link.dataset.photoId,link)) e.preventDefault();
-    lastTouchLink = null;
+  viewport.addEventListener('pointerdown',event => {
+    if (event.pointerType === 'mouse' && event.button === 0 && event.target.closest('.st-film-frame')) event.preventDefault();
+  });
+  // A dedicated single-photo modal keeps story navigation and the URL untouched.
+  const viewer = document.createElement('dialog'); viewer.className = 'st-reel-viewer';
+  viewer.setAttribute('aria-label','Fullscreen photograph');
+  const close = document.createElement('button'); close.type = 'button'; close.className = 'st-reel-viewer__close';
+  close.setAttribute('aria-label','Close photograph'); close.textContent = '\u00d7';
+  const image = document.createElement('img'); image.decoding = 'async';
+  const status = document.createElement('p'); status.className = 'st-reel-viewer__status'; status.setAttribute('role','status');
+  viewer.append(image,close,status); document.body.append(viewer);
+  let trigger = null, saved = null;
+  function openPhoto(photo,button) {
+    if (viewer.open || saved) return;
+    trigger = button;
+    saved = {position,direction,velocity,cursorVelocity,cursorReverse,paused,scrollX:window.scrollX,scrollY:window.scrollY,
+      left:viewport.scrollLeft,top:viewport.scrollTop,overflow:document.documentElement.style.overflow,
+      bodyOverflow:document.body.style.overflow};
+    modal = true; sync();
+    image.removeAttribute('src'); image.alt = photo.alt;
+    image.onload = () => { status.textContent = ''; };
+    image.onerror = () => { status.textContent = 'This photograph could not load. Please close the viewer and try again.'; };
+    status.textContent = 'Loading photograph...'; image.src = photo.fullSrc || photo.src;
+    document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden';
+    viewer.showModal(); close.focus({preventScroll:true});
+  }
+  close.addEventListener('click',()=>viewer.close());
+  viewer.addEventListener('click',event => { if (event.target === viewer) viewer.close(); });
+  viewer.addEventListener('keydown',event => {
+    if (event.key === 'Tab') { event.preventDefault(); close.focus({preventScroll:true}); }
+  });
+  viewer.addEventListener('close',()=>{
+    if (!saved) return;
+    const state = saved; saved = null;
+    document.documentElement.style.overflow = state.overflow; document.body.style.overflow = state.bodyOverflow;
+    restoringFocus = true;
+    if (trigger?.isConnected) trigger.focus({preventScroll:true});
+    restoringFocus = false;
+    ({position,direction,velocity,cursorVelocity,cursorReverse,paused} = state);
+    viewport.scrollLeft = state.left; viewport.scrollTop = state.top;
+    window.scrollTo({left:state.scrollX,top:state.scrollY,behavior:'instant'});
+    focused = false; modal = false; paint(); sync();
+    image.onload = image.onerror = null; image.removeAttribute('src');
   });
   viewport.addEventListener('focusin',e => {
+    if (modal || restoringFocus) return;
     focused = true; sync();
     if (!compact.matches) {
       const link = e.target.closest('.st-film-frame');
@@ -129,7 +162,7 @@
       viewport.scrollTop = 0; queueMicrotask(()=>{ viewport.scrollTop = 0; });
     }
   });
-  viewport.addEventListener('focusout',() => queueMicrotask(()=>{ focused = viewport.contains(document.activeElement); sync(); }));
+  viewport.addEventListener('focusout',() => queueMicrotask(()=>{ if (!modal && !restoringFocus) { focused = viewport.contains(document.activeElement); sync(); } }));
   viewport.addEventListener('keydown',e => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     const back = compact.matches ? 'ArrowLeft' : 'ArrowUp', forward = compact.matches ? 'ArrowRight' : 'ArrowDown';

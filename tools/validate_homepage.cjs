@@ -2,14 +2,16 @@ const fs=require('fs'),vm=require('vm'),assert=require('assert');
 let contentHeight=600;
 class Element {
  constructor(tag='div'){this.tag=tag;this.dataset={};this.children=[];this.listeners={};this.style={setProperty(){}};this.classList={add(){},remove(){},contains(){return false}};this.isConnected=true;this.clientHeight=200;this.scrollTop=0;this.scrollLeft=0;}
+ removeAttribute(k){delete this[k]} focus(){doc.activeElement=this} showModal(){this.open=true} close(){this.open=false;this.emit('close')}
  append(...nodes){this.children.push(...nodes)} replaceChildren(...nodes){this.children=nodes} cloneNode(){return new Element(this.tag)} setAttribute(k,v){this[k]=v} addEventListener(k,f){(this.listeners[k]??=[]).push(f)} emit(k,e={}){for(const f of this.listeners[k]||[])f(e)} getBoundingClientRect(){return {height:contentHeight}} querySelectorAll(s){return s==='img'?this.children.flatMap(c=>c.tag==='img'?[c]:c.querySelectorAll(s)):[]} querySelector(s){return map[s]||null} contains(){return false}
 }
 const root=new Element(), viewport=new Element(),track=new Element(),pause=new Element(),map={'.st-film-viewport':viewport,'.st-film-track':track,'.st-film-pause':pause};
 viewport.getBoundingClientRect=()=>({top:0,height:200});
-const doc=new Element();doc.querySelector=()=>root;doc.createElement=t=>new Element(t);doc.hidden=false;
+const doc=new Element();doc.querySelector=()=>root;doc.createElement=t=>new Element(t);doc.hidden=false;doc.body=new Element();doc.documentElement=new Element();
 const media={};let queue=new Map(),id=0,clock=1000;
 const box={document:doc,window:new Element(),matchMedia:q=>media[q]??=(Object.assign(new Element(),{matches:false})),requestAnimationFrame:f=>{queue.set(++id,f);return id},cancelAnimationFrame:i=>queue.delete(i),queueMicrotask:f=>f(),IntersectionObserver:class{constructor(f){this.f=f}observe(){this.f([{isIntersecting:true}])}},ResizeObserver:class{constructor(f){this.f=f}observe(){this.f()}},Math,Number,String};
-box.window.shutterTrendsPhotos=[{src:'test.webp',alt:'Photo',width:600,height:400}];
+box.window.scrollX=0;box.window.scrollY=345;box.window.scrollTo=()=>{};
+box.window.shutterTrendsPhotos=[{id:'one',src:'test.webp',fullSrc:'full.webp',alt:'Photo',width:600,height:400},{id:'two',src:'portrait.webp',fullSrc:'portrait-full.webp',alt:'Portrait',width:400,height:600}];
 const code=fs.readFileSync('assets/photography/filmstrip.js','utf8');vm.runInNewContext(code,box);
 const position=()=>-(Number(track.style.transform.match(/,(-?[\d.]+)px/)[1]));
 function advance(n){for(let i=0;i<n;i++){clock+=16;const pending=[...queue.values()];queue.clear();assert(pending.length<=1,'duplicate RAF');pending.forEach(f=>f(clock));}}
@@ -35,9 +37,22 @@ middle();steer(0);let cursorUp=false,cursorDown=false;previous=position();for(le
 fine.matches=false;fine.emit('change');middle();steer(0);advance(180);start=position();advance(15);assert(position()>start,'touch-only ignores inverted cursor tracking');
 console.log('PASS: top/down '+downward.toFixed(1)+'px/s; bottom/up '+upward.toFixed(1)+'px/s; center '+slow.toFixed(1)+'px/s; exit autoplay '+auto.toFixed(1)+'px/s; paused cursor, boundaries, touch-only');
 console.log('PASS: automatic Y motion, boundaries/reversals, one RAF, pause/resume, hidden/reduced motion, initialization guard');
+// Each generated frame is a non-navigating button and opens only its exact original.
+const viewer=doc.body.children[0],image=viewer.children[0],close=viewer.children[1];
+const frames=track.children[0].children;
+for(const [i,button] of frames.entries()) {
+ assert.equal(button.tag,'button');assert(!button.href,'no gallery URL');
+ const start=position();button.emit('click');assert(viewer.open);assert.equal(image.src,box.window.shutterTrendsPhotos[i].fullSrc);
+ advance(100);assert.equal(position(),start,'modal freezes reel exactly');
+ close.emit('click');assert(!viewer.open);assert.equal(position(),start,'close restores exact position');
+ advance(60);assert.notEqual(position(),start,'autoplay resumes');
+}
+pause.emit('click');const stopped=position();frames[0].emit('click');close.emit('click');advance(100);assert.equal(position(),stopped,'user pause remains paused');pause.emit('click');
+frames[0].emit('click');let trapped=false;viewer.emit('keydown',{key:'Tab',preventDefault(){trapped=true}});assert(trapped);assert.equal(doc.activeElement,close);viewer.emit('click',{target:viewer});assert(!viewer.open);assert.equal(doc.activeElement,frames[0]);
+console.log('PASS: every frame opens exact full-color source without links, modal freeze/restore, paused-state preservation, focus trap/return, outside close');
 const data={window:{},document:{currentScript:{src:'https://example.com/shuttertrends/assets/photography/collections.js'}},URL,Math,console};
 for(const f of ['assets/site-config.js','assets/photography/photos.js','assets/photography/optimized.js','assets/photography/collections.js','assets/photography/stories-data.js'])vm.runInNewContext(fs.readFileSync(f,'utf8'),data);
-const all=data.window.shutterTrendsPortfolio.flatMap(c=>c.photos);assert.equal(all.length,96);for(const p of all){assert(p.src.includes('/shuttertrends/assets/images/optimized/'));assert(p.width>0&&p.height>0)}
+const all=data.window.shutterTrendsPortfolio.flatMap(c=>c.photos);assert.equal(all.length,96);for(const p of all){assert(p.src.includes('/shuttertrends/assets/images/optimized/'));assert(p.width>0&&p.height>0);assert(fs.existsSync(decodeURIComponent(new URL(p.fullSrc||p.src).pathname.replace('/shuttertrends/',''))),'full-resolution image exists')}
 for(const p of data.window.shutterTrendsPhotos)assert.notEqual(p.collectionCategory,'portraits');
 for(const id of ['import-df02a3a17118','import-img-3880'])assert(!all.some(p=>p.id===id));assert(all.some(p=>p.id==='import-img-4035'));
 for(const s of data.window.shutterTrendStoryDefinitions){assert(s.photoIds.length<=5);for(const id of s.photoIds)assert(all.some(p=>p.id===id),id)}
