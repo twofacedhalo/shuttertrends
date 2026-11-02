@@ -94,13 +94,11 @@ The navigation remains sticky and uses the existing eight-stop cinematic palette
 
 ## Logo camera interaction
 
-The original camera/aperture artwork and serif wordmark are retained. The logo file's Git blob is `6534319d698dfab614095cfc5fc30406cd8ebe3f`, identical to its original `45fd416` version. Runtime `camera.js` adds a small speaker toggle beside the existing home link, without editing its SVG or text. Desktop/tablet brand dimensions remain those in header.css. A small spacing adjustment between 1001–1100px accommodates the control without shrinking the original branding or changing navigation labels/destinations.
+The original camera/aperture artwork and serif wordmark are retained. The logo file's Git blob is `6534319d698dfab614095cfc5fc30406cd8ebe3f`, identical to its original `45fd416` version. `camera.js` reuses one silent flash layer without adding controls or changing the brand markup.
 
-- `camera.css`: one 350ms, maximum-0.38-opacity white flash; fixed overlay, inert and pointer-events:none. Only the existing aperture group rotates 22 degrees and contracts to 90%; the wordmark stays stationary. Reduced motion disables both effects.
-- `camera.js`: ordinary logo activation triggers the effect. On the homepage it keeps the document and scroll position; elsewhere it follows the existing home URL after 360ms. Ctrl/Cmd/Shift/Alt clicks, middle-click, and native new-tab actions remain untouched. Keyboard Enter works; held-key repeats and activations within 900ms are coalesced to prevent strobing/overlapping audio.
-- `../audio/camera-shutter.wav`: original synthesized mechanical shutter, 0.27s, mono 44.1kHz PCM16, 23,858 bytes, played at 30% volume only after activation. No third-party samples or audio library. See audio/README.md for CC0-1.0 licensing and tools/create_shutter_sound.py to regenerate.
-- Sound defaults on, with an accessible pressed-state toggle and `shuttertrend-shutter-muted` preference. Storage/audio failures are caught independently of the visual effect and navigation.
-- One flash layer/audio element are reused. Page departure aborts event listeners, clears timers, and pauses/unloads audio; history restore reconnects once. No camera access or actual photograph capture occurs.
+- `camera.css`: warm amber `#ffe2b8` flash, 1000ms duration, maximum opacity 0.34. The aperture retains its subtle 350ms motion. Reduced motion disables both effects.
+- `camera.js`: homepage activation preserves scroll and document state; other pages follow the existing home URL after 1000ms. Modified clicks remain native. A 1400ms cooldown prevents repeated flashes.
+- No audio, sound controls, storage preference, or audio asset remains. Page departure clears timers/listeners; history restoration reconnects once.
 
 All 13 public pages load the shared palette, header CSS/driver, gradient.js, and camera.css/js. The additional pages beyond the original list are stories/index.html and graduations/index.html. New page templates should include these same header assets.
 

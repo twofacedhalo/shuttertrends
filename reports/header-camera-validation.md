@@ -34,3 +34,7 @@ Browser checked 1440, 1366, 1024, 1001, 768, 390, and 320px widths. No horizonta
 Desktop photographic dropdown keyboard Enter/Escape, mobile menu and portrait dropdown, sound-toggle keyboard activation, homepage link navigation, and gradient updates were exercised. No JavaScript console errors were recorded. Mobile checks use browser viewport simulation rather than a physical iOS/Android device; native media restrictions are handled gracefully.
 
 Commands: node tools/validate_header_gradient.cjs; node tools/validate_camera_interaction.cjs; node tools/validate_homepage.cjs; node --check on new scripts; branding/body preservation audit; git diff --check. No live contact submission was made.
+
+## Silent warm flash revision
+
+Removed all audio playback, mute controls, localStorage handling, the generated WAV, and its generator/license notes. The flash now uses warm amber #ffe2b8 with a 1000ms fade (previously near-white, 350ms), and a softer 0.34 peak opacity. Other-page home navigation waits 1000ms; repeat protection is 1400ms. Original brand markup and aperture animation remain unchanged. Updated interaction tests cover silence, extended timing, keyboard/reduced motion, modified links, delayed navigation and lifecycle cleanup.

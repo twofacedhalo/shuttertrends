@@ -1,13 +1,7 @@
-.st-brand-tools { display:flex; flex:none; align-items:center; gap:8px; }
-.st-camera-sound { display:grid; place-items:center; flex:none; width:28px; height:44px; padding:0; border:0; border-radius:4px; background:transparent; color:#c6a16a; cursor:pointer; }
-.st-camera-sound svg { display:block; width:15px; height:15px; }
-.st-camera-sound:hover { background:#c6a16a16; }
-.st-camera-status { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
-.st-camera-flash { position:fixed; inset:0; z-index:2000; pointer-events:none; background:#fffdfa; opacity:0; }
-.st-camera-flash.is-flashing { animation:st-camera-flash 350ms ease-out both; }
+.st-camera-flash { position:fixed; inset:0; z-index:2000; pointer-events:none; background:#ffe2b8; opacity:0; }
+.st-camera-flash.is-flashing { animation:st-camera-flash 1000ms ease-out both; }
 .st-brand.is-camera-click .st-logo__aperture { animation:st-camera-aperture 350ms cubic-bezier(.2,.65,.25,1) both; }
-@keyframes st-camera-flash { 0% { opacity:0; } 11% { opacity:.34; } 28% { opacity:.38; } 86%,100% { opacity:0; } }
+@keyframes st-camera-flash { 0% { opacity:0; } 12% { opacity:.28; } 30% { opacity:.34; } 100% { opacity:0; } }
 @keyframes st-camera-aperture { 0%,100% { transform:rotate(0deg) scale(1); } 42% { transform:rotate(22deg) scale(.9); } }
-@media(min-width:1001px) and (max-width:1100px) { .st-header__inner { gap:12px; } .st-nav__list { gap:16px; } }
 @media(prefers-reduced-motion:reduce) { .st-camera-flash { display:none; } .st-brand.is-camera-click .st-logo__aperture { animation:none; } }
-@media print { .st-camera-sound,.st-camera-flash { display:none; } }
+@media print { .st-camera-flash { display:none; } }

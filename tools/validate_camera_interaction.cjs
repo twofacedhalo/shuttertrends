@@ -4,16 +4,17 @@ class Element extends Target {constructor(tag){super();this.tag=tag;this.dataset
 let now=0,next=0,timers=new Map();const later=(f,ms)=>{timers.set(++next,{time:now+ms,f});return next};function advance(ms){const end=now+ms;while(true){const due=[...timers].filter(([,v])=>v.time<=end).sort((a,b)=>a[1].time-b[1].time)[0];if(!due)break;timers.delete(due[0]);now=due[1].time;due[1].f()}now=end}
 const win=new Target(),doc=new Target(),header=new Element('header'),brand=new Element('a'),reduced=new Target(),stored=new Map(),destinations=[];reduced.matches=false;brand.href='https://example.com/shuttertrends/';header.querySelector=s=>s==='.st-brand'?brand:null;doc.querySelector=()=>header;doc.createElement=t=>new Element(t);doc.body=new Element('body');doc.currentScript={src:'https://example.com/shuttertrends/assets/header/camera.js'};win.location={href:brand.href,assign:url=>destinations.push(url)};
 const box={document:doc,window:win,URL,AbortController,matchMedia:()=>reduced,performance:{now:()=>now},setTimeout:later,clearTimeout:id=>timers.delete(id),localStorage:{getItem:k=>stored.get(k)||null,setItem:(k,v)=>stored.set(k,v)},Infinity};
-vm.runInNewContext(fs.readFileSync('assets/header/camera.js','utf8'),box);const flash=doc.body.children[0],audio=doc.body.children[1];
-// Event-policy and lifecycle tests use one reusable flash/audio pair.
-
-const toggle=brand.wrapper.children[1];const click=(extra={})=>{const e={button:0,defaultPrevented:false,preventDefault(){this.defaultPrevented=true},...extra};brand.emit('click',e);return e};
-const repeat={key:'Enter',repeat:true,prevented:false,preventDefault(){this.prevented=true}};brand.emit('keydown',repeat);assert(repeat.prevented,'held Enter does not repeat flashes');
-assert.equal(audio.plays,0,'no load autoplay');assert.equal(audio.volume,.3);assert(audio.src.endsWith('/shuttertrends/assets/audio/camera-shutter.wav'));
-assert(click().defaultPrevented);assert(flash.classList.contains('is-flashing'));assert(brand.classList.contains('is-camera-click'));assert.equal(audio.plays,1);click();click();assert.equal(audio.plays,1);assert.equal(flash.adds,1,'rapid activation coalesced');assert.equal(destinations.length,0,'homepage remains loaded');advance(400);assert(!flash.classList.contains('is-flashing'));
-audio.paused=true;toggle.emit('click');assert.equal(stored.get('shuttertrend-shutter-muted'),'true');advance(600);click();assert(flash.classList.contains('is-flashing'),'muted still flashes');assert.equal(audio.plays,1);advance(400);
-for(const extra of [{ctrlKey:true},{metaKey:true},{shiftKey:true},{button:1}])assert(!click(extra).defaultPrevented,'normal modified navigation');
-toggle.emit('click');reduced.matches=true;reduced.emit('change');advance(900);click({detail:0});assert(!flash.classList.contains('is-flashing'),'reduced motion disables flash');assert.equal(audio.plays,2,'keyboard click triggers sound');
-reduced.matches=false;reduced.emit('change');audio.paused=true;audio.fail=true;advance(900);click();assert(flash.classList.contains('is-flashing'),'blocked audio preserves visual');advance(400);
-win.location.href='https://example.com/shuttertrends/about/';advance(900);click();advance(359);assert.equal(destinations.length,0);advance(1);assert.equal(destinations[0],brand.href,'delayed home navigation');advance(900);click();win.emit('pagehide');advance(1000);assert.equal(destinations.length,1,'navigation cancelled on departure');assert.equal(brand.listeners.get('click').size,0);assert(!flash.classList.contains('is-flashing'));win.emit('pageshow');win.emit('pageshow');assert.equal(brand.listeners.get('click').size,1);assert.equal(doc.body.children.length,2,'one reused flash and audio');
-console.log('PASS: flash once, no audio autoplay, 30% volume, rapid-click gate, mute persistence, keyboard click, reduced motion, blocked audio, native modifiers, home/no-reload, delayed other-page navigation, cleanup and restore');
+vm.runInNewContext(fs.readFileSync('assets/header/camera.js','utf8'),box);
+const flash=doc.body.children[0];
+const click=(extra={})=>{const e={button:0,defaultPrevented:false,preventDefault(){this.defaultPrevented=true},...extra};brand.emit('click',e);return e};
+assert.equal(doc.body.children.length,1,'only one silent flash layer');
+assert(!brand.wrapper,'no sound control or wrapper');
+assert(click().defaultPrevented);assert(flash.classList.contains('is-flashing'));click();click();assert.equal(flash.adds,1,'rapid activation coalesced');assert.equal(destinations.length,0);
+advance(600);assert(flash.classList.contains('is-flashing'),'longer flash remains active');advance(500);assert(!flash.classList.contains('is-flashing'));
+for(const extra of [{ctrlKey:true},{metaKey:true},{shiftKey:true},{altKey:true},{button:1}])assert(!click(extra).defaultPrevented);
+reduced.matches=true;reduced.emit('change');advance(1400);click({detail:0});assert(!flash.classList.contains('is-flashing'));
+reduced.matches=false;advance(1400);click({detail:0});assert(flash.classList.contains('is-flashing'),'keyboard activation');advance(1400);
+win.location.href='https://example.com/shuttertrends/about/';click();advance(999);assert.equal(destinations.length,0);advance(1);assert.equal(destinations[0],brand.href);
+advance(1400);click();win.emit('pagehide');advance(1400);assert.equal(destinations.length,1);assert.equal(brand.listeners.get('click').size,0);assert(!flash.classList.contains('is-flashing'));win.emit('pageshow');win.emit('pageshow');assert.equal(brand.listeners.get('click').size,1);assert.equal(doc.body.children.length,1);
+const css=fs.readFileSync('assets/header/camera.css','utf8');assert(css.includes('#ffe2b8'));assert(css.includes('st-camera-flash 1000ms'));assert(!fs.existsSync('assets/audio/camera-shutter.wav'));
+console.log('PASS: silent single warm flash, extended duration, rapid-click protection, keyboard/reduced motion, native modifiers, home scroll preservation, delayed navigation, lifecycle cleanup');
