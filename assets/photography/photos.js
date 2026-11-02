@@ -561,7 +561,21 @@ window.shutterTrendsCollections = [
         "backgroundEligible": true,
         "carouselEligible": true,
         "sourceSha256": "9d31e1875814f9fd3239b47e93b264a239558ada210c00814bff4a6c39ba9aec"
-      },
+      }
+    ],
+    "categoryGroup": "portraits"
+  },
+  {
+    "id": "an-afternoon-together",
+    "title": "An Afternoon Together",
+    "description": "An easy afternoon outdoors, shared smiles, and the little moments that make a memory.",
+    "category": "portraits",
+    "categoryGroup": "portraits",
+    "folder": "candid-portraits",
+    "published": true,
+    "previewMode": "collection",
+    "coverPhotoId": "import-90e1cfb57735",
+    "photos": [
       {
         "id": "import-55276836ff4b",
         "file": "IMG_3058.jpg",
@@ -814,8 +828,7 @@ window.shutterTrendsCollections = [
         "backgroundEligible": false,
         "categoryGroup": "lifestyle"
       }
-    ],
-    "categoryGroup": "portraits"
+    ]
   },
   {
     "id": "community-atrium",

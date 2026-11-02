@@ -21,3 +21,7 @@
 .st-collection .st-portfolio { grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; margin-top:1.5rem; }
 @media(max-width:900px) { .st-collection .st-portfolio { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:600px) { .st-collection .st-portfolio { grid-template-columns:minmax(0,1fr); } }
+
+/* Collection entries share the existing story-card grid without outer margins. */
+.st-story-grid > .st-film-card--collection { margin:0; align-self:start; }
+.st-film-card--collection .st-film-picture img { height:auto; }
