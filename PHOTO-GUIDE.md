@@ -2,7 +2,7 @@
 
 # Current photo stories and imports
 
-The current portfolio contains 96 published source photographs. The latest scan imported 66 new photographs, skipped previously imported and alternate copies, preserved owner exclusions, and left four MOV sidecars untouched. See reports/latest-import-summary.md and .json for the full audit and source hashes.
+The current portfolio contains 99 published source photographs. The latest scan imported 66 new photographs, skipped previously imported and alternate copies, preserved owner exclusions, and left four MOV sidecars untouched. See reports/latest-import-summary.md and .json for the full audit and source hashes.
 
 Seven curated Mini Photo Stories are defined in assets/photography/stories-data.js. The dedicated stories/ page offers 21 curated/collection stories with category filtering and a fullscreen viewer. Existing collections/?id= links continue to work. Larger sets expand on the portfolio page rather than creating new HTML pages.
 

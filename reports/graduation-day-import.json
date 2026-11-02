@@ -1,0 +1,125 @@
+[
+  {
+    "source": "graduation-day/1-Photo-1.jpg",
+    "sha256": "ee6e2fc26f4d06729d2b3de1a19389f4ec3cfa43403b4952d82a0356ebbf8f45",
+    "original_width": 1280,
+    "original_height": 1280,
+    "oriented_width": 1280,
+    "oriented_height": 1280,
+    "original_bytes": 378769,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "ee6e2fc26f4d06729d2b-srgb-v1-q85-600x600.webp",
+    "width": 600,
+    "height": 600,
+    "bytes": 70234,
+    "savings_percent": 81.46,
+    "color": "Untagged RGB/grayscale assumed sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/1-Photo-1.jpg",
+    "sha256": "ee6e2fc26f4d06729d2b3de1a19389f4ec3cfa43403b4952d82a0356ebbf8f45",
+    "original_width": 1280,
+    "original_height": 1280,
+    "oriented_width": 1280,
+    "oriented_height": 1280,
+    "original_bytes": 378769,
+    "roles": [
+      "gallery",
+      "viewer"
+    ],
+    "file": "ee6e2fc26f4d06729d2b-srgb-v1-q85-1280x1280.webp",
+    "width": 1280,
+    "height": 1280,
+    "bytes": 186674,
+    "savings_percent": 50.72,
+    "color": "Untagged RGB/grayscale assumed sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/2-Photo-2.jpg",
+    "sha256": "83669f2ef1487ff892949c3ea6adf63462fc8ef4540cbbb2a703e151e7e06c73",
+    "original_width": 1280,
+    "original_height": 853,
+    "oriented_width": 1280,
+    "oriented_height": 853,
+    "original_bytes": 289142,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "83669f2ef1487ff89294-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 51610,
+    "savings_percent": 82.15,
+    "color": "Untagged RGB/grayscale assumed sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/2-Photo-2.jpg",
+    "sha256": "83669f2ef1487ff892949c3ea6adf63462fc8ef4540cbbb2a703e151e7e06c73",
+    "original_width": 1280,
+    "original_height": 853,
+    "oriented_width": 1280,
+    "oriented_height": 853,
+    "original_bytes": 289142,
+    "roles": [
+      "gallery",
+      "viewer"
+    ],
+    "file": "83669f2ef1487ff89294-srgb-v1-q85-1280x853.webp",
+    "width": 1280,
+    "height": 853,
+    "bytes": 152724,
+    "savings_percent": 47.18,
+    "color": "Untagged RGB/grayscale assumed sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/3-Photo-3.jpg",
+    "sha256": "f77485a1620e9af44a82da9a9f0004d263dafe345b0afcf842fcaac9a0c04298",
+    "original_width": 1280,
+    "original_height": 853,
+    "oriented_width": 1280,
+    "oriented_height": 853,
+    "original_bytes": 211388,
+    "roles": [
+      "thumbnail"
+    ],
+    "file": "f77485a1620e9af44a82-srgb-v1-q85-600x400.webp",
+    "width": 600,
+    "height": 400,
+    "bytes": 42150,
+    "savings_percent": 80.06,
+    "color": "Untagged RGB/grayscale assumed sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  },
+  {
+    "source": "graduation-day/3-Photo-3.jpg",
+    "sha256": "f77485a1620e9af44a82da9a9f0004d263dafe345b0afcf842fcaac9a0c04298",
+    "original_width": 1280,
+    "original_height": 853,
+    "oriented_width": 1280,
+    "oriented_height": 853,
+    "original_bytes": 211388,
+    "roles": [
+      "gallery",
+      "viewer"
+    ],
+    "file": "f77485a1620e9af44a82-srgb-v1-q85-1280x853.webp",
+    "width": 1280,
+    "height": 853,
+    "bytes": 99296,
+    "savings_percent": 53.03,
+    "color": "Untagged RGB/grayscale assumed sRGB",
+    "copyright_retained": false,
+    "creator_retained": false
+  }
+]

@@ -52,7 +52,7 @@ window.shutterTrendsCollections = [
   {
     "id": "graduation-day",
     "title": "Graduation Day",
-    "description": "A graduation-day portrait full of color and celebration.",
+    "description": "Graduation-day portraits, shared smiles, and moments of celebration.",
     "category": "graduations",
     "folder": "graduation-day",
     "published": true,
@@ -67,6 +67,39 @@ window.shutterTrendsCollections = [
         "showcase": true,
         "carouselEligible": true,
         "sourceSha256": "4768c614fc50ff413a8fb7748f640b93986625dff1d12f55c4f98e32043f4403"
+      },
+      {
+        "id": "import-ee6e2fc26f4d",
+        "file": "1-Photo-1.jpg",
+        "title": "A Moment Together",
+        "alt": "A graduate in a blue cap and gown with flower leis poses beside another person outside glass doors.",
+        "width": 1280,
+        "height": 1280,
+        "showcase": false,
+        "carouselEligible": false,
+        "sourceSha256": "ee6e2fc26f4d06729d2b3de1a19389f4ec3cfa43403b4952d82a0356ebbf8f45"
+      },
+      {
+        "id": "import-83669f2ef148",
+        "file": "2-Photo-2.jpg",
+        "title": "A Shared Celebration",
+        "alt": "A graduate wearing a blue cap and flower leis stands between two people while holding a bouquet indoors.",
+        "width": 1280,
+        "height": 853,
+        "showcase": false,
+        "carouselEligible": false,
+        "sourceSha256": "83669f2ef1487ff892949c3ea6adf63462fc8ef4540cbbb2a703e151e7e06c73"
+      },
+      {
+        "id": "import-f77485a1620e",
+        "file": "3-Photo-3.jpg",
+        "title": "A Graduation Portrait",
+        "alt": "A close portrait of a graduate in a blue cap and gown with a red stole, surrounded by people indoors.",
+        "width": 1280,
+        "height": 853,
+        "showcase": false,
+        "carouselEligible": false,
+        "sourceSha256": "f77485a1620e9af44a82da9a9f0004d263dafe345b0afcf842fcaac9a0c04298"
       }
     ],
     "categoryGroup": "portraits"

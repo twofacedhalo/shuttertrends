@@ -2165,5 +2165,65 @@ window.shutterTrendsOptimized = {
       "height": 1600,
       "bytes": 837752
     }
+  },
+  "graduation-day/1-Photo-1.jpg": {
+    "thumbnail": {
+      "file": "ee6e2fc26f4d06729d2b-srgb-v1-q85-600x600.webp",
+      "width": 600,
+      "height": 600,
+      "bytes": 70234
+    },
+    "gallery": {
+      "file": "ee6e2fc26f4d06729d2b-srgb-v1-q85-1280x1280.webp",
+      "width": 1280,
+      "height": 1280,
+      "bytes": 186674
+    },
+    "viewer": {
+      "file": "ee6e2fc26f4d06729d2b-srgb-v1-q85-1280x1280.webp",
+      "width": 1280,
+      "height": 1280,
+      "bytes": 186674
+    }
+  },
+  "graduation-day/2-Photo-2.jpg": {
+    "thumbnail": {
+      "file": "83669f2ef1487ff89294-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 51610
+    },
+    "gallery": {
+      "file": "83669f2ef1487ff89294-srgb-v1-q85-1280x853.webp",
+      "width": 1280,
+      "height": 853,
+      "bytes": 152724
+    },
+    "viewer": {
+      "file": "83669f2ef1487ff89294-srgb-v1-q85-1280x853.webp",
+      "width": 1280,
+      "height": 853,
+      "bytes": 152724
+    }
+  },
+  "graduation-day/3-Photo-3.jpg": {
+    "thumbnail": {
+      "file": "f77485a1620e9af44a82-srgb-v1-q85-600x400.webp",
+      "width": 600,
+      "height": 400,
+      "bytes": 42150
+    },
+    "gallery": {
+      "file": "f77485a1620e9af44a82-srgb-v1-q85-1280x853.webp",
+      "width": 1280,
+      "height": 853,
+      "bytes": 99296
+    },
+    "viewer": {
+      "file": "f77485a1620e9af44a82-srgb-v1-q85-1280x853.webp",
+      "width": 1280,
+      "height": 853,
+      "bytes": 99296
+    }
   }
 };
