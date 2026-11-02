@@ -6,8 +6,12 @@
    (c.id === 'events' || ['events','concerts','personal-events'].includes(c.category)) && c.photos.length);
  strip.style.setProperty('--event-count', events.length);
  const panels = [];
- let touchSelection = null;
- let pointerType = '';
+ let selected = null;
+ const hint = document.getElementById('st-event-strip-hint');
+ const touch = matchMedia('(hover: none)');
+ function updateHint() { if (hint) hint.textContent = touch.matches ? 'Tap a photograph to expand it and reveal its story. Tap again to hide the title.' : 'Hover to explore. Click a photograph to reveal its story.'; }
+ updateHint();
+ touch.addEventListener('change', updateHint);
  function text(tag, value, className) {
    const el = document.createElement(tag);
    el.textContent = value;
@@ -20,10 +24,12 @@
  }
  events.forEach((collection, index) => {
    const photo = collection.photos.find(p => p.id === collection.coverPhotoId) || collection.photos.find(p => p.showcaseSrc) || collection.photos[0];
-   const panel = document.createElement('a');
+   const title = collection.id === 'community-atrium' ? 'Red Cross Blood Drive' : collection.title;
+   const panel = document.createElement('button');
+   panel.type = 'button';
    panel.className = 'st-event-panel';
-   panel.href = collection.url;
-   panel.setAttribute('aria-label', 'Explore event: ' + collection.title);
+   panel.setAttribute('aria-label', title);
+   panel.setAttribute('aria-pressed', 'false');
    panel.setAttribute('aria-describedby', 'st-event-strip-hint');
    const image = document.createElement('img');
    image.alt = photo.alt;
@@ -37,48 +43,34 @@
      image.sizes = '(max-width:1250px) 100vw, 70vw';
    }
    const copy = text('div', '', 'st-event-panel__copy');
-   copy.append(text('h3', collection.title));
-   const more = text('div', '', 'st-event-panel__more');
-   const inner = document.createElement('div');
-   if (collection.date || collection.location) inner.append(text('p', [collection.date,collection.location].filter(Boolean).join(' · '), 'st-event-panel__details'));
-   if (collection.description) inner.append(text('p', collection.description, 'st-event-panel__description'));
-   inner.append(text('span', 'Explore Event ↗', 'st-event-panel__explore'));
-   more.append(inner);
-   copy.append(more);
+   copy.hidden = true;
+   copy.append(text('span', title, 'st-event-panel__title'));
    panel.append(image,copy);
    panels.push(panel);
    strip.append(panel);
    panel.addEventListener('pointerenter', event => {
-     if (event.pointerType === 'mouse') select(panel);
+     if (event.pointerType === 'mouse' && !selected) select(panel);
    });
-   panel.addEventListener('pointerdown', event => { pointerType = event.pointerType; });
-   panel.addEventListener('focus', () => select(panel));
-   panel.addEventListener('click', event => {
-     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-     const touch = pointerType === 'touch' || pointerType === 'pen' ||
-       (event.detail > 0 && !matchMedia('(hover:hover)').matches);
-     if (touch && touchSelection !== panel) {
-       event.preventDefault();
-       touchSelection = panel;
-       select(panel);
-     }
-     pointerType = '';
-   });
-   panel.addEventListener('keydown', event => {
-     if (event.key === ' ') {
-       event.preventDefault();
-       pointerType = '';
-       panel.click();
-     }
+   panel.addEventListener('focus', () => { if (!selected) select(panel); });
+   // Native buttons provide Enter/Space activation on keyboards and one-tap activation on touch.
+   panel.addEventListener('click', () => {
+     selected = selected === panel ? null : panel;
+     panels.forEach(item => {
+       const active = item === selected;
+       item.setAttribute('aria-pressed', String(active));
+       item.classList.toggle('is-selected', active);
+       item.querySelector('.st-event-panel__copy').hidden = !active;
+     });
+     select(selected || panel);
    });
  });
  select(panels[0], false);
  strip.addEventListener('pointerleave', event => {
    if (event.pointerType !== 'mouse') return;
    const focused = panels.find(panel => panel === document.activeElement);
-   select(focused || panels[0], Boolean(focused));
+   select(selected || focused || panels[0], Boolean(selected || focused));
  });
  strip.addEventListener('focusout', event => {
-   if (!strip.contains(event.relatedTarget)) { touchSelection = null; select(panels[0], false); }
+   if (!strip.contains(event.relatedTarget)) select(selected || panels[0], Boolean(selected));
  });
 })();
