@@ -7,6 +7,11 @@
   const track = root.querySelector('.st-film-track');
   const pause = root.querySelector('.st-film-pause');
   const compact = matchMedia('(max-width: 1000px)');
+  const mobile = matchMedia('(max-width: 767px)');
+  const boundary = root.closest('.st-home-reel-boundary');
+  const hero = document.getElementById('home-hero');
+  const homeSlot = boundary && document.createComment('Homepage reel position');
+  if (boundary) boundary.before(homeSlot);
   // Homepage-only edit: do not change shared gallery eligibility or manifests.
   const sequence = [
     'import-img-3355', 'import-img-1318', 'import-img-6390', 'import-img-1058',
@@ -39,7 +44,7 @@
     if (photo.width) img.width = photo.width;
     if (photo.height) img.height = photo.height;
     img.src = photo.src;
-    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1565px) 46vw, 720px'; }
+    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 767px) 32vw, (max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1565px) 46vw, 720px'; }
     link.setAttribute('aria-label', [photo.title, photo.collectionTitle, photo.alt].filter(Boolean).join(' — '));
     const picture = document.createElement('span'); picture.className = 'st-film-image'; picture.append(img);
     link.append(mark, picture, bottom); container.append(link);
@@ -71,15 +76,15 @@
   let position = 0, travel = 0, velocity = baseSpeed;
   let cursorVelocity = null;
   let frame = 0, last = 0, visible = false, paused = false, focused = false, departed = false, modal = false, restoringFocus = false, controlState = '';
-  const running = () => !compact.matches && !reduced.matches && !document.hidden && !departed && !modal && !focused && !paused && visible && travel > .5 && root.isConnected;
+  const running = () => (!compact.matches || mobile.matches) && !reduced.matches && !document.hidden && !departed && !modal && !focused && !paused && visible && travel > .5 && root.isConnected;
   const modulo = (value,length) => ((value % length) + length) % length;
-  function paint() { track.style.transform = compact.matches ? 'none' : 'translate3d(0,' + (-(travel + position)).toFixed(3) + 'px,0)'; }
+  function paint() { track.style.transform = compact.matches && !mobile.matches ? 'none' : 'translate3d(0,' + (-(travel + position)).toFixed(3) + 'px,0)'; }
   function stop() { if (frame) cancelAnimationFrame(frame); frame = 0; last = 0; }
   function tick(time) {
     frame = 0;
     if (!running()) { last = 0; return; }
     const dt = last ? Math.min(time-last,64)/1000 : 0; last = time;
-    const target = cursorVelocity === null ? baseSpeed : cursorVelocity;
+    const target = mobile.matches ? 10 : cursorVelocity === null ? baseSpeed : cursorVelocity;
     velocity += (target-velocity)*(1-Math.exp(-dt/velocityEase));
     // Render in the middle copy; wrapping one full period has identical pixels.
     position = modulo(position + velocity*dt, travel);
@@ -96,24 +101,56 @@
       pause.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + (paused || unavailable ? '<path d="M8 5L19 12L8 19Z"/>' : '<path d="M6 5H10V19H6ZM14 5H18V19H14Z"/>') + '</svg>';
     }
     if (!running()) stop(); else if (!frame) frame = requestAnimationFrame(tick);
+    syncBurn();
+  }
+  let burnTimer = 0, burnEnd = 0, burning = null;
+  function clearBurn() {
+    clearTimeout(burnTimer); clearTimeout(burnEnd); burnTimer = burnEnd = 0;
+    burning?.classList.remove('is-burning'); burning = null;
+  }
+  function syncBurn() {
+    if (!mobile.matches || !running()) { clearBurn(); return; }
+    if (burnTimer || burning) return;
+    burnTimer = setTimeout(() => {
+      burnTimer = 0;
+      if (!mobile.matches || !running()) return;
+      const bounds = viewport.getBoundingClientRect();
+      const candidates = [...track.querySelectorAll('.st-film-frame')].filter(item => {
+        const box = item.getBoundingClientRect(), img = item.querySelector('img');
+        return img.complete && img.naturalWidth && box.top < bounds.bottom-20 && box.bottom > bounds.top+20;
+      });
+      if (!candidates.length) { syncBurn(); return; }
+      burning = candidates[Math.floor(Math.random()*candidates.length)];
+      burning.classList.add('is-burning');
+      burnEnd = setTimeout(() => {
+        burning?.classList.remove('is-burning'); burning = null; burnEnd = 0; syncBurn();
+      }, 1300);
+    }, 8000+Math.random()*7000);
   }
   let measureFrame = 0;
   function scheduleMeasure() {
     if (!measureFrame) measureFrame = requestAnimationFrame(() => { measureFrame = 0; measure(); });
   }
   function measure() {
-    root.dataset.axis = compact.matches ? 'compact' : 'vertical';
-    if (compact.matches) { travel = 0; paint(); }
+    root.dataset.axis = mobile.matches ? 'mobile-background' : compact.matches ? 'compact' : 'vertical';
+    if (boundary && hero) {
+      if (mobile.matches && boundary.parentElement !== hero) hero.append(boundary);
+      else if (!mobile.matches && boundary.parentElement === hero) homeSlot.after(boundary);
+    }
+    root.inert = mobile.matches;
+    if (mobile.matches) root.setAttribute('aria-hidden','true'); else root.removeAttribute('aria-hidden');
+    viewport.tabIndex = mobile.matches ? -1 : 0;
+    if (compact.matches && !mobile.matches) { travel = 0; paint(); }
     else {
       viewport.scrollLeft = 0; viewport.scrollTop = 0;
       // Uniform tiny gaps round the period to a whole sprocket pitch.
       // Explicit image dimensions reserve the same space before/after decoding.
-      groups.forEach(item => { item.style.height = ''; item.style.removeProperty('--st-loop-gap'); });
+      groups.forEach(item => { item.style.height = ''; item.style.removeProperty('--st-mobile-period'); item.style.removeProperty('--st-loop-gap'); });
       const natural = group.getBoundingClientRect().height;
       const pitch = parseFloat(getComputedStyle(root).getPropertyValue('--st-film-pitch')) || 32;
       const period = Math.ceil(natural/pitch)*pitch;
       const gap = (period-natural)/photos.length;
-      groups.forEach(item => { item.style.height = period+'px'; item.style.setProperty('--st-loop-gap',gap+'px'); });
+      groups.forEach(item => { item.style.height = period+'px'; item.style.setProperty('--st-mobile-period',period+'px'); item.style.setProperty('--st-loop-gap',gap+'px'); });
       travel = period;
       position = travel ? modulo(position,travel) : 0; paint();
     }
@@ -154,7 +191,7 @@
   viewer.append(image,close,status); document.body.append(viewer);
   let trigger = null, saved = null;
   function openPhoto(photo,button) {
-    if (viewer.open || saved) return;
+    if (mobile.matches || viewer.open || saved) return;
     trigger = button;
     saved = {position,velocity,cursorVelocity,paused,scrollX:window.scrollX,scrollY:window.scrollY,
       left:viewport.scrollLeft,top:viewport.scrollTop,overflow:document.documentElement.style.overflow,
@@ -217,6 +254,7 @@
   new IntersectionObserver(entries=>{ visible = entries[0].isIntersecting; sync(); }).observe(viewport);
   new ResizeObserver(scheduleMeasure).observe(viewport);
   track.querySelectorAll('img').forEach(img=>img.addEventListener('load',scheduleMeasure));
+  mobile.addEventListener('change',()=>{ stop(); clearCursor(); focused = false; if (mobile.matches && viewer.open) viewer.close(); measure(); });
   compact.addEventListener('change',()=>{ stop(); clearCursor(); viewport.scrollLeft = 0; viewport.scrollTop = 0; measure(); });
   reduced.addEventListener('change',sync); document.addEventListener('visibilitychange',sync);
   document.addEventListener('st-lightbox-open',()=>{ modal = true; sync(); });

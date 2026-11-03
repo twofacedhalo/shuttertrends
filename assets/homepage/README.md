@@ -28,3 +28,16 @@ The homepage filmstrip and its gallery/lightbox implementation are separate and
 are unchanged. Category pages remain reachable through the header/footer navigation.
 
 Run `node tools/validate_homepage.cjs` for the shared browser regression checks.
+
+## Mobile background film reel
+
+At widths up to 767px the original reel moves into the hero as an inert, decorative
+32vw strip. It retains the same ordered photographs and three loop copies; no second
+reel or image set is created. Tablet (768-1000px) and desktop layouts stay as before.
+The track travels upward at 10px/second. A single visible frame gets a 1.3-second warm
+light leak after a random 8-15 second delay. Hidden tabs, offscreen reels and reduced
+motion stop the animation and clear the color timer. The desktop lightbox stays active;
+the mobile background cannot receive focus, taps or open a lightbox.
+
+Layout/opacity and leak keyframes are in `vertical-reel.css`; timing and motion are in
+`../photography/filmstrip.js`. Run `node tools/validate_mobile_reel.cjs` for mobile checks.
