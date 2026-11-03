@@ -43,22 +43,30 @@ the mobile background cannot receive focus, taps or open a lightbox.
 Layout/opacity and leak keyframes are in `vertical-reel.css`; timing and motion are in
 `../photography/filmstrip.js`. Run `node tools/validate_mobile_reel.cjs` for mobile checks.
 
-## One-time handwritten hero tagline
+## Randomized bold-script hero H1
 
-`tagline.js` keeps the six word options in the `words` array near the top. Each page
-load selects one, avoiding the previous selection in the same tab when sessionStorage
-is available. The selection never cycles during a visit or a page-cache restoration.
-`tagline.css` sets ivory serif “Life,” and gold original SVG pen lettering. Each SVG
-stroke follows a centerline letterform; the complete word takes 2.5 seconds to draw.
-Reduced motion shows the complete word immediately. No font download is needed.
+`tagline.js` keeps all headline options in the `words` array near the top. Each load
+selects one word and keeps it; sessionStorage avoids an immediate repeat when available.
+The original headline and separate tagline have been replaced by one semantic H1.
+Its accessible label is the complete selected phrase, rather than animated letters.
+No DR monogram exists in this checkout; existing header artwork is untouched.
 
-The signature uses a fixed shared viewBox and reserved height for all six words.
-Accessible text is the complete phrase, with decorative paths hidden from screen
-readers. Without JavaScript the visible phrase is “Life, Unscripted.”. The existing
-primary heading and SEO metadata remain unchanged. No DR monogram exists in this
-checkout; the signature is placed below the current hero heading without replacing
-or altering the existing camera wordmark.
+`tagline.css` uses the existing serif for ivory “Life,” and genuine Lobster Two Bold
+Italic (700) for the solid gold word. This is a locally hosted 45KB Latin WOFF2 face;
+its SIL Open Font License and copyright are in `../typography/fonts/Lobster-Two-OFL.txt`.
+Source: https://github.com/google/fonts/tree/main/ofl/lobstertwo
+No Google Fonts requests are made by the running site.
 
-Removing/reordering words only needs the `words` array. Adding words using new letters
-also requires matching centerline pen shapes in `pen`; unsupported words retain the
-safe static fallback. Run `node tools/validate_handwriting.cjs` for the signature checks.
+The bold glyphs use a one-time, left-to-right angled mask reveal over 2.5 seconds.
+This is a directional reveal, not a simulated outline stroke or typewriter effect.
+The real font loads before the reveal; a failed font request falls back to readable
+cursive. Shared row heights reserve space for every word and keep the description
+and booking button still. Mobile uses separate lines for “Life,” and the gold word.
+Reduced motion shows the complete phrase immediately. Hidden tabs/page-cache restores
+complete the same word and never restart it. Without JavaScript the H1 is visibly
+“Life, Unscripted.”. SEO title, metadata, structured data, and canonical URL are stable.
+
+Edit the `words` array to add, remove, or reorder options. The font supports Latin text;
+check that new longer words fit the reserved row. Run `node tools/validate_handwriting.cjs`
+and `node tools/validate_homepage.cjs` for regression checks. Set `ST_BROWSER=webkit`
+with a configured Playwright WebKit installation to check that engine as well.

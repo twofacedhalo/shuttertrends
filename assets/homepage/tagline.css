@@ -1,10 +1,13 @@
-/* One reserved signature line; SVG centerlines write once without moving surrounding content. */
-body.home #home-hero .st-hero-tagline {
-  display:grid; grid-template-columns:max-content minmax(0,9em); align-items:center; gap:.25em;
-  width:100%; max-width:100%; min-width:0; margin:12px 0 0; color:#f2ebe2;
-  font-family:var(--st-font-display,Georgia,serif); font-size:clamp(2rem,4vw,3.25rem); font-weight:500; line-height:1;
+/* A genuine bold script face, locally hosted with its SIL Open Font License. */
+@font-face { font-family:'ShutterTrend Script'; font-style:italic; font-weight:700; font-display:swap; src:url('../typography/fonts/lobster-two-bold-italic-latin.woff2') format('woff2'); }
+body.home #home-hero h1.st-hero-tagline {
+  display:block; width:100%; max-width:100%; min-width:0; margin:0; color:#f2ebe2;
+  font-family:var(--st-font-display,Georgia,serif); font-size:clamp(48px,5.3vw,76px); font-weight:500; line-height:1.05;
 }
-.st-hero-tagline__word { display:block; min-width:0; height:1.9em; color:#c6a16a; }
-.st-hero-tagline__word svg { display:block; width:100%; height:100%; overflow:hidden; }
-.st-hero-tagline__word path { fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-.st-hero-tagline__fallback { display:flex; align-items:center; height:100%; font-family:'Segoe Script','Snell Roundhand','Brush Script MT',cursive; font-size:.95em; white-space:nowrap; }
+.st-hero-tagline__life { display:block; }
+.st-hero-tagline__word { display:block; width:100%; min-width:0; height:1.5em; color:#c6a16a; font-size:clamp(40px,5.3vw,76px); }
+.st-hero-tagline__ink { display:inline-block; box-sizing:border-box; padding:.08em .18em .12em .02em; font-family:'ShutterTrend Script','Segoe Script','Snell Roundhand',cursive; font-size:1em; font-style:italic; font-weight:700; font-synthesis:none; line-height:1.25; white-space:nowrap; }
+@media(max-width:767px) {
+  body.home #home-hero h1.st-hero-tagline { font-size:clamp(46px,12vw,64px); }
+  .st-hero-tagline__word { font-size:clamp(32px,10vw,72px); }
+}

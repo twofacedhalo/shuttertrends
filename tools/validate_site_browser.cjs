@@ -70,7 +70,8 @@ catch(error) {
   assert.equal(await page.locator('.st-home-intro p').innerText(),'Some of my favorite photos happen when nobody’s paying attention to the camera.');
   const alignment=await page.locator('#home-hero').boundingBox();const logo=await page.locator('.st-brand').boundingBox();assert(alignment.x>=40&&alignment.x<=60);assert(Math.abs(alignment.x-logo.x)<1);
   const cta=page.locator('#home-hero .wp-block-buttons a');assert.equal(await cta.count(),1);assert.equal(await cta.innerText(),'Book a Session');assert(await cta.evaluate(e=>e.parentElement.classList.contains('is-style-fill')));
-  assert.equal((await page.locator('#home-hero h1').innerText()).replace(/\s+/g,' ').trim(),'The moments in between.');
+  assert.equal(await page.locator('#home-hero h1').getAttribute('aria-label'),'Life, '+await page.locator('#home-hero h1').getAttribute('data-word'));
+  assert.equal(await page.locator('#home-hero [data-st-hero-tagline]').count(),1);
   const middle=page.locator('.st-film-group:not([data-reel-repeat])');assert.equal(await middle.locator('.st-film-frame').count(),22);
   await page.mouse.move(10,900);await page.waitForTimeout(300);
   const position=()=>page.locator('.st-film-track').evaluate(e=>e.style.transform);

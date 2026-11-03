@@ -26,17 +26,18 @@ async function local(route){
  for(let i=0;i<words.length;i++){
   await page.goto('https://local.test/shuttertrends/?choice='+((i+.1)/6));
   assert.equal(await tagline.getAttribute('data-word'),words[i]);assert.equal(await tagline.getAttribute('aria-label'),'Life, '+words[i]);
-  assert.equal(await tagline.locator('svg').count(),1);assert.equal(await tagline.locator('.st-hero-tagline__fallback').count(),0);
-  assert(await tagline.locator('path').evaluateAll(es=>es.every(e=>e.getTotalLength()>0&&parseFloat(e.style.strokeDashoffset)===0)));
+  assert.equal(await tagline.evaluate(e=>e.tagName),'H1');assert.equal(await tagline.locator('.st-hero-tagline__ink').innerText(),words[i]);
+  assert.equal(await tagline.locator('.st-hero-tagline__ink').evaluate(e=>e.style.clipPath),'none');
+  assert(await tagline.locator('.st-hero-tagline__ink').evaluate(e=>getComputedStyle(e).fontWeight==='700'&&getComputedStyle(e).fontStyle==='italic'&&getComputedStyle(e).fontFamily.includes('ShutterTrend Script')));
   assert.equal(await tagline.evaluate(e=>e.getAnimations({subtree:true}).length),0);
  }
- for(const width of [320,375,390,430,767,1440,1920]){
+ for(const width of [320,375,390,430,767,1001,1024,1440,1920]){
   await page.setViewportSize({width,height:1000});await page.goto('https://local.test/shuttertrends/?choice=.99');await page.evaluate(()=>document.fonts.ready);
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   const bounds=await tagline.boundingBox();assert(bounds.x>=0&&bounds.x+bounds.width<=width+1);
-  assert.equal(await page.locator('h1').innerText(),'The moments in between.');
-  // Every stroke lies within the shared viewport, including long words and descenders.
-  assert(await tagline.locator('svg').evaluate(svg=>[...svg.children].every(p=>{const b=p.getBBox(),x=p.transform.baseVal.consolidate().matrix.e;return b.x+x>=-3&&b.x+x+b.width<=svg.viewBox.baseVal.width-4&&b.y>=1&&b.y+b.height<99;})));
+  assert.equal(await page.locator('h1').getAttribute('aria-label'),'Life, Uninterrupted.');assert.equal(await page.locator('h1').count(),1);
+  assert(!(await page.locator('#home-hero').innerText()).includes('The moments in between.'));
+  const wordBox=await tagline.locator('.st-hero-tagline__ink').boundingBox();assert(wordBox.x+wordBox.width<=bounds.x+bounds.width+1,'longest word fits');
  }
  // Storage guards prevent immediate repeats across reloads in the same tab.
  await page.goto('https://local.test/shuttertrends/');let previous=await tagline.getAttribute('data-word');
@@ -44,17 +45,20 @@ async function local(route){
  await page.goto('https://local.test/shuttertrends/?blocked');assert(words.includes(await tagline.getAttribute('data-word')));
  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('https://local.test/shuttertrends/?choice=.99');await page.evaluate(()=>document.fonts.ready);
  const word=await tagline.getAttribute('data-word'),before=await page.locator('#home-hero .wp-block-buttons').boundingBox();
- assert((await tagline.evaluate(e=>e.getAnimations({subtree:true}).length))>0);
+ await page.waitForFunction(()=>document.querySelector('[data-st-hero-tagline]').getAnimations({subtree:true}).length===1);
  await page.waitForTimeout(2850);
- assert.equal(await tagline.getAttribute('data-word'),word);assert(await tagline.locator('path').evaluateAll(es=>es.every(e=>parseFloat(e.style.strokeDashoffset)===0)));
+ assert.equal(await tagline.getAttribute('data-word'),word);assert.equal(await tagline.locator('.st-hero-tagline__ink').evaluate(e=>e.style.clipPath),'none');
  assert.equal(await tagline.evaluate(e=>e.getAnimations({subtree:true}).length),0);
  const after=await page.locator('#home-hero .wp-block-buttons').boundingBox();assert(Math.abs(before.y-after.y)<1,'handwriting shifted layout');
  await page.waitForTimeout(300);assert.equal(await tagline.getAttribute('data-word'),word);
  // Page-cache/visibility lifecycle completes the same word; it never starts a new one.
  await page.evaluate(()=>{window.dispatchEvent(new Event('pagehide'));window.dispatchEvent(new Event('pageshow'));document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await tagline.getAttribute('data-word'),word);
  const plain=await browser.newContext({javaScriptEnabled:false});await plain.route('**/*',local);const fallback=await plain.newPage();await fallback.goto('https://local.test/shuttertrends/');
- assert.equal(await fallback.locator('[data-st-hero-tagline]').getAttribute('aria-label'),'Life, Unscripted.');assert(await fallback.locator('.st-hero-tagline__fallback').isVisible());await plain.close();
+ assert.equal(await fallback.locator('[data-st-hero-tagline]').getAttribute('aria-label'),'Life, Unscripted.');assert(await fallback.locator('.st-hero-tagline__ink').isVisible());assert.equal(await fallback.locator('h1').innerText(),'Life,\nUnscripted.');await plain.close();
+ const failedContext=await browser.newContext();await failedContext.route('**/*',route=>route.request().url().includes('lobster-two-bold-italic')?route.abort():local(route));
+ const failed=await failedContext.newPage();await failed.goto('https://local.test/shuttertrends/');await failed.waitForTimeout(3000);
+ assert.equal(await failed.locator('.st-hero-tagline__ink').evaluate(e=>e.style.clipPath),'none','failed font does not leave blank headline');assert(await failed.locator('h1').isVisible());await failedContext.close();
  assert.deepEqual(errors,[]);
- console.log('PASS: all six SVG words, one selection per load, immediate-repeat guard, blocked storage, 2.5s once-only stroke animation, stable layout at 320/375/390/430/767/1440/1920, reduced motion, accessible phrase and no-JS fallback.');
+ console.log('PASS: all six bold-script H1 words, one selection per load, immediate-repeat guard, blocked storage, 2.5s once-only directional mask animation, stable layout at 320/375/390/430/767/1001/1024/1440/1920, reduced motion, accessible phrase, font failure and no-JS fallback.');
  }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exit(1);});
