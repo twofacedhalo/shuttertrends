@@ -15,7 +15,7 @@
     if(Math.abs(after-before)>.5)window.scrollTo({top:Math.max(0,scroll+after-before),behavior:'instant'});
   }
   function image(photo,extra=false){
-    const frame=document.createElement('div');frame.className='st-home-feature__photo';frame.dataset.photoId=photo.id;
+    const frame=document.createElement(extra?'div':'button');frame.className='st-home-feature__photo'+(extra?'':' st-home-feature__toggle');if(!extra)frame.type='button';frame.dataset.photoId=photo.id;
     const img=document.createElement('img');img.alt=photo.alt;img.loading='lazy';img.decoding='async';img.draggable=false;
     if(photo.width)img.width=photo.width;if(photo.height)img.height=photo.height;
     if(photo.srcset){img.srcset=photo.srcset;img.sizes=extra?'(max-width:1000px) calc(82vw - 40px), 240px':'(max-width:1000px) calc(100vw - 44px), 784px';}
@@ -34,7 +34,7 @@
     if(!open&&state.viewport.contains(document.activeElement))state.button.focus({preventScroll:true});
     state.open=open;state.card.dataset.expanded=String(open);
     state.button.setAttribute('aria-expanded',String(open));
-    state.label.textContent=open?'Close photographs':`View ${state.selection.length} photographs`;
+    state.button.setAttribute('aria-label',(open?'Collapse':'Expand')+' '+state.title+' photographs');
     state.viewport.setAttribute('aria-label',state.title+' photographs'+(open?' — swipe or scroll horizontally on smaller screens':''));
     state.viewport.tabIndex=open&&compact.matches?0:-1;
     if(!open){state.viewport.scrollLeft=0;if(active===state)active=null;}else active=state;
@@ -51,7 +51,7 @@
       setOpen(state,!state.open);
     });
     if(state.open){
-      // A disclosure reached by its caption button must reveal photos below the sticky header.
+      // Keep the featured photograph below the sticky header after expansion.
       const top=state.viewport.getBoundingClientRect().top;
       const headerBottom=document.querySelector('[data-st-header]')?.getBoundingClientRect().bottom||0;
       if(top<headerBottom+12)window.scrollTo({top:Math.max(0,window.scrollY+top-headerBottom-12),behavior:reduced.matches?'instant':'smooth'});
@@ -65,26 +65,25 @@
     }
   },{threshold:0,rootMargin:'120px 0px 120px 0px'});
   document.querySelectorAll('[data-st-home-feature]').forEach(viewport=>{
-    const key=viewport.dataset.stHomeFeature,card=viewport.closest('.st-home-feature'),button=card?.querySelector('.st-home-feature__toggle');
-    if(!card||!button)return;
+    const key=viewport.dataset.stHomeFeature,card=viewport.closest('.st-home-feature');
+    if(!card)return;
     const configured=(config[key]||[]).map(id=>photos.get(id)).filter(Boolean);
     const candidates=[...configured,...collections.filter(c=>categories[key]?.includes(c.category)).flatMap(c=>c.photos)];
     const ids=new Set(),sources=new Set(),selection=[];
     for(const photo of candidates){if(ids.has(photo.id)||sources.has(photo.src))continue;ids.add(photo.id);sources.add(photo.src);selection.push(photo);if(selection.length===4)break;}
     if(!selection.length)return;
     viewport.replaceChildren(image(selection[0]));viewport.style.setProperty('--st-feature-count',String(selection.length));viewport.id='st-feature-gallery-'+key;viewport.setAttribute('role','group');viewport.tabIndex=-1;
-    const title=card.querySelector('h2').textContent;const label=document.createElement('span');label.textContent=`View ${selection.length} photographs`;
-    const indicator=document.createElement('span');indicator.className='st-home-feature__indicator';indicator.setAttribute('aria-hidden','true');indicator.textContent='+';
-    button.replaceChildren(label,indicator);button.hidden=selection.length<2;button.setAttribute('aria-controls',viewport.id);button.setAttribute('aria-expanded','false');
-    button.setAttribute('aria-label',`Photographs: ${title}`);
+    const title=card.querySelector('h2').textContent,button=viewport.firstElementChild;
+    button.disabled=selection.length<2;button.setAttribute('aria-controls',viewport.id);button.setAttribute('aria-expanded','false');
+    button.setAttribute('aria-label',`Expand ${title} photographs`);
     card.dataset.expandable=String(selection.length>1);card.dataset.expanded='false';
-    const state={card,button,viewport,title,label,selection,open:false,prepared:false,animation:null,horizontal:false,pointer:null,suppressUntil:0};states.push(state);
+    const state={card,button,viewport,title,selection,open:false,prepared:false,animation:null,horizontal:false,pointer:null,suppressUntil:0};states.push(state);
     viewport.setAttribute('aria-label',title+' photographs');observer.observe(card);
     card.addEventListener('pointerdown',event=>{if(event.button!==0)return;state.pointer={id:event.pointerId,x:event.clientX,y:event.clientY};state.horizontal=false;});
     card.addEventListener('pointermove',event=>{if(!state.pointer||event.pointerId!==state.pointer.id)return;const dx=Math.abs(event.clientX-state.pointer.x),dy=Math.abs(event.clientY-state.pointer.y);if(dx>8||dy>8){state.suppressUntil=performance.now()+400;state.horizontal=dx>dy;}});
     const release=()=>{if(state.pointer&&state.horizontal)state.suppressUntil=performance.now()+400;state.pointer=null;state.horizontal=false;};
     card.addEventListener('pointerup',release);card.addEventListener('pointercancel',release);card.addEventListener('lostpointercapture',release);
-    card.addEventListener('click',event=>{
+    button.addEventListener('click',event=>{
       if(event.defaultPrevented||selection.length<2||event.ctrlKey||event.metaKey||event.altKey||event.shiftKey)return;
       if(event.detail>0&&performance.now()<state.suppressUntil)return;
       const interactive=event.target.closest('a,button,input,select,textarea');if(interactive&&interactive!==button)return;

@@ -9,11 +9,11 @@ IDs/sources and can fill unused places from published matching category collecti
 No source images, category URLs, or other gallery pages are removed.
 
 - Closed: original one-photo card sizing, text, borders and alignment.
-- Open desktop: four uncropped previews in one horizontal row.
+- Open desktop: four equal 3:2 previews (object-fit: cover) in one horizontal row.
 - Open tablet/mobile: native horizontal scrolling with scroll snapping and arrow-key
   scrolling when the gallery is focused. Swipe gestures do not toggle the card.
 - Native disclosure buttons provide Enter/Space, `aria-expanded` and `aria-controls`.
-  Clicking the photo/copy area also toggles the same disclosure; it never navigates.
+  The featured photograph is the disclosure button; captions and additional photos do not toggle it.
 - Only one open card. IntersectionObserver closes a card once it is fully beyond
   a 120px viewport buffer. Offscreen collapse compensates for page-height changes
   above the viewport rather than moving the visitor's reading position.

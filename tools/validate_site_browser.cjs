@@ -83,6 +83,12 @@ catch(error) {
       await button.focus();await page.keyboard.press('Enter');assert.equal(await button.getAttribute('aria-expanded'),'true');
       const ids=await gallery.locator('[data-photo-id]').evaluateAll(es=>es.map(e=>e.dataset.photoId));assert.equal(ids.length,4);assert.equal(new Set(ids).size,4);assert.equal(ids[0],first);
       await page.waitForTimeout(400);
+      const boxes=await gallery.locator('[data-photo-id]').evaluateAll(es=>es.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height})));
+      assert(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1),'equal photo dimensions');
+      assert.equal(await button.locator('img').count(),1,'featured photo is the control');
+      assert.equal(await card.locator('.st-home-feature__copy button').count(),0);
+      await card.locator('h2').click();assert.equal(await button.getAttribute('aria-expanded'),'true','copy does not toggle');
+      await button.focus();
       if(width>1000){const tops=await gallery.locator('[data-photo-id]').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().top));assert(Math.max(...tops)-Math.min(...tops)<2);}
       else {assert(await gallery.evaluate(e=>e.scrollWidth>e.clientWidth));await gallery.evaluate(e=>e.scrollLeft=e.clientWidth*.82);assert.equal(await button.getAttribute('aria-expanded'),'true');}
       await page.keyboard.press('Space');assert.equal(await button.getAttribute('aria-expanded'),'false');await page.waitForTimeout(400);assert.equal(await gallery.locator('.st-home-feature__photo:visible').count(),1);
