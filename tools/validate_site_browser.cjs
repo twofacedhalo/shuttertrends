@@ -34,6 +34,15 @@ catch(error) {
       assert(!(await page.locator('main').innerText()).includes('A Shared Moment'));
     }
 
+    if(route==='services/'){
+      const pricing=page.locator('.st-pricing__card');assert.equal(await pricing.count(),4);
+      assert.deepEqual(await pricing.locator('h3').allTextContents(),['Portraits & Personal Moments','Graduation Sessions','Events & Celebrations','Intimate Weddings']);
+      assert.deepEqual(await pricing.locator('.st-pricing__price').allTextContents(),['Starting at $75','Starting at $100','Starting at $100 per hour','Starting at $400']);
+      assert.equal(await pricing.locator('li').count(),13);
+      assert.equal(await pricing.locator('a[href="../contact/"]').count(),4);
+      const boxes=await pricing.evaluateAll(es=>es.map(e=>e.getBoundingClientRect().toJSON()));
+      assert(page.viewportSize().width>700?Math.abs(boxes[0].y-boxes[1].y)<1:boxes[1].y>=boxes[0].y+boxes[0].height,'pricing columns');
+    }
     assert.equal(await page.locator('footer.st-footer').count(),1);
     assert.deepEqual(await page.locator('.st-footer__explore a').allTextContents(),['Portraits','Events','Services','About','Contact']);
     assert.equal(await page.locator('.st-footer__cta h2').innerText(),'Have a Moment Worth Capturing?');

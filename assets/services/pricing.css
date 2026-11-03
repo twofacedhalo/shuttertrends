@@ -1,0 +1,18 @@
+/* Services-only pricing, using the shared editorial type and dusk palette. */
+.st-pricing { padding:clamp(40px,5vw,72px) clamp(22px,4vw,60px); box-sizing:border-box; }
+.st-pricing__inner { max-width:1120px; margin-inline:auto; }
+.st-pricing h2 { margin:0 0 16px; font-family:var(--st-font-display,Georgia,serif); font-size:var(--st-type-section,2.5rem); line-height:var(--st-leading-heading,1.12); font-weight:500; }
+.st-pricing__note { max-width:70ch; margin:0 0 32px; color:#b9b6af; font-size:var(--st-type-body,1rem); line-height:1.65; }
+.st-pricing__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.st-pricing__card { display:flex; flex-direction:column; min-width:0; padding:clamp(24px,3vw,36px); border:1px solid #c6a16a42; border-radius:4px; background:rgba(15,17,30,.5); }
+.st-pricing__card h3 { margin:0 0 20px; color:#f4f0e8; font-family:var(--st-font-display,Georgia,serif); font-size:var(--st-type-collection,2rem); line-height:1.15; font-weight:500; }
+.st-pricing__price { margin:0 0 24px; color:#c6a16a; font-size:clamp(1.75rem,3vw,2.25rem); font-weight:500; line-height:1.25; }
+.st-pricing__price span { display:block; margin-bottom:6px; color:#b9b6af; font-size:1rem; font-weight:400; }
+.st-pricing__card ul { margin:0 0 28px; padding-left:1.2em; color:#d8d3cb; font-size:1rem; line-height:1.65; }
+.st-pricing__card li + li { margin-top:8px; }
+.st-pricing__card li::marker { color:#c6a16a; }
+.st-pricing__quote { align-self:flex-start; margin-top:auto; padding:12px 22px; border:1px solid #c6a16a; border-radius:3px; background:#c6a16a; color:#090a0d; font-size:var(--st-type-ui,1rem); font-weight:500; text-decoration:none; text-align:center; transition:background-color 220ms ease,border-color 220ms ease; }
+.st-pricing__quote:hover { background:#dfbc86; border-color:#dfbc86; color:#090a0d; }
+.st-pricing__quote:focus-visible { outline:2px solid #f4f0e8; outline-offset:4px; }
+@media(max-width:700px) { .st-pricing__grid { grid-template-columns:minmax(0,1fr); gap:20px; } }
+@media(prefers-reduced-motion:reduce) { .st-pricing__quote { transition:none; } }
