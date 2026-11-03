@@ -8,6 +8,8 @@
   const photos=(window.shutterTrendsPortfolio||[]).filter(c=>c.category===category).flatMap(c=>c.photos);
   container.replaceChildren(); // Enhance the crawlable static gallery without duplicating images.
   const seen=new Set();
+  // Limit this landing page only; the full source collections and metadata remain available.
+  const limit=category==='graduations'?10:Infinity;
   const dialog=document.createElement('dialog');dialog.className='st-single-photo';dialog.setAttribute('aria-label','Photograph viewer');
   const full=document.createElement('img');full.decoding='async';
   const close=document.createElement('button');close.type='button';close.textContent='×';close.setAttribute('aria-label','Close photograph');
@@ -19,14 +21,12 @@
   full.onload=()=>{status.textContent='';};
   full.onerror=()=>{status.textContent='This photograph could not load. Please close the viewer and try again.';};
   photos.forEach((photo,index)=>{
-    if(seen.has(photo.id||photo.src))return;seen.add(photo.id||photo.src);
+    if(seen.has(photo.id||photo.src)||seen.size>=limit)return;seen.add(photo.id||photo.src);
     const figure=document.createElement('figure');figure.dataset.photoId=photo.id;
     const link=document.createElement('a');link.href=photo.fullSrc||photo.src;link.setAttribute('aria-label','View photograph: '+photo.alt);link.setAttribute('aria-haspopup','dialog');
     const image=document.createElement('img');image.alt=photo.alt;image.width=photo.width;image.height=photo.height;image.loading=index===0?'eager':'lazy';image.decoding='async';
     image.src=photo.src;if(photo.srcset){image.srcset=photo.srcset;image.sizes='(max-width: 1008px) calc(100vw - 48px), 960px';}
     link.append(image);figure.append(link);
-    const caption=[photo.title,photo.caption,photo.location].filter(Boolean).join(' · ');
-    if(caption){const text=document.createElement('figcaption');text.textContent=caption;figure.append(text);}
     link.addEventListener('click',event=>{
       if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
       event.preventDefault();returnFocus=link;overflow=document.body.style.overflow;document.body.style.overflow='hidden';full.alt=photo.alt;status.textContent='Loading photograph…';full.src=photo.fullSrc||photo.src;dialog.showModal();close.focus();document.dispatchEvent(new CustomEvent('st-lightbox-open'));

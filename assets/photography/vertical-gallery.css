@@ -3,7 +3,6 @@
 .st-vertical-gallery figure { width:100%; margin:0; }
 .st-vertical-gallery a { display:block; color:inherit; }
 .st-vertical-gallery img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; border:1px solid #c6a16a38; box-sizing:border-box; border-radius:2px; }
-.st-vertical-gallery figcaption { margin-top:10px; color:#c9c4ba; font-size:.95rem; line-height:1.6; }
 .st-vertical-gallery :focus-visible { outline:2px solid #c6a16a; outline-offset:5px; }
 .st-single-photo { position:fixed; inset:0; width:100%; height:100dvh; max-width:none; max-height:none; box-sizing:border-box; margin:0; padding:54px 20px 24px; border:0; background:#080e1bf5; color:#f4f0e8; }
 .st-single-photo:not([open]) { display:none; }

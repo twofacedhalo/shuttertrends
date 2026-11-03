@@ -26,6 +26,14 @@ catch(error) {
     await page.goto('https://site.test/shuttertrends/'+route);
     await page.evaluate(()=>document.fonts.ready);
     assert.equal(await page.locator('h1').count(),1,route+' H1');
+    if(['graduations/','weddings/'].includes(route)){
+      const expected=route==='graduations/'?10:8;
+      assert.equal(await page.locator('.st-vertical-gallery figure').count(),expected);
+      assert.equal(await page.locator('.st-vertical-gallery figcaption').count(),0);
+      assert(!(await page.locator('main').innerText()).includes('Graduation Moments'));
+      assert(!(await page.locator('main').innerText()).includes('A Shared Moment'));
+    }
+
     assert.equal(await page.locator('footer.st-footer').count(),1);
     assert.deepEqual(await page.locator('.st-footer__explore a').allTextContents(),['Portraits','Events','Services','About','Contact']);
     assert.equal(await page.locator('.st-footer__cta h2').innerText(),'Have a Moment Worth Capturing?');
@@ -87,7 +95,7 @@ catch(error) {
   // Server-rendered gallery photographs remain discoverable with JavaScript disabled.
   const plain=await browser.newContext({javaScriptEnabled:false});const nojs=await plain.newPage();
   await nojs.route('**/*',async r=>{const u=new URL(r.request().url());if(u.hostname!=='site.test')return r.abort();let f=path.join(root,u.pathname.replace('/shuttertrends/',''));if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');return r.fulfill({status:fs.existsSync(f)?200:404,body:fs.existsSync(f)?fs.readFileSync(f):'',contentType:path.extname(f)==='.html'?'text/html':path.extname(f)==='.css'?'text/css':'application/octet-stream'});});
-  for(const [route,count] of [['graduations',38],['weddings',8]]){await nojs.goto('https://site.test/shuttertrends/'+route+'/');assert.equal(await nojs.locator('.st-vertical-gallery img').count(),count);}
+  for(const [route,count] of [['graduations',10],['weddings',8]]){await nojs.goto('https://site.test/shuttertrends/'+route+'/');assert.equal(await nojs.locator('.st-vertical-gallery img').count(),count);}
   await nojs.goto('https://site.test/shuttertrends/collections/');assert.equal(await nojs.locator('noscript img').count(),99);await plain.close();
   // Delay only the gradient script to verify that navigation never paints the old black header.
   let releaseGradient=null;

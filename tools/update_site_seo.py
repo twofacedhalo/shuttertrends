@@ -69,7 +69,7 @@ for slug,(title,description,category) in PAGES.items():
  # Provide real HTML image references before the small JS enhancement runs.
  if slug in ['graduations','weddings']:
   pattern=r'(<div class="st-vertical-gallery" data-st-vertical-gallery="'+slug+r'"[^>]*>).*?(</div>)'
-  s,n=re.subn(pattern,lambda m:m[1]+gallery_markup(category_photos(slug))+m[2],s,flags=re.S);assert n==1
+  s,n=re.subn(pattern,lambda m:m[1]+gallery_markup(category_photos(slug)[:10] if slug=='graduations' else category_photos(slug))+m[2],s,flags=re.S);assert n==1
  if slug=='collections':
   s=re.sub(r'<noscript>.*?</noscript>','',s,flags=re.S)
   links=''.join(f'<li><a href="{pageurl(k)}">{NAMES[k]}</a></li>' for k in ['portraits','events','weddings','graduations'])
@@ -86,6 +86,7 @@ ns='{http://www.sitemaps.org/schemas/sitemap/0.9}';ins='{http://www.google.com/s
 for slug in PAGES:
  node=ET.SubElement(tree,ns+'url');ET.SubElement(node,ns+'loc').text=pageurl(slug)
  relevant=photos if slug=='collections' else category_photos(slug) if slug in ['portraits','events','weddings','graduations'] else []
+ if slug=='graduations':relevant=relevant[:10]
  for p in relevant:
   image=ET.SubElement(node,ins+'image');ET.SubElement(image,ins+'loc').text=p['src']
 ET.indent(tree);ET.ElementTree(tree).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
