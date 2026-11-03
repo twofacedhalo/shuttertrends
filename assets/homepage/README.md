@@ -42,3 +42,23 @@ the mobile background cannot receive focus, taps or open a lightbox.
 
 Layout/opacity and leak keyframes are in `vertical-reel.css`; timing and motion are in
 `../photography/filmstrip.js`. Run `node tools/validate_mobile_reel.cjs` for mobile checks.
+
+## One-time handwritten hero tagline
+
+`tagline.js` keeps the six word options in the `words` array near the top. Each page
+load selects one, avoiding the previous selection in the same tab when sessionStorage
+is available. The selection never cycles during a visit or a page-cache restoration.
+`tagline.css` sets ivory serif “Life,” and gold original SVG pen lettering. Each SVG
+stroke follows a centerline letterform; the complete word takes 2.5 seconds to draw.
+Reduced motion shows the complete word immediately. No font download is needed.
+
+The signature uses a fixed shared viewBox and reserved height for all six words.
+Accessible text is the complete phrase, with decorative paths hidden from screen
+readers. Without JavaScript the visible phrase is “Life, Unscripted.”. The existing
+primary heading and SEO metadata remain unchanged. No DR monogram exists in this
+checkout; the signature is placed below the current hero heading without replacing
+or altering the existing camera wordmark.
+
+Removing/reordering words only needs the `words` array. Adding words using new letters
+also requires matching centerline pen shapes in `pen`; unsupported words retain the
+safe static fallback. Run `node tools/validate_handwriting.cjs` for the signature checks.

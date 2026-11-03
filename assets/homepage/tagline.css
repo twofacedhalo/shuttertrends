@@ -1,0 +1,10 @@
+/* One reserved signature line; SVG centerlines write once without moving surrounding content. */
+body.home #home-hero .st-hero-tagline {
+  display:grid; grid-template-columns:max-content minmax(0,9em); align-items:center; gap:.25em;
+  width:100%; max-width:100%; min-width:0; margin:12px 0 0; color:#f2ebe2;
+  font-family:var(--st-font-display,Georgia,serif); font-size:clamp(2rem,4vw,3.25rem); font-weight:500; line-height:1;
+}
+.st-hero-tagline__word { display:block; min-width:0; height:1.9em; color:#c6a16a; }
+.st-hero-tagline__word svg { display:block; width:100%; height:100%; overflow:hidden; }
+.st-hero-tagline__word path { fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.st-hero-tagline__fallback { display:flex; align-items:center; height:100%; font-family:'Segoe Script','Snell Roundhand','Brush Script MT',cursive; font-size:.95em; white-space:nowrap; }
