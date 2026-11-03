@@ -13,7 +13,7 @@ for(const width of [375,390,430,767]){
  await page.waitForTimeout(300);
  assert.equal(await reel.getAttribute('data-axis'),'mobile-background');assert.equal(await reel.getAttribute('aria-hidden'),'true');assert(await reel.evaluate(e=>e.inert));
  assert.equal(await boundary.evaluate(e=>getComputedStyle(e).position),'fixed');assert(await boundary.evaluate(e=>e.parentElement===document.body));
- const b=await boundary.boundingBox(),h=await hero.boundingBox();assert(Math.abs(b.width/width-.42)<.001);assert(Math.abs(b.x+b.width-width)<1);assert(Math.abs(b.height-950)<2);
+ const b=await boundary.boundingBox(),h=await hero.boundingBox();assert(Math.abs(b.width/width-.48)<.001);assert(Math.abs(b.x+b.width-width)<1);assert(Math.abs(b.height-950)<2);
  assert.equal(await track.evaluate(e=>getComputedStyle(e).flexDirection),'column');
  assert.equal(await page.locator('.st-film-group:visible').count(),3);
  await page.locator('.st-film-frame').first().evaluate(e=>e.click());assert.equal(await page.locator('.st-reel-viewer[open]').count(),0,'decorative reel cannot open lightbox');
@@ -37,4 +37,4 @@ for(const width of [375,390,430,767]){
  await page.emulateMedia({reducedMotion:'reduce'});const still=await track.evaluate(e=>e.style.transform);await page.waitForTimeout(300);assert.equal(await track.evaluate(e=>e.style.transform),still);assert.equal(await page.locator('.is-burning').count(),0);await page.emulateMedia({reducedMotion:'no-preference'});
 }
 await page.setViewportSize({width:1440,height:1000});await page.waitForTimeout(300);assert(await page.locator('.st-home-reel-boundary').evaluate(e=>e.parentElement.classList.contains('entry-content')));assert.equal(await page.locator('[data-st-filmstrip]').getAttribute('aria-hidden'),null);assert.equal(await page.locator('[data-st-filmstrip]').getAttribute('data-axis'),'vertical');
-assert.deepEqual(errors,[]);await browser.close();console.log('PASS: mobile background reel at 375/390/430/767; three identical looping copies, upward motion, one brief burn, reduced-motion freeze, noninteractive layer, CTA/menu usable, 42vw fixed full-page layer, continuous motion through scrolling, no overflow and desktop restoration.');})().catch(e=>{console.error(e);process.exit(1)});
+assert.deepEqual(errors,[]);await browser.close();console.log('PASS: mobile background reel at 375/390/430/767; three identical looping copies, upward motion, one brief burn, reduced-motion freeze, noninteractive layer, CTA/menu usable, 48vw fixed full-page layer, continuous motion through scrolling, no overflow and desktop restoration.');})().catch(e=>{console.error(e);process.exit(1)});

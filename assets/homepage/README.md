@@ -32,7 +32,7 @@ Run `node tools/validate_homepage.cjs` for the shared browser regression checks.
 ## Mobile background film reel
 
 At widths up to 767px the original reel moves into a fixed, inert, decorative homepage background
-layer against the right viewport edge at 42vw. It remains visible throughout scrolling.
+layer against the right viewport edge at 48vw. It remains visible throughout scrolling.
 It retains the same ordered photographs and three loop copies; no second reel or image
 set is created. Tablet (768-1000px) and desktop layouts stay as before.
 The track travels upward at 10px/second. A single visible frame gets a 1.3-second warm

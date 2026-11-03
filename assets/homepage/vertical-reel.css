@@ -155,7 +155,7 @@ body.home .st-film-pause:disabled { opacity:.5; cursor:default; }
   body.home .st-home-feature { background:rgba(9,10,13,.94); }
   body.home > .st-home-reel-boundary {
     position:fixed; top:0; bottom:0; right:0;
-    width:42vw; margin:0 !important; z-index:-2; overflow:hidden; pointer-events:none;
+    width:48vw; margin:0 !important; z-index:-2; overflow:hidden; pointer-events:none;
     opacity:.30; mask-image:linear-gradient(to right,transparent,#000 30%,#000);
     -webkit-mask-image:linear-gradient(to right,transparent,#000 30%,#000);
   }
