@@ -9,15 +9,9 @@
  let selected = null;
  const hint = document.getElementById('st-event-strip-hint');
  const touch = matchMedia('(hover: none)');
- function updateHint() { if (hint) hint.textContent = touch.matches ? 'Tap a photograph to expand it and reveal its story. Tap again to hide the title.' : 'Hover to explore. Click a photograph to reveal its story.'; }
+ function updateHint() { if (hint) hint.textContent = touch.matches ? 'Tap a photograph to expand it.' : 'Hover to explore. Click a photograph to keep it expanded.'; }
  updateHint();
  touch.addEventListener('change', updateHint);
- function text(tag, value, className) {
-   const el = document.createElement(tag);
-   el.textContent = value;
-   if (className) el.className = className;
-   return el;
- }
  function select(panel, interacting = true) {
    strip.classList.toggle('is-interacting', interacting);
    panels.forEach(item => item.classList.toggle('is-active', item === panel));
@@ -42,10 +36,7 @@
      image.srcset = photo.showcaseSrcset || photo.srcset;
      image.sizes = '(max-width:1250px) 100vw, 70vw';
    }
-   const copy = text('div', '', 'st-event-panel__copy');
-   copy.hidden = true;
-   copy.append(text('span', title, 'st-event-panel__title'));
-   panel.append(image,copy);
+   panel.append(image);
    panels.push(panel);
    strip.append(panel);
    panel.addEventListener('pointerenter', event => {
@@ -59,7 +50,6 @@
        const active = item === selected;
        item.setAttribute('aria-pressed', String(active));
        item.classList.toggle('is-selected', active);
-       item.querySelector('.st-event-panel__copy').hidden = !active;
      });
      select(selected || panel);
    });

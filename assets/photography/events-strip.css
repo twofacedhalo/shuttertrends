@@ -7,11 +7,6 @@
 .st-event-panel.is-active { flex-grow:1.65; border-color:#c6a16a; }
 .st-event-strip.is-interacting .st-event-panel.is-active { flex-grow:4; }
 .st-event-panel img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
-.st-event-panel::after { content:""; position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,#080b1400 25%,#080b1466 55%,#080b14ed 100%); pointer-events:none; opacity:0; transition:opacity 250ms ease; }
-.st-event-panel__copy { position:absolute; inset:auto 0 0; z-index:1; padding:clamp(12px,2vw,28px); }
-.st-event-panel__title { display:block; color:#f4f0e8; font-family:"Cormorant Garamond",serif; font-size:clamp(1.15rem,2.2vw,2.3rem); line-height:1.1; font-weight:400; margin:0; overflow-wrap:normal; word-break:normal; text-shadow:0 2px 12px #000; }
-.st-event-panel.is-selected::after { opacity:1; }
-.st-event-panel__copy[hidden] { display:none; }
 .st-event-panel:focus-visible { outline:3px solid #f2d6a4; outline-offset:4px; }
 .st-event-strip__hint { font-size:.8rem; color:#d1c4b5; margin:0 0 16px; }
 @media(max-width:1400px) { .st-event-strip { gap:8px; } .st-event-panel { min-width:72px; } }
@@ -20,7 +15,5 @@
  .st-event-panel { min-width:0; min-height:76px; flex-basis:0; }
  .st-event-panel.is-active { flex-grow:3; }
  .st-event-strip.is-interacting .st-event-panel.is-active { flex-grow:3; }
- .st-event-panel__copy { padding:16px; }
- .st-event-panel__title { display:block; font-size:1.5rem; }
 }
-@media(prefers-reduced-motion:reduce) { .st-event-panel,.st-event-panel::after { transition:none; } }
+@media(prefers-reduced-motion:reduce) { .st-event-panel { transition:none; } }

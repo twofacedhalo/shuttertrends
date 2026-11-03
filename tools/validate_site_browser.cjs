@@ -79,7 +79,7 @@ catch(error) {
   await page.emulateMedia({reducedMotion:'no-preference'});
   await page.setViewportSize({width:390,height:844});await page.locator('[data-st-menu-toggle]').click();
   await page.locator('.st-nav__link').filter({hasText:/^Events$/}).click();await page.waitForURL('**/events/');
-  const panels=page.locator('.st-event-panel');assert.equal(await page.locator('.st-event-panel__copy:visible').count(),0);await panels.first().click();assert.equal(await page.locator('.st-event-panel__copy:visible').count(),1);assert.equal(await panels.first().getAttribute('aria-pressed'),'true');await panels.first().click();assert.equal(await page.locator('.st-event-panel__copy:visible').count(),0);
+  const panels=page.locator('.st-event-panel');assert.equal(await page.locator('.st-event-panel__copy,.st-event-panel__title').count(),0);await panels.first().click();assert.equal(await panels.first().getAttribute('aria-pressed'),'true');assert.equal(await panels.first().innerText(),'');await panels.first().click();assert.equal(await panels.first().getAttribute('aria-pressed'),'false');
   await page.goto('https://site.test/shuttertrends/portraits/');
   for(let i=0;i<3;i++){const deck=page.locator('[data-st-portrait-deck]').nth(i),front=()=>deck.locator('[data-depth="0"]');const id=await front().getAttribute('data-photo-id');await front().press('ArrowRight');await page.waitForFunction(({index,previous})=>{const front=document.querySelectorAll('[data-st-portrait-deck]')[index]?.querySelector('[data-depth="0"]');return front&&front.dataset.photoId!==previous;},{index:i,previous:id});await page.keyboard.press('Enter');assert(await page.locator('.st-portrait-deck-viewer[open]').isVisible());await page.keyboard.press('Escape');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
   // Homepage disclosures retain the featured photo and original closed dimensions.
@@ -123,6 +123,6 @@ catch(error) {
   assert.equal(await page.locator('[data-st-header]').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
   releaseGradient();await page.waitForFunction(()=>document.querySelector('[data-st-header]').dataset.scrollGradient==='true');
   assert.deepEqual(errors,[]);
-  console.log('PASS: nine pages; local fonts; H1; mobile/tablet/200%-equivalent width; Events direct link desktop/mobile; Portraits menu; single gold CTA; 22-photo reel/play/pause/reduced motion/modal; Events title toggle; three decks; static no-JS galleries and 99-photo discovery.');
+  console.log('PASS: nine pages; local fonts; H1; mobile/tablet/200%-equivalent width; Events direct link desktop/mobile; Portraits menu; single gold CTA; 22-photo reel/play/pause/reduced motion/modal; caption-free Events expansion; three decks; static no-JS galleries and 99-photo discovery.');
  } finally {await browser.close();}
 })().catch(error=>{console.error(error);process.exit(1);});
