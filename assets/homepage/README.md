@@ -9,8 +9,10 @@ IDs/sources and can fill unused places from published matching category collecti
 No source images, category URLs, or other gallery pages are removed.
 
 - Closed: original one-photo card sizing, text, borders and alignment.
-- Open desktop: four equal 3:2 previews (object-fit: cover) in one horizontal row.
-- Open tablet/mobile: native horizontal scrolling with scroll snapping and arrow-key
+- Open desktop: four equal frames with uncropped photographs (object-fit: contain) in one horizontal row.
+- Expanded frames share a ratio based on the median photo proportions, bounded between
+  1:1 and 3:2 to reduce empty space. Every full photograph remains visible.
+- Open tablet/mobile: each photo occupies 88% of the available width, with native horizontal scrolling with scroll snapping and arrow-key
   scrolling when the gallery is focused. Swipe gestures do not toggle the card.
 - Native disclosure buttons provide Enter/Space, `aria-expanded` and `aria-controls`.
   The featured photograph is the disclosure button; captions and additional photos do not toggle it.

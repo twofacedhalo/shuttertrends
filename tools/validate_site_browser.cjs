@@ -83,7 +83,7 @@ catch(error) {
   await page.goto('https://site.test/shuttertrends/portraits/');
   for(let i=0;i<3;i++){const deck=page.locator('[data-st-portrait-deck]').nth(i),front=()=>deck.locator('[data-depth="0"]');const id=await front().getAttribute('data-photo-id');await front().press('ArrowRight');await page.waitForFunction(({index,previous})=>{const front=document.querySelectorAll('[data-st-portrait-deck]')[index]?.querySelector('[data-depth="0"]');return front&&front.dataset.photoId!==previous;},{index:i,previous:id});await page.keyboard.press('Enter');assert(await page.locator('.st-portrait-deck-viewer[open]').isVisible());await page.keyboard.press('Escape');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
   // Homepage disclosures retain the featured photo and original closed dimensions.
-  for(const width of [1920,1440,768,390]){
+  for(const width of [1920,1440,768,375,390,430]){
     await page.setViewportSize({width,height:1000});await page.goto('https://site.test/shuttertrends/');
     const cards=page.locator('.st-home-feature');assert.equal(await cards.count(),4);assert.equal(await cards.locator('a').count(),0);
     for(let i=0;i<4;i++){
@@ -94,6 +94,8 @@ catch(error) {
       await page.waitForTimeout(400);
       const boxes=await gallery.locator('[data-photo-id]').evaluateAll(es=>es.map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height})));
       assert(boxes.every(b=>Math.abs(b.w-boxes[0].w)<1&&Math.abs(b.h-boxes[0].h)<1),'equal photo dimensions');
+      assert(await gallery.locator('img').evaluateAll(es=>es.every(e=>getComputedStyle(e).objectFit==='contain')),'full photographs remain uncropped');
+      if(width<=1000){const fraction=await gallery.evaluate(e=>e.firstElementChild.getBoundingClientRect().width/e.clientWidth);assert(fraction>=.85&&fraction<=.9,'mobile slide width');}
       assert.equal(await button.locator('img').count(),1,'featured photo is the control');
       assert.equal(await card.locator('.st-home-feature__copy button').count(),0);
       await card.locator('h2').click();assert.equal(await button.getAttribute('aria-expanded'),'true','copy does not toggle');
