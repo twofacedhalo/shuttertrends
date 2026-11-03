@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://twofacedhalo.github.io/shuttertrends/sitemap.xml
+Sitemap: https://shuttertrend.co/sitemap.xml

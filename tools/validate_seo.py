@@ -40,4 +40,4 @@ assert len(set(titles))==9
 for f in ['author/douglasrendlesiii/index.html','category/uncategorized/index.html','2026/10/27/hello-world/index.html','stories/index.html']:assert 'noindex' in (root/f).read_text(encoding='utf8')
 assert 'Disallow:' not in Path('robots.txt').read_text()
 assert all(url.startswith(base) for url in urls)
-print(f'PASS: 9 unique titles/descriptions/canonicals and schema graphs, sitemap XML/image paths, indexable landing pages, 4 noindex legacy routes, {checked} valid static internal links, no premature custom-domain URLs.')
+print(f'PASS: 9 unique titles/descriptions/canonicals and schema graphs, sitemap XML/image paths, indexable landing pages, 4 noindex legacy routes, {checked} valid static internal links, consistent configured production URLs.')

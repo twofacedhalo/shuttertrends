@@ -1,6 +1,6 @@
 """Regenerate static metadata and discovery files from the public photo manifest.
 Run from the repository root with Python/Pillow and Node.js. Originals are read only.
-Production URL is intentionally fixed until a verified domain migration.
+Production URL comes from the verified public configuration.
 """
 from pathlib import Path
 import subprocess,json,re,html,xml.etree.ElementTree as ET

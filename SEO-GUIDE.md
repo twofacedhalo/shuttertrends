@@ -2,15 +2,15 @@
 
 ## Current production URLs
 
-The verified production base is `https://twofacedhalo.github.io/shuttertrends/`.
-All nine canonical landing pages returned HTTP 200 in the pre-publication check.
+The production base is now `https://shuttertrend.co/`, served through the existing
+custom-domain hosting layer. The homepage, favicon and robots file were verified over
+HTTPS in Chrome. `assets/site-config.js` is the canonical production URL source.
+Canonical, social/schema URL references and sitemap entries now use the custom domain.
+Page titles and descriptions were preserved during this URL-only update.
 
-The owner intends to use `https://shuttertrend.co/`. At inspection, that domain
-served the older WordPress.com ShutterTrends site over HTTPS, with apex A records
-`192.0.78.146` and `192.0.78.204`. `www` pointed to the apex. This does not verify
-GitHub Pages configuration for the domain. No DNS records, repository Pages
-settings or CNAME file were changed. Canonicals remain on the working GitHub
-Pages site until migration is coordinated.
+The initial WordPress DNS observations below are historical, not instructions to undo
+the current Cloudflare deployment. No DNS, CNAME or Cloudflare security settings were
+changed automatically. Keep the GitHub Pages origin available for the hosting layer.
 
 ## Implemented
 
@@ -79,9 +79,9 @@ An Organization graph by itself does not guarantee a rich result.
 
 ## Google Search Console and Bing — owner steps
 
-1. Verify the current URL-prefix property `https://twofacedhalo.github.io/shuttertrends/`
+1. Verify the current URL-prefix property `https://shuttertrend.co/`
    in Search Console using a supported ownership method. Never put private tokens here.
-2. Submit `https://twofacedhalo.github.io/shuttertrends/sitemap.xml` in Sitemaps.
+2. Submit `https://shuttertrend.co/sitemap.xml` in Sitemaps.
 3. Inspect the homepage, Personal Moments, Events, Graduations and Weddings with
    URL Inspection. Review the rendered HTML and selected canonical; request
    indexing where appropriate. Google decides when/whether to index.
@@ -101,9 +101,11 @@ robots.txt naturally becomes `https://shuttertrend.co/robots.txt`.
 Sources: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
 [Google robots.txt requirements](https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt).
 
-## Move shuttertrend.co from WordPress to GitHub Pages — coordinated owner steps
+## Historical direct-GitHub migration notes — do not apply to the current Worker setup
 
-Moving DNS changes which website the domain serves. Keep the old site available
+The domain is now in production. The following older direct-GitHub migration notes
+are retained for reference only; do not change working Cloudflare DNS/Worker routing
+without a separate migration plan. Moving DNS changes which website the domain serves. Keep the old site available
 until the new host and HTTPS are ready. Preserve unrelated mail/MX/TXT records.
 
 1. Verify domain ownership in your GitHub account's Pages settings using GitHub's

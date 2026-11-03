@@ -1,6 +1,6 @@
 // Public configuration only. Never put API keys or passwords here.
 window.shutterTrendConfig = {
-  productionUrl: 'https://twofacedhalo.github.io/shuttertrends/', // Change only after custom-domain migration is verified.
+  productionUrl: 'https://shuttertrend.co/', // Verified production custom domain.
   stories: { homepageLimit: 4, featured: ['warm-studio', 'cap-in-the-air', 'wedding-day-portraits', 'across-the-lawn'] },
   filmReel: { autoplaySpeed: 22, cursorMaxSpeed: 150, cursorCrawlSpeed: 3, velocityEaseSeconds: .6, edgeEaseDistance: 100 },
   seasonalEffects: {
