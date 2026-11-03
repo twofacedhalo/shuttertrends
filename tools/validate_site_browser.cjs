@@ -64,7 +64,26 @@ catch(error) {
   await page.locator('.st-nav__link').filter({hasText:/^Events$/}).click();await page.waitForURL('**/events/');
   const panels=page.locator('.st-event-panel');assert.equal(await page.locator('.st-event-panel__copy:visible').count(),0);await panels.first().click();assert.equal(await page.locator('.st-event-panel__copy:visible').count(),1);assert.equal(await panels.first().getAttribute('aria-pressed'),'true');await panels.first().click();assert.equal(await page.locator('.st-event-panel__copy:visible').count(),0);
   await page.goto('https://site.test/shuttertrends/portraits/');
-  for(let i=0;i<3;i++){const deck=page.locator('[data-st-portrait-deck]').nth(i),front=()=>deck.locator('[data-depth="0"]');const id=await front().getAttribute('data-photo-id');await front().focus();await page.keyboard.press('ArrowRight');await page.waitForFunction(({index,previous})=>{const front=document.querySelectorAll('[data-st-portrait-deck]')[index]?.querySelector('[data-depth="0"]');return front&&front.dataset.photoId!==previous;},{index:i,previous:id});await page.keyboard.press('Enter');assert(await page.locator('.st-portrait-deck-viewer[open]').isVisible());await page.keyboard.press('Escape');}
+  for(let i=0;i<3;i++){const deck=page.locator('[data-st-portrait-deck]').nth(i),front=()=>deck.locator('[data-depth="0"]');const id=await front().getAttribute('data-photo-id');await front().press('ArrowRight');await page.waitForFunction(({index,previous})=>{const front=document.querySelectorAll('[data-st-portrait-deck]')[index]?.querySelector('[data-depth="0"]');return front&&front.dataset.photoId!==previous;},{index:i,previous:id});await page.keyboard.press('Enter');assert(await page.locator('.st-portrait-deck-viewer[open]').isVisible());await page.keyboard.press('Escape');await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
+  // Homepage disclosures retain the featured photo and original closed dimensions.
+  for(const width of [1920,1440,768,390]){
+    await page.setViewportSize({width,height:1000});await page.goto('https://site.test/shuttertrends/');
+    const cards=page.locator('.st-home-feature');assert.equal(await cards.count(),4);assert.equal(await cards.locator('a').count(),0);
+    for(let i=0;i<4;i++){
+      const card=cards.nth(i),button=card.locator('.st-home-feature__toggle'),gallery=card.locator('.st-home-feature__photos');
+      assert.equal(await gallery.locator('img').count(),1);const first=await gallery.locator('[data-photo-id]').first().getAttribute('data-photo-id');
+      await button.focus();await page.keyboard.press('Enter');assert.equal(await button.getAttribute('aria-expanded'),'true');
+      const ids=await gallery.locator('[data-photo-id]').evaluateAll(es=>es.map(e=>e.dataset.photoId));assert.equal(ids.length,4);assert.equal(new Set(ids).size,4);assert.equal(ids[0],first);
+      await page.waitForTimeout(400);
+      if(width>1000){const tops=await gallery.locator('[data-photo-id]').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().top));assert(Math.max(...tops)-Math.min(...tops)<2);}
+      else {assert(await gallery.evaluate(e=>e.scrollWidth>e.clientWidth));await gallery.evaluate(e=>e.scrollLeft=e.clientWidth*.82);assert.equal(await button.getAttribute('aria-expanded'),'true');}
+      await page.keyboard.press('Space');assert.equal(await button.getAttribute('aria-expanded'),'false');await page.waitForTimeout(400);assert.equal(await gallery.locator('.st-home-feature__photo:visible').count(),1);
+    }
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  }
+  await page.goto('https://site.test/shuttertrends/');await page.setViewportSize({width:1440,height:1000});
+  const cardButtons=page.locator('.st-home-feature__toggle');await cardButtons.nth(0).click();await cardButtons.nth(1).click();assert.equal(await page.locator('.st-home-feature[data-expanded="true"]').count(),1);
+  await page.locator('footer').scrollIntoViewIfNeeded();await page.waitForTimeout(250);assert.equal(await page.locator('.st-home-feature[data-expanded="true"]').count(),0);
   // Server-rendered gallery photographs remain discoverable with JavaScript disabled.
   const plain=await browser.newContext({javaScriptEnabled:false});const nojs=await plain.newPage();
   await nojs.route('**/*',async r=>{const u=new URL(r.request().url());if(u.hostname!=='site.test')return r.abort();let f=path.join(root,u.pathname.replace('/shuttertrends/',''));if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');return r.fulfill({status:fs.existsSync(f)?200:404,body:fs.existsSync(f)?fs.readFileSync(f):'',contentType:path.extname(f)==='.html'?'text/html':path.extname(f)==='.css'?'text/css':'application/octet-stream'});});

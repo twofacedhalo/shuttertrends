@@ -1400,18 +1400,30 @@ window.shutterTrendsCollections = [
   }
 ];
 
-// Featured category previews reuse published photo IDs.
+// Homepage card galleries: the first ID is the closed-card photograph; the rest appear on expansion.
 window.shutterTrendsHomeFeatures = {
   "events": [
-    "import-img-3355"
+    "import-img-3355",
+    "import-img-1769",
+    "import-img-2087",
+    "import-140ab71a21c8"
   ],
   "personal": [
-    "import-img-3105"
+    "import-img-3105",
+    "import-img-1318",
+    "import-21a19b7ddebd",
+    "import-90e1cfb57735"
   ],
   "weddings": [
-    "import-img-6390"
+    "import-img-6390",
+    "import-img-6412",
+    "import-bac1329359c6",
+    "import-2dcc214105d1"
   ],
   "graduations": [
-    "import-img-1058"
+    "import-img-1058",
+    "import-ee6e2fc26f4d",
+    "import-img-3013",
+    "import-9417308cee92"
   ]
 };
