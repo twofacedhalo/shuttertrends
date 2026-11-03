@@ -9,7 +9,6 @@
   const compact = matchMedia('(max-width: 1000px)');
   const mobile = matchMedia('(max-width: 767px)');
   const boundary = root.closest('.st-home-reel-boundary');
-  const hero = document.getElementById('home-hero');
   const homeSlot = boundary && document.createComment('Homepage reel position');
   if (boundary) boundary.before(homeSlot);
   // Homepage-only edit: do not change shared gallery eligibility or manifests.
@@ -44,7 +43,7 @@
     if (photo.width) img.width = photo.width;
     if (photo.height) img.height = photo.height;
     img.src = photo.src;
-    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 767px) 32vw, (max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1565px) 46vw, 720px'; }
+    if (photo.srcset) { img.srcset = photo.srcset; img.sizes = '(max-width: 767px) 42vw, (max-width: 1000px) ' + Math.ceil(330 * ratio) + 'px, (max-width: 1565px) 46vw, 720px'; }
     link.setAttribute('aria-label', [photo.title, photo.collectionTitle, photo.alt].filter(Boolean).join(' — '));
     const picture = document.createElement('span'); picture.className = 'st-film-image'; picture.append(img);
     link.append(mark, picture, bottom); container.append(link);
@@ -133,9 +132,9 @@
   }
   function measure() {
     root.dataset.axis = mobile.matches ? 'mobile-background' : compact.matches ? 'compact' : 'vertical';
-    if (boundary && hero) {
-      if (mobile.matches && boundary.parentElement !== hero) hero.append(boundary);
-      else if (!mobile.matches && boundary.parentElement === hero) homeSlot.after(boundary);
+    if (boundary) {
+      if (mobile.matches && boundary.parentElement !== document.body) document.body.append(boundary);
+      else if (!mobile.matches && boundary.parentElement === document.body) homeSlot.after(boundary);
     }
     root.inert = mobile.matches;
     if (mobile.matches) root.setAttribute('aria-hidden','true'); else root.removeAttribute('aria-hidden');

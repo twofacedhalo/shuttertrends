@@ -152,35 +152,34 @@ body.home .st-film-pause:disabled { opacity:.5; cursor:default; }
 @media(max-width:767px) {
   /* Reserve no standalone section even before the deferred script relocates the reel. */
   body.home main .entry-content > .st-home-reel-boundary { position:absolute; height:0; overflow:hidden; pointer-events:none; }
-  body.home #home-hero { position:relative; isolation:isolate; }
-  body.home #home-hero > .wp-block-cover { position:relative; z-index:1; background:transparent; }
-  body.home #home-hero > .st-home-reel-boundary {
-    position:absolute; top:0; bottom:0; right:calc(-1 * var(--st-page-gutter));
-    width:32vw; max-width:35vw; margin:0 !important; z-index:0; overflow:hidden; pointer-events:none;
-    opacity:.32; mask-image:linear-gradient(to right,transparent,#000 30%,#000);
+  body.home .st-home-feature { background:rgba(9,10,13,.94); }
+  body.home > .st-home-reel-boundary {
+    position:fixed; top:0; bottom:0; right:0;
+    width:42vw; margin:0 !important; z-index:-2; overflow:hidden; pointer-events:none;
+    opacity:.30; mask-image:linear-gradient(to right,transparent,#000 30%,#000);
     -webkit-mask-image:linear-gradient(to right,transparent,#000 30%,#000);
   }
-  body.home #home-hero .st-home-reel-boundary * { pointer-events:none; }
-  body.home #home-hero #photography-showcase { position:absolute; inset:0; height:100%; padding:0 !important; }
-  body.home #home-hero #photography-showcase > .alignwide { height:100%; }
-  body.home #home-hero .st-filmstrip { display:flex; height:100%; --st-film-rail:10px; --st-film-pitch:20px; }
-  body.home #home-hero .st-film-pause,body.home #home-hero .st-film-discovery { display:none; }
-  body.home #home-hero .st-film-viewport { overflow:hidden; height:100%; box-shadow:none; }
-  body.home #home-hero .st-film-track { flex-direction:column; width:100%; height:max-content; }
-  body.home #home-hero .st-film-track::before,body.home #home-hero .st-film-track::after { content:none; }
-  body.home #home-hero .st-film-group { display:flex; flex-direction:column; position:relative; width:100%; height:var(--st-mobile-period,auto) !important; box-sizing:border-box; gap:var(--st-loop-gap,0px); padding-bottom:var(--st-loop-gap,0px); }
-  body.home #home-hero .st-film-frame { width:100%; padding:17px var(--st-film-rail); }
-  body.home #home-hero .st-film-frame img { width:100%; max-width:100%; height:auto; }
-  body.home #home-hero .st-film-mark { left:var(--st-film-rail); top:6px; font-size:5px; }
-  body.home #home-hero .st-film-mark--bottom { top:auto; bottom:6px; }
-  body.home #home-hero .st-film-group::before,body.home #home-hero .st-film-group::after {
+  body.home > .st-home-reel-boundary * { pointer-events:none; }
+  body.home > .st-home-reel-boundary #photography-showcase { position:absolute; inset:0; height:100%; padding:0 !important; }
+  body.home > .st-home-reel-boundary #photography-showcase > .alignwide { height:100%; }
+  body.home > .st-home-reel-boundary .st-filmstrip { display:flex; height:100%; --st-film-rail:10px; --st-film-pitch:20px; }
+  body.home > .st-home-reel-boundary .st-film-pause,body.home > .st-home-reel-boundary .st-film-discovery { display:none; }
+  body.home > .st-home-reel-boundary .st-film-viewport { overflow:hidden; height:100%; box-shadow:none; }
+  body.home > .st-home-reel-boundary .st-film-track { flex-direction:column; width:100%; height:max-content; }
+  body.home > .st-home-reel-boundary .st-film-track::before,body.home > .st-home-reel-boundary .st-film-track::after { content:none; }
+  body.home > .st-home-reel-boundary .st-film-group { display:flex; flex-direction:column; position:relative; width:100%; height:var(--st-mobile-period,auto) !important; box-sizing:border-box; gap:var(--st-loop-gap,0px); padding-bottom:var(--st-loop-gap,0px); }
+  body.home > .st-home-reel-boundary .st-film-frame { width:100%; padding:17px var(--st-film-rail); }
+  body.home > .st-home-reel-boundary .st-film-frame img { width:100%; max-width:100%; height:auto; }
+  body.home > .st-home-reel-boundary .st-film-mark { left:var(--st-film-rail); top:6px; font-size:5px; }
+  body.home > .st-home-reel-boundary .st-film-mark--bottom { top:auto; bottom:6px; }
+  body.home > .st-home-reel-boundary .st-film-group::before,body.home > .st-home-reel-boundary .st-film-group::after {
     content:''; position:absolute; top:0; bottom:0; left:2px; width:4px; pointer-events:none; z-index:2;
     background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='20'%3E%3Crect y='5' width='4' height='9' rx='1' fill='%23b8ad94' fill-opacity='.6'/%3E%3C/svg%3E") center top / 4px 20px repeat-y;
   }
-  body.home #home-hero .st-film-group::after { left:auto; right:2px; }
-  body.home #home-hero .st-film-image::after { background-image:linear-gradient(105deg,#d99a3b99, #9e351e55 28%,transparent 68%); mix-blend-mode:screen; opacity:0; transition:none; }
-  body.home #home-hero .st-film-frame.is-burning img { animation:st-mobile-develop 1.3s ease-in-out; }
-  body.home #home-hero .st-film-frame.is-burning .st-film-image::after { animation:st-mobile-leak 1.3s ease-in-out; }
+  body.home > .st-home-reel-boundary .st-film-group::after { left:auto; right:2px; }
+  body.home > .st-home-reel-boundary .st-film-image::after { background-image:linear-gradient(105deg,#d99a3b99, #9e351e55 28%,transparent 68%); mix-blend-mode:screen; opacity:0; transition:none; }
+  body.home > .st-home-reel-boundary .st-film-frame.is-burning img { animation:st-mobile-develop 1.3s ease-in-out; }
+  body.home > .st-home-reel-boundary .st-film-frame.is-burning .st-film-image::after { animation:st-mobile-leak 1.3s ease-in-out; }
 }
 @keyframes st-mobile-develop {
   0%,100% { filter:grayscale(1) sepia(.08) contrast(1.1) brightness(.93); }
@@ -188,5 +187,5 @@ body.home .st-film-pause:disabled { opacity:.5; cursor:default; }
 }
 @keyframes st-mobile-leak { 0%,100% { opacity:0; } 25% { opacity:.5; } 55% { opacity:.75; } }
 @media(max-width:767px) and (prefers-reduced-motion:reduce) {
-  body.home #home-hero .st-film-frame img,body.home #home-hero .st-film-image::after { animation:none !important; transition:none; }
+  body.home > .st-home-reel-boundary .st-film-frame img,body.home > .st-home-reel-boundary .st-film-image::after { animation:none !important; transition:none; }
 }
